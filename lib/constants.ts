@@ -19,7 +19,7 @@ import {
 
 export const NAV_LINKS = [
   { label: "Product", href: "#features" },
-  { label: "Why UNCHAIN", href: "#problem" },
+  { label: "Why NEURON", href: "#problem" },
   { label: "Integrations", href: "#integrations" },
   { label: "Pricing", href: "#pricing" },
   { label: "Blog", href: "#blog" },
@@ -30,7 +30,7 @@ export const NAV_LINKS = [
 export const HERO = {
   eyebrow: "Decision Intelligence for Product Teams",
   h1: "Stop Burying Decisions in Noise.",
-  h2: "UNCHAIN is an AI-powered Decision System of Record that ingests signals from Slack, Jira, Notion, user interviews, and more — then uses multi-agent AI to synthesize insights and produce decision-ready artifacts like PRDs, tickets, and strategy briefs.",
+  h2: "NEURON is an AI-powered Decision System of Record that ingests signals from Slack, Jira, Notion, user interviews, and more — then uses multi-agent AI to synthesize insights and produce decision-ready artifacts like PRDs, tickets, and strategy briefs.",
   ctaPrimary: "Start Free Workspace",
   ctaSecondary: "Watch Demo",
   trustLine: "Trusted by product teams at fast-moving B2B SaaS companies",
@@ -100,7 +100,7 @@ export const FEATURE_TABS: FeatureTab[] = [
     icon: Database,
     title: "Ingest every signal. Miss nothing.",
     description:
-      "UNCHAIN connects to your existing tools and automatically captures product signals — Slack feedback, user interviews, support tickets, analytics events, competitor mentions, and more.",
+      "NEURON connects to your existing tools and automatically captures product signals — Slack feedback, user interviews, support tickets, analytics events, competitor mentions, and more.",
     bullets: [
       "Slack channels & threads",
       "Jira tickets & comments",
@@ -115,7 +115,7 @@ export const FEATURE_TABS: FeatureTab[] = [
     icon: Network,
     title: "AI agents that challenge each other.",
     description:
-      "Unlike single-model tools, UNCHAIN uses adversarial multi-agent AI. Agents argue, validate, and stress-test insights — so you get recommendations that have survived scrutiny, not just pattern matching.",
+      "Unlike single-model tools, NEURON uses adversarial multi-agent AI. Agents argue, validate, and stress-test insights — so you get recommendations that have survived scrutiny, not just pattern matching.",
     bullets: [
       "Adversarial validation between agents",
       "Confidence scoring on every insight",
@@ -129,7 +129,7 @@ export const FEATURE_TABS: FeatureTab[] = [
     icon: FileText,
     title: "From signals to ship-ready artifacts.",
     description:
-      "UNCHAIN doesn't just analyze — it produces. Get draft PRDs, prioritized tickets, decision briefs, and strategy memos that you can review, refine, and export directly to Jira, Linear, or Notion.",
+      "NEURON doesn't just analyze — it produces. Get draft PRDs, prioritized tickets, decision briefs, and strategy memos that you can review, refine, and export directly to Jira, Linear, or Notion.",
     bullets: [
       "Auto-generated PRDs",
       "Prioritized ticket drafts",
@@ -170,7 +170,7 @@ export const STEPS: Step[] = [
     icon: Link,
     title: "Connect",
     description:
-      "Link your Slack, Jira, Notion workspace in minutes. UNCHAIN starts ingesting signals immediately.",
+      "Link your Slack, Jira, Notion workspace in minutes. NEURON starts ingesting signals immediately.",
   },
   {
     number: 2,
@@ -217,7 +217,7 @@ export const STAKEHOLDER_CARDS: StakeholderCard[] = [
     role: "Product Managers",
     title: "Less busywork, more impact",
     description:
-      "Stop writing PRDs from scratch. Stop re-explaining decisions. UNCHAIN drafts artifacts and maintains context so you can focus on what matters — shipping.",
+      "Stop writing PRDs from scratch. Stop re-explaining decisions. NEURON drafts artifacts and maintains context so you can focus on what matters — shipping.",
   },
 ];
 
@@ -234,7 +234,7 @@ export interface Testimonial {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "UNCHAIN gave us a source of truth for why we built what we built. Our board reviews have never been cleaner.",
+      "NEURON gave us a source of truth for why we built what we built. Our board reviews have never been cleaner.",
     name: "Sarah Chen",
     title: "VP of Product",
     company: "ScaleAI Co.",
@@ -250,7 +250,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "Onboarding new PMs used to take weeks of context transfer. Now they search UNCHAIN and have full decision history in minutes.",
+      "Onboarding new PMs used to take weeks of context transfer. Now they search NEURON and have full decision history in minutes.",
     name: "Priya Patel",
     title: "CPO",
     company: "VelocityHQ",

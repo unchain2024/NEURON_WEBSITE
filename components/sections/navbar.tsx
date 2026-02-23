@@ -36,7 +36,7 @@ export default function Navbar() {
             >
               <BrainCircuit className="h-7 w-7 text-primary" />
             </motion.div>
-            <span className="text-xl font-bold tracking-tight">UNCHAIN</span>
+            <span className="text-xl font-bold tracking-tight">NEURON</span>
           </a>
 
           {/* Desktop Nav */}

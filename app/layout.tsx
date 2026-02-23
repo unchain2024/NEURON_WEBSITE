@@ -8,21 +8,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "UNCHAIN — Decision Intelligence for Product Teams",
+  title: "NEURON — Decision Intelligence for Product Teams",
   description:
-    "UNCHAIN is an AI-powered Decision System of Record that ingests signals from Slack, Jira, Notion, user interviews, and more — then uses multi-agent AI to synthesize insights and produce decision-ready artifacts.",
+    "NEURON is an AI-powered Decision System of Record that ingests signals from Slack, Jira, Notion, user interviews, and more — then uses multi-agent AI to synthesize insights and produce decision-ready artifacts.",
   openGraph: {
-    title: "UNCHAIN — Decision Intelligence for Product Teams",
+    title: "NEURON — Decision Intelligence for Product Teams",
     description:
-      "Stop burying decisions in noise. UNCHAIN synthesizes product signals into decision-ready artifacts with multi-agent AI.",
+      "Stop burying decisions in noise. NEURON synthesizes product signals into decision-ready artifacts with multi-agent AI.",
     type: "website",
-    siteName: "UNCHAIN",
+    siteName: "NEURON",
   },
   twitter: {
     card: "summary_large_image",
-    title: "UNCHAIN — Decision Intelligence for Product Teams",
+    title: "NEURON — Decision Intelligence for Product Teams",
     description:
-      "Stop burying decisions in noise. UNCHAIN synthesizes product signals into decision-ready artifacts with multi-agent AI.",
+      "Stop burying decisions in noise. NEURON synthesizes product signals into decision-ready artifacts with multi-agent AI.",
   },
 };
 

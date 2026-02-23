@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="col-span-2">
             <a href="#" className="flex items-center gap-2 mb-4">
               <BrainCircuit className="h-7 w-7 text-primary" />
-              <span className="text-xl font-bold tracking-tight">UNCHAIN</span>
+              <span className="text-xl font-bold tracking-tight">NEURON</span>
             </a>
             <p className="text-sm text-text-muted max-w-xs">
               Decision Intelligence for Product Teams
@@ -59,7 +59,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-border/40 pt-8">
           <p className="text-sm text-text-muted text-center">
-            &copy; 2026 UNCHAIN. All rights reserved.
+            &copy; 2026 NEURON. All rights reserved.
           </p>
         </div>
       </div>
