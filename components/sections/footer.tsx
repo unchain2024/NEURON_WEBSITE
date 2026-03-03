@@ -1,7 +1,50 @@
+"use client";
+
 import { BrainCircuit } from "lucide-react";
-import { FOOTER_COLUMNS } from "@/lib/constants";
+import { useTranslations } from "next-intl";
+
+const FOOTER_STRUCTURE = [
+  {
+    titleKey: "col1Title",
+    links: [
+      { key: "col1Link1", href: "#features" },
+      { key: "col1Link2", href: "#integrations" },
+      { key: "col1Link3", href: "#pricing" },
+      { key: "col1Link4", href: "#" },
+      { key: "col1Link5", href: "#" },
+    ],
+  },
+  {
+    titleKey: "col2Title",
+    links: [
+      { key: "col2Link1", href: "#" },
+      { key: "col2Link2", href: "#" },
+      { key: "col2Link3", href: "#" },
+      { key: "col2Link4", href: "#" },
+    ],
+  },
+  {
+    titleKey: "col3Title",
+    links: [
+      { key: "col3Link1", href: "#" },
+      { key: "col3Link2", href: "#" },
+      { key: "col3Link3", href: "#" },
+      { key: "col3Link4", href: "#" },
+    ],
+  },
+  {
+    titleKey: "col4Title",
+    links: [
+      { key: "col4Link1", href: "#" },
+      { key: "col4Link2", href: "#" },
+      { key: "col4Link3", href: "#" },
+    ],
+  },
+] as const;
 
 export default function Footer() {
+  const t = useTranslations("Footer");
+
   return (
     <footer className="border-t border-border/40 pt-16 pb-8">
       <div className="section-container">
@@ -13,7 +56,7 @@ export default function Footer() {
               <span className="text-xl font-bold tracking-tight">NEURON</span>
             </a>
             <p className="text-sm text-text-muted max-w-xs">
-              Decision Intelligence for Product Teams
+              {t("tagline")}
             </p>
 
             {/* Social icons */}
@@ -37,17 +80,19 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          {FOOTER_COLUMNS.map((column) => (
-            <div key={column.title}>
-              <h4 className="text-sm font-semibold mb-4">{column.title}</h4>
+          {FOOTER_STRUCTURE.map((column) => (
+            <div key={column.titleKey}>
+              <h4 className="text-sm font-semibold mb-4">
+                {t(column.titleKey)}
+              </h4>
               <ul className="space-y-2.5">
                 {column.links.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.key}>
                     <a
                       href={link.href}
                       className="text-sm text-text-muted hover:text-white transition-colors"
                     >
-                      {link.label}
+                      {t(link.key)}
                     </a>
                   </li>
                 ))}
@@ -59,7 +104,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-border/40 pt-8">
           <p className="text-sm text-text-muted text-center">
-            &copy; 2026 NEURON. All rights reserved.
+            {t("copyright")}
           </p>
         </div>
       </div>

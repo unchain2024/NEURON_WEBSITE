@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import {
   BrainCircuit,
   MessageSquare,
@@ -14,23 +15,31 @@ import {
   ListChecks,
   BookOpen,
   Map,
+  type LucideIcon,
 } from "lucide-react";
 
 /* ── Node definitions ── */
-const SOURCE_NODES = [
-  { id: "slack", label: "Slack", icon: MessageSquare, color: "#E01E5A" },
-  { id: "jira", label: "Jira", icon: Trello, color: "#0052CC" },
-  { id: "notion", label: "Notion", icon: StickyNote, color: "#FFFFFF" },
-  { id: "linear", label: "Linear", icon: GitBranch, color: "#5E6AD2" },
-  { id: "github", label: "GitHub", icon: Github, color: "#FFFFFF" },
-  { id: "interviews", label: "Interviews", icon: Headphones, color: "#10B981" },
+interface NodeDef {
+  id: string;
+  labelKey: string;
+  icon: LucideIcon;
+  color: string;
+}
+
+const SOURCE_NODES: NodeDef[] = [
+  { id: "slack", labelKey: "slack", icon: MessageSquare, color: "#E01E5A" },
+  { id: "jira", labelKey: "jira", icon: Trello, color: "#0052CC" },
+  { id: "notion", labelKey: "notion", icon: StickyNote, color: "#FFFFFF" },
+  { id: "linear", labelKey: "linear", icon: GitBranch, color: "#5E6AD2" },
+  { id: "github", labelKey: "github", icon: Github, color: "#FFFFFF" },
+  { id: "interviews", labelKey: "interviews", icon: Headphones, color: "#10B981" },
 ];
 
-const OUTPUT_NODES = [
-  { id: "prd", label: "PRD", icon: FileText, color: "#6366F1" },
-  { id: "tickets", label: "Tickets", icon: ListChecks, color: "#8B5CF6" },
-  { id: "brief", label: "Decision Brief", icon: BookOpen, color: "#06B6D4" },
-  { id: "roadmap", label: "Roadmap", icon: Map, color: "#F59E0B" },
+const OUTPUT_NODES: NodeDef[] = [
+  { id: "prd", labelKey: "prd", icon: FileText, color: "#6366F1" },
+  { id: "tickets", labelKey: "tickets", icon: ListChecks, color: "#8B5CF6" },
+  { id: "brief", labelKey: "decisionBrief", icon: BookOpen, color: "#06B6D4" },
+  { id: "roadmap", labelKey: "roadmap", icon: Map, color: "#F59E0B" },
 ];
 
 /* ── SVG Animated Synapse (pulse traveling along a path) ── */
@@ -111,7 +120,7 @@ function Synapse({
 }
 
 /* ── Dendrite input node (source tool) ── */
-function DendriteNode({ node, index }: { node: (typeof SOURCE_NODES)[number]; index: number }) {
+function DendriteNode({ node, index, label }: { node: NodeDef; index: number; label: string }) {
   return (
     <motion.div
       className="flex items-center gap-2.5 px-3 py-2 pr-4 w-full group cursor-default relative"
@@ -136,14 +145,14 @@ function DendriteNode({ node, index }: { node: (typeof SOURCE_NODES)[number]; in
         </div>
       </div>
       <span className="text-xs font-medium text-text-secondary group-hover:text-white transition-colors">
-        {node.label}
+        {label}
       </span>
     </motion.div>
   );
 }
 
 /* ── Axon terminal node (output artifact) ── */
-function AxonTerminal({ node, index }: { node: (typeof OUTPUT_NODES)[number]; index: number }) {
+function AxonTerminal({ node, index, label }: { node: NodeDef; index: number; label: string }) {
   return (
     <motion.div
       className="flex items-center gap-2.5 px-3 py-2 pr-4 w-full group cursor-default"
@@ -167,14 +176,14 @@ function AxonTerminal({ node, index }: { node: (typeof OUTPUT_NODES)[number]; in
         </div>
       </div>
       <span className="text-xs font-medium text-text-secondary group-hover:text-white transition-colors">
-        {node.label}
+        {label}
       </span>
     </motion.div>
   );
 }
 
 /* ── The Soma — central NEURON processing hub ── */
-function Soma() {
+function Soma({ multiAgentLabel }: { multiAgentLabel: string }) {
   return (
     <motion.div
       className="relative flex flex-col items-center justify-center"
@@ -237,7 +246,7 @@ function Soma() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2 }}
       >
-        <span className="text-[10px] text-primary/80 font-medium">Multi-Agent AI</span>
+        <span className="text-[10px] text-primary/80 font-medium">{multiAgentLabel}</span>
       </motion.div>
     </motion.div>
   );
@@ -247,6 +256,7 @@ function Soma() {
    Main Flow Graph — Desktop
    ═══════════════════════════════════════════ */
 export default function FlowGraph() {
+  const t = useTranslations("FlowGraph");
   const containerRef = useRef<HTMLDivElement>(null);
   const [paths, setPaths] = useState<{ src: string[]; out: string[] }>({ src: [], out: [] });
 
@@ -269,7 +279,6 @@ export default function FlowGraph() {
       const r = el.getBoundingClientRect();
       const nx = r.right - rect.left;
       const ny = r.top + r.height / 2 - rect.top;
-      // Organic cubic bezier — mimics dendrite branching
       const c1x = nx + (hx - nx) * 0.35;
       const c1y = ny;
       const c2x = nx + (hx - nx) * 0.65;
@@ -293,9 +302,9 @@ export default function FlowGraph() {
   }, []);
 
   useEffect(() => {
-    const t = setTimeout(computePaths, 500);
+    const ti = setTimeout(computePaths, 500);
     window.addEventListener("resize", computePaths);
-    return () => { clearTimeout(t); window.removeEventListener("resize", computePaths); };
+    return () => { clearTimeout(ti); window.removeEventListener("resize", computePaths); };
   }, [computePaths]);
 
   const srcColors = ["#E01E5A", "#0052CC", "#FFFFFF", "#5E6AD2", "#FFFFFF", "#10B981"];
@@ -327,25 +336,23 @@ export default function FlowGraph() {
       <div className="relative z-10 grid grid-cols-[170px_1fr_170px] items-center gap-4 lg:gap-8 min-h-[360px]">
         <div className="flex flex-col gap-1.5">
           {SOURCE_NODES.map((n, i) => (
-            <div key={n.id} data-dendrite><DendriteNode node={n} index={i} /></div>
+            <div key={n.id} data-dendrite>
+              <DendriteNode node={n} index={i} label={t(n.labelKey as "slack")} />
+            </div>
           ))}
         </div>
         <div className="flex items-center justify-center" data-soma>
-          <Soma />
+          <Soma multiAgentLabel={t("multiAgentAI")} />
         </div>
         <div className="flex flex-col gap-2">
           {OUTPUT_NODES.map((n, i) => (
-            <div key={n.id} data-axon><AxonTerminal node={n} index={i} /></div>
+            <div key={n.id} data-axon>
+              <AxonTerminal node={n} index={i} label={t(n.labelKey as "prd")} />
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Anatomical labels */}
-      <div className="relative z-10 grid grid-cols-[170px_1fr_170px] mt-6 text-center">
-        <p className="text-[10px] text-text-muted/60 font-medium uppercase tracking-widest">Dendrites</p>
-        <p className="text-[10px] text-text-muted/60 font-medium uppercase tracking-widest">Soma</p>
-        <p className="text-[10px] text-text-muted/60 font-medium uppercase tracking-widest">Axon Terminals</p>
-      </div>
     </div>
   );
 }
@@ -354,10 +361,11 @@ export default function FlowGraph() {
    Mobile Flow — simplified vertical
    ═══════════════════════════════════════════ */
 export function FlowGraphMobile() {
+  const t = useTranslations("FlowGraph");
+
   return (
     <div className="md:hidden space-y-6">
       <div>
-        <p className="text-[10px] text-text-muted/60 font-medium uppercase tracking-widest mb-3 text-center">Dendrites — Signal Sources</p>
         <div className="grid grid-cols-3 gap-2">
           {SOURCE_NODES.map((node, i) => (
             <motion.div
@@ -371,7 +379,7 @@ export function FlowGraphMobile() {
               <div className="h-8 w-8 rounded-full flex items-center justify-center" style={{ backgroundColor: `${node.color}15` }}>
                 <node.icon className="h-4 w-4" style={{ color: node.color }} />
               </div>
-              <span className="text-[10px] text-text-secondary">{node.label}</span>
+              <span className="text-[10px] text-text-secondary">{t(node.labelKey as "slack")}</span>
             </motion.div>
           ))}
         </div>
@@ -411,7 +419,6 @@ export function FlowGraphMobile() {
 
       {/* Outputs */}
       <div>
-        <p className="text-[10px] text-text-muted/60 font-medium uppercase tracking-widest mb-3 text-center">Axon Terminals — Outputs</p>
         <div className="grid grid-cols-2 gap-2">
           {OUTPUT_NODES.map((node, i) => (
             <motion.div
@@ -425,7 +432,7 @@ export function FlowGraphMobile() {
               <div className="h-7 w-7 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: `${node.color}15` }}>
                 <node.icon className="h-3.5 w-3.5" style={{ color: node.color }} />
               </div>
-              <span className="text-[11px] text-text-secondary font-medium">{node.label}</span>
+              <span className="text-[11px] text-text-secondary font-medium">{t(node.labelKey as "prd")}</span>
             </motion.div>
           ))}
         </div>

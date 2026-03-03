@@ -1,7 +1,7 @@
 "use client";
 
 import { PlayCircle } from "lucide-react";
-import { HERO } from "@/lib/constants";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import {
   MotionDiv,
@@ -12,6 +12,10 @@ import {
 import FlowGraph, { FlowGraphMobile } from "@/components/flow-graph";
 
 export default function Hero() {
+  const t = useTranslations("Hero");
+  const h1 = t("h1");
+  const highlightWords = t("highlightWords").split(",");
+
   return (
     <MotionSection
       initial="hidden"
@@ -33,14 +37,14 @@ export default function Hero() {
           {/* Eyebrow badge */}
           <MotionDiv variants={fadeInUp}>
             <span className="inline-block shimmer-badge text-primary text-sm font-medium px-4 py-1.5 rounded-full border border-primary/20">
-              {HERO.eyebrow}
+              {t("eyebrow")}
             </span>
           </MotionDiv>
 
           {/* H1 — word-by-word fade with white text */}
           <MotionDiv variants={fadeInUp} className="mt-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-balance">
-              {HERO.h1.split(" ").map((word, i) => (
+              {h1.split(" ").map((word, i) => (
                 <motion.span
                   key={i}
                   className="inline-block mr-[0.3em] last:mr-0"
@@ -53,8 +57,7 @@ export default function Hero() {
                     damping: 15,
                   }}
                 >
-                  {/* Highlight key words with the gradient */}
-                  {["Decisions", "Noise."].includes(word) ? (
+                  {highlightWords.some((hw) => word.replace(/[。.]/g, "") === hw.replace(/[。.]/g, "")) ? (
                     <span className="gradient-text">{word}</span>
                   ) : (
                     word
@@ -67,7 +70,7 @@ export default function Hero() {
           {/* Subtitle */}
           <MotionDiv variants={fadeInUp} className="mt-6">
             <p className="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-              {HERO.h2}
+              {t("h2")}
             </p>
           </MotionDiv>
 
@@ -83,7 +86,7 @@ export default function Hero() {
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              {HERO.ctaPrimary}
+              {t("ctaPrimary")}
             </motion.a>
             <motion.a
               href="#"
@@ -93,13 +96,13 @@ export default function Hero() {
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <PlayCircle className="h-5 w-5" />
-              {HERO.ctaSecondary}
+              {t("ctaSecondary")}
             </motion.a>
           </MotionDiv>
 
           {/* Trust line */}
           <MotionDiv variants={fadeInUp} className="mt-8 mb-16">
-            <p className="text-sm text-text-muted">{HERO.trustLine}</p>
+            <p className="text-sm text-text-muted">{t("trustLine")}</p>
           </MotionDiv>
         </div>
 

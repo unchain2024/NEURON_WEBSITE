@@ -1,6 +1,20 @@
-import { TRUST_LOGOS } from "@/lib/constants";
+"use client";
+
+import { useTranslations } from "next-intl";
+
+const TRUST_LOGOS = [
+  "Slack",
+  "Jira",
+  "Notion",
+  "Linear",
+  "GitHub",
+  "Confluence",
+  "Google Docs",
+  "HubSpot",
+] as const;
 
 export default function TrustBar() {
+  const t = useTranslations("TrustBar");
   // Duplicate logos for seamless infinite scroll
   const allLogos = [...TRUST_LOGOS, ...TRUST_LOGOS];
 
@@ -8,7 +22,7 @@ export default function TrustBar() {
     <section className="py-12 md:py-16 overflow-hidden">
       <div className="section-container">
         <p className="text-center text-sm text-text-muted mb-8">
-          Connects to the tools you already use
+          {t("heading")}
         </p>
       </div>
 

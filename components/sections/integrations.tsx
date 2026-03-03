@@ -1,10 +1,25 @@
 "use client";
 
-import { INTEGRATIONS } from "@/lib/constants";
+import { useTranslations } from "next-intl";
 import { BlurReveal, MotionDiv, blurIn } from "@/components/motion-wrapper";
 import { motion } from "framer-motion";
 
+const INTEGRATIONS = [
+  "Slack",
+  "Jira",
+  "Notion",
+  "Linear",
+  "GitHub",
+  "Confluence",
+  "Google Workspace",
+  "HubSpot",
+  "Discord",
+  "Figma",
+] as const;
+
 export default function IntegrationsGrid() {
+  const t = useTranslations("Integrations");
+
   return (
     <section id="integrations" className="section-padding">
       <BlurReveal>
@@ -12,7 +27,11 @@ export default function IntegrationsGrid() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <MotionDiv variants={blurIn}>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-                Connects to <span className="gradient-text-animated">10+ tools</span>. More coming.
+                {t.rich("heading", {
+                  highlight: (chunks) => (
+                    <span className="gradient-text-animated">{chunks}</span>
+                  ),
+                })}
               </h2>
             </MotionDiv>
           </div>
@@ -54,7 +73,7 @@ export default function IntegrationsGrid() {
               whileHover={{ x: 4 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              See all integrations
+              {t("seeAll")}
               <span aria-hidden="true">&rarr;</span>
             </motion.a>
           </MotionDiv>
