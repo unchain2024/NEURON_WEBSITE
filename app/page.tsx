@@ -10,22 +10,28 @@ import IntegrationsGrid from "@/components/sections/integrations";
 import FinalCTA from "@/components/sections/final-cta";
 import Footer from "@/components/sections/footer";
 import ScrollProgress from "@/components/scroll-progress";
+import NeuralCanvas from "@/components/neural-canvas";
 
 export default function Home() {
   return (
     <main className="relative overflow-x-hidden">
+      {/* Living neural network — spans entire page */}
+      <NeuralCanvas />
+
       <ScrollProgress />
-      <Navbar />
-      <Hero />
-      <TrustBar />
-      <Problem />
-      <Features />
-      <HowItWorks />
-      <StakeholderValue />
-      <Testimonials />
-      <IntegrationsGrid />
-      <FinalCTA />
-      <Footer />
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <TrustBar />
+        <Problem />
+        <Features />
+        <HowItWorks />
+        <StakeholderValue />
+        <Testimonials />
+        <IntegrationsGrid />
+        <FinalCTA />
+        <Footer />
+      </div>
     </main>
   );
 }
