@@ -33,7 +33,7 @@ export default function Features() {
         <div className="section-container relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <MotionDiv variants={blurIn}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
                 {t.rich("heading", {
                   highlight: (chunks) => (
                     <span className="gradient-text-animated">{chunks}</span>
@@ -50,7 +50,7 @@ export default function Features() {
                   <TabsTrigger
                     key={tab.id}
                     value={tab.id}
-                    className="glass-card-light px-4 py-2.5 text-sm font-medium text-text-secondary data-[state=active]:bg-primary/20 data-[state=active]:text-white data-[state=active]:border-primary/30 transition-all rounded-xl"
+                    className="glass-card-light px-4 py-2.5 text-sm font-medium text-text-secondary data-[state=active]:bg-primary/10 data-[state=active]:text-slate-900 data-[state=active]:border-primary/30 transition-all rounded-xl"
                   >
                     <tab.icon className="h-4 w-4 mr-2 inline-block" />
                     {t(`${tab.key}Label` as "tab1Label")}
@@ -77,7 +77,7 @@ export default function Features() {
                         >
                           {/* Left: text */}
                           <div>
-                            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900">
                               {t(`${tab.key}Title` as "tab1Title")}
                             </h3>
                             <p className="text-text-secondary leading-relaxed mb-6">
@@ -116,7 +116,7 @@ export default function Features() {
                             <div className="rounded-xl bg-surface border border-border/50 p-5 relative z-10">
                               <div className="flex items-center gap-2 mb-4">
                                 <tab.icon className="h-5 w-5 text-primary" />
-                                <span className="text-sm font-medium">
+                                <span className="text-sm font-medium text-slate-900">
                                   {t(`${tab.key}Label` as "tab1Label")}
                                 </span>
                               </div>
@@ -132,12 +132,12 @@ export default function Features() {
                                     <div className="flex items-center gap-2 mb-2">
                                       <div className="h-2 w-2 rounded-full bg-primary/60" />
                                       <div
-                                        className="h-2.5 bg-white/10 rounded"
+                                        className="h-2.5 bg-slate-200 rounded"
                                         style={{ width: `${70 - idx * 15}%` }}
                                       />
                                     </div>
                                     <div
-                                      className="h-2 bg-white/5 rounded"
+                                      className="h-2 bg-slate-100 rounded"
                                       style={{ width: `${90 - idx * 10}%` }}
                                     />
                                   </motion.div>
@@ -147,7 +147,7 @@ export default function Features() {
                                 <span className="text-[10px] bg-primary/20 text-primary px-2 py-0.5 rounded-full">
                                   {t("active")}
                                 </span>
-                                <span className="text-[10px] bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full">
+                                <span className="text-[10px] bg-green-500/20 text-green-600 px-2 py-0.5 rounded-full">
                                   {t("signals", { count: bullets.length })}
                                 </span>
                               </div>

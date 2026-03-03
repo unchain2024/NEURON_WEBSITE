@@ -60,9 +60,9 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className="dark scroll-smooth">
+    <html lang={locale} className="scroll-smooth">
       <body
-        className={`${inter.variable} ${notoSansJP.variable} font-sans bg-background text-white antialiased`}
+        className={`${inter.variable} ${notoSansJP.variable} font-sans bg-background text-slate-900 antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
           {children}

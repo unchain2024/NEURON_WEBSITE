@@ -43,7 +43,7 @@ export default function Hero() {
 
           {/* H1 — word-by-word fade with white text */}
           <MotionDiv variants={fadeInUp} className="mt-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-balance">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-balance text-slate-900">
               {h1.split(" ").map((word, i) => (
                 <motion.span
                   key={i}
@@ -90,7 +90,7 @@ export default function Hero() {
             </motion.a>
             <motion.a
               href="#"
-              className="inline-flex items-center gap-2 border border-border hover:border-text-secondary text-white px-8 py-3.5 rounded-xl text-base font-medium transition-colors"
+              className="inline-flex items-center gap-2 border border-border hover:border-slate-400 text-slate-900 px-8 py-3.5 rounded-xl text-base font-medium transition-colors"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}

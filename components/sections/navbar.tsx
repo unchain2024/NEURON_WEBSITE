@@ -55,7 +55,7 @@ export default function Navbar() {
             >
               <BrainCircuit className="h-7 w-7 text-primary" />
             </motion.div>
-            <span className="text-xl font-bold tracking-tight">NEURON</span>
+            <span className="text-xl font-bold tracking-tight text-slate-900">NEURON</span>
           </a>
 
           {/* Desktop Nav */}
@@ -64,7 +64,7 @@ export default function Navbar() {
               <motion.a
                 key={link.key}
                 href={link.href}
-                className="text-sm text-text-secondary hover:text-white transition-colors relative group"
+                className="text-sm text-text-secondary hover:text-slate-900 transition-colors relative group"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + i * 0.05 }}
@@ -79,7 +79,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={switchLocale}
-              className="flex items-center gap-1.5 text-sm text-text-secondary hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/5"
+              className="flex items-center gap-1.5 text-sm text-text-secondary hover:text-slate-900 transition-colors px-3 py-2 rounded-lg hover:bg-slate-100"
               aria-label="Switch language"
             >
               <Globe className="h-4 w-4" />
@@ -87,7 +87,7 @@ export default function Navbar() {
             </button>
             <a
               href="#"
-              className="text-sm text-text-secondary hover:text-white transition-colors px-3 py-2"
+              className="text-sm text-text-secondary hover:text-slate-900 transition-colors px-3 py-2"
             >
               {t("logIn")}
             </a>
@@ -103,7 +103,7 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden text-white p-2"
+            className="md:hidden text-slate-900 p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -126,7 +126,7 @@ export default function Navbar() {
                   <motion.a
                     key={link.key}
                     href={link.href}
-                    className="block text-text-secondary hover:text-white transition-colors py-2"
+                    className="block text-text-secondary hover:text-slate-900 transition-colors py-2"
                     onClick={() => setMobileOpen(false)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -141,12 +141,12 @@ export default function Navbar() {
                       switchLocale();
                       setMobileOpen(false);
                     }}
-                    className="flex items-center gap-2 text-text-secondary hover:text-white transition-colors py-2 w-full"
+                    className="flex items-center gap-2 text-text-secondary hover:text-slate-900 transition-colors py-2 w-full"
                   >
                     <Globe className="h-4 w-4" />
                     <span>{locale === "ja" ? "English" : "日本語"}</span>
                   </button>
-                  <a href="#" className="block text-text-secondary hover:text-white transition-colors py-2">
+                  <a href="#" className="block text-text-secondary hover:text-slate-900 transition-colors py-2">
                     {t("logIn")}
                   </a>
                   <a

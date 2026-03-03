@@ -36,7 +36,7 @@ export default function MouseSpotlight() {
       className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-500"
       style={{
         background:
-          "radial-gradient(600px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(99,102,241,0.08), transparent 60%)",
+          "radial-gradient(600px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(99,102,241,0.06), transparent 60%)",
       }}
       aria-hidden="true"
     />

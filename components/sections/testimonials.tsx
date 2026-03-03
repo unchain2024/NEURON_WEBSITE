@@ -24,7 +24,7 @@ export default function Testimonials() {
         <div className="section-container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <MotionDiv variants={blurIn}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
                 {t("heading")}
               </h2>
             </MotionDiv>
@@ -79,7 +79,7 @@ export default function Testimonials() {
                             {initials}
                           </div>
                           <div>
-                            <p className="text-sm font-medium">{name}</p>
+                            <p className="text-sm font-medium text-slate-900">{name}</p>
                             <p className="text-xs text-text-muted">
                               {t(`title${key}` as "title1")}, {t(`company${key}` as "company1")}
                             </p>
@@ -91,8 +91,8 @@ export default function Testimonials() {
                 })}
               </CarouselContent>
               <div className="flex justify-center gap-4 mt-8">
-                <CarouselPrevious className="static translate-y-0 bg-surface border-border hover:bg-surface/80 hover:border-primary/30 text-white transition-colors" />
-                <CarouselNext className="static translate-y-0 bg-surface border-border hover:bg-surface/80 hover:border-primary/30 text-white transition-colors" />
+                <CarouselPrevious className="static translate-y-0 bg-white border-border hover:bg-slate-50 hover:border-primary/30 text-slate-900 transition-colors" />
+                <CarouselNext className="static translate-y-0 bg-white border-border hover:bg-slate-50 hover:border-primary/30 text-slate-900 transition-colors" />
               </div>
             </Carousel>
           </MotionDiv>

@@ -21,7 +21,7 @@ export default function Problem() {
         <div className="section-container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <MotionDiv variants={blurIn}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
                 {t("heading")}
               </h2>
             </MotionDiv>
@@ -61,10 +61,10 @@ export default function Problem() {
                   <div
                     className={`glass-card p-6 md:p-8 h-full border-l-2 ${point.borderColor} group-hover:border-l-primary transition-colors duration-300`}
                   >
-                    <div className="p-2.5 rounded-xl bg-white/5 w-fit mb-4 group-hover:bg-primary/10 transition-colors duration-300">
+                    <div className="p-2.5 rounded-xl bg-slate-100 w-fit mb-4 group-hover:bg-primary/10 transition-colors duration-300">
                       <point.icon className="h-6 w-6 text-text-secondary group-hover:text-primary transition-colors duration-300" />
                     </div>
-                    <h3 className="text-lg font-semibold mb-3">
+                    <h3 className="text-lg font-semibold mb-3 text-slate-900">
                       {t(`${point.key}Title` as "pain1Title")}
                     </h3>
                     <p className="text-text-secondary leading-relaxed">

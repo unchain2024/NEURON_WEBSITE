@@ -26,7 +26,7 @@ export default function IntegrationsGrid() {
         <div className="section-container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <MotionDiv variants={blurIn}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
                 {t.rich("heading", {
                   highlight: (chunks) => (
                     <span className="gradient-text-animated">{chunks}</span>
@@ -52,13 +52,13 @@ export default function IntegrationsGrid() {
                     }}
                   />
                   <div className="relative z-10">
-                    <div className="h-10 w-10 rounded-lg bg-white/10 group-hover:bg-primary/20 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                      <span className="text-white font-bold text-sm">
+                    <div className="h-10 w-10 rounded-lg bg-slate-100 group-hover:bg-primary/20 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+                      <span className="text-slate-700 font-bold text-sm">
                         {integration.charAt(0)}
                       </span>
                     </div>
                   </div>
-                  <span className="text-sm text-text-secondary group-hover:text-white transition-colors relative z-10">
+                  <span className="text-sm text-text-secondary group-hover:text-slate-900 transition-colors relative z-10">
                     {integration}
                   </span>
                 </motion.div>

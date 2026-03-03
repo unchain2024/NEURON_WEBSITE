@@ -36,7 +36,7 @@ export default function FinalCTA() {
                 </p>
                 <motion.a
                   href="#"
-                  className="inline-block bg-white text-background font-semibold px-8 py-3.5 rounded-xl text-base hover:bg-white/90 transition-colors shadow-lg"
+                  className="inline-block bg-white text-slate-900 font-semibold px-8 py-3.5 rounded-xl text-base hover:bg-white/90 transition-colors shadow-lg"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}

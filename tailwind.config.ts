@@ -13,12 +13,12 @@ const config: Config = {
         sans: ["var(--font-inter)", "var(--font-noto-sans-jp)", "sans-serif"],
       },
       colors: {
-        background: "#0D0F14",
+        background: "#FFFFFF",
         foreground: "hsl(var(--foreground))",
-        surface: "#161B27",
-        border: "#1E2535",
-        "text-secondary": "#94A3B8",
-        "text-muted": "#64748B",
+        surface: "#F8F9FB",
+        border: "#E2E8F0",
+        "text-secondary": "#64748B",
+        "text-muted": "#94A3B8",
         primary: {
           DEFAULT: "#6366F1",
           foreground: "#FFFFFF",

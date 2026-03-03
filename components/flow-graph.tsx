@@ -29,9 +29,9 @@ interface NodeDef {
 const SOURCE_NODES: NodeDef[] = [
   { id: "slack", labelKey: "slack", icon: MessageSquare, color: "#E01E5A" },
   { id: "jira", labelKey: "jira", icon: Trello, color: "#0052CC" },
-  { id: "notion", labelKey: "notion", icon: StickyNote, color: "#FFFFFF" },
+  { id: "notion", labelKey: "notion", icon: StickyNote, color: "#191919" },
   { id: "linear", labelKey: "linear", icon: GitBranch, color: "#5E6AD2" },
-  { id: "github", labelKey: "github", icon: Github, color: "#FFFFFF" },
+  { id: "github", labelKey: "github", icon: Github, color: "#24292F" },
   { id: "interviews", labelKey: "interviews", icon: Headphones, color: "#10B981" },
 ];
 
@@ -144,7 +144,7 @@ function DendriteNode({ node, index, label }: { node: NodeDef; index: number; la
           <node.icon className="h-4 w-4" style={{ color: node.color }} />
         </div>
       </div>
-      <span className="text-xs font-medium text-text-secondary group-hover:text-white transition-colors">
+      <span className="text-xs font-medium text-text-secondary group-hover:text-slate-900 transition-colors">
         {label}
       </span>
     </motion.div>
@@ -175,7 +175,7 @@ function AxonTerminal({ node, index, label }: { node: NodeDef; index: number; la
           <node.icon className="h-4 w-4" style={{ color: node.color }} />
         </div>
       </div>
-      <span className="text-xs font-medium text-text-secondary group-hover:text-white transition-colors">
+      <span className="text-xs font-medium text-text-secondary group-hover:text-slate-900 transition-colors">
         {label}
       </span>
     </motion.div>
@@ -307,7 +307,7 @@ export default function FlowGraph() {
     return () => { clearTimeout(ti); window.removeEventListener("resize", computePaths); };
   }, [computePaths]);
 
-  const srcColors = ["#E01E5A", "#0052CC", "#FFFFFF", "#5E6AD2", "#FFFFFF", "#10B981"];
+  const srcColors = ["#E01E5A", "#0052CC", "#191919", "#5E6AD2", "#24292F", "#10B981"];
   const outColors = ["#6366F1", "#8B5CF6", "#06B6D4", "#F59E0B"];
 
   return (

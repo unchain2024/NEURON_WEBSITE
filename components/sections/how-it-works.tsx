@@ -20,7 +20,7 @@ export default function HowItWorks() {
         <div className="section-container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <MotionDiv variants={blurIn}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
                 {t("heading")}
               </h2>
             </MotionDiv>
@@ -60,7 +60,7 @@ export default function HowItWorks() {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <step.icon className="h-8 w-8 text-text-secondary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-3">
+                  <h3 className="text-xl font-semibold mb-3 text-slate-900">
                     {t(`${step.key}Title` as "step1Title")}
                   </h3>
                   <p className="text-text-secondary leading-relaxed max-w-xs mx-auto">
