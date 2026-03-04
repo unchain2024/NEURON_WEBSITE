@@ -33,8 +33,8 @@ const SOURCE_NODES: NodeDef[] = [
 ];
 
 const OUTPUT_NODES: NodeDef[] = [
-  { id: "prd", labelKey: "prd", icon: FileText, color: "#6366F1" },
-  { id: "tickets", labelKey: "tickets", icon: ListChecks, color: "#8B5CF6" },
+  { id: "prd", labelKey: "prd", icon: FileText, color: "#10B981" },
+  { id: "tickets", labelKey: "tickets", icon: ListChecks, color: "#14B8A6" },
   { id: "brief", labelKey: "decisionBrief", icon: BookOpen, color: "#06B6D4" },
   { id: "roadmap", labelKey: "roadmap", icon: Map, color: "#F59E0B" },
 ];
@@ -44,7 +44,7 @@ function Synapse({
   pathId,
   d,
   delay = 0,
-  color = "#6366F1",
+  color = "#10B981",
 }: {
   pathId: string;
   d: string;
@@ -313,7 +313,7 @@ export default function FlowGraph() {
   }, [computePaths]);
 
   const srcColors = ["#E01E5A", "#0052CC", "#191919", "#5E6AD2", "#24292F", "#10B981"];
-  const outColors = ["#6366F1", "#8B5CF6", "#06B6D4", "#F59E0B"];
+  const outColors = ["#10B981", "#14B8A6", "#06B6D4", "#F59E0B"];
 
   return (
     <div ref={containerRef} className="relative w-full max-w-5xl mx-auto hidden md:block">
@@ -421,9 +421,9 @@ export function FlowGraphMobile() {
 
       {/* Neural pulse arrow */}
       <motion.div className="flex flex-col items-center gap-1" animate={{ opacity: [0.4, 1, 0.4] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}>
-        <div className="w-px h-6 bg-gradient-to-b from-violet-500/40 to-violet-500" />
-        <div className="w-2 h-2 rounded-full bg-violet-500 shadow-lg shadow-violet-500/50" />
-        <div className="w-px h-6 bg-gradient-to-b from-violet-500 to-violet-500/40" />
+        <div className="w-px h-6 bg-gradient-to-b from-teal-500/40 to-teal-500" />
+        <div className="w-2 h-2 rounded-full bg-teal-500 shadow-lg shadow-teal-500/50" />
+        <div className="w-px h-6 bg-gradient-to-b from-teal-500 to-teal-500/40" />
       </motion.div>
 
       {/* Outputs */}

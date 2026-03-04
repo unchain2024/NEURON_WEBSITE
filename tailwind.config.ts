@@ -20,9 +20,9 @@ const config: Config = {
         "text-secondary": "#64748B",
         "text-muted": "#94A3B8",
         primary: {
-          DEFAULT: "#6366F1",
+          DEFAULT: "#10B981",
           foreground: "#FFFFFF",
-          600: "#4F46E5",
+          600: "#059669",
         },
         card: {
           DEFAULT: "hsl(var(--card))",

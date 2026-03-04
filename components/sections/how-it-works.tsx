@@ -32,15 +32,12 @@ export default function HowItWorks() {
           </div>
 
           <div className="relative grid md:grid-cols-3 gap-8 md:gap-12">
-            {/* Connecting dashed line (desktop only) */}
-            <div className="hidden md:block absolute top-12 left-[calc(16.67%+24px)] right-[calc(16.67%+24px)] h-px border-t-2 border-dashed border-border" />
-
             {STEP_META.map((step, i) => (
               <MotionDiv key={step.number} variants={blurIn} className="relative text-center">
-                {/* Number circle with pulse ring */}
-                <div className="relative inline-flex items-center justify-center mb-6 mx-auto">
+                {/* Icon + label circle with pulse ring */}
+                <div className="relative inline-flex items-center justify-center mb-8 mx-auto">
                   <motion.div
-                    className="absolute inset-0 rounded-full bg-primary/20"
+                    className="absolute rounded-full bg-primary/20"
                     animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
                     transition={{
                       duration: 2.5,
@@ -48,10 +45,11 @@ export default function HowItWorks() {
                       delay: i * 0.4,
                       ease: "easeInOut",
                     }}
-                    style={{ width: 48, height: 48 }}
+                    style={{ width: 104, height: 104 }}
                   />
-                  <div className="relative h-12 w-12 rounded-full bg-primary/20 border-2 border-primary text-primary font-bold text-lg flex items-center justify-center z-10">
-                    {step.number}
+                  <div className="relative h-26 w-26 rounded-full bg-primary/10 border-2 border-primary text-primary flex flex-col items-center justify-center z-10" style={{ width: 104, height: 104 }}>
+                    <step.icon className="h-6 w-6 mb-1.5" />
+                    <span className="font-bold text-[11px] tracking-wide uppercase">{t(`${step.key}Title` as "step1Title")}</span>
                   </div>
                 </div>
 
@@ -59,10 +57,6 @@ export default function HowItWorks() {
                   whileHover={{ y: -4 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <step.icon className="h-8 w-8 text-text-secondary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-3 text-slate-900">
-                    {t(`${step.key}Title` as "step1Title")}
-                  </h3>
                   <p className="text-text-secondary leading-relaxed max-w-xs mx-auto">
                     {t(`${step.key}Description` as "step1Description")}
                   </p>

@@ -3,20 +3,20 @@
 export default function FloatingOrbs() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-      {/* Large indigo orb — top left */}
+      {/* Large emerald orb — top left */}
       <div
         className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full animate-float-slow opacity-30"
         style={{
           background:
-            "radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(16,185,129,0.3) 0%, transparent 70%)",
         }}
       />
-      {/* Violet orb — top right */}
+      {/* Teal orb — top right */}
       <div
         className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full animate-float-medium opacity-20"
         style={{
           background:
-            "radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(20,184,166,0.3) 0%, transparent 70%)",
         }}
       />
       {/* Small cyan orb — center right */}
@@ -32,7 +32,7 @@ export default function FloatingOrbs() {
         className="absolute bottom-20 left-1/4 w-[200px] h-[200px] rounded-full animate-pulse-glow opacity-20"
         style={{
           background:
-            "radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(16,185,129,0.25) 0%, transparent 70%)",
         }}
       />
     </div>
