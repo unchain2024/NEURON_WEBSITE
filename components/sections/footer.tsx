@@ -2,14 +2,15 @@
 
 import { BrainCircuit } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const FOOTER_STRUCTURE = [
   {
     titleKey: "col1Title",
     links: [
-      { key: "col1Link1", href: "#features" },
-      { key: "col1Link2", href: "#integrations" },
-      { key: "col1Link3", href: "#pricing" },
+      { key: "col1Link1", href: "/product" },
+      { key: "col1Link2", href: "/integrations" },
+      { key: "col1Link3", href: "/pricing" },
       { key: "col1Link4", href: "#" },
       { key: "col1Link5", href: "#" },
     ],
@@ -18,7 +19,7 @@ const FOOTER_STRUCTURE = [
     titleKey: "col2Title",
     links: [
       { key: "col2Link1", href: "#" },
-      { key: "col2Link2", href: "#" },
+      { key: "col2Link2", href: "/blog" },
       { key: "col2Link3", href: "#" },
       { key: "col2Link4", href: "#" },
     ],
@@ -51,10 +52,10 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
           {/* Logo column */}
           <div className="col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-4">
+            <Link href="/" className="flex items-center gap-2 mb-4">
               <BrainCircuit className="h-7 w-7 text-primary" />
               <span className="text-xl font-bold tracking-tight">NEURON</span>
-            </a>
+            </Link>
             <p className="text-sm text-slate-400 max-w-xs">
               {t("tagline")}
             </p>
@@ -88,12 +89,21 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {column.links.map((link) => (
                   <li key={link.key}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-slate-400 hover:text-white transition-colors"
-                    >
-                      {t(link.key)}
-                    </a>
+                    {link.href === "#" ? (
+                      <a
+                        href="#"
+                        className="text-sm text-slate-400 hover:text-white transition-colors"
+                      >
+                        {t(link.key)}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-slate-400 hover:text-white transition-colors"
+                      >
+                        {t(link.key)}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

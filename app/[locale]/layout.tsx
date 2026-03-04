@@ -4,6 +4,10 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import Navbar from "@/components/sections/navbar";
+import Footer from "@/components/sections/footer";
+import ScrollProgress from "@/components/scroll-progress";
+import NeuralCanvas from "@/components/neural-canvas";
 import "../globals.css";
 
 const inter = Inter({
@@ -65,7 +69,15 @@ export default async function LocaleLayout({ children, params }: Props) {
         className={`${inter.variable} ${notoSansJP.variable} font-sans bg-background text-slate-900 antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <main className="relative overflow-x-hidden">
+            <NeuralCanvas />
+            <ScrollProgress />
+            <div className="relative z-10">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
+          </main>
         </NextIntlClientProvider>
       </body>
     </html>

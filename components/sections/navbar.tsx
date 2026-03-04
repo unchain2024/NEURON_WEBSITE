@@ -4,15 +4,17 @@ import { useState, useEffect } from "react";
 import { BrainCircuit, Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
-import { useRouter, usePathname } from "@/i18n/navigation";
+import { Link, useRouter, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
+const MotionLink = motion.create(Link);
+
 const NAV_LINK_KEYS = [
-  { key: "product", href: "#features" },
-  { key: "whyNeuron", href: "#problem" },
-  { key: "integrations", href: "#integrations" },
-  { key: "pricing", href: "#pricing" },
-  { key: "blog", href: "#blog" },
+  { key: "product", href: "/product" },
+  { key: "whyNeuron", href: "/why-neuron" },
+  { key: "integrations", href: "/integrations" },
+  { key: "pricing", href: "/pricing" },
+  { key: "blog", href: "/blog" },
 ] as const;
 
 export default function Navbar() {
@@ -48,7 +50,7 @@ export default function Navbar() {
       >
         <div className="section-container flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 shrink-0 group">
+          <Link href="/" className="flex items-center gap-2 shrink-0 group">
             <motion.div
               whileHover={{ rotate: 180 }}
               transition={{ duration: 0.5, type: "spring" }}
@@ -56,12 +58,12 @@ export default function Navbar() {
               <BrainCircuit className="h-7 w-7 text-primary" />
             </motion.div>
             <span className="text-xl font-bold tracking-tight text-slate-900">NEURON</span>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINK_KEYS.map((link, i) => (
-              <motion.a
+              <MotionLink
                 key={link.key}
                 href={link.href}
                 className="text-sm text-text-secondary hover:text-slate-900 transition-colors relative group"
@@ -71,7 +73,7 @@ export default function Navbar() {
               >
                 {t(link.key)}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
-              </motion.a>
+              </MotionLink>
             ))}
           </div>
 
@@ -91,14 +93,14 @@ export default function Navbar() {
             >
               {t("logIn")}
             </a>
-            <motion.a
-              href="#"
+            <MotionLink
+              href="/get-demo"
               className="text-sm bg-primary hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition-colors font-medium"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               {t("requestDemo")}
-            </motion.a>
+            </MotionLink>
           </div>
 
           {/* Mobile Toggle */}
@@ -123,7 +125,7 @@ export default function Navbar() {
             >
               <div className="px-4 pb-6 pt-4 space-y-4">
                 {NAV_LINK_KEYS.map((link, i) => (
-                  <motion.a
+                  <MotionLink
                     key={link.key}
                     href={link.href}
                     className="block text-text-secondary hover:text-slate-900 transition-colors py-2"
@@ -133,7 +135,7 @@ export default function Navbar() {
                     transition={{ delay: i * 0.05 }}
                   >
                     {t(link.key)}
-                  </motion.a>
+                  </MotionLink>
                 ))}
                 <div className="pt-4 border-t border-border/40 space-y-3">
                   <button
@@ -149,12 +151,13 @@ export default function Navbar() {
                   <a href="#" className="block text-text-secondary hover:text-slate-900 transition-colors py-2">
                     {t("logIn")}
                   </a>
-                  <a
-                    href="#"
+                  <Link
+                    href="/get-demo"
                     className="block text-center bg-primary hover:bg-primary-600 text-white px-4 py-2.5 rounded-lg transition-colors font-medium"
+                    onClick={() => setMobileOpen(false)}
                   >
                     {t("requestDemo")}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>

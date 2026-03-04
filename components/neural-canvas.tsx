@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 /* ═══════════════════════════════════════════════════════
    Interactive Neural Network — HTML5 Canvas
@@ -43,6 +44,16 @@ export default function NeuralCanvas() {
   const mouseRef = useRef({ x: -9999, y: -9999 });
   const frameRef = useRef(0);
   const scrollRef = useRef(0);
+  const resizeRef = useRef<(() => void) | null>(null);
+  const pathname = usePathname();
+
+  // Re-trigger resize on route change
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      resizeRef.current?.();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -254,6 +265,7 @@ export default function NeuralCanvas() {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", resize);
     scrollRef.current = window.scrollY;
+    resizeRef.current = resize;
 
     resize();
     animRef.current = requestAnimationFrame(render);
