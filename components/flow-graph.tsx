@@ -3,13 +3,9 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import {
   BrainCircuit,
-  MessageSquare,
-  Trello,
-  StickyNote,
-  GitBranch,
-  Github,
   Headphones,
   FileText,
   ListChecks,
@@ -22,16 +18,17 @@ import {
 interface NodeDef {
   id: string;
   labelKey: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
+  logoSrc?: string;
   color: string;
 }
 
 const SOURCE_NODES: NodeDef[] = [
-  { id: "slack", labelKey: "slack", icon: MessageSquare, color: "#E01E5A" },
-  { id: "jira", labelKey: "jira", icon: Trello, color: "#0052CC" },
-  { id: "notion", labelKey: "notion", icon: StickyNote, color: "#191919" },
-  { id: "linear", labelKey: "linear", icon: GitBranch, color: "#5E6AD2" },
-  { id: "github", labelKey: "github", icon: Github, color: "#24292F" },
+  { id: "slack", labelKey: "slack", logoSrc: "/logos/slack.svg", color: "#E01E5A" },
+  { id: "jira", labelKey: "jira", logoSrc: "/logos/jira.svg", color: "#0052CC" },
+  { id: "notion", labelKey: "notion", logoSrc: "/logos/notion-dark.svg", color: "#191919" },
+  { id: "linear", labelKey: "linear", logoSrc: "/logos/linear.svg", color: "#5E6AD2" },
+  { id: "github", labelKey: "github", logoSrc: "/logos/github-dark.svg", color: "#24292F" },
   { id: "interviews", labelKey: "interviews", icon: Headphones, color: "#10B981" },
 ];
 
@@ -141,7 +138,11 @@ function DendriteNode({ node, index, label }: { node: NodeDef; index: number; la
           className="relative h-9 w-9 rounded-full border flex items-center justify-center"
           style={{ borderColor: `${node.color}40`, backgroundColor: `${node.color}10` }}
         >
-          <node.icon className="h-4 w-4" style={{ color: node.color }} />
+          {node.logoSrc ? (
+            <Image src={node.logoSrc} alt={node.id} width={16} height={16} className="h-4 w-4" />
+          ) : node.icon ? (
+            <node.icon className="h-4 w-4" style={{ color: node.color }} />
+          ) : null}
         </div>
       </div>
       <span className="text-xs font-medium text-text-secondary group-hover:text-slate-900 transition-colors">
@@ -172,7 +173,11 @@ function AxonTerminal({ node, index, label }: { node: NodeDef; index: number; la
           className="relative h-9 w-9 rounded-lg border flex items-center justify-center"
           style={{ borderColor: `${node.color}40`, backgroundColor: `${node.color}10` }}
         >
-          <node.icon className="h-4 w-4" style={{ color: node.color }} />
+          {node.logoSrc ? (
+            <Image src={node.logoSrc} alt={node.id} width={16} height={16} className="h-4 w-4" />
+          ) : node.icon ? (
+            <node.icon className="h-4 w-4" style={{ color: node.color }} />
+          ) : null}
         </div>
       </div>
       <span className="text-xs font-medium text-text-secondary group-hover:text-slate-900 transition-colors">
@@ -377,7 +382,11 @@ export function FlowGraphMobile() {
               transition={{ delay: 0.2 + i * 0.06 }}
             >
               <div className="h-8 w-8 rounded-full flex items-center justify-center" style={{ backgroundColor: `${node.color}15` }}>
-                <node.icon className="h-4 w-4" style={{ color: node.color }} />
+                {node.logoSrc ? (
+                  <Image src={node.logoSrc} alt={node.id} width={16} height={16} className="h-4 w-4" />
+                ) : node.icon ? (
+                  <node.icon className="h-4 w-4" style={{ color: node.color }} />
+                ) : null}
               </div>
               <span className="text-[10px] text-text-secondary">{t(node.labelKey as "slack")}</span>
             </motion.div>
@@ -430,7 +439,11 @@ export function FlowGraphMobile() {
               transition={{ delay: 0.7 + i * 0.08 }}
             >
               <div className="h-7 w-7 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: `${node.color}15` }}>
-                <node.icon className="h-3.5 w-3.5" style={{ color: node.color }} />
+                {node.logoSrc ? (
+                  <Image src={node.logoSrc} alt={node.id} width={14} height={14} className="h-3.5 w-3.5" />
+                ) : node.icon ? (
+                  <node.icon className="h-3.5 w-3.5" style={{ color: node.color }} />
+                ) : null}
               </div>
               <span className="text-[11px] text-text-secondary font-medium">{t(node.labelKey as "prd")}</span>
             </motion.div>

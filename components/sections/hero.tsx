@@ -28,7 +28,7 @@ export default function Hero() {
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(99,102,241,0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(34,197,94,0.06) 0%, transparent 70%)",
         }}
       />
 
@@ -36,9 +36,13 @@ export default function Hero() {
         <div className="max-w-4xl mx-auto text-center">
           {/* Eyebrow badge */}
           <MotionDiv variants={fadeInUp}>
-            <span className="inline-block shimmer-badge text-primary text-sm font-medium px-4 py-1.5 rounded-full border border-primary/20">
-              {t("eyebrow")}
-            </span>
+            <div className="signal-badge">
+              <div className="signal-badge-border" />
+              <div className="signal-badge-inner">
+                <span className="signal-dot" />
+                <span>{t("eyebrow")}</span>
+              </div>
+            </div>
           </MotionDiv>
 
           {/* H1 — word-by-word fade with white text */}

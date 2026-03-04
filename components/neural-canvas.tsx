@@ -110,7 +110,7 @@ export default function NeuralCanvas() {
           to: target,
           progress: 0,
           speed: PULSE_SPEED / dist,
-          hue: 230 + Math.random() * 40,
+          hue: 140 + Math.random() * 30,
         });
       }
     }
@@ -141,7 +141,7 @@ export default function NeuralCanvas() {
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
+          ctx.strokeStyle = `rgba(34, 197, 94, ${alpha})`;
           ctx.lineWidth = 0.3 + activity * 0.7;
           ctx.stroke();
         }
@@ -162,7 +162,7 @@ export default function NeuralCanvas() {
         if (n.fire > 0.15) {
           const glowR = r * 4;
           const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, glowR);
-          grad.addColorStop(0, `rgba(129, 140, 248, ${n.fire * 0.2})`);
+          grad.addColorStop(0, `rgba(74, 222, 128, ${n.fire * 0.2})`);
           grad.addColorStop(1, "transparent");
           ctx.beginPath();
           ctx.arc(n.x, n.y, glowR, 0, Math.PI * 2);
@@ -174,7 +174,7 @@ export default function NeuralCanvas() {
         ctx.beginPath();
         ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
         const lightness = 55 + n.fire * 35;
-        ctx.fillStyle = `hsla(235, 70%, ${lightness}%, ${alpha})`;
+        ctx.fillStyle = `hsla(150, 70%, ${lightness}%, ${alpha})`;
         ctx.fill();
       }
 
