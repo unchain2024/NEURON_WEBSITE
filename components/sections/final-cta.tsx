@@ -12,7 +12,7 @@ export default function FinalCTA() {
       <BlurReveal>
         <div className="section-container">
           <MotionDiv variants={blurIn}>
-            <div className="bg-gradient-to-br from-primary via-primary-600 to-violet-600 rounded-3xl px-6 py-16 md:px-12 md:py-24 text-center relative overflow-hidden">
+            <div className="bg-gradient-to-br from-emerald-500 via-primary-600 to-teal-600 rounded-3xl px-6 py-16 md:px-12 md:py-24 text-center relative overflow-hidden">
               {/* Animated background orbs */}
               <div
                 className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full animate-float-slow opacity-20"

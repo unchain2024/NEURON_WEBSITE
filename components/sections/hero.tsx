@@ -34,8 +34,67 @@ export default function Hero() {
 
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Eyebrow badge */}
-          <MotionDiv variants={fadeInUp}>
+          {/* Neural signal converging into eyebrow badge */}
+          <MotionDiv variants={fadeInUp} className="flex flex-col items-center">
+            {/* Converging signal paths SVG */}
+            <svg
+              className="w-[320px] h-[100px] md:w-[400px] md:h-[120px] mb-3"
+              viewBox="0 0 400 120"
+              fill="none"
+            >
+              <defs>
+                <linearGradient id="sig-line" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#34d399" stopOpacity="0" />
+                  <stop offset="60%" stopColor="#34d399" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="#34d399" stopOpacity="0.15" />
+                </linearGradient>
+                <radialGradient id="sig-glow">
+                  <stop offset="0%" stopColor="#34d399" stopOpacity="0.25" />
+                  <stop offset="100%" stopColor="#34d399" stopOpacity="0" />
+                </radialGradient>
+              </defs>
+
+              {/* Converging lines */}
+              <path d="M50 0 L200 108" stroke="url(#sig-line)" strokeWidth="0.75" />
+              <path d="M130 0 L200 108" stroke="url(#sig-line)" strokeWidth="0.75" />
+              <path d="M200 0 L200 108" stroke="url(#sig-line)" strokeWidth="1" />
+              <path d="M270 0 L200 108" stroke="url(#sig-line)" strokeWidth="0.75" />
+              <path d="M350 0 L200 108" stroke="url(#sig-line)" strokeWidth="0.75" />
+
+              {/* Source nodes at top */}
+              <circle cx="50"  cy="3" r="2"   fill="#34d399" opacity="0.35" />
+              <circle cx="130" cy="3" r="2.5" fill="#34d399" opacity="0.45" />
+              <circle cx="200" cy="3" r="3"   fill="#34d399" opacity="0.6" />
+              <circle cx="270" cy="3" r="2.5" fill="#34d399" opacity="0.45" />
+              <circle cx="350" cy="3" r="2"   fill="#34d399" opacity="0.35" />
+
+              {/* Convergence glow */}
+              <circle cx="200" cy="108" r="18" fill="url(#sig-glow)" />
+
+              {/* Traveling particles */}
+              <circle r="2" fill="#6ee7b7">
+                <animateMotion dur="2.2s" repeatCount="indefinite" path="M50,0 L200,108" begin="0s" />
+                <animate attributeName="opacity" values="0;0.9;0.9;0" dur="2.2s" repeatCount="indefinite" begin="0s" />
+              </circle>
+              <circle r="2" fill="#6ee7b7">
+                <animateMotion dur="1.8s" repeatCount="indefinite" path="M130,0 L200,108" begin="0.5s" />
+                <animate attributeName="opacity" values="0;0.9;0.9;0" dur="1.8s" repeatCount="indefinite" begin="0.5s" />
+              </circle>
+              <circle r="2.5" fill="#6ee7b7">
+                <animateMotion dur="1.5s" repeatCount="indefinite" path="M200,0 L200,108" begin="0.3s" />
+                <animate attributeName="opacity" values="0;1;1;0" dur="1.5s" repeatCount="indefinite" begin="0.3s" />
+              </circle>
+              <circle r="2" fill="#6ee7b7">
+                <animateMotion dur="1.8s" repeatCount="indefinite" path="M270,0 L200,108" begin="0.7s" />
+                <animate attributeName="opacity" values="0;0.9;0.9;0" dur="1.8s" repeatCount="indefinite" begin="0.7s" />
+              </circle>
+              <circle r="2" fill="#6ee7b7">
+                <animateMotion dur="2.2s" repeatCount="indefinite" path="M350,0 L200,108" begin="1s" />
+                <animate attributeName="opacity" values="0;0.9;0.9;0" dur="2.2s" repeatCount="indefinite" begin="1s" />
+              </circle>
+            </svg>
+
+            {/* Badge */}
             <div className="signal-badge">
               <div className="signal-badge-border" />
               <div className="signal-badge-inner">

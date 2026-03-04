@@ -6,7 +6,7 @@ import Features from "@/components/sections/features";
 import HowItWorks from "@/components/sections/how-it-works";
 import StakeholderValue from "@/components/sections/stakeholder-value";
 import Testimonials from "@/components/sections/testimonials";
-import IntegrationsGrid from "@/components/sections/integrations";
+
 import FinalCTA from "@/components/sections/final-cta";
 import Footer from "@/components/sections/footer";
 import ScrollProgress from "@/components/scroll-progress";
@@ -28,7 +28,7 @@ export default function Home() {
         <HowItWorks />
         <StakeholderValue />
         <Testimonials />
-        <IntegrationsGrid />
+
         <FinalCTA />
         <Footer />
       </div>
