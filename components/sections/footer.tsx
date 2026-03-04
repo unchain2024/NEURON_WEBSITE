@@ -1,10 +1,16 @@
 "use client";
 
 import { BrainCircuit } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
-const FOOTER_STRUCTURE = [
+type FooterLink = {
+  key: string;
+  href: string | { ja: string; en: string };
+  external?: boolean;
+};
+
+const FOOTER_STRUCTURE: { titleKey: string; links: FooterLink[] }[] = [
   {
     titleKey: "col1Title",
     links: [
@@ -36,15 +42,35 @@ const FOOTER_STRUCTURE = [
   {
     titleKey: "col4Title",
     links: [
-      { key: "col4Link1", href: "#" },
-      { key: "col4Link2", href: "#" },
+      {
+        key: "col4Link1",
+        external: true,
+        href: {
+          ja: "https://www.the-unchain.com/privacy-policy",
+          en: "https://www.the-unchain.com/en/privacy-policy",
+        },
+      },
+      {
+        key: "col4Link2",
+        external: true,
+        href: {
+          ja: "https://www.the-unchain.com/terms-of-use",
+          en: "https://www.the-unchain.com/en/terms-of-use",
+        },
+      },
       { key: "col4Link3", href: "#" },
     ],
   },
-] as const;
+];
+
+function resolveHref(href: string | { ja: string; en: string }, locale: string): string {
+  if (typeof href === "string") return href;
+  return locale === "en" ? href.en : href.ja;
+}
 
 export default function Footer() {
   const t = useTranslations("Footer");
+  const locale = useLocale();
 
   return (
     <footer className="bg-[#0D0F14] text-white border-t border-[#1E2535]/40 pt-16 pb-8">
@@ -87,25 +113,37 @@ export default function Footer() {
                 {t(column.titleKey)}
               </h4>
               <ul className="space-y-2.5">
-                {column.links.map((link) => (
-                  <li key={link.key}>
-                    {link.href === "#" ? (
-                      <a
-                        href="#"
-                        className="text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        {t(link.key)}
-                      </a>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-sm text-slate-400 hover:text-white transition-colors"
-                      >
-                        {t(link.key)}
-                      </Link>
-                    )}
-                  </li>
-                ))}
+                {column.links.map((link) => {
+                  const resolved = resolveHref(link.href, locale);
+                  return (
+                    <li key={link.key}>
+                      {link.external ? (
+                        <a
+                          href={resolved}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-slate-400 hover:text-white transition-colors"
+                        >
+                          {t(link.key)}
+                        </a>
+                      ) : resolved === "#" ? (
+                        <a
+                          href="#"
+                          className="text-sm text-slate-400 hover:text-white transition-colors"
+                        >
+                          {t(link.key)}
+                        </a>
+                      ) : (
+                        <Link
+                          href={resolved}
+                          className="text-sm text-slate-400 hover:text-white transition-colors"
+                        >
+                          {t(link.key)}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
