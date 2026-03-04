@@ -69,7 +69,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         className={`${inter.variable} ${notoSansJP.variable} font-sans bg-background text-slate-900 antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-          <main className="relative overflow-x-hidden">
+          <main className="relative overflow-x-clip">
             <NeuralCanvas />
             <ScrollProgress />
             <div className="relative z-10">
