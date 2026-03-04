@@ -120,7 +120,7 @@ function Synapse({
 function DendriteNode({ node, index, label }: { node: NodeDef; index: number; label: string }) {
   return (
     <motion.div
-      className="flex items-center gap-2.5 px-3 py-2 pr-4 w-full group cursor-default relative"
+      className="flex items-center gap-1.5 sm:gap-2.5 px-1.5 sm:px-3 py-1.5 sm:py-2 pr-2 sm:pr-4 w-full group cursor-default relative"
       initial={{ opacity: 0, x: -50, filter: "blur(4px)" }}
       animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
       transition={{ delay: 0.2 + index * 0.1, type: "spring", stiffness: 180, damping: 18 }}
@@ -135,17 +135,17 @@ function DendriteNode({ node, index, label }: { node: NodeDef; index: number; la
           transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
         />
         <div
-          className="relative h-9 w-9 rounded-full border flex items-center justify-center"
+          className="relative h-7 w-7 sm:h-9 sm:w-9 rounded-full border flex items-center justify-center"
           style={{ borderColor: `${node.color}40`, backgroundColor: `${node.color}10` }}
         >
           {node.logoSrc ? (
-            <Image src={node.logoSrc} alt={node.id} width={16} height={16} className="h-4 w-4" />
+            <Image src={node.logoSrc} alt={node.id} width={16} height={16} className="h-3 w-3 sm:h-4 sm:w-4" />
           ) : node.icon ? (
-            <node.icon className="h-4 w-4" style={{ color: node.color }} />
+            <node.icon className="h-3 w-3 sm:h-4 sm:w-4" style={{ color: node.color }} />
           ) : null}
         </div>
       </div>
-      <span className="text-xs font-medium text-text-secondary group-hover:text-slate-900 transition-colors">
+      <span className="text-[10px] sm:text-xs font-medium text-text-secondary group-hover:text-slate-900 transition-colors truncate">
         {label}
       </span>
     </motion.div>
@@ -156,7 +156,7 @@ function DendriteNode({ node, index, label }: { node: NodeDef; index: number; la
 function AxonTerminal({ node, index, label }: { node: NodeDef; index: number; label: string }) {
   return (
     <motion.div
-      className="flex items-center gap-2.5 px-3 py-2 pr-4 w-full group cursor-default"
+      className="flex items-center gap-1.5 sm:gap-2.5 px-1.5 sm:px-3 py-1.5 sm:py-2 pr-2 sm:pr-4 w-full group cursor-default"
       initial={{ opacity: 0, x: 50, filter: "blur(4px)" }}
       animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
       transition={{ delay: 0.5 + index * 0.12, type: "spring", stiffness: 180, damping: 18 }}
@@ -170,17 +170,17 @@ function AxonTerminal({ node, index, label }: { node: NodeDef; index: number; la
           transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.4 }}
         />
         <div
-          className="relative h-9 w-9 rounded-lg border flex items-center justify-center"
+          className="relative h-7 w-7 sm:h-9 sm:w-9 rounded-lg border flex items-center justify-center"
           style={{ borderColor: `${node.color}40`, backgroundColor: `${node.color}10` }}
         >
           {node.logoSrc ? (
-            <Image src={node.logoSrc} alt={node.id} width={16} height={16} className="h-4 w-4" />
+            <Image src={node.logoSrc} alt={node.id} width={16} height={16} className="h-3 w-3 sm:h-4 sm:w-4" />
           ) : node.icon ? (
-            <node.icon className="h-4 w-4" style={{ color: node.color }} />
+            <node.icon className="h-3 w-3 sm:h-4 sm:w-4" style={{ color: node.color }} />
           ) : null}
         </div>
       </div>
-      <span className="text-xs font-medium text-text-secondary group-hover:text-slate-900 transition-colors">
+      <span className="text-[10px] sm:text-xs font-medium text-text-secondary group-hover:text-slate-900 transition-colors truncate">
         {label}
       </span>
     </motion.div>
@@ -316,7 +316,7 @@ export default function FlowGraph() {
   const outColors = ["#10B981", "#14B8A6", "#06B6D4", "#F59E0B"];
 
   return (
-    <div ref={containerRef} className="relative w-full max-w-5xl mx-auto hidden md:block">
+    <div ref={containerRef} className="relative w-full max-w-5xl mx-auto">
       {/* SVG synapse layer */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{ overflow: "visible" }}>
         <defs>
@@ -338,7 +338,7 @@ export default function FlowGraph() {
       </svg>
 
       {/* Node grid */}
-      <div className="relative z-10 grid grid-cols-[170px_1fr_170px] items-center gap-4 lg:gap-8 min-h-[360px]">
+      <div className="relative z-10 grid grid-cols-[100px_1fr_100px] sm:grid-cols-[130px_1fr_130px] md:grid-cols-[170px_1fr_170px] items-center gap-2 sm:gap-4 lg:gap-8 min-h-[280px] md:min-h-[360px]">
         <div className="flex flex-col gap-1.5">
           {SOURCE_NODES.map((n, i) => (
             <div key={n.id} data-dendrite>
@@ -369,7 +369,7 @@ export function FlowGraphMobile() {
   const t = useTranslations("FlowGraph");
 
   return (
-    <div className="md:hidden space-y-6">
+    <div className="hidden">
       <div>
         <div className="grid grid-cols-3 gap-2">
           {SOURCE_NODES.map((node, i) => (

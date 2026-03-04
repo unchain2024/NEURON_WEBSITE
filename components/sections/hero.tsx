@@ -18,7 +18,7 @@ import {
   fadeInUp,
   staggerContainer,
 } from "@/components/motion-wrapper";
-import FlowGraph, { FlowGraphMobile } from "@/components/flow-graph";
+import FlowGraph from "@/components/flow-graph";
 
 /* ─────────────────────────────────────────────────────
    Absorption Logos — 8 integration logos in a circle
@@ -389,6 +389,99 @@ function HeroText() {
 }
 
 /* ─────────────────────────────────────────────────────
+   MobileAbsorptionVisual — static logo ring for mobile
+   ───────────────────────────────────────────────────── */
+
+const MOBILE_RADIUS = 130;
+
+const mobileLogoPositions = ABSORPTION_LOGOS.map((_, i) => {
+  const angle = (i * 2 * Math.PI) / 8 - Math.PI / 2;
+  return {
+    x: MOBILE_RADIUS * Math.cos(angle),
+    y: MOBILE_RADIUS * Math.sin(angle),
+  };
+});
+
+function MobileAbsorptionVisual() {
+  return (
+    <div className="relative w-full max-w-[340px] aspect-square mx-auto">
+      {/* Lava glow blobs */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <motion.div
+          className="absolute w-44 h-44 rounded-full blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(52,211,153,0.25) 0%, rgba(16,185,129,0.1) 70%, transparent 100%)",
+          }}
+          animate={{ x: [0, 12, -8, 0], y: [0, -10, 8, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute w-36 h-48 rounded-full blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(20,184,166,0.2) 0%, rgba(52,211,153,0.08) 70%, transparent 100%)",
+          }}
+          animate={{ x: [0, -10, 12, 0], y: [0, 8, -10, 0], rotate: [0, 25, -15, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute w-28 h-28 rounded-full blur-2xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(16,185,129,0.35) 0%, rgba(52,211,153,0.15) 60%, transparent 100%)",
+          }}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+
+      {/* Logos in circle */}
+      {ABSORPTION_LOGOS.map((logo, i) => (
+        <motion.div
+          key={logo.name}
+          className="absolute left-1/2 top-1/2"
+          style={{
+            x: mobileLogoPositions[i].x,
+            y: mobileLogoPositions[i].y,
+            marginLeft: -18,
+            marginTop: -18,
+          }}
+        >
+          <motion.div
+            animate={{ y: [0, -4, 0] }}
+            transition={{
+              duration: 3 + (i % 3) * 0.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.3,
+            }}
+          >
+            <div className="w-9 h-9 rounded-lg bg-white border border-slate-200 shadow-md flex items-center justify-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={logo.src} alt={logo.name} className="w-5 h-5" />
+            </div>
+          </motion.div>
+        </motion.div>
+      ))}
+
+      {/* NEURON blob (nucleus) */}
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logos/neuron-cell.png"
+          alt="NEURON"
+          className="w-40 h-40"
+          style={{
+            filter: "drop-shadow(0 0 35px rgba(16,185,129,0.35))",
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────
    Hero — main export with scroll-pinned desktop layout
    ───────────────────────────────────────────────────── */
 
@@ -457,7 +550,7 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="relative section-padding overflow-hidden lg:hidden"
+        className="relative section-padding overflow-x-clip lg:hidden"
       >
         {/* Soft glow */}
         <div
@@ -469,6 +562,9 @@ export default function Hero() {
         />
         <div className="section-container relative z-10">
           <HeroText />
+          <MotionDiv variants={fadeInUp} className="mt-12 flex justify-center">
+            <MobileAbsorptionVisual />
+          </MotionDiv>
         </div>
       </MotionSection>
 
@@ -481,7 +577,6 @@ export default function Hero() {
           variants={fadeInUp}
         >
           <FlowGraph />
-          <FlowGraphMobile />
         </MotionDiv>
       </div>
     </>
