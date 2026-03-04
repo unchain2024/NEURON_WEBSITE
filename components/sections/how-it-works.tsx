@@ -31,33 +31,36 @@ export default function HowItWorks() {
             </MotionDiv>
           </div>
 
-          <div className="relative grid md:grid-cols-3 gap-8 md:gap-12">
-            {STEP_META.map((step, i) => (
-              <MotionDiv key={step.number} variants={blurIn} className="relative text-center">
-                {/* Icon + label circle with pulse ring */}
-                <div className="relative inline-flex items-center justify-center mb-8 mx-auto">
-                  <motion.div
-                    className="absolute rounded-full bg-primary/20"
-                    animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
-                    transition={{
-                      duration: 2.5,
-                      repeat: Infinity,
-                      delay: i * 0.4,
-                      ease: "easeInOut",
-                    }}
-                    style={{ width: 104, height: 104 }}
-                  />
-                  <div className="relative h-26 w-26 rounded-full bg-primary/10 border-2 border-primary text-primary flex flex-col items-center justify-center z-10" style={{ width: 104, height: 104 }}>
-                    <step.icon className="h-6 w-6 mb-1.5" />
-                    <span className="font-bold text-[11px] tracking-wide uppercase">{t(`${step.key}Title` as "step1Title")}</span>
-                  </div>
-                </div>
-
+          <div className="relative grid md:grid-cols-3 gap-6 md:gap-8">
+            {STEP_META.map((step) => (
+              <MotionDiv key={step.number} variants={blurIn}>
                 <motion.div
+                  className="relative overflow-hidden rounded-2xl bg-emerald-50/60 border border-emerald-100/80 p-6 md:p-8 h-full"
                   whileHover={{ y: -4 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  <p className="text-text-secondary leading-relaxed max-w-xs mx-auto">
+                  {/* Background step number */}
+                  <span
+                    className="absolute top-4 right-4 text-[7rem] md:text-[8rem] font-bold leading-none text-primary/[0.06] select-none pointer-events-none"
+                    aria-hidden="true"
+                  >
+                    0{step.number}
+                  </span>
+
+                  {/* Icon */}
+                  <div className="relative z-10 mb-5">
+                    <div className="h-12 w-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                      <step.icon className="h-5 w-5 text-primary" />
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="relative z-10 text-xl font-bold text-slate-900 mb-3">
+                    {t(`${step.key}Title` as "step1Title")}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="relative z-10 text-text-secondary leading-relaxed">
                     {t(`${step.key}Description` as "step1Description")}
                   </p>
                 </motion.div>

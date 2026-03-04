@@ -35,10 +35,10 @@
     "highlightWords": "Decisions,Noise."
   },
   "TrustBar": {
-    "heading": "Connects to the tools you already use"
+    "heading": "Connects To The Tools You Already Use"
   },
   "Problem": {
-    "heading": "Modern teams don't fail from lack of data.",
+    "heading": "Modern Teams Don't Fail From Lack Of Data.",
     "subheading": "They fail because decisions get buried in noise.",
     "stat1Value": "30–50%",
     "stat1Label": "PM time lost to alignment",
@@ -54,43 +54,43 @@
     "pain3Description": "Executives can't see WHY decisions were made — only the output. Strategy reviews become guesswork."
   },
   "Features": {
-    "heading": "Your <highlight>unfair advantage</highlight> in product decisions",
+    "heading": "Your <highlight>Unfair Advantage</highlight> In Product Decisions",
     "tab1Label": "Signal Ingestion",
-    "tab1Title": "Ingest every signal. Miss nothing.",
-    "tab1Description": "NEURON connects to your existing tools and automatically captures product signals — Slack feedback, user interviews, support tickets, analytics events, competitor mentions, and more.",
-    "tab1Bullet1": "Slack channels & threads",
-    "tab1Bullet2": "Jira tickets & comments",
-    "tab1Bullet3": "Notion docs & databases",
+    "tab1Title": "Capture every product signal",
+    "tab1Description": "NEURON connects to the tools your team already uses and automatically gathers product signals — from feedback to analytics — so nothing gets lost.",
+    "tab1Bullet1": "Slack conversations",
+    "tab1Bullet2": "Jira tickets and comments",
+    "tab1Bullet3": "Notion docs and databases",
     "tab1Bullet4": "User interview transcripts",
-    "tab1Bullet5": "Support tickets & NPS data",
+    "tab1Bullet5": "Support tickets and NPS data",
     "tab2Label": "Multi-Agent Synthesis",
-    "tab2Title": "AI agents that challenge each other.",
-    "tab2Description": "Unlike single-model tools, NEURON uses adversarial multi-agent AI. Agents argue, validate, and stress-test insights — so you get recommendations that have survived scrutiny, not just pattern matching.",
-    "tab2Bullet1": "Adversarial validation between agents",
-    "tab2Bullet2": "Confidence scoring on every insight",
-    "tab2Bullet3": "Bias detection & assumption flagging",
-    "tab2Bullet4": "Evidence-linked recommendations",
+    "tab2Title": "AI that thinks critically",
+    "tab2Description": "Instead of relying on one AI model, NEURON uses multiple AI agents that challenge and validate each other — helping you surface stronger insights and better decisions.",
+    "tab2Bullet1": "Agents validate each other's conclusions",
+    "tab2Bullet2": "Confidence scores for insights",
+    "tab2Bullet3": "Bias and assumption detection",
+    "tab2Bullet4": "Evidence-backed recommendations",
     "tab3Label": "Decision Artifacts",
-    "tab3Title": "From signals to ship-ready artifacts.",
-    "tab3Description": "NEURON doesn't just analyze — it produces. Get draft PRDs, prioritized tickets, decision briefs, and strategy memos that you can review, refine, and export directly to Jira, Linear, or Notion.",
-    "tab3Bullet1": "Auto-generated PRDs",
-    "tab3Bullet2": "Prioritized ticket drafts",
-    "tab3Bullet3": "Decision briefs with evidence trails",
+    "tab3Title": "Turn insights into action",
+    "tab3Description": "NEURON transforms insights into ready-to-use product outputs — from PRDs to tickets — so your team can move from thinking to building faster.",
+    "tab3Bullet1": "Draft PRDs",
+    "tab3Bullet2": "Prioritized tickets",
+    "tab3Bullet3": "Decision briefs with supporting evidence",
     "tab3Bullet4": "Strategy memos for leadership",
-    "tab3Bullet5": "Export to Jira / Linear / Notion",
+    "tab3Bullet5": "Export to Jira, Linear, or Notion",
     "tab4Label": "Memory & Traceability",
-    "tab4Title": "Institutional memory that never fades.",
-    "tab4Description": "Every decision is linked back to the signals, discussions, and agent reasoning that produced it. Six months from now, anyone can trace WHY a decision was made — not just that it was.",
-    "tab4Bullet1": "Full decision audit trail",
-    "tab4Bullet2": "Signal-to-decision lineage",
-    "tab4Bullet3": "Agent reasoning logs",
-    "tab4Bullet4": "Searchable decision history",
-    "tab4Bullet5": "Onboarding-friendly context",
+    "tab4Title": "Never lose the \"why\"",
+    "tab4Description": "Every decision is connected to the signals and reasoning behind it. Months later, anyone can understand why a product decision was made.",
+    "tab4Bullet1": "Complete decision history",
+    "tab4Bullet2": "Trace signals to decisions",
+    "tab4Bullet3": "AI reasoning logs",
+    "tab4Bullet4": "Searchable decision database",
+    "tab4Bullet5": "Clear context for new team members",
     "active": "Active",
     "signals": "{count} signals"
   },
   "HowItWorks": {
-    "heading": "How it works",
+    "heading": "How It Works",
     "subheading": "From signal to ship in three simple steps.",
     "step1Title": "Connect",
     "step1Description": "Link your Slack, Jira, Notion workspace in minutes. NEURON starts ingesting signals immediately.",
@@ -100,7 +100,7 @@
     "step3Description": "Export PRDs and tickets back to Jira/Linear/Notion with full traceability. Ship with confidence."
   },
   "StakeholderValue": {
-    "heading": "Built for every decision-maker on your team",
+    "heading": "Built For Every Decision-Maker On Your Team",
     "role1": "Product Leadership",
     "title1": "Higher-quality decisions, faster",
     "description1": "See the full evidence trail behind every product decision. Run strategy reviews backed by data, not opinions. Ensure consistency across squads.",
@@ -112,7 +112,7 @@
     "description3": "Stop writing PRDs from scratch. Stop re-explaining decisions. NEURON drafts artifacts and maintains context so you can focus on what matters — shipping."
   },
   "Testimonials": {
-    "heading": "What product teams say",
+    "heading": "What Product Teams Say",
     "quote1": "NEURON gave us a source of truth for why we built what we built. Our board reviews have never been cleaner.",
     "name1": "Sarah Chen",
     "title1": "VP of Product",
@@ -127,11 +127,11 @@
     "company3": "VelocityHQ"
   },
   "Integrations": {
-    "heading": "Connects to <highlight>10+ tools</highlight>. More coming.",
+    "heading": "Connects To <highlight>10+ Tools</highlight>. More Coming.",
     "seeAll": "See all integrations"
   },
   "FinalCTA": {
-    "heading": "Stop losing decisions to noise.",
+    "heading": "Stop Losing Decisions To Noise.",
     "subheading": "Join product teams that ship with clarity.",
     "cta": "Start Free Workspace",
     "note": "No credit card required. 5-minute setup."
@@ -162,21 +162,21 @@
   },
   "ProductPage": {
     "heroEyebrow": "The NEURON Platform",
-    "heroTitle": "Infrastructure for <highlight>product thinking</highlight>",
+    "heroTitle": "Infrastructure For <highlight>Product Thinking</highlight>",
     "heroDescription": "NEURON is the first Decision System of Record — an AI-powered platform that ingests product signals, synthesizes them through multi-agent AI, and produces decision-ready artifacts with full traceability."
   },
   "WhyNeuronPage": {
     "heroEyebrow": "Why NEURON",
-    "heroTitle": "The bottleneck isn't engineering velocity. It's <highlight>decision synthesis</highlight>.",
+    "heroTitle": "The Bottleneck Isn't Engineering Velocity. It's <highlight>Decision Synthesis</highlight>.",
     "heroDescription": "Product teams drown in signals from Slack, Jira, user interviews, and analytics. NEURON transforms that noise into clear, traceable decisions — so you ship the right thing, not just the next thing."
   },
   "IntegrationsPage": {
     "heroEyebrow": "Integrations",
-    "heroTitle": "NEURON integrates. It doesn't <highlight>replace</highlight>.",
+    "heroTitle": "NEURON Integrates. It Doesn't <highlight>Replace</highlight>.",
     "heroDescription": "Connect your existing tools in minutes. NEURON ingests signals from every source and publishes decisions back — no workflow disruption, no migration required."
   },
   "IntegrationDetails": {
-    "heading": "All integrations",
+    "heading": "All Integrations",
     "slackName": "Slack",
     "slackDescription": "Captures feedback, discussions, and decisions from channels and threads in real-time.",
     "jiraName": "Jira",
@@ -200,7 +200,7 @@
   },
   "PricingPage": {
     "heroEyebrow": "Pricing",
-    "heroTitle": "Simple pricing. <highlight>No surprises</highlight>.",
+    "heroTitle": "Simple Pricing. <highlight>No Surprises</highlight>.",
     "heroDescription": "Start free, scale as your team grows. Every plan includes multi-agent AI synthesis and full decision traceability."
   },
   "Pricing": {
@@ -242,7 +242,7 @@
   },
   "BlogPage": {
     "heroEyebrow": "Blog",
-    "heroTitle": "Insights on <highlight>decision intelligence</highlight>",
+    "heroTitle": "Insights On <highlight>Decision Intelligence</highlight>",
     "heroDescription": "Perspectives on product management, multi-agent AI, and the future of how teams make decisions."
   },
   "Blog": {
@@ -265,7 +265,7 @@
     "article4Date": "Coming Soon"
   },
   "GetDemo": {
-    "heading": "See NEURON <highlight>in action</highlight>",
+    "heading": "See NEURON <highlight>In Action</highlight>",
     "subheading": "Get a personalized demo tailored to your team's workflow. See how NEURON turns scattered signals into clear, traceable decisions.",
     "value1Title": "Personalized walkthrough",
     "value1Description": "See NEURON configured for your team's tools and workflow — not a generic product tour.",

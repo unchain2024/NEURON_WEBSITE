@@ -18,7 +18,7 @@ import {
   fadeInUp,
   staggerContainer,
 } from "@/components/motion-wrapper";
-import FlowGraph from "@/components/flow-graph";
+
 
 /* ─────────────────────────────────────────────────────
    Absorption Logos — 8 integration logos in a circle
@@ -568,17 +568,6 @@ export default function Hero() {
         </div>
       </MotionSection>
 
-      {/* ── FlowGraph — outside scroll wrapper ── */}
-      <div className="section-container">
-        <MotionDiv
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInUp}
-        >
-          <FlowGraph />
-        </MotionDiv>
-      </div>
     </>
   );
 }
