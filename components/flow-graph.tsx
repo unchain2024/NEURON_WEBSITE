@@ -188,7 +188,7 @@ function AxonTerminal({ node, index, label }: { node: NodeDef; index: number; la
 }
 
 /* ── The Soma — central NEURON processing hub ── */
-function Soma({ multiAgentLabel }: { multiAgentLabel: string }) {
+function Soma() {
   return (
     <motion.div
       className="relative flex flex-col items-center justify-center"
@@ -204,7 +204,7 @@ function Soma({ multiAgentLabel }: { multiAgentLabel: string }) {
           style={{
             width: 140 + i * 20,
             height: 140 + i * 20,
-            borderColor: i === 0 ? "rgba(99,102,241,0.15)" : "rgba(139,92,246,0.1)",
+            borderColor: i === 0 ? "rgba(16,185,129,0.15)" : "rgba(52,211,153,0.1)",
           }}
           animate={{ scale: [1, 1.2 + i * 0.1, 1], opacity: [0.3, 0, 0.3] }}
           transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: d, ease: "easeInOut" }}
@@ -216,42 +216,25 @@ function Soma({ multiAgentLabel }: { multiAgentLabel: string }) {
         <div
           className="w-full h-full rounded-full"
           style={{
-            background: "conic-gradient(from 0deg, transparent, rgba(99,102,241,0.4), transparent, rgba(139,92,246,0.3), transparent)",
+            background: "conic-gradient(from 0deg, transparent, rgba(16,185,129,0.4), transparent, rgba(52,211,153,0.3), transparent)",
             filter: "blur(12px)",
           }}
         />
       </div>
 
-      {/* Cell body */}
-      <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full flex flex-col items-center justify-center z-10"
-        style={{
-          background: "radial-gradient(circle at 40% 35%, #1E2535 0%, #161B27 60%, #0D0F14 100%)",
-          border: "1.5px solid rgba(99,102,241,0.3)",
-          boxShadow: "0 0 40px rgba(99,102,241,0.15), inset 0 0 20px rgba(99,102,241,0.05)",
-        }}
-      >
-        {/* Nucleus */}
-        <motion.div
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <BrainCircuit className="h-8 w-8 md:h-10 md:w-10 text-primary" />
-        </motion.div>
-        <span className="text-[10px] md:text-xs font-bold mt-1 gradient-text-animated">NEURON</span>
-      </div>
-
-      {/* Axon hillock label */}
+      {/* Logo */}
       <motion.div
-        className="absolute -bottom-9 z-10 px-3 py-1 rounded-full"
-        style={{
-          background: "rgba(99,102,241,0.08)",
-          border: "1px solid rgba(99,102,241,0.15)",
-        }}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2 }}
+        className="relative z-10"
+        animate={{ scale: [1, 1.1, 1] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
-        <span className="text-[10px] text-primary/80 font-medium">{multiAgentLabel}</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logos/neuron-cell.png"
+          alt="NEURON"
+          className="h-24 w-24 md:h-28 md:w-28"
+          style={{ filter: "drop-shadow(0 0 25px rgba(16,185,129,0.35))" }}
+        />
       </motion.div>
     </motion.div>
   );
@@ -347,7 +330,7 @@ export default function FlowGraph() {
           ))}
         </div>
         <div className="flex items-center justify-center" data-soma>
-          <Soma multiAgentLabel={t("multiAgentAI")} />
+          <Soma />
         </div>
         <div className="flex flex-col gap-2">
           {OUTPUT_NODES.map((n, i) => (

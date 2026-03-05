@@ -18,7 +18,8 @@ import {
   fadeInUp,
   staggerContainer,
 } from "@/components/motion-wrapper";
-import FlowGraph from "@/components/flow-graph";
+import TrustBar from "@/components/sections/trust-bar";
+
 
 /* ─────────────────────────────────────────────────────
    Absorption Logos — 8 integration logos in a circle
@@ -518,7 +519,7 @@ export default function Hero() {
           }}
         />
 
-        <div className="sticky top-0 h-screen flex items-center overflow-x-clip">
+        <div className="sticky top-0 h-screen flex flex-col justify-center overflow-x-clip">
           <motion.div
             className="section-container relative z-10 w-full"
             style={{ opacity: heroOpacity, y: heroY }}
@@ -540,6 +541,10 @@ export default function Hero() {
               >
                 <AbsorptionVisual scrollYProgress={scrollYProgress} />
               </MotionDiv>
+            </div>
+
+            <div className="-mt-2">
+              <TrustBar />
             </div>
           </motion.div>
         </div>
@@ -566,19 +571,11 @@ export default function Hero() {
             <MobileAbsorptionVisual />
           </MotionDiv>
         </div>
+        <div className="mt-8">
+          <TrustBar />
+        </div>
       </MotionSection>
 
-      {/* ── FlowGraph — outside scroll wrapper ── */}
-      <div className="section-container">
-        <MotionDiv
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInUp}
-        >
-          <FlowGraph />
-        </MotionDiv>
-      </div>
     </>
   );
 }

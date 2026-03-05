@@ -1,6 +1,5 @@
 "use client";
 
-import { BrainCircuit } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
@@ -79,7 +78,8 @@ export default function Footer() {
           {/* Logo column */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <BrainCircuit className="h-7 w-7 text-primary" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logos/neuron-cell.png" alt="" className="h-8 w-8" />
               <span className="text-xl font-bold tracking-tight">NEURON</span>
             </Link>
             <p className="text-sm text-slate-400 max-w-xs">
