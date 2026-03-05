@@ -13,29 +13,21 @@ const FOOTER_STRUCTURE: { titleKey: string; links: FooterLink[] }[] = [
   {
     titleKey: "col1Title",
     links: [
-      { key: "col1Link1", href: "/product" },
-      { key: "col1Link2", href: "/integrations" },
-      { key: "col1Link3", href: "/pricing" },
-      { key: "col1Link4", href: "#" },
-      { key: "col1Link5", href: "#" },
+      { key: "col1Link1", href: "/#features" },
+      { key: "col1Link2", href: "/why-neuron" },
+      { key: "col1Link3", href: "/integrations" },
+      { key: "col1Link4", href: "/pricing" },
+      { key: "col1Link5", href: "/blog" },
+      { key: "col1Link6", href: "/get-demo" },
     ],
   },
   {
     titleKey: "col2Title",
     links: [
-      { key: "col2Link1", href: "#" },
-      { key: "col2Link2", href: "/blog" },
-      { key: "col2Link3", href: "#" },
-      { key: "col2Link4", href: "#" },
-    ],
-  },
-  {
-    titleKey: "col3Title",
-    links: [
-      { key: "col3Link1", href: "#" },
-      { key: "col3Link2", href: "#" },
-      { key: "col3Link3", href: "#" },
-      { key: "col3Link4", href: "#" },
+      { key: "col2Link1", href: "https://www.the-unchain.com/", external: true },
+      { key: "col2Link2", href: "https://www.the-unchain.com/news", external: true },
+      { key: "col2Link3", href: "https://www.the-unchain.com/career", external: true },
+      { key: "col2Link4", href: "https://www.the-unchain.com/contact", external: true },
     ],
   },
   {
@@ -57,7 +49,6 @@ const FOOTER_STRUCTURE: { titleKey: string; links: FooterLink[] }[] = [
           en: "https://www.the-unchain.com/en/terms-of-use",
         },
       },
-      { key: "col4Link3", href: "#" },
     ],
   },
 ];

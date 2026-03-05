@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { PlayCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import {
   motion,
   useScroll,
@@ -79,15 +80,18 @@ function HeroText() {
         variants={fadeInUp}
         className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
       >
-        <motion.a
-          href="#"
-          className="inline-block bg-primary hover:bg-primary-600 text-white px-8 py-3.5 rounded-xl text-base font-semibold transition-colors shadow-lg shadow-primary/25"
+        <motion.div
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
-          {t("ctaPrimary")}
-        </motion.a>
+          <Link
+            href="/get-demo"
+            className="inline-block bg-primary hover:bg-primary-600 text-white px-8 py-3.5 rounded-xl text-base font-semibold transition-colors shadow-lg shadow-primary/25"
+          >
+            {t("ctaPrimary")}
+          </Link>
+        </motion.div>
         <motion.a
           href="#"
           className="inline-flex items-center gap-2 border border-border hover:border-slate-400 text-slate-900 px-8 py-3.5 rounded-xl text-base font-medium transition-colors"

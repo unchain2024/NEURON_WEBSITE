@@ -11,7 +11,11 @@ const INTEGRATIONS = [
   { key: "linear", logo: "/logos/linear.svg" },
   { key: "github", logo: "/logos/github.svg" },
   { key: "confluence", logo: "/logos/confluence.svg" },
-  { key: "google", logo: "/logos/googledocs.svg" },
+  { key: "google", logo: "/logos/google.svg" },
+  { key: "microsoft", logo: "/logos/microsoft.svg" },
+  { key: "salesforce", logo: "/logos/salesforce.svg" },
+  { key: "servicenow", logo: "/logos/servicenow.svg" },
+  { key: "dropbox", logo: "/logos/dropbox.svg" },
   { key: "hubspot", logo: "/logos/hubspot.svg" },
   { key: "discord", logo: "/logos/discord.svg" },
   { key: "figma", logo: "/logos/figma.svg" },
@@ -60,6 +64,24 @@ export default function IntegrationDetails() {
                 </div>
               </MotionDiv>
             ))}
+            <MotionDiv
+              variants={blurIn}
+              className="glass-card p-6 rounded-xl"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-lg bg-white border border-slate-100 flex items-center justify-center shrink-0 shadow-sm">
+                  <span className="text-slate-400 text-lg font-bold">+</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900 mb-1">
+                    {t("comingSoonTitle")}
+                  </h3>
+                  <p className="text-sm text-text-secondary leading-relaxed">
+                    {t("comingSoonDescription")}
+                  </p>
+                </div>
+              </div>
+            </MotionDiv>
           </div>
         </BlurReveal>
       </div>
