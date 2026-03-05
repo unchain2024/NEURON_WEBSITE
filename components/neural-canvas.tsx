@@ -68,6 +68,9 @@ export default function NeuralCanvas() {
       if (!canvas) return;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       w = window.innerWidth;
+      // Collapse canvas before measuring so it doesn't inflate scrollHeight
+      canvas.style.height = "0px";
+      canvas.height = 0;
       h = document.documentElement.scrollHeight;
       canvas.width = w * dpr;
       canvas.height = h * dpr;
