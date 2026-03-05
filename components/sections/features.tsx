@@ -16,10 +16,10 @@ interface TabMeta {
 }
 
 const TAB_META: TabMeta[] = [
-  { id: "signal-ingestion", icon: Database, key: "tab1", bulletCount: 5 },
-  { id: "multi-agent-synthesis", icon: Network, key: "tab2", bulletCount: 4 },
-  { id: "decision-artifacts", icon: FileText, key: "tab3", bulletCount: 5 },
-  { id: "memory-traceability", icon: History, key: "tab4", bulletCount: 5 },
+  { id: "signal-ingestion", icon: Database, key: "tab1", bulletCount: 3 },
+  { id: "multi-agent-synthesis", icon: Network, key: "tab2", bulletCount: 3 },
+  { id: "decision-artifacts", icon: FileText, key: "tab3", bulletCount: 3 },
+  { id: "memory-traceability", icon: History, key: "tab4", bulletCount: 3 },
 ];
 
 export default function Features() {

@@ -18,6 +18,7 @@ import {
   fadeInUp,
   staggerContainer,
 } from "@/components/motion-wrapper";
+import TrustBar from "@/components/sections/trust-bar";
 
 
 /* ─────────────────────────────────────────────────────
@@ -518,7 +519,7 @@ export default function Hero() {
           }}
         />
 
-        <div className="sticky top-0 h-screen flex items-center overflow-x-clip">
+        <div className="sticky top-0 h-screen flex flex-col justify-center overflow-x-clip">
           <motion.div
             className="section-container relative z-10 w-full"
             style={{ opacity: heroOpacity, y: heroY }}
@@ -540,6 +541,10 @@ export default function Hero() {
               >
                 <AbsorptionVisual scrollYProgress={scrollYProgress} />
               </MotionDiv>
+            </div>
+
+            <div className="-mt-2">
+              <TrustBar />
             </div>
           </motion.div>
         </div>
@@ -565,6 +570,9 @@ export default function Hero() {
           <MotionDiv variants={fadeInUp} className="mt-12 flex justify-center">
             <MobileAbsorptionVisual />
           </MotionDiv>
+        </div>
+        <div className="mt-8">
+          <TrustBar />
         </div>
       </MotionSection>
 

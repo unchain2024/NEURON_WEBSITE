@@ -19,7 +19,7 @@ export default function TrustBar() {
   const allLogos = [...TRUST_LOGOS, ...TRUST_LOGOS];
 
   return (
-    <section className="py-12 md:py-16 overflow-hidden">
+    <section className="py-6 md:py-8 overflow-hidden">
       <div className="section-container">
         <p className="text-center text-sm text-text-muted mb-8">
           {t("heading")}

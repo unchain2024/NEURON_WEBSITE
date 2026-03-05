@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 const MotionLink = motion.create(Link);
 
 const NAV_LINK_KEYS = [
-  { key: "product", href: "/product" },
   { key: "whyNeuron", href: "/why-neuron" },
   { key: "integrations", href: "/integrations" },
   { key: "pricing", href: "/pricing" },
