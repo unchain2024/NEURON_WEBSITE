@@ -16,6 +16,11 @@ const NAV_LINK_KEYS = [
   { key: "blog", href: "/blog" },
 ] as const;
 
+const COMPANY_URLS: Record<string, string> = {
+  en: "https://www.the-unchain.com/en",
+  ja: "https://www.the-unchain.com",
+};
+
 export default function Navbar() {
   const t = useTranslations("Nav");
   const locale = useLocale();
@@ -61,7 +66,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8 ml-auto mr-8">
             {NAV_LINK_KEYS.map((link, i) => (
               <MotionLink
                 key={link.key}
@@ -75,6 +80,18 @@ export default function Navbar() {
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
               </MotionLink>
             ))}
+            <motion.a
+              href={COMPANY_URLS[locale] ?? COMPANY_URLS.ja}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-text-secondary hover:text-slate-900 transition-colors relative group"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 + NAV_LINK_KEYS.length * 0.05 }}
+            >
+              {t("company")}
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
+            </motion.a>
           </div>
 
           {/* Desktop CTAs */}
@@ -137,6 +154,18 @@ export default function Navbar() {
                     {t(link.key)}
                   </MotionLink>
                 ))}
+                <motion.a
+                  href={COMPANY_URLS[locale] ?? COMPANY_URLS.ja}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-text-secondary hover:text-slate-900 transition-colors py-2"
+                  onClick={() => setMobileOpen(false)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: NAV_LINK_KEYS.length * 0.05 }}
+                >
+                  {t("company")}
+                </motion.a>
                 <div className="pt-4 border-t border-border/40 space-y-3">
                   <button
                     onClick={() => {

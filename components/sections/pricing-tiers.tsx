@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Check } from "lucide-react";
 import { BlurReveal, MotionDiv, blurIn } from "@/components/motion-wrapper";
+import { Link } from "@/i18n/navigation";
 
 export default function PricingTiers() {
   const t = useTranslations("Pricing");
@@ -46,9 +47,15 @@ export default function PricingTiers() {
                 ))}
               </ul>
 
-              <button className="w-full py-2.5 px-4 rounded-lg text-sm font-medium bg-primary hover:bg-primary-600 text-white transition-colors">
+              <Link
+                href="/get-demo"
+                className="block w-full py-2.5 px-4 rounded-lg text-sm font-medium bg-primary hover:bg-primary-600 text-white transition-colors text-center"
+              >
                 {t("enterpriseCta")}
-              </button>
+              </Link>
+              <p className="text-xs text-text-muted text-center mt-3">
+                {t("enterpriseCtaHelper")}
+              </p>
             </MotionDiv>
           </div>
         </BlurReveal>

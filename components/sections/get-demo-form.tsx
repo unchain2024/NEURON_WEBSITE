@@ -119,20 +119,6 @@ export default function GetDemoForm() {
                 ))}
               </div>
 
-              {/* Testimonial */}
-              <div className="glass-card p-6 rounded-xl max-w-lg">
-                <p className="text-slate-700 italic mb-4">
-                  &ldquo;{t("testimonialQuote")}&rdquo;
-                </p>
-                <div>
-                  <p className="font-semibold text-slate-900 text-sm">
-                    {t("testimonialName")}
-                  </p>
-                  <p className="text-xs text-text-muted">
-                    {t("testimonialRole")}
-                  </p>
-                </div>
-              </div>
             </MotionDiv>
 
             {/* Right Column — Form */}
