@@ -19,6 +19,11 @@ const INTEGRATIONS = [
   "HubSpot",
   "Discord",
   "Figma",
+  "Klaviyo",
+  "AB Tasty",
+  "Hotjar",
+  "UserTesting",
+  "Statsig",
 ] as const;
 
 export default function IntegrationsGrid() {

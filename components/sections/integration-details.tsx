@@ -19,6 +19,11 @@ const INTEGRATIONS = [
   { key: "hubspot", logo: "/logos/hubspot.svg" },
   { key: "discord", logo: "/logos/discord.svg" },
   { key: "figma", logo: "/logos/figma.svg" },
+  { key: "klaviyo", logo: "/logos/klaviyo.svg" },
+  { key: "abtasty", logo: "/logos/abtasty.svg" },
+  { key: "hotjar", logo: "/logos/hotjar.svg" },
+  { key: "usertesting", logo: "/logos/usertesting.svg" },
+  { key: "statsig", logo: "/logos/statsig.svg" },
 ] as const;
 
 export default function IntegrationDetails() {
