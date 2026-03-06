@@ -10,7 +10,11 @@ const TRUST_LOGOS = [
   { name: "Linear", src: "/logos/linear.svg" },
   { name: "GitHub", src: "/logos/github.svg" },
   { name: "Confluence", src: "/logos/confluence.svg" },
-  { name: "Google Docs", src: "/logos/googledocs.svg" },
+  { name: "Google Workspace", src: "/logos/google.svg" },
+  { name: "Microsoft 365", src: "/logos/microsoft.svg" },
+  { name: "Salesforce", src: "/logos/salesforce.svg" },
+  { name: "ServiceNow", src: "/logos/servicenow.svg" },
+  { name: "Dropbox", src: "/logos/dropbox.svg" },
   { name: "HubSpot", src: "/logos/hubspot.svg" },
 ];
 
