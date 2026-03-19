@@ -13,6 +13,8 @@ import {
   Map,
   type LucideIcon,
 } from "lucide-react";
+import Lottie from "lottie-react";
+import blobAnimationData from "@/public/logos/neuron-blob.json";
 
 /* ── Node definitions ── */
 interface NodeDef {
@@ -222,19 +224,26 @@ function Soma() {
         />
       </div>
 
-      {/* Logo */}
+      {/* Animated Lottie blob + NEURON label */}
       <motion.div
-        className="relative z-10"
+        className="relative z-10 flex items-center justify-center"
         animate={{ scale: [1, 1.1, 1] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/logos/neuron-cell.png"
-          alt="NEURON"
+        <div
           className="h-24 w-24 md:h-28 md:w-28"
           style={{ filter: "drop-shadow(0 0 25px rgba(16,185,129,0.35))" }}
-        />
+        >
+          <Lottie
+            animationData={blobAnimationData}
+            loop
+            autoplay
+            style={{ width: "100%", height: "100%" }}
+          />
+        </div>
+        <span className="absolute text-[10px] md:text-xs font-bold tracking-[0.2em] text-white/90 pointer-events-none">
+          NEURON
+        </span>
       </motion.div>
     </motion.div>
   );

@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
+import Lottie from "lottie-react";
+import blobAnimationData from "@/public/logos/neuron-blob.json";
 
 const MotionLink = motion.create(Link);
 
@@ -59,8 +61,12 @@ export default function Navbar() {
               whileHover={{ rotate: 180 }}
               transition={{ duration: 0.5, type: "spring" }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/neuron-cell.png" alt="" className="h-8 w-8" />
+              <Lottie
+                animationData={blobAnimationData}
+                loop
+                autoplay
+                className="h-8 w-8"
+              />
             </motion.div>
             <span className="text-xl font-bold tracking-tight text-slate-900">NEURON</span>
           </Link>
