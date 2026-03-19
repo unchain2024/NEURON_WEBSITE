@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef } from "react";
-import { PlayCircle } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useRef, useState, useCallback, useEffect } from "react";
+import { PlayCircle, X } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
+  AnimatePresence,
   motion,
   useScroll,
   useTransform,
@@ -19,10 +20,66 @@ import TrustBar from "@/components/sections/trust-bar";
 import NeuronBlob, { NeuronBlobMobile } from "@/components/neuron-blob";
 
 /* ─────────────────────────────────────────────────────
+   VideoModal
+   ───────────────────────────────────────────────────── */
+
+function VideoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const locale = useLocale();
+  const videoSrc = locale === "ja" ? "/demo-ja.mp4" : "/demo-en.mp4";
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div
+        className="relative w-[90vw] max-w-4xl aspect-video"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute -top-10 right-0 text-white/80 hover:text-white transition-colors"
+          aria-label="Close video"
+        >
+          <X className="h-7 w-7" />
+        </button>
+        <video
+          src={videoSrc}
+          controls
+          autoPlay
+          className="w-full h-full rounded-xl shadow-2xl"
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────
    HeroText
    ───────────────────────────────────────────────────── */
 
-function HeroText() {
+function HeroText({ onWatchDemo }: { onWatchDemo: () => void }) {
   const t = useTranslations("Hero");
   const h1 = t("h1");
   const highlightWords = t("highlightWords").split(",");
@@ -92,8 +149,8 @@ function HeroText() {
             {t("ctaPrimary")}
           </Link>
         </motion.div>
-        <motion.a
-          href="#"
+        <motion.button
+          onClick={onWatchDemo}
           className="inline-flex items-center gap-2 border border-border hover:border-slate-400 text-slate-900 px-8 py-3.5 rounded-xl text-base font-medium transition-colors"
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.98 }}
@@ -101,7 +158,7 @@ function HeroText() {
         >
           <PlayCircle className="h-5 w-5" />
           {t("ctaSecondary")}
-        </motion.a>
+        </motion.button>
       </MotionDiv>
 
       {/* Trust line */}
@@ -118,6 +175,8 @@ function HeroText() {
 
 export default function Hero() {
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const [showVideo, setShowVideo] = useState(false);
+  const closeVideo = useCallback(() => setShowVideo(false), []);
 
   const { scrollYProgress } = useScroll({
     target: wrapperRef,
@@ -145,7 +204,7 @@ export default function Hero() {
           >
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-                <HeroText />
+                <HeroText onWatchDemo={() => setShowVideo(true)} />
               </motion.div>
 
               <MotionDiv
@@ -179,7 +238,7 @@ export default function Hero() {
           }}
         />
         <div className="section-container relative z-10">
-          <HeroText />
+          <HeroText onWatchDemo={() => setShowVideo(true)} />
           <MotionDiv variants={fadeInUp} className="mt-12 flex justify-center">
             <NeuronBlobMobile />
           </MotionDiv>
@@ -188,6 +247,10 @@ export default function Hero() {
           <TrustBar />
         </div>
       </MotionSection>
+
+      <AnimatePresence>
+        <VideoModal open={showVideo} onClose={closeVideo} />
+      </AnimatePresence>
     </>
   );
 }
