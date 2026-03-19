@@ -8,6 +8,8 @@ import {
   useMotionValueEvent,
   type MotionValue,
 } from "framer-motion";
+import Lottie from "lottie-react";
+import blobAnimationData from "@/public/logos/neuron-blob.json";
 
 /* ─────────────────────────────────────────────────────
    Config
@@ -63,15 +65,24 @@ function BlobShell({
         }}
       />
 
-      {/* Blob image at 55% opacity for glassy translucent feel */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/logos/neuron-blob.png"
-        alt=""
-        className="absolute -inset-4 w-[calc(100%+32px)] h-[calc(100%+32px)] object-contain pointer-events-none"
+      {/* Animated Lottie blob */}
+      <div
+        className="absolute -inset-4 w-[calc(100%+32px)] h-[calc(100%+32px)] pointer-events-none"
         style={{ opacity: 0.65 }}
         aria-hidden="true"
-      />
+      >
+        <Lottie
+          animationData={blobAnimationData}
+          loop
+          autoplay
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+
+      {/* NEURON label */}
+      <span className="absolute inset-0 flex items-center justify-center text-sm xl:text-base font-bold tracking-[0.2em] text-white/90 pointer-events-none z-10">
+        NEURON
+      </span>
     </motion.div>
   );
 }

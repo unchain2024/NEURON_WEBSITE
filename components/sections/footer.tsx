@@ -2,6 +2,8 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import Lottie from "lottie-react";
+import blobAnimationData from "@/public/logos/neuron-blob.json";
 
 type FooterLink = {
   key: string;
@@ -69,8 +71,12 @@ export default function Footer() {
           {/* Logo column */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/neuron-cell.png" alt="" className="h-8 w-8" />
+              <Lottie
+                animationData={blobAnimationData}
+                loop
+                autoplay
+                className="h-8 w-8"
+              />
               <span className="text-xl font-bold tracking-tight">NEURON</span>
             </Link>
             <p className="text-sm text-slate-400 max-w-xs">
