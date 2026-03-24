@@ -43,14 +43,8 @@ const FOOTER_STRUCTURE: { titleKey: string; links: FooterLink[] }[] = [
           en: "https://www.the-unchain.com/en/privacy-policy",
         },
       },
-      {
-        key: "col4Link2",
-        external: true,
-        href: {
-          ja: "https://www.the-unchain.com/terms-of-use",
-          en: "https://www.the-unchain.com/en/terms-of-use",
-        },
-      },
+      { key: "col4Link2", href: "/terms" },
+      { key: "col4Link3", href: "/commercial-disclosure" },
     ],
   },
 ];
