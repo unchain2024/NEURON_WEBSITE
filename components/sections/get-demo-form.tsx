@@ -1,8 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import { useTranslations } from "next-intl";
-import { Zap, Shield, BarChart3, CheckCircle2, Loader2 } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import {
+  Zap,
+  Shield,
+  BarChart3,
+  CheckCircle2,
+  Loader2,
+  X,
+  Calendar,
+  ArrowRight,
+  Clock,
+  Video,
+} from "lucide-react";
 import {
   MotionDiv,
   BlurReveal,
@@ -10,6 +21,11 @@ import {
   blurIn,
 } from "@/components/motion-wrapper";
 import { cn } from "@/lib/utils";
+
+const BOOKING_URLS: Record<string, string> = {
+  ja: "https://timerex.net/s/tharada_4c59/03bbdfd0",
+  en: "https://calendar.app.google/B8uDN6oxopCFkpD2A",
+};
 
 const VALUE_PROPS = [
   { icon: Zap, key: "value1" },
@@ -30,6 +46,8 @@ const inputClass =
 
 export default function GetDemoForm() {
   const t = useTranslations("GetDemo");
+  const locale = useLocale();
+  const bookingUrl = BOOKING_URLS[locale] || BOOKING_URLS.en;
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -42,7 +60,23 @@ export default function GetDemoForm() {
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [showBookingModal, setShowBookingModal] = useState(false);
   const [error, setError] = useState("");
+
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape") setShowBookingModal(false);
+  }, []);
+
+  useEffect(() => {
+    if (showBookingModal) {
+      document.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [showBookingModal, handleKeyDown]);
 
   function handleChange(
     e: React.ChangeEvent<
@@ -72,6 +106,7 @@ export default function GetDemoForm() {
       const data = await res.json();
       if (data.success) {
         setSuccess(true);
+        setShowBookingModal(true);
       } else {
         setError(t("errorGeneric"));
       }
@@ -118,7 +153,6 @@ export default function GetDemoForm() {
                   </div>
                 ))}
               </div>
-
             </MotionDiv>
 
             {/* Right Column — Form */}
@@ -140,9 +174,16 @@ export default function GetDemoForm() {
                     <h2 className="text-2xl font-bold text-slate-900 mb-2">
                       {t("successTitle")}
                     </h2>
-                    <p className="text-text-secondary">
+                    <p className="text-text-secondary mb-6">
                       {t("successMessage")}
                     </p>
+                    <button
+                      onClick={() => setShowBookingModal(true)}
+                      className="inline-flex items-center gap-2 bg-primary hover:bg-primary-600 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+                    >
+                      <Calendar className="h-4 w-4" />
+                      {t("bookingModalTitle")}
+                    </button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
@@ -335,6 +376,108 @@ export default function GetDemoForm() {
           </div>
         </BlurReveal>
       </div>
+
+      {/* Booking Modal */}
+      {showBookingModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={t("bookingModalTitle")}
+        >
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setShowBookingModal(false)}
+          />
+
+          {/* Modal */}
+          <MotionDiv
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            className="relative z-10 w-full max-w-lg"
+          >
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+              {/* Close button */}
+              <button
+                onClick={() => setShowBookingModal(false)}
+                className="absolute top-4 right-4 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-white/80 hover:bg-white shadow-sm transition-colors text-slate-500 hover:text-slate-700"
+                aria-label={t("bookingClose")}
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              {/* Green gradient header */}
+              <div className="relative bg-gradient-to-br from-primary via-emerald-500 to-teal-500 px-8 pt-10 pb-12 text-white text-center overflow-hidden">
+                {/* Decorative circles */}
+                <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-white/10" />
+                <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full bg-white/10" />
+
+                <MotionDiv
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 15,
+                    delay: 0.1,
+                  }}
+                  className="relative"
+                >
+                  <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-5 backdrop-blur-sm">
+                    <CheckCircle2 className="h-8 w-8 text-white" />
+                  </div>
+                </MotionDiv>
+                <h2 className="text-2xl font-bold mb-2 relative">
+                  {t("successTitle")}
+                </h2>
+                <p className="text-emerald-100 text-sm relative max-w-xs mx-auto">
+                  {t("successMessage")}
+                </p>
+              </div>
+
+              {/* Body */}
+              <div className="px-8 py-8">
+                <h3 className="text-lg font-semibold text-slate-900 mb-1 text-center">
+                  {t("bookingModalTitle")}
+                </h3>
+                <p className="text-sm text-text-muted text-center mb-6">
+                  {t("bookingModalSubtitle")}
+                </p>
+
+                {/* Info cards */}
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  <div className="flex items-center gap-2.5 bg-slate-50 rounded-xl px-4 py-3">
+                    <Clock className="h-4 w-4 text-primary flex-shrink-0" />
+                    <span className="text-sm text-slate-700">{t("bookingDuration")}</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 bg-slate-50 rounded-xl px-4 py-3">
+                    <Video className="h-4 w-4 text-primary flex-shrink-0" />
+                    <span className="text-sm text-slate-700">{t("bookingFormat")}</span>
+                  </div>
+                </div>
+
+                {/* CTA Button */}
+                <a
+                  href={bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-center gap-3 w-full bg-primary hover:bg-primary-600 text-white font-semibold py-4 px-6 rounded-xl transition-all hover:shadow-lg hover:shadow-primary/25"
+                >
+                  <Calendar className="h-5 w-5" />
+                  {t("bookingCTA")}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+
+                <p className="text-xs text-text-muted text-center mt-4">
+                  {t("bookingFootnote")}
+                </p>
+              </div>
+            </div>
+          </MotionDiv>
+        </div>
+      )}
     </section>
   );
 }
