@@ -85,13 +85,14 @@ export const FEATURE_CATEGORIES: FeatureCategory[] = [
       { i18nKey: "syncOut", starter: true, team: true, business: true, enterprise: true },
       { i18nKey: "queriesPerMonth", starter: "queries200", team: "queries500", business: "queries1500", enterprise: "queriesUnlimited" },
       { i18nKey: "workspaces", starter: "workspaces1", team: "workspaces3", business: "workspaces5", enterprise: "workspacesUnlimited" },
-      { i18nKey: "adminsPerWorkspace", starter: "admins1", team: "admins3", business: "admins5", enterprise: "adminsUnlimited" },
+      { i18nKey: "adminsPerWorkspace", starter: "admins0", team: "admins3", business: "admins5", enterprise: "adminsUnlimited" },
     ],
   },
   {
     i18nKey: "integrationsData",
     features: [
       { i18nKey: "integrations", starter: "integrations3", team: "integrations7", business: "integrations15", enterprise: "integrationsUnlimited" },
+      { i18nKey: "managementToolIntegrations", starter: false, team: true, business: true, enterprise: true },
       { i18nKey: "fileUploads", starter: true, team: true, business: true, enterprise: true },
       { i18nKey: "storage", starter: "storage2gb", team: "storage15gb", business: "storage50gb", enterprise: "storageUnlimited" },
       { i18nKey: "dataRetention", starter: "retention6mo", team: "retention1yr", business: "retentionUnlimited", enterprise: "retentionUnlimited" },
@@ -112,7 +113,7 @@ export const FEATURE_CATEGORIES: FeatureCategory[] = [
   {
     i18nKey: "accessSecurity",
     features: [
-      { i18nKey: "rbac", starter: "rbacBasic", team: "rbacBasic", business: "rbacBasic", enterprise: "rbacCustom" },
+      { i18nKey: "rbac", starter: false, team: "rbacBasic", business: "rbacBasic", enterprise: "rbacCustom" },
       { i18nKey: "sourcePermissions", starter: false, team: true, business: true, enterprise: true },
       { i18nKey: "ssoSaml", starter: false, team: false, business: true, enterprise: true },
       { i18nKey: "auditLog", starter: false, team: "audit30days", business: "audit1yr", enterprise: "auditUnlimited" },
