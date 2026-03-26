@@ -1,8 +1,8 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import PageHero from "@/components/sections/page-hero";
-import PricingTiers from "@/components/sections/pricing-tiers";
 import FinalCTA from "@/components/sections/final-cta";
+import PricingPageClient from "./pricing-page-client";
 
 export async function generateMetadata({
   params,
@@ -21,7 +21,7 @@ export default function PricingPage() {
   return (
     <>
       <PageHero namespace="PricingPage" />
-      <PricingTiers />
+      <PricingPageClient />
       <FinalCTA />
     </>
   );
