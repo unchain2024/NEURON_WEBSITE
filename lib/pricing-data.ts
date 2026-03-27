@@ -130,6 +130,8 @@ export const FEATURE_CATEGORIES: FeatureCategory[] = [
   },
 ];
 
+export const ANNUAL_DISCOUNT_RATE = 0.17;
+
 export const FAQ_KEYS = [
   "tryBeforeBuying",
   "trialEnds",

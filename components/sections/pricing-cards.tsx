@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import {
   PRICING_TIERS,
+  ANNUAL_DISCOUNT_RATE,
   formatCurrency,
   capitalizeTierId,
   type PricingTier,
@@ -74,16 +75,23 @@ function PricingCard({
   const isEnterprise = tier.id === "enterprise";
 
   const monthlyPerSeat = prices.monthlyPerSeat;
-  const annualPerSeat = prices.annualPerSeat;
-  const annualMonthlyEquivalent =
-    annualPerSeat !== null ? annualPerSeat / 12 : null;
 
-  const displaySeats = isEnterprise ? 0 : Math.max(seats, tier.minSeats);
+  // Annual = 17% discount off monthly rate
+  const annualMonthlyEquivalent =
+    monthlyPerSeat !== null ? monthlyPerSeat * (1 - ANNUAL_DISCOUNT_RATE) : null;
+
+  const displaySeats = isEnterprise ? 0 : seats;
 
   const totalMonthly =
     monthlyPerSeat !== null ? displaySeats * monthlyPerSeat : null;
   const totalAnnual =
-    annualPerSeat !== null ? displaySeats * annualPerSeat : null;
+    annualMonthlyEquivalent !== null
+      ? annualMonthlyEquivalent * 12 * displaySeats
+      : null;
+
+  // Savings derived from discount
+  const savingsPerSeat =
+    monthlyPerSeat !== null ? monthlyPerSeat * ANNUAL_DISCOUNT_RATE * 12 : null;
 
   const fmt = (amount: number) =>
     formatCurrency(amount, prices.currency, prices.locale);
@@ -147,9 +155,9 @@ function PricingCard({
             <p className="text-sm text-text-secondary">
               {t("perSeatMonth")}, {t("billedAnnually")}
             </p>
-            {prices.savingsPerSeat !== null && (
+            {savingsPerSeat !== null && (
               <span className="inline-block text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded mt-2">
-                {t("saveBadge", { amount: fmt(prices.savingsPerSeat) })}
+                {t("saveBadge", { amount: fmt(savingsPerSeat) })}
               </span>
             )}
           </>
