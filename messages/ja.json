@@ -236,7 +236,7 @@
   "Pricing": {
     "billingMonthly": "月払い",
     "billingAnnual": "年払い",
-    "billingSavePercent": "約17%お得",
+    "billingSavePercent": "約12%お得",
     "sliderLabel": "チームサイズ",
     "sliderSeats": "{count}席",
     "tierStarterName": "スターター",
@@ -357,7 +357,7 @@
     "enterpriseExtra10": "暗号鍵管理（顧客管理CMK）",
     "enterpriseExtra11": "99.9% SLA（インシデント対応付き）",
     "enterpriseSectionCta": "営業に相談",
-    "enterpriseSectionCtaEmail": "sales@unchain.co.jp",
+    "enterpriseSectionCtaEmail": "",
     "faqTitle": "よくあるご質問",
     "faqTryBeforeBuyingQ": "購入前にNeuronを試せますか？",
     "faqTryBeforeBuyingA": "はい — すべてのプランに7日間の無料トライアルが含まれています。クレジットカード不要です。",
@@ -374,7 +374,7 @@
     "faqDataSecurityQ": "データは安全ですか？",
     "faqDataSecurityA": "すべてのデータは保存時・転送時に暗号化されています。連携の認証情報はAES-256で暗号化。エンタープライズプランでは顧客管理の暗号鍵とデータレジデンシーオプションをご利用いただけます。",
     "faqNonprofitDiscountQ": "非営利団体や教育機関向けの割引はありますか？",
-    "faqNonprofitDiscountA": "sales@unchain.co.jp までお問い合わせください — 対象組織向けの特別価格をご用意しています。"
+    "faqNonprofitDiscountA": "営業チームまでお問い合わせください — 対象組織向けの特別価格をご用意しています。"
   },
   "BlogPage": {
     "heroEyebrow": "ブログ",

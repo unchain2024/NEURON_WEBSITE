@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import {
   PRICING_TIERS,
-  ANNUAL_DISCOUNT_RATE,
   formatCurrency,
   capitalizeTierId,
   type PricingTier,
@@ -76,9 +75,8 @@ function PricingCard({
 
   const monthlyPerSeat = prices.monthlyPerSeat;
 
-  // Annual = 17% discount off monthly rate
   const annualMonthlyEquivalent =
-    monthlyPerSeat !== null ? monthlyPerSeat * (1 - ANNUAL_DISCOUNT_RATE) : null;
+    prices.annualPerSeat !== null ? prices.annualPerSeat / 12 : null;
 
   const displaySeats = isEnterprise ? 0 : seats;
 
@@ -89,9 +87,10 @@ function PricingCard({
       ? annualMonthlyEquivalent * 12 * displaySeats
       : null;
 
-  // Savings derived from discount
   const savingsPerSeat =
-    monthlyPerSeat !== null ? monthlyPerSeat * ANNUAL_DISCOUNT_RATE * 12 : null;
+    monthlyPerSeat !== null && annualMonthlyEquivalent !== null
+      ? (monthlyPerSeat - annualMonthlyEquivalent) * 12
+      : null;
 
   const fmt = (amount: number) =>
     formatCurrency(amount, prices.currency, prices.locale);

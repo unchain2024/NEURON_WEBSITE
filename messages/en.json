@@ -236,7 +236,7 @@
   "Pricing": {
     "billingMonthly": "Monthly",
     "billingAnnual": "Annual",
-    "billingSavePercent": "Save ~17%",
+    "billingSavePercent": "Save ~12%",
     "sliderLabel": "Team size",
     "sliderSeats": "{count} seats",
     "tierStarterName": "Starter",
@@ -357,7 +357,7 @@
     "enterpriseExtra10": "Encryption key management (customer-managed CMK)",
     "enterpriseExtra11": "99.9% SLA with incident response",
     "enterpriseSectionCta": "Talk to Sales",
-    "enterpriseSectionCtaEmail": "sales@unchain.co.jp",
+    "enterpriseSectionCtaEmail": "",
     "faqTitle": "Frequently Asked Questions",
     "faqTryBeforeBuyingQ": "Can I try Neuron before buying?",
     "faqTryBeforeBuyingA": "Yes — all plans include a 7-day free trial with full access. No credit card required.",
@@ -374,7 +374,7 @@
     "faqDataSecurityQ": "Is my data secure?",
     "faqDataSecurityA": "All data is encrypted at rest and in transit. Integration credentials are encrypted with AES-256. Enterprise plans offer customer-managed encryption keys and data residency options.",
     "faqNonprofitDiscountQ": "Do you offer discounts for nonprofits or education?",
-    "faqNonprofitDiscountA": "Contact sales@unchain.co.jp — we offer special pricing for qualifying organizations."
+    "faqNonprofitDiscountA": "Contact our sales team — we offer special pricing for qualifying organizations."
   },
   "BlogPage": {
     "heroEyebrow": "Blog",
