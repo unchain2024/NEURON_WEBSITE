@@ -40,9 +40,6 @@ export default function PricingEnterpriseSection() {
                 >
                   {t("enterpriseSectionCta")}
                 </Link>
-                <p className="text-xs text-text-muted mt-2">
-                  {t("enterpriseSectionCtaEmail")}
-                </p>
               </div>
             </div>
           </MotionDiv>

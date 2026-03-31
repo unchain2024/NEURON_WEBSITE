@@ -4,7 +4,6 @@ export type Locale = "en" | "ja";
 export interface TierPrices {
   monthlyPerSeat: number | null;
   annualPerSeat: number | null;
-  savingsPerSeat: number | null;
   currency: string;
   locale: string;
 }
@@ -21,8 +20,8 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     id: "starter",
     prices: {
-      en: { monthlyPerSeat: 50, annualPerSeat: 500, savingsPerSeat: 100, currency: "USD", locale: "en-US" },
-      ja: { monthlyPerSeat: 7500, annualPerSeat: 75000, savingsPerSeat: 15000, currency: "JPY", locale: "ja-JP" },
+      en: { monthlyPerSeat: 17, annualPerSeat: 180, currency: "USD", locale: "en-US" },
+      ja: { monthlyPerSeat: 2591, annualPerSeat: 27360, currency: "JPY", locale: "ja-JP" },
     },
     minSeats: 3,
     badge: null,
@@ -31,8 +30,8 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     id: "team",
     prices: {
-      en: { monthlyPerSeat: 70, annualPerSeat: 700, savingsPerSeat: 140, currency: "USD", locale: "en-US" },
-      ja: { monthlyPerSeat: 10500, annualPerSeat: 105000, savingsPerSeat: 21000, currency: "JPY", locale: "ja-JP" },
+      en: { monthlyPerSeat: 34, annualPerSeat: 360, currency: "USD", locale: "en-US" },
+      ja: { monthlyPerSeat: 5659, annualPerSeat: 59760, currency: "JPY", locale: "ja-JP" },
     },
     minSeats: 5,
     badge: "mostPopular",
@@ -41,8 +40,8 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     id: "business",
     prices: {
-      en: { monthlyPerSeat: 120, annualPerSeat: 1200, savingsPerSeat: 240, currency: "USD", locale: "en-US" },
-      ja: { monthlyPerSeat: 18000, annualPerSeat: 180000, savingsPerSeat: 36000, currency: "JPY", locale: "ja-JP" },
+      en: { monthlyPerSeat: 57, annualPerSeat: 600, currency: "USD", locale: "en-US" },
+      ja: { monthlyPerSeat: 9068, annualPerSeat: 95760, currency: "JPY", locale: "ja-JP" },
     },
     minSeats: 15,
     badge: null,
@@ -51,8 +50,8 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     id: "enterprise",
     prices: {
-      en: { monthlyPerSeat: null, annualPerSeat: null, savingsPerSeat: null, currency: "USD", locale: "en-US" },
-      ja: { monthlyPerSeat: null, annualPerSeat: null, savingsPerSeat: null, currency: "JPY", locale: "ja-JP" },
+      en: { monthlyPerSeat: null, annualPerSeat: null, currency: "USD", locale: "en-US" },
+      ja: { monthlyPerSeat: null, annualPerSeat: null, currency: "JPY", locale: "ja-JP" },
     },
     minSeats: 30,
     badge: null,
@@ -130,7 +129,6 @@ export const FEATURE_CATEGORIES: FeatureCategory[] = [
   },
 ];
 
-export const ANNUAL_DISCOUNT_RATE = 0.17;
 
 export const FAQ_KEYS = [
   "tryBeforeBuying",
