@@ -24,6 +24,11 @@ const INTEGRATIONS = [
   { key: "hotjar", logo: "/logos/hotjar.svg" },
   { key: "usertesting", logo: "/logos/usertesting.svg" },
   { key: "statsig", logo: "/logos/statsig.svg" },
+  { key: "recallai", logo: "/logos/recallai.svg" },
+  { key: "granola", logo: "/logos/granola.svg" },
+  { key: "chatwork", logo: "/logos/chatwork.svg" },
+  { key: "line", logo: "/logos/line.svg" },
+  { key: "kintone", logo: "/logos/kintone.svg" },
 ] as const;
 
 export default function IntegrationDetails() {

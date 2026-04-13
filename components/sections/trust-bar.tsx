@@ -16,6 +16,11 @@ const TRUST_LOGOS = [
   { name: "ServiceNow", src: "/logos/servicenow.svg" },
   { name: "Dropbox", src: "/logos/dropbox.svg" },
   { name: "HubSpot", src: "/logos/hubspot.svg" },
+  { name: "Recall.ai", src: "/logos/recallai.svg" },
+  { name: "Granola", src: "/logos/granola.svg" },
+  { name: "Chatwork", src: "/logos/chatwork.svg" },
+  { name: "LINE", src: "/logos/line.svg" },
+  { name: "kintone", src: "/logos/kintone.svg" },
 ];
 
 export default function TrustBar() {
