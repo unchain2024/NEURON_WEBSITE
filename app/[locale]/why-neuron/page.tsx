@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import PageHero from "@/components/sections/page-hero";
 import Problem from "@/components/sections/problem";
+import ComparisonTable from "@/components/sections/comparison-table";
 import StakeholderValue from "@/components/sections/stakeholder-value";
 import Testimonials from "@/components/sections/testimonials";
 import FinalCTA from "@/components/sections/final-cta";
@@ -24,6 +25,7 @@ export default function WhyNeuronPage() {
     <>
       <PageHero namespace="WhyNeuronPage" />
       <Problem />
+      <ComparisonTable />
       <StakeholderValue />
       <Testimonials />
       <FinalCTA />

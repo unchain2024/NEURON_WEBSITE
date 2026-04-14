@@ -1,5 +1,7 @@
 "use client";
 
+import Lottie from "lottie-react";
+import blobAnimationData from "@/public/logos/neuron-blob.json";
 import {
   LayoutDashboard,
   MessageCircle,
@@ -39,7 +41,6 @@ export default function CollaborationSection() {
   const signalCards = [
     { title: t("sig1Title"), desc: t("sig1Desc"), author: t("sig1Author"), authorInitials: t("sig1AI"), date: t("sig1Date"), match: t("sig1Match") },
     { title: t("sig2Title"), desc: t("sig2Desc"), author: t("sig2Author"), authorInitials: t("sig2AI"), date: t("sig2Date"), match: t("sig2Match") },
-    { title: t("sig3Title"), desc: t("sig3Desc"), author: t("sig3Author"), authorInitials: t("sig3AI"), date: t("sig3Date"), match: t("sig3Match") },
   ];
 
   return (
@@ -59,13 +60,11 @@ export default function CollaborationSection() {
 
           <MotionDiv variants={fadeInUp}>
             <div className="rounded-2xl border border-slate-200 bg-white shadow-lg overflow-hidden">
-              <div className="flex h-[440px] md:h-[500px]">
+              <div className="flex h-[420px] md:h-[460px]">
                 {/* Sidebar */}
                 <div className="hidden md:flex flex-col w-40 lg:w-44 border-r border-slate-100 bg-slate-50/50 shrink-0">
                   <div className="flex items-center gap-2 px-3 py-3 border-b border-slate-100">
-                    <div className="h-6 w-6 rounded-md bg-emerald-500 flex items-center justify-center">
-                      <span className="text-white text-[10px] font-bold">N</span>
-                    </div>
+                    <Lottie animationData={blobAnimationData} loop autoplay className="h-6 w-6" />
                     <span className="text-xs font-bold text-slate-900">NEURON</span>
                   </div>
                   <nav className="flex-1 px-1.5 py-2 space-y-0.5">
@@ -121,88 +120,82 @@ export default function CollaborationSection() {
                   </div>
 
                   {/* Messages */}
-                  <div className="flex-1 overflow-y-auto px-4 md:px-5 py-4 space-y-4">
-                    {/* User message (PM) */}
-                    <div className="flex justify-end">
-                      <div className="max-w-[80%] sm:max-w-[70%]">
-                        <div className="bg-emerald-500 text-white rounded-2xl rounded-br-md px-4 py-2.5">
-                          <p className="text-[12px] leading-relaxed">{t("userMsg")}</p>
+                  <div className="flex-1 overflow-hidden px-3 md:px-4 py-3 space-y-2.5">
+
+                    {/* 1. Employee asks a question */}
+                    <div className="flex gap-2">
+                      <div className="h-5 w-5 rounded-full bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="text-white text-[7px] font-bold">{t("empInitials")}</span>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-1.5 mb-0.5">
+                          <span className="text-[9px] font-semibold text-slate-700">{t("empName")}</span>
+                          <span className="text-[8px] text-slate-400">{t("empTime")}</span>
                         </div>
-                        <div className="flex items-center justify-end gap-1.5 mt-1">
-                          <div className="h-4 w-4 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                            <span className="text-[7px] font-bold text-white">{t("pmInitials")}</span>
-                          </div>
-                          <span className="text-[9px] text-slate-400">{t("pmName")}</span>
+                        <div className="bg-slate-100 rounded-xl rounded-tl-md px-3 py-2">
+                          <p className="text-[10px] text-slate-700 leading-relaxed">{t("empMsg")}</p>
                         </div>
                       </div>
                     </div>
 
-                    {/* NEURON response */}
-                    <div className="flex gap-2.5">
-                      <div className="h-6 w-6 rounded-md bg-emerald-500 flex items-center justify-center shrink-0 mt-0.5">
-                        <span className="text-white text-[9px] font-bold">N</span>
+                    {/* 2. NEURON responds with analysis + signal cards */}
+                    <div className="flex gap-2">
+                      <div className="h-5 w-5 shrink-0 mt-0.5">
+                        <Lottie animationData={blobAnimationData} loop autoplay className="h-5 w-5" />
                       </div>
-                      <div className="flex-1 min-w-0 space-y-3">
-                        <div className="bg-slate-50 rounded-2xl rounded-tl-md px-4 py-3">
-                          <p className="text-[11px] text-slate-700 leading-relaxed whitespace-pre-line">{t("aiResponse")}</p>
-                          <ul className="mt-2 space-y-0.5">
-                            {[t("aiPoint1"), t("aiPoint2"), t("aiPoint3"), t("aiPoint4")].map((point, i) => (
-                              <li key={i} className="text-[10px] text-slate-500 flex items-start gap-1.5">
-                                <span className="text-slate-300 mt-0.5">•</span>
+                      <div className="flex-1 min-w-0 space-y-1.5">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[9px] font-semibold text-emerald-700">NEURON</span>
+                          <span className="text-[8px] text-slate-400">{t("aiTime")}</span>
+                        </div>
+                        <div className="bg-emerald-50/50 rounded-xl rounded-tl-md px-3 py-2">
+                          <p className="text-[10px] text-slate-700 leading-relaxed">{t("aiResponse")}</p>
+                          <ul className="mt-1 space-y-0">
+                            {[t("aiPoint1"), t("aiPoint2"), t("aiPoint3")].map((point, i) => (
+                              <li key={i} className="text-[9px] text-slate-600 flex items-start gap-1">
+                                <span className="text-emerald-400 mt-0.5">•</span>
                                 <span>{point}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
 
-                        {/* Relevant Signals section */}
-                        <div>
-                          <p className="text-[10px] font-semibold text-slate-500 mb-2">{t("relevantSignals")}</p>
-                          <div className="flex gap-2 overflow-x-auto pb-1">
-                            {signalCards.map((sig, i) => (
-                              <div key={i} className="rounded-lg border border-slate-100 p-2.5 min-w-[160px] max-w-[180px] shrink-0 hover:border-slate-200 transition-colors">
-                                <div className="flex items-center gap-1 mb-1.5 flex-wrap">
-                                  <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[8px] font-medium border bg-emerald-50 text-emerald-700 border-emerald-200">
-                                    <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                                    {t("tagDecision")}
-                                  </span>
-                                  <span className="text-[8px] text-emerald-600 font-medium">{sig.match}</span>
-                                </div>
-                                <h4 className="text-[10px] font-semibold text-slate-700 mb-0.5 leading-snug line-clamp-2">{sig.title}</h4>
-                                <p className="text-[9px] text-slate-400 leading-relaxed line-clamp-2 mb-1.5">{sig.desc}</p>
-                                <div className="flex items-center gap-1.5 text-[8px] text-slate-400">
-                                  <div className="h-3 w-3 rounded-full bg-gradient-to-br from-amber-300 to-orange-400 flex items-center justify-center">
-                                    <span className="text-[6px] font-bold text-white">{sig.authorInitials}</span>
-                                  </div>
-                                  <span>@{sig.author}</span>
-                                  <span>{sig.date}</span>
-                                </div>
+                        {/* Compact signal cards */}
+                        <div className="flex gap-1.5 overflow-x-auto">
+                          {signalCards.map((sig, i) => (
+                            <div key={i} className="rounded-md border border-slate-100 px-2 py-1.5 min-w-[150px] max-w-[180px] shrink-0 bg-white">
+                              <div className="flex items-center gap-1 mb-1">
+                                <span className="px-1 py-0.5 rounded text-[7px] font-medium border bg-emerald-50 text-emerald-700 border-emerald-200">{t("tagDecision")}</span>
+                                <span className="text-[7px] text-emerald-600 font-medium">{sig.match}</span>
                               </div>
-                            ))}
-                          </div>
+                              <h4 className="text-[9px] font-semibold text-slate-700 leading-snug line-clamp-1">{sig.title}</h4>
+                              <p className="text-[8px] text-slate-400 line-clamp-1">{sig.desc}</p>
+                            </div>
+                          ))}
                         </div>
+                      </div>
+                    </div>
 
-                        {/* Engineer follow-up */}
-                        <div className="flex justify-end">
-                          <div className="max-w-[85%]">
-                            <div className="bg-slate-100 rounded-2xl rounded-br-md px-4 py-2.5">
-                              <p className="text-[11px] text-slate-700 leading-relaxed">{t("engMsg")}</p>
-                            </div>
-                            <div className="flex items-center justify-end gap-1.5 mt-1">
-                              <div className="h-4 w-4 rounded-full bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center">
-                                <span className="text-[7px] font-bold text-white">{t("engInitials")}</span>
-                              </div>
-                              <span className="text-[9px] text-slate-400">{t("engName")}</span>
-                            </div>
-                          </div>
+                    {/* 3. Manager adds context */}
+                    <div className="flex gap-2">
+                      <div className="h-5 w-5 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                        <span className="text-white text-[7px] font-bold">{t("mgrInitials")}</span>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-1.5 mb-0.5">
+                          <span className="text-[9px] font-semibold text-slate-700">{t("mgrName")}</span>
+                          <span className="text-[8px] text-slate-400">{t("mgrTime")}</span>
+                        </div>
+                        <div className="bg-blue-50/60 rounded-xl rounded-tl-md px-3 py-2">
+                          <p className="text-[10px] text-slate-700 leading-relaxed">{t("mgrMsg")}</p>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   {/* Input bar */}
-                  <div className="px-4 md:px-5 py-3 border-t border-slate-100">
-                    <div className="flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 bg-white">
+                  <div className="px-3 md:px-4 py-2 border-t border-slate-100">
+                    <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg border border-slate-200 bg-white">
                       <span className="text-[11px] text-slate-400 flex-1 truncate">{t("inputPlaceholder")}</span>
                       <div className="flex items-center gap-1.5 shrink-0">
                         <button className="flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200 text-[9px] text-slate-500">

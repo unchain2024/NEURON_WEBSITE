@@ -1,5 +1,7 @@
 "use client";
 
+import Lottie from "lottie-react";
+import blobAnimationData from "@/public/logos/neuron-blob.json";
 import {
   LayoutDashboard,
   MessageCircle,
@@ -108,9 +110,7 @@ function Sidebar({ nav, user }: { nav: NavLabels; user: UserInfo; activeNav?: st
   return (
     <div className="hidden md:flex flex-col w-40 lg:w-44 border-r border-slate-100 bg-slate-50/50 shrink-0">
       <div className="flex items-center gap-2 px-3 py-3 border-b border-slate-100">
-        <div className="h-6 w-6 rounded-md bg-emerald-500 flex items-center justify-center">
-          <span className="text-white text-[10px] font-bold">N</span>
-        </div>
+        <Lottie animationData={blobAnimationData} loop autoplay className="h-6 w-6" />
         <span className="text-xs font-bold text-slate-900">NEURON</span>
       </div>
       <nav className="flex-1 px-1.5 py-2 space-y-0.5">
