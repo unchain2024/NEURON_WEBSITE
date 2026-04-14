@@ -94,7 +94,7 @@ const SEVERITY_STYLES: Record<string, string> = {
 
 /* ─── Shared sidebar ─── */
 
-function Sidebar({ nav, user }: { nav: NavLabels; user: UserInfo; activeNav?: string }) {
+function Sidebar({ nav, user, activeNav = "signals" }: { nav: NavLabels; user: UserInfo; activeNav?: string }) {
   const navItems = [
     { icon: LayoutDashboard, label: nav.dashboard, key: "dashboard" },
     { icon: MessageCircle, label: nav.chat, key: "chat" },
@@ -115,7 +115,7 @@ function Sidebar({ nav, user }: { nav: NavLabels; user: UserInfo; activeNav?: st
       </div>
       <nav className="flex-1 px-1.5 py-2 space-y-0.5">
         {navItems.map((item) => (
-          <div key={item.key} className={`flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[11px] ${item.key === "signals" ? "bg-emerald-50 text-emerald-700 font-medium" : "text-slate-500"}`}>
+          <div key={item.key} className={`flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[11px] ${item.key === activeNav ? "bg-emerald-50 text-emerald-700 font-medium" : "text-slate-500"}`}>
             <item.icon className="h-3.5 w-3.5" />
             <span>{item.label}</span>
           </div>
@@ -200,13 +200,14 @@ interface NeuronListProps {
   pageTitle: string;
   sections: Section[];
   contested?: string;
+  activeNav?: string;
 }
 
-function NeuronListScreen({ nav, search, user, pageTitle, sections, contested = "Contested" }: NeuronListProps) {
+function NeuronListScreen({ nav, search, user, pageTitle, sections, contested = "Contested", activeNav = "signals" }: NeuronListProps) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white shadow-lg overflow-hidden">
       <div className="flex h-[400px] md:h-[440px]">
-        <Sidebar nav={nav} user={user} />
+        <Sidebar nav={nav} user={user} activeNav={activeNav} />
         <div className="flex-1 flex flex-col min-w-0">
           <div className="px-3 md:px-5 py-3 border-b border-slate-100">
             <div className="flex items-center justify-between">
@@ -264,13 +265,14 @@ interface NeuronDetailProps {
   breakdown: BreakdownCol[];
   linkedLabel: string;
   linkedItems: LinkedItem[];
+  activeNav?: string;
 }
 
 function NeuronDetailScreen(props: NeuronDetailProps) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white shadow-lg overflow-hidden">
       <div className="flex h-[400px] md:h-[440px]">
-        <Sidebar nav={props.nav} user={props.user} />
+        <Sidebar nav={props.nav} user={props.user} activeNav={props.activeNav || "signals"} />
         <div className="flex-1 flex flex-col min-w-0">
           {/* Top bar */}
           <div className="px-3 md:px-5 py-2.5 border-b border-slate-100">
@@ -393,27 +395,94 @@ export function PMVisual1({ t }: { t: (k: string) => string }) {
   );
 }
 
-/* PM2: Health Score — DETAIL */
+/* PM2: Project Health Dashboard */
 export function PMVisual2({ t }: { t: (k: string) => string }) {
+  const nav = buildNav(t);
+  const user = buildUser(t);
+
+  const projects = [
+    { name: t("ph1Name"), score: 72, scoreColor: "text-amber-500", barColor: "bg-amber-400", change: -3, risks: 4, status: t("phAtRisk") },
+    { name: t("ph2Name"), score: 91, scoreColor: "text-emerald-500", barColor: "bg-emerald-400", change: 2, risks: 0, status: t("phOnTrack") },
+    { name: t("ph3Name"), score: 85, scoreColor: "text-emerald-500", barColor: "bg-emerald-400", change: 0, risks: 1, status: t("phOnTrack") },
+  ];
+
   return (
-    <NeuronDetailScreen
-      nav={buildNav(t)} user={buildUser(t)}
-      back={t("dBack")} openItem={t("dOpenItem")} statusLabel={t("dUnresolved")}
-      severity={t("d2Severity")} severityLevel="high"
-      tags={[{ label: t("v2T1"), variant: "risk" }, { label: t("v2T2"), variant: "neutral" }]}
-      title={t("d2Title")} desc={t("d2Desc")}
-      project={t("d2Proj")} author={t("d2Author")} authorInitials={t("d2AI")} date={t("d2Date")}
-      breakdown={[
-        { label: t("d2Col1Label"), value: "72", valueColor: "text-amber-500", desc: t("d2Col1Desc") },
-        { label: t("d2Col2Label"), desc: t("d2Col2Desc") },
-        { label: t("d2Col3Label"), desc: t("d2Col3Desc") },
-      ]}
-      linkedLabel={t("dLinked") + " 2"}
-      linkedItems={[
-        { tags: [{ label: t("v2T1"), variant: "risk" }], title: t("d2L1Title"), desc: t("d2L1Desc") },
-        { tags: [{ label: t("v2T1"), variant: "risk" }], title: t("d2L2Title"), desc: t("d2L2Desc") },
-      ]}
-    />
+    <div className="rounded-2xl border border-slate-200 bg-white shadow-lg overflow-hidden">
+      <div className="flex h-[400px] md:h-[440px]">
+        <Sidebar nav={nav} user={user} activeNav="projects" />
+        <div className="flex-1 flex flex-col min-w-0">
+          <div className="px-3 md:px-5 py-3 border-b border-slate-100">
+            <div className="flex items-center justify-between">
+              <h3 className="text-base font-bold text-slate-900">{t("phTitle")}</h3>
+              <div className="flex items-center gap-1.5">
+                <div className="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-md border border-slate-200 text-slate-400 text-[11px]">
+                  <Search className="h-3 w-3" />
+                  <span>{t("navSearch")}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-1 overflow-y-auto px-3 md:px-5 py-3 space-y-3">
+            {/* Overall health summary */}
+            <div className="grid grid-cols-3 gap-3">
+              <div className="rounded-lg bg-slate-50 p-3 text-center">
+                <p className="text-[9px] font-semibold text-slate-400 uppercase tracking-wide mb-1">{t("phOverall")}</p>
+                <p className="text-2xl font-bold text-amber-500">82</p>
+                <p className="text-[9px] text-slate-400">-1 {t("phThisWeek")}</p>
+              </div>
+              <div className="rounded-lg bg-slate-50 p-3 text-center">
+                <p className="text-[9px] font-semibold text-slate-400 uppercase tracking-wide mb-1">{t("phActiveRisks")}</p>
+                <p className="text-2xl font-bold text-red-500">5</p>
+                <p className="text-[9px] text-slate-400">+2 {t("phThisWeek")}</p>
+              </div>
+              <div className="rounded-lg bg-slate-50 p-3 text-center">
+                <p className="text-[9px] font-semibold text-slate-400 uppercase tracking-wide mb-1">{t("phDecisions")}</p>
+                <p className="text-2xl font-bold text-emerald-500">12</p>
+                <p className="text-[9px] text-slate-400">{t("phThisWeek")}</p>
+              </div>
+            </div>
+
+            {/* Project list */}
+            <div>
+              <p className="text-[11px] font-semibold text-slate-600 mb-2">{t("phProjects")}</p>
+              <div className="space-y-2">
+                {projects.map((p, i) => (
+                  <div key={i} className="rounded-lg border border-slate-100 p-3 hover:border-slate-200 transition-colors">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <FolderKanban className="h-3 w-3 text-slate-400" />
+                        <span className="text-[11px] font-semibold text-slate-800">{p.name}</span>
+                      </div>
+                      <span className={`text-[9px] font-medium px-1.5 py-0.5 rounded ${p.risks > 0 ? "bg-amber-50 text-amber-600" : "bg-emerald-50 text-emerald-600"}`}>
+                        {p.status}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-1.5">
+                        <span className={`text-lg font-bold ${p.scoreColor}`}>{p.score}</span>
+                        <span className={`text-[9px] font-medium ${p.change < 0 ? "text-red-500" : p.change > 0 ? "text-emerald-500" : "text-slate-400"}`}>
+                          {p.change > 0 ? "+" : ""}{p.change}
+                        </span>
+                      </div>
+                      <div className="flex-1 h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                        <div className={`h-full rounded-full ${p.barColor}`} style={{ width: `${p.score}%` }} />
+                      </div>
+                      {p.risks > 0 && (
+                        <div className="flex items-center gap-0.5 text-[9px] text-amber-600">
+                          <AlertTriangle className="h-2.5 w-2.5" />
+                          <span>{p.risks} {t("phRisks")}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -572,17 +641,93 @@ export function EngVisual4({ t }: { t: (k: string) => string }) {
   );
 }
 
-/* Eng5: Org Knowledge — LIST */
+/* Eng5: Org Knowledge Chat — CHAT VIEW */
 export function EngVisual5({ t }: { t: (k: string) => string }) {
+  const nav = buildNav(t);
+  const user = buildUser(t);
+
   return (
-    <NeuronListScreen
-      nav={buildNav(t)} search={t("navSearch")} user={buildUser(t)} pageTitle={t("navSignals")} contested={t("navContested")}
-      sections={[
-        { label: t("v5Sec"), count: 3, signals: [
-          { tags: [{ label: t("v5T1"), variant: "decision" }, { label: t("v5T2"), variant: "neutral" }], title: t("v5S1Title"), desc: t("v5S1Desc"), project: t("v5S1Proj"), author: t("v5S1Author"), authorInitials: t("v5S1AI"), date: t("v5S1Date"), score: 0.95, scoreColor: "bg-emerald-500" },
-          { tags: [{ label: t("v5T1"), variant: "decision" }], title: t("v5S2Title"), desc: t("v5S2Desc"), project: t("v5S2Proj"), author: t("v5S2Author"), authorInitials: t("v5S2AI"), date: t("v5S2Date"), score: 0.88, scoreColor: "bg-emerald-500" },
-        ]},
-      ]}
-    />
+    <div className="rounded-2xl border border-slate-200 bg-white shadow-lg overflow-hidden">
+      <div className="flex h-[400px] md:h-[440px]">
+        <Sidebar nav={nav} user={user} activeNav="chat" />
+        <div className="flex-1 flex flex-col min-w-0">
+          {/* Chat header */}
+          <div className="px-3 md:px-5 py-3 border-b border-slate-100">
+            <div className="flex items-center gap-2">
+              <Lottie animationData={blobAnimationData} loop autoplay className="h-5 w-5" />
+              <h3 className="text-base font-bold text-slate-900">{t("chatTitle")}</h3>
+            </div>
+          </div>
+
+          {/* Chat messages */}
+          <div className="flex-1 overflow-y-auto px-3 md:px-5 py-3 space-y-3">
+            {/* User question */}
+            <div className="flex gap-2 justify-end">
+              <div className="max-w-[80%] rounded-xl rounded-br-sm bg-emerald-50 border border-emerald-100 px-3 py-2">
+                <p className="text-[11px] text-slate-700 leading-relaxed">{t("chatQ1")}</p>
+              </div>
+              <div className="h-6 w-6 rounded-full bg-slate-200 flex items-center justify-center shrink-0">
+                <span className="text-[8px] font-semibold text-slate-500">{user.initials}</span>
+              </div>
+            </div>
+
+            {/* NEURON answer */}
+            <div className="flex gap-2">
+              <div className="h-6 w-6 shrink-0">
+                <Lottie animationData={blobAnimationData} loop autoplay className="h-6 w-6" />
+              </div>
+              <div className="max-w-[85%] rounded-xl rounded-bl-sm bg-white border border-slate-200 px-3 py-2 space-y-2">
+                <p className="text-[11px] text-slate-700 leading-relaxed">{t("chatA1")}</p>
+                {/* Source citations */}
+                <div className="flex flex-wrap gap-1.5 pt-1 border-t border-slate-100">
+                  <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[8px] font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    <FolderKanban className="h-2 w-2" />
+                    {t("chatSrc1")}
+                  </span>
+                  <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[8px] font-medium bg-slate-50 text-slate-600 border border-slate-200">
+                    <MessageCircle className="h-2 w-2" />
+                    {t("chatSrc2")}
+                  </span>
+                  <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[8px] font-medium bg-slate-50 text-slate-600 border border-slate-200">
+                    <BookOpen className="h-2 w-2" />
+                    {t("chatSrc3")}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* User follow-up */}
+            <div className="flex gap-2 justify-end">
+              <div className="max-w-[80%] rounded-xl rounded-br-sm bg-emerald-50 border border-emerald-100 px-3 py-2">
+                <p className="text-[11px] text-slate-700 leading-relaxed">{t("chatQ2")}</p>
+              </div>
+              <div className="h-6 w-6 rounded-full bg-slate-200 flex items-center justify-center shrink-0">
+                <span className="text-[8px] font-semibold text-slate-500">{user.initials}</span>
+              </div>
+            </div>
+
+            {/* NEURON answer 2 */}
+            <div className="flex gap-2">
+              <div className="h-6 w-6 shrink-0">
+                <Lottie animationData={blobAnimationData} loop autoplay className="h-6 w-6" />
+              </div>
+              <div className="max-w-[85%] rounded-xl rounded-bl-sm bg-white border border-slate-200 px-3 py-2">
+                <p className="text-[11px] text-slate-700 leading-relaxed">{t("chatA2")}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Chat input */}
+          <div className="px-3 md:px-5 py-2.5 border-t border-slate-100">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50">
+              <span className="text-[11px] text-slate-400 flex-1">{t("chatPlaceholder")}</span>
+              <div className="h-5 w-5 rounded bg-emerald-500 flex items-center justify-center">
+                <ArrowUp className="h-3 w-3 text-white" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

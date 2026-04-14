@@ -672,7 +672,19 @@
     "d5L1Title": "Manager proposed phased migration over 3 sprints",
     "d5L1Desc": "Original proposal with risk analysis and timeline. Submitted Apr 9.",
     "d5L2Title": "Team Lead flagged backward-compat requirement",
-    "d5L2Desc": "Shared auth module must maintain backward compatibility during migration."
+    "d5L2Desc": "Shared auth module must maintain backward compatibility during migration.",
+    "phTitle": "Project Health",
+    "phOverall": "Overall Score",
+    "phActiveRisks": "Active Risks",
+    "phDecisions": "Decisions",
+    "phThisWeek": "this week",
+    "phProjects": "All Projects",
+    "phAtRisk": "At Risk",
+    "phOnTrack": "On Track",
+    "phRisks": "risks",
+    "ph1Name": "Website Redesign",
+    "ph2Name": "Platform v2",
+    "ph3Name": "Mobile App"
   },
   "NeuronForEng": {
     "heading": "NEURON for Teams",
@@ -836,7 +848,16 @@
     "d4L1Desc": "Cache invalidation across services failed silently. 2-hour degradation before detection.",
     "d4L2Tag": "Risk",
     "d4L2Title": "Batch processing migration caused 6-hour data inconsistency",
-    "d4L2Desc": "Similar cross-service data sync issue. Root cause: missing idempotency keys."
+    "d4L2Desc": "Similar cross-service data sync issue. Root cause: missing idempotency keys.",
+    "chatTitle": "Ask NEURON",
+    "chatQ1": "What happened last time we changed the payment API?",
+    "chatA1": "The payment API was migrated in Q1 using a phased approach over 3 sprints. The key risk was backward compatibility with the shared auth module. The CTO approved with a condition: weekly syncs with the billing team. The migration completed on time with no incidents.",
+    "chatSrc1": "Platform v2 — Decision Log",
+    "chatSrc2": "Slack #platform-eng",
+    "chatSrc3": "Migration Runbook",
+    "chatQ2": "Who owns the billing integration now?",
+    "chatA2": "@alexchen is the current owner. He led the Q1 migration and maintains the billing sync. His team handles all payment provider integrations.",
+    "chatPlaceholder": "Ask anything about your org..."
   },
   "Collaboration": {
     "heading": "Your Team × NEURON — Think Together",
