@@ -3,31 +3,61 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Slider } from "@/components/ui/slider";
-import { PRICING_TIERS } from "@/lib/pricing-data";
+import { getPricingTiers, type Role } from "@/lib/pricing-data";
 
 interface PricingControlsProps {
   billingCycle: "monthly" | "annual";
   onBillingCycleChange: (cycle: "monthly" | "annual") => void;
   seats: number;
   onSeatsChange: (seats: number) => void;
+  role: Role;
+  onRoleChange: (role: Role) => void;
 }
-
-const MILESTONES = PRICING_TIERS.map((t) => ({
-  seats: t.minSeats,
-  label: t.id,
-}));
 
 export default function PricingControls({
   billingCycle,
   onBillingCycleChange,
   seats,
   onSeatsChange,
+  role,
+  onRoleChange,
 }: PricingControlsProps) {
   const t = useTranslations("Pricing");
+
+  const tiers = getPricingTiers(role);
+  const MILESTONES = tiers.map((tier) => ({
+    seats: tier.minSeats,
+    label: tier.id,
+  }));
 
   return (
     <section className="section-padding pt-0 pb-8">
       <div className="section-container max-w-xl mx-auto space-y-8">
+        {/* Role Toggle */}
+        <div className="flex items-center justify-center">
+          <div className="relative inline-flex items-center rounded-xl bg-white p-1 shadow-sm border border-border">
+            {(["pm", "engineer"] as const).map((r) => (
+              <button
+                key={r}
+                onClick={() => onRoleChange(r)}
+                className="relative z-10 px-5 py-2 text-sm font-medium rounded-lg transition-colors"
+                style={{
+                  color: role === r ? "white" : "#64748B",
+                }}
+              >
+                {t(r === "pm" ? "rolePm" : "roleEngineer")}
+                {role === r && (
+                  <motion.div
+                    layoutId="role-toggle-bg"
+                    className="absolute inset-0 bg-primary rounded-lg -z-10"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Billing Toggle */}
         <div className="flex items-center justify-center gap-3">
           <div className="relative inline-flex items-center rounded-xl bg-white p-1 shadow-sm border border-border">

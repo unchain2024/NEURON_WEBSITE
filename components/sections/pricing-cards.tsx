@@ -4,16 +4,18 @@ import { useTranslations, useLocale } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import {
-  PRICING_TIERS,
+  getPricingTiers,
   formatCurrency,
   capitalizeTierId,
   type PricingTier,
   type Locale,
+  type Role,
 } from "@/lib/pricing-data";
 
 interface PricingCardsProps {
   billingCycle: "monthly" | "annual";
   seats: number;
+  role: Role;
 }
 
 // Determine which tier is recommended based on seat count
@@ -24,16 +26,17 @@ function getRecommendedTier(seats: number): string {
   return "starter";
 }
 
-export default function PricingCards({ billingCycle, seats }: PricingCardsProps) {
+export default function PricingCards({ billingCycle, seats, role }: PricingCardsProps) {
   const t = useTranslations("Pricing");
   const locale = useLocale() as Locale;
   const recommendedTier = getRecommendedTier(seats);
+  const tiers = getPricingTiers(role);
 
   return (
     <section className="section-padding pt-0 pb-12">
       <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {PRICING_TIERS.map((tier) => (
+          {tiers.map((tier) => (
             <PricingCard
               key={tier.id}
               tier={tier}

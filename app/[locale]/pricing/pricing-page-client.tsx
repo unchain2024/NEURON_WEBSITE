@@ -12,6 +12,7 @@ export default function PricingPageClient() {
     "annual"
   );
   const [seats, setSeats] = useState(3);
+  const [role, setRole] = useState<"pm" | "engineer">("pm");
 
   return (
     <>
@@ -20,8 +21,10 @@ export default function PricingPageClient() {
         onBillingCycleChange={setBillingCycle}
         seats={seats}
         onSeatsChange={setSeats}
+        role={role}
+        onRoleChange={setRole}
       />
-      <PricingCards billingCycle={billingCycle} seats={seats} />
+      <PricingCards billingCycle={billingCycle} seats={seats} role={role} />
       <PricingFeatureComparison />
       <PricingEnterpriseSection />
       <PricingFaq />

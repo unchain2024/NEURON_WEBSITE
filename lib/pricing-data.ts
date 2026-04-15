@@ -1,5 +1,6 @@
 export type TierId = "starter" | "team" | "business" | "enterprise";
 export type Locale = "en" | "ja";
+export type Role = "pm" | "engineer";
 
 export interface TierPrices {
   monthlyPerSeat: number | null;
@@ -16,12 +17,57 @@ export interface PricingTier {
   ctaType: "trial" | "contactSales";
 }
 
-export const PRICING_TIERS: PricingTier[] = [
+const ENTERPRISE_TIER: PricingTier = {
+  id: "enterprise",
+  prices: {
+    en: { monthlyPerSeat: null, annualPerSeat: null, currency: "USD", locale: "en-US" },
+    ja: { monthlyPerSeat: null, annualPerSeat: null, currency: "JPY", locale: "ja-JP" },
+  },
+  minSeats: 30,
+  badge: null,
+  ctaType: "contactSales",
+};
+
+export const PM_PRICING_TIERS: PricingTier[] = [
+  {
+    id: "starter",
+    prices: {
+      en: { monthlyPerSeat: 34, annualPerSeat: 360, currency: "USD", locale: "en-US" },
+      ja: { monthlyPerSeat: 4980, annualPerSeat: 52560, currency: "JPY", locale: "ja-JP" },
+    },
+    minSeats: 3,
+    badge: null,
+    ctaType: "trial",
+  },
+  {
+    id: "team",
+    prices: {
+      en: { monthlyPerSeat: 57, annualPerSeat: 600, currency: "USD", locale: "en-US" },
+      ja: { monthlyPerSeat: 7980, annualPerSeat: 84240, currency: "JPY", locale: "ja-JP" },
+    },
+    minSeats: 5,
+    badge: "mostPopular",
+    ctaType: "trial",
+  },
+  {
+    id: "business",
+    prices: {
+      en: { monthlyPerSeat: 92, annualPerSeat: 972, currency: "USD", locale: "en-US" },
+      ja: { monthlyPerSeat: 12980, annualPerSeat: 137040, currency: "JPY", locale: "ja-JP" },
+    },
+    minSeats: 15,
+    badge: null,
+    ctaType: "trial",
+  },
+  ENTERPRISE_TIER,
+];
+
+export const ENG_PRICING_TIERS: PricingTier[] = [
   {
     id: "starter",
     prices: {
       en: { monthlyPerSeat: 17, annualPerSeat: 180, currency: "USD", locale: "en-US" },
-      ja: { monthlyPerSeat: 2591, annualPerSeat: 27360, currency: "JPY", locale: "ja-JP" },
+      ja: { monthlyPerSeat: 2280, annualPerSeat: 24072, currency: "JPY", locale: "ja-JP" },
     },
     minSeats: 3,
     badge: null,
@@ -31,7 +77,7 @@ export const PRICING_TIERS: PricingTier[] = [
     id: "team",
     prices: {
       en: { monthlyPerSeat: 34, annualPerSeat: 360, currency: "USD", locale: "en-US" },
-      ja: { monthlyPerSeat: 5659, annualPerSeat: 59760, currency: "JPY", locale: "ja-JP" },
+      ja: { monthlyPerSeat: 4980, annualPerSeat: 52560, currency: "JPY", locale: "ja-JP" },
     },
     minSeats: 5,
     badge: "mostPopular",
@@ -41,23 +87,21 @@ export const PRICING_TIERS: PricingTier[] = [
     id: "business",
     prices: {
       en: { monthlyPerSeat: 57, annualPerSeat: 600, currency: "USD", locale: "en-US" },
-      ja: { monthlyPerSeat: 9068, annualPerSeat: 95760, currency: "JPY", locale: "ja-JP" },
+      ja: { monthlyPerSeat: 7980, annualPerSeat: 84240, currency: "JPY", locale: "ja-JP" },
     },
     minSeats: 15,
     badge: null,
     ctaType: "trial",
   },
-  {
-    id: "enterprise",
-    prices: {
-      en: { monthlyPerSeat: null, annualPerSeat: null, currency: "USD", locale: "en-US" },
-      ja: { monthlyPerSeat: null, annualPerSeat: null, currency: "JPY", locale: "ja-JP" },
-    },
-    minSeats: 30,
-    badge: null,
-    ctaType: "contactSales",
-  },
+  ENTERPRISE_TIER,
 ];
+
+/** @deprecated Use PM_PRICING_TIERS or ENG_PRICING_TIERS instead */
+export const PRICING_TIERS: PricingTier[] = PM_PRICING_TIERS;
+
+export function getPricingTiers(role: Role): PricingTier[] {
+  return role === "pm" ? PM_PRICING_TIERS : ENG_PRICING_TIERS;
+}
 
 export type FeatureValue = boolean | string;
 

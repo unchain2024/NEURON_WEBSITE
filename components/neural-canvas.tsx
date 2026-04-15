@@ -9,15 +9,15 @@ import { usePathname } from "next/navigation";
    elegant connections, responsive to mouse & scroll.
    ═══════════════════════════════════════════════════════ */
 
-const NEURON_COUNT = 160;
-const CONNECTION_DISTANCE = 150;
-const MAX_CONNECTIONS = 3;
-const FIRE_DECAY = 0.965;
+const NEURON_COUNT = 80;
+const CONNECTION_DISTANCE = 140;
+const MAX_CONNECTIONS = 2;
+const FIRE_DECAY = 0.96;
 const PULSE_SPEED = 3;
-const CHAIN_FIRE_CHANCE = 0.3;
-const AMBIENT_FIRE_INTERVAL = 50;
-const MOUSE_FIRE_RADIUS = 180;
-const MOUSE_FIRE_COOLDOWN = 20;
+const CHAIN_FIRE_CHANCE = 0.2;
+const AMBIENT_FIRE_INTERVAL = 80;
+const MOUSE_FIRE_RADIUS = 160;
+const MOUSE_FIRE_COOLDOWN = 30;
 
 interface Neuron {
   x: number;
