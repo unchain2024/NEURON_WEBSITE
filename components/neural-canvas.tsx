@@ -44,13 +44,13 @@ export default function NeuralCanvas() {
   const mouseRef = useRef({ x: -9999, y: -9999 });
   const frameRef = useRef(0);
   const scrollRef = useRef(0);
-  const resizeRef = useRef<(() => void) | null>(null);
+  const regenRef = useRef<(() => void) | null>(null);
   const pathname = usePathname();
 
-  // Re-trigger resize on route change
+  // Re-distribute neurons across new document on route change
   useEffect(() => {
     const timer = setTimeout(() => {
-      resizeRef.current?.();
+      regenRef.current?.();
     }, 100);
     return () => clearTimeout(timer);
   }, [pathname]);
@@ -61,31 +61,36 @@ export default function NeuralCanvas() {
     const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
-    let w = 0;
-    let h = 0;
+    // Viewport-sized canvas (position: fixed). Neurons live in world
+    // coordinates (full document height) and are drawn with a scroll
+    // offset — this keeps visual behavior identical while reducing the
+    // canvas backing store from ~scrollHeight to ~viewport height.
+    let vw = 0;
+    let vh = 0;
+    let docH = 0;
 
-    function resize() {
+    function resizeCanvas() {
       if (!canvas) return;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = window.innerWidth;
-      // Collapse canvas before measuring so it doesn't inflate scrollHeight
-      canvas.style.height = "0px";
-      canvas.height = 0;
-      h = document.documentElement.scrollHeight;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      canvas.style.width = `${w}px`;
-      canvas.style.height = `${h}px`;
+      vw = window.innerWidth;
+      vh = window.innerHeight;
+      canvas.width = vw * dpr;
+      canvas.height = vh * dpr;
+      canvas.style.width = `${vw}px`;
+      canvas.style.height = `${vh}px`;
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
-      generateNeurons();
     }
 
     function generateNeurons() {
+      docH = Math.max(
+        document.documentElement.scrollHeight,
+        window.innerHeight
+      );
       const neurons: Neuron[] = [];
       for (let i = 0; i < NEURON_COUNT; i++) {
         neurons.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
+          x: Math.random() * vw,
+          y: Math.random() * docH,
           baseRadius: 1 + Math.random() * 1.5,
           connections: [],
           fire: 0,
@@ -108,6 +113,11 @@ export default function NeuralCanvas() {
 
       neuronsRef.current = neurons;
       pulsesRef.current = [];
+    }
+
+    function handleResize() {
+      resizeCanvas();
+      generateNeurons();
     }
 
     function fireNeuron(idx: number, frame: number) {
@@ -135,11 +145,13 @@ export default function NeuralCanvas() {
       const neurons = neuronsRef.current;
       const pulses = pulsesRef.current;
 
-      ctx.clearRect(0, 0, w, h);
+      // Clear only the viewport (not the whole world)
+      ctx.clearRect(0, 0, vw, vh);
 
       const scrollY = scrollRef.current;
+      // Cull in world-space (neuron.y is document-absolute)
       const viewTop = scrollY - 200;
-      const viewBot = scrollY + window.innerHeight + 200;
+      const viewBot = scrollY + vh + 200;
 
       // ── Connections ──
       for (let i = 0; i < neurons.length; i++) {
@@ -153,8 +165,8 @@ export default function NeuralCanvas() {
           const alpha = 0.025 + activity * 0.12;
 
           ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
+          ctx.moveTo(a.x, a.y - scrollY);
+          ctx.lineTo(b.x, b.y - scrollY);
           ctx.strokeStyle = `rgba(34, 197, 94, ${alpha})`;
           ctx.lineWidth = 0.3 + activity * 0.7;
           ctx.stroke();
@@ -169,24 +181,26 @@ export default function NeuralCanvas() {
         n.fire *= FIRE_DECAY;
         if (n.fire < 0.005) n.fire = 0;
 
+        const sx = n.x;
+        const sy = n.y - scrollY;
         const r = n.baseRadius + n.fire * 2.5;
         const alpha = 0.12 + n.fire * 0.88;
 
         // Subtle glow when firing
         if (n.fire > 0.15) {
           const glowR = r * 4;
-          const grad = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, glowR);
+          const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, glowR);
           grad.addColorStop(0, `rgba(74, 222, 128, ${n.fire * 0.2})`);
           grad.addColorStop(1, "transparent");
           ctx.beginPath();
-          ctx.arc(n.x, n.y, glowR, 0, Math.PI * 2);
+          ctx.arc(sx, sy, glowR, 0, Math.PI * 2);
           ctx.fillStyle = grad;
           ctx.fill();
         }
 
         // Neuron body
         ctx.beginPath();
-        ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+        ctx.arc(sx, sy, r, 0, Math.PI * 2);
         const lightness = 55 + n.fire * 35;
         ctx.fillStyle = `hsla(150, 70%, ${lightness}%, ${alpha})`;
         ctx.fill();
@@ -211,28 +225,33 @@ export default function NeuralCanvas() {
         const py = a.y + (b.y - a.y) * p.progress;
         if (py < viewTop || py > viewBot) continue;
 
+        const sx = px;
+        const sy = py - scrollY;
+
         // Glow
-        const grad = ctx.createRadialGradient(px, py, 0, px, py, 6);
+        const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, 6);
         grad.addColorStop(0, `hsla(${p.hue}, 85%, 75%, 0.8)`);
         grad.addColorStop(0.5, `hsla(${p.hue}, 85%, 65%, 0.2)`);
         grad.addColorStop(1, "transparent");
         ctx.beginPath();
-        ctx.arc(px, py, 6, 0, Math.PI * 2);
+        ctx.arc(sx, sy, 6, 0, Math.PI * 2);
         ctx.fillStyle = grad;
         ctx.fill();
 
         // Core dot
         ctx.beginPath();
-        ctx.arc(px, py, 1.5, 0, Math.PI * 2);
+        ctx.arc(sx, sy, 1.5, 0, Math.PI * 2);
         ctx.fillStyle = `hsla(${p.hue}, 85%, 90%, 1)`;
         ctx.fill();
       }
 
       // ── Mouse firing ──
+      // mouseRef.current.y is clientY (viewport-relative); convert to world
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y + scrollY;
       for (let i = 0; i < neurons.length; i++) {
         const n = neurons[i];
+        if (n.y < viewTop || n.y > viewBot) continue;
         const dx = n.x - mx;
         const dy = n.y - my;
         const d = Math.sqrt(dx * dx + dy * dy);
@@ -257,27 +276,35 @@ export default function NeuralCanvas() {
       animRef.current = requestAnimationFrame(render);
     }
 
+    // rAF-throttle scroll: we only need the latest scrollY per frame
+    let scrollTicking = false;
     function onMouseMove(e: MouseEvent) {
       mouseRef.current = { x: e.clientX, y: e.clientY };
     }
     function onScroll() {
-      scrollRef.current = window.scrollY;
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(() => {
+        scrollRef.current = window.scrollY;
+        scrollTicking = false;
+      });
     }
 
     window.addEventListener("mousemove", onMouseMove, { passive: true });
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", handleResize);
     scrollRef.current = window.scrollY;
-    resizeRef.current = resize;
+    regenRef.current = generateNeurons;
 
-    resize();
+    resizeCanvas();
+    generateNeurons();
     animRef.current = requestAnimationFrame(render);
 
     return () => {
       cancelAnimationFrame(animRef.current);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -285,7 +312,7 @@ export default function NeuralCanvas() {
     <canvas
       ref={canvasRef}
       className="pointer-events-none"
-      style={{ position: "absolute", top: 0, left: 0, zIndex: 0 }}
+      style={{ position: "fixed", top: 0, left: 0, zIndex: 0 }}
       aria-hidden="true"
     />
   );

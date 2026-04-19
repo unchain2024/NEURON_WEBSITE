@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type ReactNode, type MouseEvent } from "react";
+import { useRef, useState, useEffect, type ReactNode, type MouseEvent } from "react";
 import { motion } from "framer-motion";
 
 interface TiltCardProps {
@@ -15,12 +15,25 @@ export default function TiltCard({
   glowColor = "rgba(99, 102, 241, 0.08)",
 }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const rafRef = useRef(0);
+  const pendingRef = useRef<{
+    rotateX: number;
+    rotateY: number;
+    glowX: string;
+    glowY: string;
+  } | null>(null);
   const [style, setStyle] = useState({
     rotateX: 0,
     rotateY: 0,
     glowX: "50%",
     glowY: "50%",
   });
+
+  useEffect(() => {
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
 
   function handleMouseMove(e: MouseEvent) {
     if (!ref.current) return;
@@ -30,18 +43,26 @@ export default function TiltCard({
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotateX = ((y - centerY) / centerY) * -6;
-    const rotateY = ((x - centerX) / centerX) * 6;
-
-    setStyle({
-      rotateX,
-      rotateY,
+    pendingRef.current = {
+      rotateX: ((y - centerY) / centerY) * -6,
+      rotateY: ((x - centerX) / centerX) * 6,
       glowX: `${(x / rect.width) * 100}%`,
       glowY: `${(y / rect.height) * 100}%`,
+    };
+
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = 0;
+      if (pendingRef.current) setStyle(pendingRef.current);
     });
   }
 
   function handleMouseLeave() {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = 0;
+    }
+    pendingRef.current = null;
     setStyle({ rotateX: 0, rotateY: 0, glowX: "50%", glowY: "50%" });
   }
 

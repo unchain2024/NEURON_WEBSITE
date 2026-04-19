@@ -6,15 +6,25 @@ export default function MouseSpotlight() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let rafId = 0;
+    let lastX = 0;
+    let lastY = 0;
+
+    function flush() {
+      rafId = 0;
+      if (!ref.current) return;
+      ref.current.style.setProperty("--spotlight-x", `${lastX}px`);
+      ref.current.style.setProperty("--spotlight-y", `${lastY}px`);
+      ref.current.style.opacity = "1";
+    }
+
     function handleMouseMove(e: globalThis.MouseEvent) {
       if (!ref.current) return;
       const rect = ref.current.parentElement?.getBoundingClientRect();
       if (!rect) return;
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      ref.current.style.setProperty("--spotlight-x", `${x}px`);
-      ref.current.style.setProperty("--spotlight-y", `${y}px`);
-      ref.current.style.opacity = "1";
+      lastX = e.clientX - rect.left;
+      lastY = e.clientY - rect.top;
+      if (!rafId) rafId = requestAnimationFrame(flush);
     }
 
     function handleMouseLeave() {
@@ -25,6 +35,7 @@ export default function MouseSpotlight() {
     parent?.addEventListener("mousemove", handleMouseMove);
     parent?.addEventListener("mouseleave", handleMouseLeave);
     return () => {
+      if (rafId) cancelAnimationFrame(rafId);
       parent?.removeEventListener("mousemove", handleMouseMove);
       parent?.removeEventListener("mouseleave", handleMouseLeave);
     };
