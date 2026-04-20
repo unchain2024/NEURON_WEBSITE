@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import PageHero from "@/components/sections/page-hero";
-import FinalCTA from "@/components/sections/final-cta";
 import PricingPageClient from "./pricing-page-client";
 
 export async function generateMetadata({
@@ -22,7 +21,6 @@ export default function PricingPage() {
     <>
       <PageHero namespace="PricingPage" />
       <PricingPageClient />
-      <FinalCTA />
     </>
   );
 }

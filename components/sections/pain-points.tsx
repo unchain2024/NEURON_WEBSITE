@@ -86,10 +86,10 @@ export default function PainPoints() {
               <div className="grid sm:grid-cols-3 gap-8">
                 {COST_CARDS.map((card) => (
                   <div key={card.key} className="flex flex-col items-center text-center">
-                    <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <card.icon className="h-5 w-5 text-primary" />
+                    <div className="h-12 w-12 rounded-full bg-red-500/10 flex items-center justify-center mb-4">
+                      <card.icon className="h-5 w-5 text-red-500" />
                     </div>
-                    <p className="text-3xl md:text-4xl font-bold gradient-text mb-1 tracking-tight">
+                    <p className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-rose-500 to-red-500 mb-1 tracking-tight">
                       {t(`cost${card.key}Value` as "cost1Value")}
                     </p>
                     <h4 className="text-sm font-semibold text-slate-900 mb-2">

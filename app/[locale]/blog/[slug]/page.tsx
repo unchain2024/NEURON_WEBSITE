@@ -2,7 +2,6 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import BlogArticle from "@/components/sections/blog-article";
-import FinalCTA from "@/components/sections/final-cta";
 
 const VALID_SLUGS = ["article1", "article2", "article3", "article4"] as const;
 
@@ -35,7 +34,6 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <>
       <BlogArticle slug={slug} />
-      <FinalCTA />
     </>
   );
 }
