@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import PageHero from "@/components/sections/page-hero";
 import Features from "@/components/sections/features";
 import HowItWorks from "@/components/sections/how-it-works";
-import FinalCTA from "@/components/sections/final-cta";
 
 export async function generateMetadata({
   params,
@@ -24,7 +23,6 @@ export default function ProductPage() {
       <PageHero namespace="ProductPage" />
       <Features />
       <HowItWorks />
-      <FinalCTA />
     </>
   );
 }

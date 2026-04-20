@@ -2,7 +2,6 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import PageHero from "@/components/sections/page-hero";
 import BlogGrid from "@/components/sections/blog-grid";
-import FinalCTA from "@/components/sections/final-cta";
 
 export async function generateMetadata({
   params,
@@ -22,7 +21,6 @@ export default function BlogPage() {
     <>
       <PageHero namespace="BlogPage" />
       <BlogGrid />
-      <FinalCTA />
     </>
   );
 }

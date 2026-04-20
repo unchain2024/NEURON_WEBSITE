@@ -5,7 +5,6 @@ import Problem from "@/components/sections/problem";
 import ComparisonTable from "@/components/sections/comparison-table";
 import StakeholderValue from "@/components/sections/stakeholder-value";
 import Testimonials from "@/components/sections/testimonials";
-import FinalCTA from "@/components/sections/final-cta";
 
 export async function generateMetadata({
   params,
@@ -28,7 +27,6 @@ export default function WhyNeuronPage() {
       <ComparisonTable />
       <StakeholderValue />
       <Testimonials />
-      <FinalCTA />
     </>
   );
 }

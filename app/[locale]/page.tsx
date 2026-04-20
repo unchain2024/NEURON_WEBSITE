@@ -7,7 +7,6 @@ import CollaborationSection from "@/components/sections/collaboration-section";
 import IndustryUseCases from "@/components/sections/industry-use-cases";
 import StakeholderValue from "@/components/sections/stakeholder-value";
 import StatsBar from "@/components/sections/stats-bar";
-import FinalCTA from "@/components/sections/final-cta";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <HowItWorks />
       <StakeholderValue />
       <StatsBar />
-      <FinalCTA />
     </>
   );
 }
