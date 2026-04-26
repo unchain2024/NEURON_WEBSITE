@@ -1,119 +1,185 @@
 // Centralized, config-driven structure for the documentation section.
-// Placeholder (lorem ipsum) content is used everywhere until real copy and
-// routing are wired up.
+// Strings live in `messages/{en,ja}.json`; this file holds only the
+// structural skeleton and references the translation keys to look up.
 //
-// TODO: Replace placeholder slugs/titles with real documentation entries
-//       and split long-form content into MDX/CMS-backed sources.
+// TODO: Split long-form content into MDX/CMS-backed sources as the
+//       documentation grows.
 
-const LOREM_SHORT =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-const LOREM_LONG = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur.
-
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus. Nulla
-gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros
-bibendum elit, nec luctus magna felis sollicitudin mauris.`;
-
+// ─── Card grid (/docs landing) ───────────────────────────────────────────
+//
+// `titleKey` and `descriptionKey` resolve against the `Docs` namespace.
 export type DocCardEntry = {
   slug: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
 };
+
+export const DOC_CARDS: DocCardEntry[] = [
+  {
+    slug: "quick-start",
+    titleKey: "cardQuickStartTitle",
+    descriptionKey: "cardQuickStartDescription",
+  },
+  // Re-enable as real pages come online.
+  // { slug: "core-concepts", titleKey: "cardCoreConceptsTitle", descriptionKey: "cardCoreConceptsDescription" },
+  // { slug: "configuration", titleKey: "cardConfigurationTitle", descriptionKey: "cardConfigurationDescription" },
+  // { slug: "integrations",  titleKey: "cardIntegrationsTitle",  descriptionKey: "cardIntegrationsDescription" },
+  // { slug: "api-reference", titleKey: "cardApiReferenceTitle",  descriptionKey: "cardApiReferenceDescription" },
+  // { slug: "troubleshooting", titleKey: "cardTroubleshootingTitle", descriptionKey: "cardTroubleshootingDescription" },
+];
+
+// ─── FAQ (/docs landing) ─────────────────────────────────────────────────
+//
+// Keys resolve against the `Docs` namespace.
+export type FAQEntry = {
+  id: string;
+  questionKey: string;
+  answerKey: string;
+};
+
+export const DOCS_FAQ: FAQEntry[] = [
+  { id: "faq-1", questionKey: "faq1Q", answerKey: "faq1A" },
+  { id: "faq-2", questionKey: "faq2Q", answerKey: "faq2A" },
+  { id: "faq-3", questionKey: "faq3Q", answerKey: "faq3A" },
+  { id: "faq-4", questionKey: "faq4Q", answerKey: "faq4A" },
+  { id: "faq-5", questionKey: "faq5Q", answerKey: "faq5A" },
+];
+
+// ─── Per-doc content ─────────────────────────────────────────────────────
+//
+// A section's body is a sequence of blocks rendered top-to-bottom. Each
+// block stores translation keys (resolved against the topic's namespace)
+// rather than literal strings.
+export type DocBlock =
+  | { type: "paragraph"; key: string }
+  | { type: "tip"; key: string }
+  | { type: "image"; src: string; altKey: string };
 
 export type DocSection = {
   id: string;
-  title: string;
-  paragraphs: string[];
+  titleKey: string;
+  blocks: DocBlock[];
 };
 
 export type DocSubtopic = {
   slug: string;
-  title: string;
+  titleKey: string;
 };
 
 export type DocTopic = {
   slug: string;
-  title: string;
+  // Translation namespace owned by this topic (e.g. "DocsQuickStart").
+  // Lets the renderer look up titleKey, sections[].titleKey, blocks[].*Key
+  // against the right slice of the messages JSON.
+  namespace: string;
+  titleKey: string;
   subtopics: DocSubtopic[];
   sections: DocSection[];
 };
 
-export type FAQEntry = {
-  id: string;
-  question: string;
-  answer: string;
-};
-
-// Cards shown on the /docs landing grid (3 columns × 2 rows).
-export const DOC_CARDS: DocCardEntry[] = [
-  { slug: "getting-started", title: "Lorem Ipsum", description: LOREM_SHORT },
-  { slug: "core-concepts", title: "Lorem Ipsum", description: LOREM_SHORT },
-  { slug: "configuration", title: "Lorem Ipsum", description: LOREM_SHORT },
-  { slug: "integrations", title: "Lorem Ipsum", description: LOREM_SHORT },
-  { slug: "api-reference", title: "Lorem Ipsum", description: LOREM_SHORT },
-  { slug: "troubleshooting", title: "Lorem Ipsum", description: LOREM_SHORT },
-];
-
-// FAQ block rendered below the card grid on /docs.
-export const DOCS_FAQ: FAQEntry[] = [
-  { id: "faq-1", question: "Lorem ipsum dolor sit amet?", answer: LOREM_SHORT },
-  { id: "faq-2", question: "Consectetur adipiscing elit?", answer: LOREM_SHORT },
-  { id: "faq-3", question: "Sed do eiusmod tempor incididunt?", answer: LOREM_SHORT },
-  { id: "faq-4", question: "Ut labore et dolore magna aliqua?", answer: LOREM_SHORT },
-  { id: "faq-5", question: "Quis nostrud exercitation ullamco?", answer: LOREM_SHORT },
-];
-
 // Per-doc content. Keyed by slug so pages can be generated from config.
-// For now only "getting-started" is rendered as a real page; other card slugs
+// For now only "quick-start" is rendered as a real page; other card slugs
 // temporarily redirect here.
 //
 // TODO: Add an entry per real doc and split into separate route files
 //       (e.g., /docs/core-concepts, /docs/configuration, ...).
 export const docsConfig: Record<string, DocTopic> = {
-  "getting-started": {
-    slug: "getting-started",
-    title: "Lorem Ipsum",
-    subtopics: [
-      { slug: "installation", title: "Lorem Ipsum" },
-      { slug: "quick-start", title: "Lorem Ipsum" },
-      { slug: "configuration", title: "Lorem Ipsum" },
-      { slug: "first-steps", title: "Lorem Ipsum" },
-    ],
+  "quick-start": {
+    slug: "quick-start",
+    namespace: "DocsQuickStart",
+    titleKey: "title",
+    // TODO: Add subtopic entries when sub-pages exist (e.g. installation,
+    //       configuration, first-steps).
+    subtopics: [],
     sections: [
       {
-        id: "section-1",
-        title: "Lorem Ipsum",
-        paragraphs: [LOREM_LONG, LOREM_SHORT],
+        id: "create-account",
+        titleKey: "createAccountTitle",
+        blocks: [
+          { type: "paragraph", key: "createAccountP1" },
+          {
+            type: "image",
+            src: "/docs_images/i1.webp",
+            altKey: "createAccountImgAlt",
+          },
+        ],
       },
       {
-        id: "section-2",
-        title: "Lorem Ipsum",
-        paragraphs: [LOREM_LONG, LOREM_SHORT],
+        id: "create-workspace",
+        titleKey: "createWorkspaceTitle",
+        blocks: [
+          { type: "paragraph", key: "createWorkspaceP1" },
+          {
+            type: "image",
+            src: "/docs_images/i2.webp",
+            altKey: "createWorkspaceImgAlt",
+          },
+        ],
       },
       {
-        id: "section-3",
-        title: "Lorem Ipsum",
-        paragraphs: [LOREM_LONG, LOREM_SHORT],
+        id: "select-industry",
+        titleKey: "selectIndustryTitle",
+        blocks: [
+          { type: "paragraph", key: "selectIndustryP1" },
+          {
+            type: "image",
+            src: "/docs_images/i3.webp",
+            altKey: "selectIndustryImgAlt",
+          },
+        ],
       },
       {
-        id: "section-4",
-        title: "Lorem Ipsum",
-        paragraphs: [LOREM_LONG, LOREM_SHORT],
+        id: "choose-agents",
+        titleKey: "chooseAgentsTitle",
+        blocks: [
+          { type: "paragraph", key: "chooseAgentsP1" },
+          { type: "tip", key: "chooseAgentsTip" },
+          {
+            type: "image",
+            src: "/docs_images/i4.webp",
+            altKey: "chooseAgentsImgAlt",
+          },
+        ],
       },
       {
-        id: "section-5",
-        title: "Lorem Ipsum",
-        paragraphs: [LOREM_LONG, LOREM_SHORT],
+        id: "integrations",
+        titleKey: "integrationsTitle",
+        blocks: [
+          { type: "paragraph", key: "integrationsP1" },
+          {
+            type: "image",
+            src: "/docs_images/i5.webp",
+            altKey: "integrationsImg1Alt",
+          },
+          { type: "paragraph", key: "integrationsP2" },
+          {
+            type: "image",
+            src: "/docs_images/i6.webp",
+            altKey: "integrationsImg2Alt",
+          },
+        ],
+      },
+      {
+        id: "sync-data",
+        titleKey: "syncDataTitle",
+        blocks: [
+          { type: "paragraph", key: "syncDataP1" },
+          {
+            type: "image",
+            src: "/docs_images/i7.webp",
+            altKey: "syncDataImg1Alt",
+          },
+          { type: "paragraph", key: "syncDataP2" },
+          {
+            type: "image",
+            src: "/docs_images/i8.webp",
+            altKey: "syncDataImg2Alt",
+          },
+        ],
       },
     ],
   },
 };
 
 // Parent topics rendered in the left sidebar on doc pages.
-// Each parent is expandable and holds its subtopic links.
-export const SIDEBAR_TOPICS: DocTopic[] = [docsConfig["getting-started"]];
+export const SIDEBAR_TOPICS: DocTopic[] = [docsConfig["quick-start"]];
