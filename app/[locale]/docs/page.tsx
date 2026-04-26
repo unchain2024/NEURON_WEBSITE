@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { Accordion } from "@/components/ui/accordion";
 import DocCard from "@/components/docs/doc-card";
-import FAQItem from "@/components/docs/faq-item";
-import { DOC_CARDS, DOCS_FAQ } from "@/lib/docs-config";
+import { DOC_CARDS } from "@/lib/docs-config";
 
 export async function generateMetadata({
   params,
@@ -72,19 +70,6 @@ export default async function DocsLandingPage() {
             </h2>
             <p className="mt-3 text-text-secondary">{t("faqDescription")}</p>
           </div>
-
-          {/* <div className="rounded-2xl border border-slate-200/70 bg-white/80 px-6 backdrop-blur-sm">
-            <Accordion type="single" collapsible>
-              {DOCS_FAQ.map((faq) => (
-                <FAQItem
-                  key={faq.id}
-                  id={faq.id}
-                  question={t(faq.questionKey)}
-                  answer={t(faq.answerKey)}
-                />
-              ))}
-            </Accordion>
-          </div> */}
         </div>
       </section>
     </>
