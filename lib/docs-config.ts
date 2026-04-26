@@ -183,3 +183,12 @@ export const docsConfig: Record<string, DocTopic> = {
 
 // Parent topics rendered in the left sidebar on doc pages.
 export const SIDEBAR_TOPICS: DocTopic[] = [docsConfig["quick-start"]];
+
+// Resolves a doc image src for the given locale. Non-default locales fall back
+// to a sibling file with a `_<locale>` suffix before the extension
+// (e.g. `/docs_images/i1.webp` → `/docs_images/i1_ja.webp`). The default locale
+// (`en`) keeps the base filename.
+export function localizeDocImageSrc(src: string, locale: string): string {
+  if (locale === "en") return src;
+  return src.replace(/(\.[^./]+)$/, `_${locale}$1`);
+}
