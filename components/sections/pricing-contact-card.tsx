@@ -14,7 +14,7 @@ export default function PricingContactCard() {
           <MotionDiv variants={blurIn} className="max-w-md mx-auto">
             <div className="glass-card rounded-xl p-6 md:p-8 flex flex-col border-border">
               <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                {t("tierEnterpriseName")}
+                {t("contactUsTitle")}
               </h3>
 
               <div className="mb-4">
