@@ -9,9 +9,16 @@ export interface DocCardProps {
   description: string;
   href: string;
   className?: string;
+  logoSrc?: string;
 }
 
-export default function DocCard({ title, description, href, className }: DocCardProps) {
+export default function DocCard({
+  title,
+  description,
+  href,
+  className,
+  logoSrc,
+}: DocCardProps) {
   return (
     <Link
       href={href}
@@ -23,6 +30,17 @@ export default function DocCard({ title, description, href, className }: DocCard
         className,
       )}
     >
+      {logoSrc && (
+        <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50 p-1.5 ring-1 ring-slate-200/70">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={logoSrc}
+            alt=""
+            aria-hidden
+            className="h-full w-full object-contain"
+          />
+        </div>
+      )}
       <div className="flex items-start justify-between gap-4">
         <h3 className="text-lg font-semibold text-slate-900 group-hover:text-primary transition-colors">
           {title}

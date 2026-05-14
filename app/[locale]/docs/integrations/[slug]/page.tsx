@@ -1,30 +1,59 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import Block from "@/components/docs/doc-block";
 import DocsSidebar from "@/components/docs/docs-sidebar";
 import TableOfContents from "@/components/docs/table-of-contents";
-import { docsConfig, SIDEBAR_TOPICS } from "@/lib/docs-config";
+import { routing } from "@/i18n/routing";
+import {
+  getIntegrationTopic,
+  INTEGRATION_LOGOS,
+  INTEGRATION_SLUGS,
+  SIDEBAR_TOPICS,
+  type IntegrationSlug,
+} from "@/lib/docs-config";
+
+// Capitalised camel-case form used in metadata keys (e.g. recallai → Recallai).
+function metadataKey(slug: IntegrationSlug): string {
+  return `docsIntegration${slug.charAt(0).toUpperCase()}${slug.slice(1)}`;
+}
+
+function isIntegrationSlug(value: string): value is IntegrationSlug {
+  return (INTEGRATION_SLUGS as readonly string[]).includes(value);
+}
+
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) =>
+    INTEGRATION_SLUGS.map((slug) => ({ locale, slug })),
+  );
+}
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
+  const { locale, slug } = await params;
+  if (!isIntegrationSlug(slug)) return {};
   const t = await getTranslations({ locale, namespace: "Metadata" });
+  const key = metadataKey(slug);
   return {
-    title: t("docsQuickStartTitle"),
-    description: t("docsQuickStartDescription"),
+    title: t(`${key}Title`),
+    description: t(`${key}Description`),
   };
 }
 
-export default async function QuickStartPage({
+export default async function IntegrationDetailPage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { locale } = await params;
-  const topic = docsConfig["quick-start"];
+  const { locale, slug } = await params;
+  if (!isIntegrationSlug(slug)) notFound();
+
+  const topic = getIntegrationTopic(slug);
+  if (!topic) notFound();
+
   const t = await getTranslations(topic.namespace);
 
   // Pre-resolve translated topics for the sidebar so the client component
@@ -57,7 +86,8 @@ export default async function QuickStartPage({
             <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pr-2">
               <DocsSidebar
                 topics={sidebarTopics}
-                activeSlug={topic.slug}
+                activeSlug="integrations"
+                activeSubSlug={slug}
                 ariaLabel={t("sidebarLabel")}
               />
             </div>
@@ -69,9 +99,20 @@ export default async function QuickStartPage({
               <p className="text-sm font-medium text-primary uppercase tracking-wide mb-3">
                 {t("heroEyebrow")}
               </p>
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
-                {t(topic.titleKey)}
-              </h1>
+              <div className="flex items-center gap-4">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white p-2 ring-1 ring-slate-200/70 shadow-sm">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={INTEGRATION_LOGOS[slug]}
+                    alt=""
+                    aria-hidden
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
+                  {t(topic.titleKey)}
+                </h1>
+              </div>
               <p className="mt-4 text-base md:text-lg text-text-secondary leading-relaxed">
                 {t("description")}
               </p>
