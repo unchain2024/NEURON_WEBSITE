@@ -20,10 +20,14 @@ export const DOC_CARDS: DocCardEntry[] = [
     titleKey: "cardQuickStartTitle",
     descriptionKey: "cardQuickStartDescription",
   },
+  {
+    slug: "integrations",
+    titleKey: "cardIntegrationsTitle",
+    descriptionKey: "cardIntegrationsDescription",
+  },
   // Re-enable as real pages come online.
   // { slug: "core-concepts", titleKey: "cardCoreConceptsTitle", descriptionKey: "cardCoreConceptsDescription" },
   // { slug: "configuration", titleKey: "cardConfigurationTitle", descriptionKey: "cardConfigurationDescription" },
-  // { slug: "integrations",  titleKey: "cardIntegrationsTitle",  descriptionKey: "cardIntegrationsDescription" },
   // { slug: "api-reference", titleKey: "cardApiReferenceTitle",  descriptionKey: "cardApiReferenceDescription" },
   // { slug: "troubleshooting", titleKey: "cardTroubleshootingTitle", descriptionKey: "cardTroubleshootingDescription" },
 ];
@@ -53,7 +57,9 @@ export const DOCS_FAQ: FAQEntry[] = [
 export type DocBlock =
   | { type: "paragraph"; key: string }
   | { type: "tip"; key: string }
-  | { type: "image"; src: string; altKey: string };
+  | { type: "image"; src: string; altKey: string }
+  | { type: "ordered-list"; keys: string[] }
+  | { type: "video"; url: string; labelKey: string };
 
 export type DocSection = {
   id: string;
@@ -77,9 +83,171 @@ export type DocTopic = {
   sections: DocSection[];
 };
 
+// ─── Integrations ────────────────────────────────────────────────────────
+
+export const INTEGRATION_SLUGS = [
+  "chatwork",
+  "github",
+  "discord",
+  "granola",
+  "hubspot",
+  "jira",
+  "kintone",
+  "linear",
+  "monday",
+  "notion",
+  "recallai",
+  "slack",
+] as const;
+
+export type IntegrationSlug = (typeof INTEGRATION_SLUGS)[number];
+
+export const INTEGRATION_LOGOS: Record<IntegrationSlug, string> = {
+  chatwork: "/logos/chatwork.svg",
+  github: "/logos/github.svg",
+  discord: "/logos/discord.svg",
+  granola: "/logos/granola.svg",
+  hubspot: "/logos/hubspot.svg",
+  jira: "/logos/jira.svg",
+  kintone: "/logos/kintone.svg",
+  linear: "/logos/linear.svg",
+  monday: "/logos/monday.svg",
+  notion: "/logos/notion.svg",
+  recallai: "/logos/recallai.svg",
+  slack: "/logos/slack.svg",
+};
+
+// Per-integration namespace + video URL.
+// Step counts vary per platform (see `Doc for Integrations.pdf`).
+type IntegrationMeta = {
+  namespace: string;
+  videoUrl: string;
+  stepCount: number;
+};
+
+const INTEGRATION_META: Record<IntegrationSlug, IntegrationMeta> = {
+  chatwork: {
+    namespace: "DocsIntegrationChatwork",
+    videoUrl:
+      "https://drive.google.com/file/d/12iFRhhSJQszazLxjHyWDtzM4-O70Vvgw/view?usp=drive_link",
+    stepCount: 5,
+  },
+  github: {
+    namespace: "DocsIntegrationGithub",
+    videoUrl:
+      "https://drive.google.com/file/d/1l-YlQvMPiqa0lWS58O4GZVU-peJGO4Gd/view?usp=drive_link",
+    stepCount: 10,
+  },
+  discord: {
+    namespace: "DocsIntegrationDiscord",
+    videoUrl:
+      "https://drive.google.com/file/d/1R10MZpjOIVu-Hf7XSDiAyfPqOzrajj-P/view?usp=drive_link",
+    stepCount: 8,
+  },
+  granola: {
+    namespace: "DocsIntegrationGranola",
+    videoUrl:
+      "https://drive.google.com/file/d/1S4zK0FnInRKQcQ47cF1qyCEh0Rc7NwH0/view?usp=drive_link",
+    stepCount: 6,
+  },
+  hubspot: {
+    namespace: "DocsIntegrationHubspot",
+    videoUrl:
+      "https://drive.google.com/file/d/1NGFY2Smn2Ij5ZKKEx6xfM2s93ae9tBev/view?usp=drive_link",
+    stepCount: 7,
+  },
+  jira: {
+    namespace: "DocsIntegrationJira",
+    videoUrl:
+      "https://drive.google.com/file/d/1dJftyjke_r_0c_uYLQbd_SwVXq4msQt4/view?usp=drive_link",
+    stepCount: 8,
+  },
+  kintone: {
+    namespace: "DocsIntegrationKintone",
+    videoUrl:
+      "https://drive.google.com/file/d/1DolI4oCdVgiWgs_6-VE7q8k85mwj6PNm/view?usp=drive_link",
+    stepCount: 8,
+  },
+  linear: {
+    namespace: "DocsIntegrationLinear",
+    videoUrl:
+      "https://drive.google.com/file/d/1jMb9ucTbYwtoZ5SaU5Za8nc0WXUaRGCy/view?usp=drive_link",
+    stepCount: 7,
+  },
+  monday: {
+    namespace: "DocsIntegrationMonday",
+    videoUrl:
+      "https://drive.google.com/file/d/1bXnoNiB1taajSKyPQzRq1DIDS-Tmcjp2/view?usp=drive_link",
+    stepCount: 5,
+  },
+  notion: {
+    namespace: "DocsIntegrationNotion",
+    videoUrl:
+      "https://drive.google.com/file/d/1CmZj6cTKGnzHFt8-XSMfZeDBoXXgPBMZ/view?usp=drive_link",
+    stepCount: 6,
+  },
+  recallai: {
+    namespace: "DocsIntegrationRecallai",
+    videoUrl:
+      "https://drive.google.com/file/d/1Qk5_N5o6qUkEPpOMPDZBkCCUeeuRXumg/view?usp=drive_link",
+    stepCount: 6,
+  },
+  slack: {
+    namespace: "DocsIntegrationSlack",
+    videoUrl:
+      "https://drive.google.com/file/d/1NgVfpoZJwdqHhPc0SaBtXA1u0tL3Iv7M/view?usp=drive_link",
+    stepCount: 7,
+  },
+};
+
+// Builds a leaf integration topic from its meta. All 12 share the same
+// section shape (overview → setup steps → video), so the body is generated
+// rather than copy-pasted.
+function buildIntegrationTopic(slug: IntegrationSlug): DocTopic {
+  const { namespace, videoUrl, stepCount } = INTEGRATION_META[slug];
+  const stepKeys = Array.from({ length: stepCount }, (_, i) => `step${i + 1}`);
+  return {
+    slug,
+    namespace,
+    titleKey: "title",
+    subtopics: [],
+    sections: [
+      {
+        id: "overview",
+        titleKey: "overviewTitle",
+        blocks: [{ type: "paragraph", key: "overviewP1" }],
+      },
+      {
+        id: "setup",
+        titleKey: "setupTitle",
+        blocks: [{ type: "ordered-list", keys: stepKeys }],
+      },
+      {
+        id: "video",
+        titleKey: "videoTitle",
+        blocks: [
+          { type: "video", url: videoUrl, labelKey: "videoLabel" },
+        ],
+      },
+    ],
+  };
+}
+
+// Parent topic exposed in the sidebar — purely structural, no body.
+const integrationsParent: DocTopic = {
+  slug: "integrations",
+  namespace: "DocsIntegrations",
+  titleKey: "title",
+  subtopics: INTEGRATION_SLUGS.map((slug) => ({
+    slug,
+    titleKey: `${slug}Title`,
+  })),
+  sections: [],
+};
+
 // Per-doc content. Keyed by slug so pages can be generated from config.
-// For now only "quick-start" is rendered as a real page; other card slugs
-// temporarily redirect here.
+// Integration leaves are namespaced under `integrations/<slug>` to keep
+// future top-level topics safe from collisions.
 //
 // TODO: Add an entry per real doc and split into separate route files
 //       (e.g., /docs/core-concepts, /docs/configuration, ...).
@@ -179,10 +347,25 @@ export const docsConfig: Record<string, DocTopic> = {
       },
     ],
   },
+  // 12 integration leaves, generated from INTEGRATION_META.
+  ...Object.fromEntries(
+    INTEGRATION_SLUGS.map((slug) => [
+      `integrations/${slug}`,
+      buildIntegrationTopic(slug),
+    ]),
+  ),
 };
 
+// Looks up the leaf topic for an integration slug.
+export function getIntegrationTopic(slug: string): DocTopic | undefined {
+  return docsConfig[`integrations/${slug}`];
+}
+
 // Parent topics rendered in the left sidebar on doc pages.
-export const SIDEBAR_TOPICS: DocTopic[] = [docsConfig["quick-start"]];
+export const SIDEBAR_TOPICS: DocTopic[] = [
+  docsConfig["quick-start"],
+  integrationsParent,
+];
 
 // Resolves a doc image src for the given locale. Non-default locales fall back
 // to a sibling file with a `_<locale>` suffix before the extension
