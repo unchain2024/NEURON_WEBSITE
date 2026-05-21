@@ -19,6 +19,7 @@ export interface SidebarTopic {
 export interface DocsSidebarProps {
   topics: SidebarTopic[];
   activeSlug?: string;
+  activeSubSlug?: string;
   className?: string;
   ariaLabel?: string;
 }
@@ -26,6 +27,7 @@ export interface DocsSidebarProps {
 export default function DocsSidebar({
   topics,
   activeSlug,
+  activeSubSlug,
   className,
   ariaLabel = "Documentation navigation",
 }: DocsSidebarProps) {
@@ -37,6 +39,7 @@ export default function DocsSidebar({
             key={topic.slug}
             topic={topic}
             isActive={topic.slug === activeSlug}
+            activeSubSlug={activeSubSlug}
           />
         ))}
       </ul>
@@ -47,11 +50,15 @@ export default function DocsSidebar({
 function SidebarTopicNode({
   topic,
   isActive,
+  activeSubSlug,
 }: {
   topic: SidebarTopic;
   isActive: boolean;
+  activeSubSlug?: string;
 }) {
-  const [open, setOpen] = useState(true);
+  // Default the active parent open so the visitor can see the rest of the
+  // section they're in without an extra click.
+  const [open, setOpen] = useState(isActive);
   const hasSubtopics = topic.subtopics.length > 0;
 
   // Without subtopics there's nothing to expand — render the parent as a
@@ -60,7 +67,7 @@ function SidebarTopicNode({
     return (
       <li>
         <Link
-          href="/docs/quick-start"
+          href={`/docs/${topic.slug}`}
           className={cn(
             "block rounded-lg px-3 py-2 font-semibold transition-colors",
             isActive
@@ -103,24 +110,24 @@ function SidebarTopicNode({
         )}
       >
         <ul className="min-h-0 ml-3 border-l border-slate-200/80 pl-3">
-          {topic.subtopics.map((sub) => (
-            <li key={sub.slug}>
-              {/*
-                TODO: Link each subtopic to its actual route
-                      (e.g., `/docs/${topic.slug}/${sub.slug}`).
-                For now all subtopics land on the quick-start page.
-              */}
-              <Link
-                href="/docs/quick-start"
-                className={cn(
-                  "block rounded-md px-3 py-1.5 text-sm text-text-secondary transition-colors",
-                  "hover:bg-slate-100 hover:text-slate-900",
-                )}
-              >
-                {sub.title}
-              </Link>
-            </li>
-          ))}
+          {topic.subtopics.map((sub) => {
+            const subActive = sub.slug === activeSubSlug;
+            return (
+              <li key={sub.slug}>
+                <Link
+                  href={`/docs/${topic.slug}/${sub.slug}`}
+                  className={cn(
+                    "block rounded-md px-3 py-1.5 text-sm transition-colors",
+                    subActive
+                      ? "bg-primary/5 font-medium text-primary"
+                      : "text-text-secondary hover:bg-slate-100 hover:text-slate-900",
+                  )}
+                >
+                  {sub.title}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </li>
