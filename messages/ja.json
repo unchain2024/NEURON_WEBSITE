@@ -9,6 +9,8 @@
     "whyNeuronDescription": "プロダクト組織がなぜNEURONを選ぶのか。リスクが連鎖する前に検出し、推測ではなく緩和策を持ってリリースする方法。",
     "integrationsTitle": "連携ツール — NEURON",
     "integrationsDescription": "NEURONはSlack、Jira、Notion、Linear、GitHubなどと連携。ツールを置き換えるのではなく、すでに存在するリスクシグナルを読み取ります。",
+    "cognitionLayerTitle": "コグニションレイヤー — NEURON",
+    "cognitionLayerDescription": "24個のばらばらなツールを、組織の一貫したマップへと変える基盤アーキテクチャ。パターンファーストのSentinel、6つの構造化シグナルオブジェクト、品質ゲート付き検出、すべてのシグナルにクリック可能な証跡。",
     "pricingTitle": "料金プラン — NEURON",
     "pricingDescription": "あらゆる規模のリスク重視チームに対応するシンプルで透明な料金体系。無料で始めて、リスクサーフェスの拡大に合わせてスケール。",
     "blogTitle": "ブログ — NEURON",
@@ -23,6 +25,7 @@
   "Nav": {
     "product": "プロダクト",
     "whyNeuron": "NEURONとは",
+    "cognitionLayer": "コグニションレイヤー",
     "integrations": "連携ツール",
     "pricing": "料金プラン",
     "blog": "ブログ",
@@ -150,6 +153,7 @@
     "col1Title": "プロダクト",
     "col1Link1": "機能",
     "col1Link2": "NEURONとは",
+    "col1LinkCognition": "コグニションレイヤー",
     "col1Link3": "連携ツール",
     "col1Link4": "料金プラン",
     "col1Link5": "ブログ",
@@ -925,6 +929,113 @@
     "row5Neuron": "リスクが適切なロールに自動で届く",
     "row6Legacy": "ナレッジが古くなる — ただの静的RAG",
     "row6Neuron": "ライブシグナルを常に読み取り — 常に最新、陳腐化しない"
+  },
+  "CognitionLayerPage": {
+    "_note": "PLACEHOLDER — English copy pending Japanese translation pass.",
+    "heroEyebrow": "The Architecture",
+    "heroTitle": "The Cognition Layer",
+    "heroSubhead": "Most AI tools read your data. NEURON understands it.",
+    "heroBody": "The Cognition Layer is the architectural foundation that turns 24 disconnected tools into one coherent map of your organization. Decisions are structured records. Risks are detected by purpose-built Sentinels. Every Signal carries its evidence. Every change is auditable. Nothing is guessed.",
+
+    "s1Eyebrow": "The architectural shift",
+    "s1Title": "A new way of detecting what matters.",
+    "s1Body1": "Every other AI knowledge tool follows the same shape: pipe your messages into a large language model, ask the model what's important, hope the model is right. It's slow, it hallucinates, and you can't audit why it said what it said.",
+    "s1Body2": "NEURON inverts the pipeline. Pattern Intelligence first. Language models second. For every kind of risk worth detecting, we built a focused Sentinel — a small, fast, deterministic detector that runs cheap statistical tests against structured signals. The language model only gets involved at the end, to describe what the math already found.",
+    "s1Body3": "The result: detection that runs in milliseconds, scales linearly, can be unit-tested, and never invents what isn't there.",
+
+    "s2Eyebrow": "Signal Objects",
+    "s2Title": "The six things every organization actually produces.",
+    "s2Intro": "The Cognition Layer is built around six first-class Signal Objects. Every piece of organizational reality NEURON captures fits into one of these — typed, structured, queryable, linked.",
+    "s2ColObject": "Signal Object",
+    "s2ColCaptures": "What it captures",
+    "s2ColExample": "Real example",
+    "signalObjects": [
+      { "name": "Decision", "captures": "A choice your team made, with rationale, trade-offs, and decided-by", "example": "Switched billing provider from Stripe to Adyen — VP Finance — rationale: lower FX cost" },
+      { "name": "Risk", "captures": "Something that might go wrong, with category, probability × impact, and trend", "example": "Customer onboarding pipeline at risk — schedule slippage, P×I 0.7×0.85, trending worse" },
+      { "name": "Open Item", "captures": "An unresolved commitment, with urgency, owner clarity, and aging", "example": "Legal review of new ToS — unowned, soon-urgent, 17 days stale" },
+      { "name": "Countermeasure", "captures": "A planned response to a risk, with assignee and due date", "example": "Add a second contractor to onboarding team — Eng Manager — due 2026-07-15" },
+      { "name": "Outcome", "captures": "What actually happened after a decision or risk played out", "example": "Adyen migration completed 3 weeks ahead of plan, FX cost down 18%" },
+      { "name": "Lesson Learned", "captures": "A structured takeaway from an outcome, reusable for future decisions", "example": "Vendor migrations: budget 30% buffer for double-running costs" }
+    ],
+    "s2Outro": "The connective tissue: every Signal is linked to its source messages, its owning member, its project, and its history. Decisions supersede other decisions. Risks spawn Countermeasures. Outcomes produce Lessons Learned. The whole graph stays connected.",
+
+    "s3Eyebrow": "The Sentinel Library",
+    "s3Title": "Ten Sentinels. One library. Always growing.",
+    "s3Intro": "Each Sentinel watches for one specific risk pattern. Each one is independently versioned, independently tested, and independently quality-gated. Adding a new kind of detection is a new Sentinel, not a new prompt.",
+    "s3ColSentinel": "Sentinel",
+    "s3ColWatches": "Watches for",
+    "s3Keystone": "keystone",
+    "sentinels": [
+      { "name": "Unspoken Misalignment", "keystone": true, "watches": "Teams quietly drifting apart — topic divergence + graph fragmentation + engagement drop" },
+      { "name": "Scope Creep", "keystone": false, "watches": "Feature additions outpacing closes; backlog growth without corresponding velocity" },
+      { "name": "Schedule Slippage", "keystone": false, "watches": "Deliverables consistently late against original commit dates" },
+      { "name": "Stakeholder Disengagement", "keystone": false, "watches": "Exec or sponsor attention dropping off — fewer touches, longer response gaps" },
+      { "name": "Budget Overrun", "keystone": false, "watches": "Burn rate exceeding allocation, projected against cycle" },
+      { "name": "Quality Regression", "keystone": false, "watches": "Bug rate climbing, incident frequency rising" },
+      { "name": "Technical Debt Growth", "keystone": false, "watches": "Refactor backlog growing faster than new work shipping" },
+      { "name": "Coordination Silo", "keystone": false, "watches": "Sub-teams operating in isolation — cross-team comms below baseline" },
+      { "name": "Dependency Bottleneck", "keystone": false, "watches": "One team blocking many others — fan-out exceeding threshold" },
+      { "name": "Unresolved Blockers", "keystone": false, "watches": "Open items aging past urgency thresholds without owner action" }
+    ],
+    "s3CompoundTitle": "The Compound Patterns",
+    "s3CompoundBody": "When two Sentinels correlate on the same team or project, the system names the compound pattern. Six named compound patterns ship today.",
+    "compoundPatterns": ["Scope Creep Spiral", "Silent Blocker", "Knowledge Silo", "Strategic Drift", "Execution Breakdown", "Technical Debt Trap"],
+
+    "s4Eyebrow": "Quality-Gated Detection",
+    "s4Title": "If a Sentinel can't prove it works, it doesn't ship.",
+    "s4Body1": "Every Sentinel has a Golden Dataset — a hand-labeled set of scenarios, positive and negative. The Sentinel must hit minimum precision and recall on its Golden Dataset before it merges into production. If a code change drops the numbers below the floor, CI blocks the merge.",
+    "s4MetricsIntro": "Our keystone Sentinel — Unspoken Misalignment — currently runs at:",
+    "s4Metric1Value": "0.91",
+    "s4Metric1Label": "Precision",
+    "s4Metric1Note": "false-positive ceiling: ≥ 0.60 enforced",
+    "s4Metric2Value": "0.62",
+    "s4Metric2Label": "Recall",
+    "s4Metric2Note": "true-positive floor: ≥ 0.50 enforced",
+    "s4Metric3Value": "0.74",
+    "s4Metric3Label": "F1",
+    "s4Metric3Note": "harmonic mean of precision and recall",
+    "s4Outro": "These aren't aspirational numbers in a deck. They're enforced in CI. Quality regression is impossible by construction.",
+
+    "s5Eyebrow": "The Trust Layer",
+    "s5Title": "Three guarantees on every Signal.",
+    "guarantees": [
+      { "title": "Provenance you can click into.", "body": "Open any Risk in NEURON. You see the fourteen messages, in four channels, across three days, that triggered the detection. No \"the AI thinks this.\" Just evidence." },
+      { "title": "Immutable audit trail.", "body": "Every change to every Signal is recorded append-only in the Provenance Chain. Enforced twice: a CI lint rule prevents code that would mutate the log, and a database trigger blocks the mutation at the storage layer. Defense in depth — the foundation for the compliance conversation you'll have with your security team." },
+      { "title": "Human-approved by default.", "body": "Sentinels don't write directly into the Cognition Layer. They produce Review Queue entries — pending suggestions a human approves or dismisses. Nothing in your organization's memory is there because \"the AI said so.\" Every Signal carries the signature of a human reviewer." }
+    ],
+    "s5Outro": "For high-volume Sentinels you can configure auto-approval per-pattern. The default is human-in-the-loop. The audit trail records which Signals were human-approved and which were auto-approved — so the security team's question always has an answer.",
+
+    "s6Eyebrow": "Unified Identity",
+    "s6Title": "One Alice across twenty-four tools.",
+    "s6Body1": "The same person has different handles in every tool — alice@slack, alice_dev@github, Alice Chen in Monday, a.chen in your SAML directory. NEURON's Unified Identity resolves all of them into one canonical Member record, automatically, the first time any new handle appears.",
+    "s6Body2": "Five-tier match logic: exact ID, normalized email, fuzzy name, platform-specific heuristics, and — when ambiguous — a deferred review. No manual mapping. No CSV uploads. Your org chart materializes itself.",
+
+    "s7Eyebrow": "The cost story",
+    "s7Title": "74% fewer model tokens than a naive AI pipeline.",
+    "s7Body1": "Because Pattern Intelligence runs first, the language model only sees the channels and time windows where structured signals actually appeared. Our multi-level extraction gate skips low-signal channels entirely — saving roughly 74% of language-model tokens on production traffic, compared to the LLM-first pipeline NEURON replaced.",
+    "s7Body2": "Every language-model call is logged to the Provenance Chain with token count, cost, latency, and purpose. Cost is observable per workspace, per Sentinel, per call site.",
+
+    "s8Eyebrow": "Under the hood",
+    "s8Title": "For your engineering team.",
+    "s8Body": "The Cognition Layer is implemented in PostgreSQL with pgvector for similarity search, exposed via a GraphQL API. Sentinels are versioned Python modules with YAML-configured thresholds, semver, and automatic provenance recording. Identity resolution is a 5-tier match with lazy creation of Member records. The detection pipeline runs incrementally — only the affected channels are re-evaluated when new messages land via the ingestion bridge. GraphQL subscriptions push detections to the frontend in real time. Workspace isolation is enforced at every layer — auth, query resolution, and per-workspace data filtering — so one NEURON deployment can safely host multiple organizations on shared infrastructure.",
+
+    "s9Eyebrow": "Day one",
+    "s9Title": "Connect the first tool. Watch your organization materialize.",
+    "s9Intro": "The moment you connect a Slack workspace, a Monday board, or a Notion database:",
+    "dayOne": [
+      { "title": "Members appear", "body": "Every person who has ever posted is recognized and de-duplicated across platforms." },
+      { "title": "Decisions extract", "body": "Every committed choice from the past four weeks becomes a structured Decision, with rationale and source trail." },
+      { "title": "Risks surface", "body": "The Sentinel Library runs against your history and proposes Risks. You triage them in the Review Queue." },
+      { "title": "Open Items pile up", "body": "Unresolved commitments get ranked by urgency, owner clarity, and staleness." },
+      { "title": "Cross-source decisions cluster", "body": "If the same decision was made in both Slack and Monday, the system detects the duplicate and merges the context." }
+    ],
+    "s9Outro": "From there the platform is reactive. New messages flow in. The Cognition Layer updates. The dashboards refresh. The Review Queue fills with new detections to triage.",
+
+    "ctaTitle": "Built for organizations that need to be right.",
+    "ctaBody": "The Cognition Layer is shipping today. Sentinels are running in production workspaces. The Provenance Chain has been audited.",
+    "ctaPrimary": "Request a Demo",
+    "ctaSecondary": "Read the technical white paper",
+    "ctaTertiary": "See the Sentinel Library"
   },
   "TermsPage": {
     "title": "SaaS利用規約",

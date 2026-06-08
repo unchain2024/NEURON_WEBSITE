@@ -17,6 +17,7 @@ const FOOTER_STRUCTURE: { titleKey: string; links: FooterLink[] }[] = [
     links: [
       { key: "col1Link1", href: "/#features" },
       { key: "col1Link2", href: "/why-neuron" },
+      { key: "col1LinkCognition", href: "/cognition-layer" },
       { key: "col1Link3", href: "/integrations" },
       { key: "col1Link4", href: "/pricing" },
       { key: "col1Link5", href: "/blog" },

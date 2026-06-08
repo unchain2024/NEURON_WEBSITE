@@ -13,6 +13,7 @@ const MotionLink = motion.create(Link);
 
 const NAV_LINK_KEYS = [
   { key: "whyNeuron", href: "/why-neuron" },
+  { key: "cognitionLayer", href: "/cognition-layer" },
   { key: "integrations", href: "/integrations" },
   { key: "pricing", href: "/pricing" },
   { key: "blog", href: "/blog" },
