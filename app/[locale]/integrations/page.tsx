@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/sections/page-hero";
 import TrustBar from "@/components/sections/trust-bar";
 import IntegrationDetails from "@/components/sections/integration-details";
+import FaqAccordion from "@/components/sections/faq-accordion";
 
 export async function generateMetadata({
   params,
@@ -23,6 +24,7 @@ export default function IntegrationsPage() {
       <PageHero namespace="IntegrationsPage" />
       <TrustBar />
       <IntegrationDetails />
+      <FaqAccordion namespace="IntegrationsPage" />
     </>
   );
 }

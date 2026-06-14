@@ -3,6 +3,9 @@
 import { useTranslations } from "next-intl";
 import { BlurReveal, MotionDiv, blurIn } from "@/components/motion-wrapper";
 import { motion } from "framer-motion";
+import { Link } from "@/i18n/navigation";
+
+const MotionLink = motion.create(Link);
 
 export default function FinalCTA() {
   const t = useTranslations("FinalCTA");
@@ -34,15 +37,15 @@ export default function FinalCTA() {
                 <p className="text-lg md:text-xl text-white/80 max-w-xl mx-auto mb-8">
                   {t("subheading")}
                 </p>
-                <motion.a
-                  href="#"
+                <MotionLink
+                  href="/get-demo"
                   className="inline-block bg-white text-slate-900 font-semibold px-8 py-3.5 rounded-xl text-base hover:bg-white/90 transition-colors shadow-lg"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   {t("cta")}
-                </motion.a>
+                </MotionLink>
                 <p className="mt-4 text-sm text-white/60">
                   {t("note")}
                 </p>

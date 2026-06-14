@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Database, Network, FileText, History, type LucideIcon } from "lucide-react";
+import { Radar, Brain, Layers, MessagesSquare, UserCog, type LucideIcon } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { useTranslations } from "next-intl";
 import { BlurReveal, MotionDiv, blurIn } from "@/components/motion-wrapper";
@@ -16,10 +16,11 @@ interface TabMeta {
 }
 
 const TAB_META: TabMeta[] = [
-  { id: "signal-ingestion", icon: Database, key: "tab1", bulletCount: 3 },
-  { id: "multi-agent-synthesis", icon: Network, key: "tab2", bulletCount: 3 },
-  { id: "decision-artifacts", icon: FileText, key: "tab3", bulletCount: 3 },
-  { id: "memory-traceability", icon: History, key: "tab4", bulletCount: 3 },
+  { id: "risk-radar", icon: Radar, key: "tab1", bulletCount: 3 },
+  { id: "decision-memory", icon: Brain, key: "tab2", bulletCount: 3 },
+  { id: "context-on-tasks", icon: Layers, key: "tab3", bulletCount: 3 },
+  { id: "ask-neuron", icon: MessagesSquare, key: "tab4", bulletCount: 3 },
+  { id: "role-adaptive", icon: UserCog, key: "tab5", bulletCount: 3 },
 ];
 
 export default function Features() {

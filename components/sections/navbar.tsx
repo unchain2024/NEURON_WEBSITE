@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/navigation";
@@ -12,17 +12,17 @@ import blobAnimationData from "@/public/logos/neuron-blob.json";
 const MotionLink = motion.create(Link);
 
 const NAV_LINK_KEYS = [
-  { key: "whyNeuron", href: "/why-neuron" },
-  { key: "cognitionLayer", href: "/cognition-layer" },
+  { key: "product", href: "/product" },
+  { key: "caseStudies", href: "/case-studies" },
   { key: "integrations", href: "/integrations" },
   { key: "pricing", href: "/pricing" },
-  { key: "blog", href: "/blog" },
 ] as const;
 
-const COMPANY_URLS: Record<string, string> = {
-  en: "https://www.the-unchain.com/en",
-  ja: "https://www.the-unchain.com",
-};
+const RESOURCES_LINKS = [
+  { key: "docs", href: "/docs" },
+  { key: "blog", href: "/blog" },
+  { key: "company", href: "/company" },
+] as const;
 
 export default function Navbar() {
   const t = useTranslations("Nav");
@@ -32,6 +32,7 @@ export default function Navbar() {
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
 
   useEffect(() => {
     let ticking = false;
@@ -95,18 +96,53 @@ export default function Navbar() {
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
               </MotionLink>
             ))}
-            <motion.a
-              href={COMPANY_URLS[locale] ?? COMPANY_URLS.ja}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-text-secondary hover:text-slate-900 transition-colors relative group"
+
+            {/* Resources dropdown */}
+            <motion.div
+              className="relative"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + NAV_LINK_KEYS.length * 0.05 }}
+              onMouseEnter={() => setResourcesOpen(true)}
+              onMouseLeave={() => setResourcesOpen(false)}
             >
-              {t("company")}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
-            </motion.a>
+              <button
+                className="flex items-center gap-1 text-sm text-text-secondary hover:text-slate-900 transition-colors"
+                aria-haspopup="true"
+                aria-expanded={resourcesOpen}
+              >
+                {t("resources")}
+                <ChevronDown
+                  className={cn(
+                    "h-4 w-4 transition-transform",
+                    resourcesOpen && "rotate-180"
+                  )}
+                />
+              </button>
+              <AnimatePresence>
+                {resourcesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute left-1/2 -translate-x-1/2 top-full pt-3"
+                  >
+                    <div className="glass-nav rounded-xl border border-border/60 shadow-lg shadow-black/5 p-2 min-w-[180px]">
+                      {RESOURCES_LINKS.map((link) => (
+                        <Link
+                          key={link.key}
+                          href={link.href}
+                          className="block px-3 py-2 rounded-lg text-sm text-text-secondary hover:text-slate-900 hover:bg-slate-100 transition-colors"
+                        >
+                          {t(link.key)}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
           </div>
 
           {/* Desktop CTAs */}
@@ -131,7 +167,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {t("requestDemo")}
+              {t("bookDemo")}
             </MotionLink>
           </div>
 
@@ -169,18 +205,24 @@ export default function Navbar() {
                     {t(link.key)}
                   </MotionLink>
                 ))}
-                <motion.a
-                  href={COMPANY_URLS[locale] ?? COMPANY_URLS.ja}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-text-secondary hover:text-slate-900 transition-colors py-2"
-                  onClick={() => setMobileOpen(false)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: NAV_LINK_KEYS.length * 0.05 }}
-                >
-                  {t("company")}
-                </motion.a>
+
+                {/* Resources group */}
+                <div className="pt-2">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-text-muted mb-1">
+                    {t("resources")}
+                  </p>
+                  {RESOURCES_LINKS.map((link) => (
+                    <Link
+                      key={link.key}
+                      href={link.href}
+                      className="block text-text-secondary hover:text-slate-900 transition-colors py-2 pl-3"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {t(link.key)}
+                    </Link>
+                  ))}
+                </div>
+
                 <div className="pt-4 border-t border-border/40 space-y-3">
                   <button
                     onClick={() => {
@@ -200,7 +242,7 @@ export default function Navbar() {
                     className="block text-center bg-primary hover:bg-primary-600 text-white px-4 py-2.5 rounded-lg transition-colors font-medium"
                     onClick={() => setMobileOpen(false)}
                   >
-                    {t("requestDemo")}
+                    {t("bookDemo")}
                   </Link>
                 </div>
               </div>

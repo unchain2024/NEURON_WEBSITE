@@ -1,25 +1,37 @@
 import Hero from "@/components/sections/hero";
-import PainPoints from "@/components/sections/pain-points";
+import HomeProblem from "@/components/sections/home-problem";
+import HomeWhatIs from "@/components/sections/home-what-is";
+import HomeCapabilities from "@/components/sections/home-capabilities";
+import HomeRoles from "@/components/sections/home-roles";
+import ComparisonTable from "@/components/sections/comparison-table";
 import HowItWorks from "@/components/sections/how-it-works";
-import NeuronForPM from "@/components/sections/neuron-for-pm";
-import NeuronForEng from "@/components/sections/neuron-for-eng";
-import CollaborationSection from "@/components/sections/collaboration-section";
-import IndustryUseCases from "@/components/sections/industry-use-cases";
-import StakeholderValue from "@/components/sections/stakeholder-value";
-import StatsBar from "@/components/sections/stats-bar";
+import Testimonials from "@/components/sections/testimonials";
+import HomeSecurityStrip from "@/components/sections/home-security-strip";
+import FinalCTA from "@/components/sections/final-cta";
 
 export default function Home() {
   return (
     <>
+      {/* 1.1 Hero + 1.2 Trust bar (TrustBar is rendered inside Hero) */}
       <Hero />
-      <PainPoints />
-      <NeuronForPM />
-      <NeuronForEng />
-      <CollaborationSection />
-      <IndustryUseCases />
+      {/* 1.3 The problem */}
+      <HomeProblem />
+      {/* 1.4 What NEURON is */}
+      <HomeWhatIs />
+      {/* 1.5 Capabilities */}
+      <HomeCapabilities />
+      {/* 1.6 Built for every decision-maker */}
+      <HomeRoles />
+      {/* 1.7 Why not just a wiki or AI search */}
+      <ComparisonTable />
+      {/* 1.8 How it works */}
       <HowItWorks />
-      <StakeholderValue />
-      <StatsBar />
+      {/* 1.9 Social proof */}
+      <Testimonials />
+      {/* 1.10 Security strip */}
+      <HomeSecurityStrip />
+      {/* 1.11 Final CTA */}
+      <FinalCTA />
     </>
   );
 }
