@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Radar, Brain, Layers, MessagesSquare } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
 import ImagePlaceholder from "@/components/image-placeholder";
 
@@ -17,40 +18,48 @@ export default function HomeCapabilities() {
 
   return (
     <section className="section-padding">
-      <SectionReveal>
-        <div className="section-container">
-          <div className="max-w-3xl mx-auto text-center mb-14 lg:mb-20">
+      <div className="section-container">
+        <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-24">
+          <SectionReveal>
             <MotionDiv variants={fadeInUp}>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
                 {t("capHeading")}
               </h2>
             </MotionDiv>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {CAPS.map(({ key, Icon }) => (
-              <MotionDiv key={key} variants={fadeInUp}>
-                <div className="h-full rounded-2xl border border-border bg-white p-7 flex flex-col">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                      <Icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-slate-900">
-                      {t(`${key}Title`)}
-                    </h3>
-                  </div>
-                  <p className="text-text-secondary text-sm leading-relaxed mb-5">
-                    {t(`${key}Body`)}
-                  </p>
-                  <div className="mt-auto">
-                    <ImagePlaceholder caption={t(`${key}Image`)} aspect="aspect-[16/7]" />
-                  </div>
-                </div>
-              </MotionDiv>
-            ))}
-          </div>
+          </SectionReveal>
         </div>
-      </SectionReveal>
+
+        <div className="space-y-20 lg:space-y-28">
+          {CAPS.map(({ key, Icon }, i) => {
+            const imageRight = i % 2 === 0;
+            return (
+              <SectionReveal key={key}>
+                <MotionDiv variants={fadeInUp}>
+                  <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                    {/* Text */}
+                    <div className={cn(imageRight ? "" : "lg:order-2")}>
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                        <Icon className="h-6 w-6 text-primary" />
+                      </div>
+                      <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
+                        {t(`${key}Title`)}
+                      </h3>
+                      <p className="mt-5 text-lg text-text-secondary leading-relaxed">
+                        {t(`${key}Body`)}
+                      </p>
+                    </div>
+
+                    {/* Image */}
+                    <div className={cn(imageRight ? "" : "lg:order-1")}>
+                      <ImagePlaceholder caption={t(`${key}Image`)} />
+                    </div>
+                  </div>
+                </MotionDiv>
+              </SectionReveal>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }
