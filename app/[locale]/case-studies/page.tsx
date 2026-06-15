@@ -1,8 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import PageHero from "@/components/sections/page-hero";
-import WhyOntology from "@/components/sections/why-ontology";
-import FinalCTA from "@/components/sections/final-cta";
+import CaseStudiesHub from "@/components/sections/case-studies-hub";
 
 export async function generateMetadata({
   params,
@@ -12,17 +11,16 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
   return {
-    title: t("whyNeuronTitle"),
-    description: t("whyNeuronDescription"),
+    title: t("caseStudiesTitle"),
+    description: t("caseStudiesDescription"),
   };
 }
 
-export default function WhyNeuronPage() {
+export default function CaseStudiesPage() {
   return (
     <>
-      <PageHero namespace="WhyNeuronPage" />
-      <WhyOntology />
-      <FinalCTA />
+      <PageHero namespace="CaseStudiesPage" />
+      <CaseStudiesHub />
     </>
   );
 }

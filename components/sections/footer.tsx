@@ -15,22 +15,37 @@ const FOOTER_STRUCTURE: { titleKey: string; links: FooterLink[] }[] = [
   {
     titleKey: "col1Title",
     links: [
-      { key: "col1Link1", href: "/#features" },
+      { key: "col1Link1", href: "/product" },
+      { key: "col1LinkHow", href: "/product#how-it-works" },
       { key: "col1Link2", href: "/why-neuron" },
-      { key: "col1LinkCognition", href: "/cognition-layer" },
       { key: "col1Link3", href: "/integrations" },
       { key: "col1Link4", href: "/pricing" },
-      { key: "col1Link5", href: "/blog" },
-      { key: "col1Link6", href: "/get-demo" },
+    ],
+  },
+  {
+    titleKey: "col5Title",
+    links: [
+      { key: "col5Link1", href: "/case-studies" },
+      { key: "col5Link2", href: "/case-studies/information-technology" },
+      { key: "col5Link3", href: "/case-studies/manufacturing" },
+      { key: "col5Link4", href: "/case-studies/financial-services" },
+    ],
+  },
+  {
+    titleKey: "col3Title",
+    links: [
+      { key: "col3Link1", href: "/docs" },
+      { key: "col3Link2", href: "/blog" },
+      { key: "col3Link3", href: "/security" },
     ],
   },
   {
     titleKey: "col2Title",
     links: [
-      { key: "col2Link1", href: "https://www.the-unchain.com/", external: true },
-      { key: "col2Link2", href: "https://www.the-unchain.com/news", external: true },
-      { key: "col2Link3", href: "https://www.the-unchain.com/career", external: true },
-      { key: "col2Link4", href: "https://www.the-unchain.com/contact", external: true },
+      { key: "col2Link1", href: "/company" },
+      { key: "col2Link3", href: "/company#careers" },
+      { key: "col2Link2", href: "/company#news" },
+      { key: "col2Link4", href: "/get-demo" },
     ],
   },
   {
@@ -62,7 +77,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0D0F14] text-white border-t border-[#1E2535]/40 pt-16 pb-8">
       <div className="section-container">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 mb-12">
           {/* Logo column */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">

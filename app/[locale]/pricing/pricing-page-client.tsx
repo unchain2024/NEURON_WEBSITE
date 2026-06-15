@@ -1,7 +1,13 @@
 "use client";
 
-import PricingContactCard from "@/components/sections/pricing-contact-card";
+import PricingOffering from "@/components/sections/pricing-offering";
+import FaqAccordion from "@/components/sections/faq-accordion";
 
 export default function PricingPageClient() {
-  return <PricingContactCard />;
+  return (
+    <>
+      <PricingOffering />
+      <FaqAccordion namespace="PricingPage" />
+    </>
+  );
 }
