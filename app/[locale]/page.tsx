@@ -3,6 +3,7 @@ import HomeProblem from "@/components/sections/home-problem";
 import HomeWhatIs from "@/components/sections/home-what-is";
 import HomeCapabilities from "@/components/sections/home-capabilities";
 import HomeRoles from "@/components/sections/home-roles";
+import HomeGame from "@/components/sections/home-game";
 import ComparisonTable from "@/components/sections/comparison-table";
 import HowItWorks from "@/components/sections/how-it-works";
 import Testimonials from "@/components/sections/testimonials";
@@ -22,6 +23,8 @@ export default function Home() {
       <HomeCapabilities />
       {/* 1.6 Built for every decision-maker */}
       <HomeRoles />
+      {/* 1.6b Interactive game — Manager Archetype Finder */}
+      <HomeGame />
       {/* 1.7 Why not just a wiki or AI search */}
       <ComparisonTable />
       {/* 1.8 How it works */}
