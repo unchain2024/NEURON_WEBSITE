@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { ArrowRight, Sparkles, Clock, ListChecks, Layers } from "lucide-react";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
 
-const GAME_URL = "";
+const GAME_URL = "https://www.archetype.the-neuron.com/";
 
 const STATS = [
   { key: "gameStat1", Icon: ListChecks },
