@@ -1,43 +1,37 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { ArrowRight } from "lucide-react";
-import { Link } from "@/i18n/navigation";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
-import ImagePlaceholder from "@/components/image-placeholder";
 
+/* The whole "What is NEURON" section is delivered as a single full-bleed
+   artwork (1440×1092). The "How it works" button is baked into the art at
+   x=1104.5 y=968.5 w=155 h=43; we overlay a transparent, real button on that
+   exact region (positioned as % of the frame so it stays aligned at any
+   width). It's a no-op for now — clicking it does nothing. */
 export default function HomeWhatIs() {
-  const t = useTranslations("Home");
-
   return (
-    <section className="section-padding bg-surface">
+    <section id="what-is" className="relative overflow-hidden bg-[#0A0D12]">
       <SectionReveal>
-        <div className="section-container">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <MotionDiv variants={fadeInUp}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
-                {t("whatIsHeading")}
-              </h2>
-              <p className="mt-6 text-lg text-text-secondary leading-relaxed">
-                {t("whatIsBody")}
-              </p>
-              <p className="mt-8 text-sm text-text-secondary">
-                {t("whatIsLinkText")}{" "}
-                <Link
-                  href="/cognition-layer"
-                  className="inline-flex items-center gap-1 font-semibold text-primary hover:text-primary-600 transition-colors"
-                >
-                  {t("whatIsLinkCta")}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </p>
-            </MotionDiv>
-
-            <MotionDiv variants={fadeInUp}>
-              <ImagePlaceholder caption={t("whatIsImage")} />
-            </MotionDiv>
-          </div>
-        </div>
+        <MotionDiv variants={fadeInUp} className="relative">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/Section.svg"
+            alt="What is NEURON — the AI-driven ontology that turns decisions into a connected layer"
+            width={1440}
+            height={1092}
+            className="block h-auto w-full"
+          />
+          <button
+            type="button"
+            aria-label="How it works"
+            className="absolute cursor-pointer rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+            style={{
+              left: `${(1104.5 / 1440) * 100}%`,
+              top: `${(968.5 / 1092) * 100}%`,
+              width: `${(155 / 1440) * 100}%`,
+              height: `${(43 / 1092) * 100}%`,
+            }}
+          />
+        </MotionDiv>
       </SectionReveal>
     </section>
   );

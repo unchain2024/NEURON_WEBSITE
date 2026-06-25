@@ -1,17 +1,33 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Radar, Brain, Layers, MessagesSquare } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
-import ImagePlaceholder from "@/components/image-placeholder";
 
-const CAPS = [
-  { key: "cap1", Icon: Radar },
-  { key: "cap2", Icon: Brain },
-  { key: "cap3", Icon: Layers },
-  { key: "cap4", Icon: MessagesSquare },
+/* "Inter Display" (the Figma spec) is just Inter at its display optical size.
+   This project loads Inter via next/font (--font-inter); with optical-sizing
+   auto, Inter renders its display cut at large sizes — matching the spec.
+   Put the loaded Inter first so the result is deterministic on every machine
+   (a phantom "Inter Display" first would silently fall back to system sans). */
+const DISPLAY_FONT = 'var(--font-inter), "Inter Display", Inter, sans-serif';
+
+/* The four capability cards are delivered as self-contained SVGs. They share a
+   391px design height, so a fractional-column grid (matching their widths) lines
+   their heights up exactly. Row 1: 450 | 614, row 2: 614 | 450. */
+const ROWS = [
+  [
+    { src: "/riskradar.svg", alt: "Risk radar — NEURON detects risks across conversations, meetings, and tasks before they escalate." },
+    { src: "/decisionmemory.svg", alt: "Decision memory — every decision is captured automatically with its reasoning and outcome connected." },
+  ],
+  [
+    { src: "/context.svg", alt: "Context on every task — background, past decisions, dependencies, and the right person to ask are already there." },
+    { src: "/ask.svg", alt: "Ask anything — get answers backed by real organizational context." },
+  ],
 ] as const;
+
+const ROW_COLS = [
+  "lg:grid-cols-[450fr_614fr]",
+  "lg:grid-cols-[614fr_450fr]",
+];
 
 export default function HomeCapabilities() {
   const t = useTranslations("Home");
@@ -19,45 +35,68 @@ export default function HomeCapabilities() {
   return (
     <section className="section-padding">
       <div className="section-container">
-        <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-24">
-          <SectionReveal>
-            <MotionDiv variants={fadeInUp}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
-                {t("capHeading")}
-              </h2>
-            </MotionDiv>
-          </SectionReveal>
-        </div>
+        {/* Header */}
+        <SectionReveal>
+          <MotionDiv variants={fadeInUp} className="mx-auto mb-14 text-center lg:mb-20">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/capabilities.svg"
+              alt="Capabilities"
+              width={95}
+              height={32}
+              className="mx-auto mb-6 h-8 w-auto"
+            />
+            <h2
+              className="whitespace-nowrap text-slate-900"
+              style={{
+                fontFamily: DISPLAY_FONT,
+                fontOpticalSizing: "auto",
+                fontWeight: 500,
+                fontSize: 40,
+                lineHeight: "110%",
+                letterSpacing: 0,
+                textAlign: "center",
+              }}
+            >
+              {t("capHeading")}
+            </h2>
+            <p
+              className="mx-auto mt-5 max-w-4xl text-text-secondary"
+              style={{
+                fontFamily: DISPLAY_FONT,
+                fontOpticalSizing: "auto",
+                fontWeight: 400,
+                fontSize: 16,
+                lineHeight: "140%",
+                letterSpacing: 0,
+                textAlign: "center",
+                whiteSpace: "pre-line",
+              }}
+            >
+              {t("capSubheading")}
+            </p>
+          </MotionDiv>
+        </SectionReveal>
 
-        <div className="space-y-20 lg:space-y-28">
-          {CAPS.map(({ key, Icon }, i) => {
-            const imageRight = i % 2 === 0;
-            return (
-              <SectionReveal key={key}>
-                <MotionDiv variants={fadeInUp}>
-                  <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                    {/* Text */}
-                    <div className={cn(imageRight ? "" : "lg:order-2")}>
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                        <Icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
-                        {t(`${key}Title`)}
-                      </h3>
-                      <p className="mt-5 text-lg text-text-secondary leading-relaxed">
-                        {t(`${key}Body`)}
-                      </p>
-                    </div>
-
-                    {/* Image */}
-                    <div className={cn(imageRight ? "" : "lg:order-1")}>
-                      <ImagePlaceholder caption={t(`${key}Image`)} />
-                    </div>
-                  </div>
-                </MotionDiv>
-              </SectionReveal>
-            );
-          })}
+        {/* Four cards */}
+        <div className="space-y-6">
+          {ROWS.map((row, i) => (
+            <SectionReveal key={i}>
+              <MotionDiv variants={fadeInUp}>
+                <div className={`grid grid-cols-1 gap-6 ${ROW_COLS[i]}`}>
+                  {row.map((card) => (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      key={card.src}
+                      src={card.src}
+                      alt={card.alt}
+                      className="block h-auto w-full"
+                    />
+                  ))}
+                </div>
+              </MotionDiv>
+            </SectionReveal>
+          ))}
         </div>
       </div>
     </section>

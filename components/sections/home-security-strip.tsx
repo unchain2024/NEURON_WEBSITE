@@ -1,9 +1,12 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { ShieldCheck, ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
+
+/* "Inter Display" (Figma spec) is Inter at its display optical size; the loaded
+   Inter renders that cut at large sizes, so we put it first for determinism. */
+const DISPLAY_FONT = 'var(--font-inter), "Inter Display", Inter, sans-serif';
 
 export default function HomeSecurityStrip() {
   const t = useTranslations("Home");
@@ -11,28 +14,63 @@ export default function HomeSecurityStrip() {
   return (
     <section className="section-padding">
       <SectionReveal>
-        <div className="section-container">
-          <MotionDiv variants={fadeInUp}>
-            <div className="rounded-3xl border border-border bg-surface px-6 py-12 md:px-12 md:py-14 flex flex-col md:flex-row md:items-center gap-8">
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                <ShieldCheck className="h-7 w-7 text-primary" />
-              </div>
-              <div className="flex-1">
-                <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-900">
-                  {t("securityHeading")}
-                </h2>
-                <p className="mt-3 text-text-secondary leading-relaxed max-w-3xl">
-                  {t("securityBody")}
-                </p>
-                <Link
-                  href="/security"
-                  className="mt-5 inline-flex items-center gap-1.5 font-semibold text-primary hover:text-primary-600 transition-colors"
-                >
-                  {t("securityLink")}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
+        <div className="section-container flex flex-col items-center">
+          {/* Header */}
+          <MotionDiv variants={fadeInUp} className="mx-auto text-center">
+            <h2
+              className="text-slate-900"
+              style={{
+                fontFamily: DISPLAY_FONT,
+                fontOpticalSizing: "auto",
+                fontWeight: 500,
+                fontSize: 40,
+                lineHeight: "110%",
+                letterSpacing: 0,
+                textAlign: "center",
+              }}
+            >
+              {t("securityHeading")}
+            </h2>
+            <p
+              className="mx-auto mt-4 whitespace-nowrap text-text-secondary"
+              style={{
+                fontFamily: DISPLAY_FONT,
+                fontOpticalSizing: "auto",
+                fontWeight: 400,
+                fontSize: 16,
+                lineHeight: "140%",
+                letterSpacing: 0,
+                textAlign: "center",
+              }}
+            >
+              {t("securityBody")}
+            </p>
+          </MotionDiv>
+
+          {/* Shield graphic */}
+          <MotionDiv variants={fadeInUp} className="mt-12 w-full">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/enterprise.svg"
+              alt="Enterprise-grade security: encryption in transit & at rest, read-only integrations, never used to train AI models, existing permissions preserved"
+              width={860}
+              height={475}
+              className="mx-auto block h-auto w-full max-w-[860px]"
+            />
+          </MotionDiv>
+
+          {/* CTA button */}
+          <MotionDiv variants={fadeInUp} className="mt-10">
+            <Link href="/security" aria-label="Security & Trust">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/sec.svg"
+                alt="Security & Trust"
+                width={177}
+                height={44}
+                className="h-11 w-auto transition-transform hover:-translate-y-0.5"
+              />
+            </Link>
           </MotionDiv>
         </div>
       </SectionReveal>

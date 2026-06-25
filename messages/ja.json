@@ -34,8 +34,8 @@
   },
   "Nav": {
     "product": "プロダクト",
-    "solutions": "Solutions by role",
-    "caseStudies": "Solutions",
+    "solutions": "ソリューション",
+    "caseStudies": "導入事例",
     "whyNeuron": "NEURONとは",
     "cognitionLayer": "コグニションレイヤー",
     "integrations": "連携ツール",
@@ -61,20 +61,23 @@
     "proof5": "Built from the tools you already use, no new busywork"
   },
   "Home": {
-    "problemHeading": "Your best thinking disappears the moment you make it.",
-    "problemBody": "Every week your organization makes hundreds of decisions — in Slack threads, meeting notes, and people's heads. Almost none of it is connected, and almost all of it vanishes the moment it's made. So the same questions get reopened, the same mistakes get repeated, and when someone leaves, their judgment leaves with them.",
+    "problemBadge": "課題",
+    "problemHeading": "Your best thinking disappears the moment you make it",
+    "problemBody": "Every week, organizations make hundreds of decisions across Slack, meetings, and people's heads. Most are never connected or documented, so questions resurface, mistakes repeat, and valuable judgment disappears when people leave.",
     "pain1Title": "Decisions get relitigated.",
     "pain1Body": "What was already decided gets reopened because no one can find the context behind it.",
     "pain2Title": "Risk shows up late.",
     "pain2Body": "Problems surface after they've grown, not before — when they're expensive to fix.",
     "pain3Title": "The \"why\" is gone.",
     "pain3Body": "Leaders see what was decided, never why. Reviews run on guesswork.",
+    "whatIsBadge": "What Neuron is",
     "whatIsHeading": "A living decision layer across everything you already use.",
     "whatIsBody": "NEURON connects your existing tools and structures that flow through them — decisions, risks, results, and the reasoning behind them — into a single, connected layer that mirrors how your business actually works. Not another place to file things. A second brain that keeps your organization's knowledge alive and ready the moment you need it — even after the people who made the calls have moved on.",
     "whatIsImage": "NEURON app — Signals / Dashboard",
     "whatIsLinkText": "Curious how it's built?",
     "whatIsLinkCta": "How it works · AI-Driven Ontology",
-    "capHeading": "Four things your second brain does for you.",
+    "capHeading": "セカンドブレインがあなたのためにする4つのこと",
+    "capSubheading": "毎週何百もの意思決定が行われますが、その多くはつながりも保存もされません。\n疑問が蒸し返され、ミスが繰り返され、貴重な知見は人とともに失われます。",
     "cap1Title": "Risk radar.",
     "cap1Body": "NEURON watches the signals across your conversations, meeting notes, and task updates and flags risk before it becomes a fire — each alert with severity, what it affects, why it matters now, and the related history.",
     "cap1Image": "Signals",
@@ -87,7 +90,7 @@
     "cap4Title": "Ask anything.",
     "cap4Body": "Ask NEURON a question in plain language and get an answer grounded in your organization's real history — with sources you can open.",
     "cap4Image": "chat",
-    "rolesHeading": "One brain. Every role gets what it needs.",
+    "rolesHeading": "ひとつのブレインで、\nすべての役割に必要なものを。",
     "role1Title": "Executives & leaders",
     "role1Body": "See the why behind decisions and keep teams consistent, without sitting in every meeting.",
     "role2Title": "Managers",
@@ -106,8 +109,8 @@
     "gameStat2Label": "で結果が出る",
     "gameStat3Value": "16",
     "gameStat3Label": "のマネージャー像",
-    "securityHeading": "Enterprise-grade by design.",
-    "securityBody": "Your decision layer holds your most sensitive context. NEURON connects read-only, respects your existing tool permissions, and encrypts data in transit and at rest — so people see only what they're already allowed to see. Your data is never used to train AI models.",
+    "securityHeading": "設計段階からエンタープライズグレード",
+    "securityBody": "NEURONは、これまで信頼してきた管理体制を維持しながら、重要な組織のコンテキストへのアクセスを可能にします。",
     "securityLink": "Learn about Security & Trust"
   },
   "Hero": {
@@ -117,7 +120,22 @@
     "ctaPrimary": "デモを予約",
     "ctaSecondary": "仕組みを見る",
     "trustLine": "すでにお使いのツールから構築。新たな手間はありません。",
-    "highlightWords": "セカンドブレイン"
+    "highlightWords": "セカンドブレイン",
+    "flowInputsLabel": "生のシグナル",
+    "flowOutputsLabel": "生きた意思決定",
+    "flowInputs": [
+      { "logo": "slack", "text": "エンタープライズ顧客からSSOの要望が繰り返し寄せられている" },
+      { "logo": "notion", "text": "顧客インタビューでセキュリティ上の懸念が挙がった" },
+      { "logo": "jira", "text": "SSOの実装がバックログに残っている" },
+      { "logo": "github", "text": "認証に関する議論が再開された" },
+      { "logo": "hubspot", "text": "1,800万円の商談が調達段階で停滞している" }
+    ],
+    "flowOutputs": [
+      { "kind": "decision", "label": "意思決定", "text": "エンタープライズSSOを優先する" },
+      { "kind": "risk", "label": "リスク", "text": "エンタープライズ拡大の機会が遅れる可能性がある" },
+      { "kind": "task", "label": "タスク", "text": "部門横断のデリバリー計画を調整する" },
+      { "kind": "risk", "label": "リスク", "text": "高額の商談が競合へ流れる可能性がある" }
+    ]
   },
   "TrustBar": {
     "heading": "チームがすでに使っているツールに接続します。"
@@ -1061,7 +1079,7 @@
   },
   "Comparison": {
     "heading": "ドキュメントを検索することと、ビジネスを理解することは違う。",
-    "subheading": "Wikis store what you write. AI search finds passages that resemble your question. Both stop where the hard part starts — neither understands how a decision connects to its cause, its dependencies, and its result. NEURON's AI-Driven Ontology does, because the layer is built around how your business actually works.",
+    "subheading": "Wikiは情報を保存します。AI検索は類似したテキストを見つけます。NEURONは、意思決定が原因・依存関係・結果とどうつながっているかを理解します。",
     "legacyLabel": "Wikis & AI search",
     "neuronLabel": "NEURON",
     "row1Legacy": "You search after a problem appears",

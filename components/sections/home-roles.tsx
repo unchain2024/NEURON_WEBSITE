@@ -1,58 +1,78 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { ArrowRight, Crown, Compass, Users } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
 
-const ROLES = [
-  { key: "role1", Icon: Crown },
-  { key: "role2", Icon: Compass },
-  { key: "role3", Icon: Users },
+/* "Inter Display" (Figma spec) is Inter at its display optical size; the loaded
+   Inter renders that cut at large sizes, so we put it first for determinism. */
+const DISPLAY_FONT = 'var(--font-inter), "Inter Display", Inter, sans-serif';
+
+/* Each role card is a self-contained 350×512 SVG (gradient + title + body). */
+const CARDS = [
+  { src: "/leaders.svg", alt: "Executives & leaders — see the why behind decisions and keep teams consistent, without sitting in every meeting." },
+  { src: "/managers.svg", alt: "Managers — catch risk early and decide faster, with the weight of past results behind you." },
+  { src: "/teams.svg", alt: "Teams — stop hunting for context; spend your time on the work, not the archaeology." },
 ] as const;
 
 export default function HomeRoles() {
   const t = useTranslations("Home");
 
   return (
-    <section className="section-padding bg-surface">
+    <section className="section-padding bg-white">
       <SectionReveal>
         <div className="section-container">
-          <div className="max-w-3xl mx-auto text-center mb-14 lg:mb-16">
-            <MotionDiv variants={fadeInUp}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
+          {/* Header: badge + headline (left), CTA button (right) */}
+          <MotionDiv
+            variants={fadeInUp}
+            className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between lg:mb-14"
+          >
+            <div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/foreveryrole.svg"
+                alt="For every role"
+                width={107}
+                height={32}
+                className="mb-5 h-8 w-auto"
+              />
+              <h2
+                className="text-slate-900"
+                style={{
+                  fontFamily: DISPLAY_FONT,
+                  fontOpticalSizing: "auto",
+                  fontWeight: 500,
+                  fontSize: 40,
+                  lineHeight: "110%",
+                  letterSpacing: 0,
+                  whiteSpace: "pre-line",
+                }}
+              >
                 {t("rolesHeading")}
               </h2>
-            </MotionDiv>
-          </div>
+            </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {ROLES.map(({ key, Icon }) => (
-              <MotionDiv key={key} variants={fadeInUp}>
-                <div className="h-full rounded-2xl border border-border bg-white p-7">
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                    <Icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                    {t(`${key}Title`)}
-                  </h3>
-                  <p className="text-text-secondary text-sm leading-relaxed">
-                    {t(`${key}Body`)}
-                  </p>
-                </div>
+            <Link href="/solutions" className="shrink-0" aria-label="Explore solutions by role">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/exploresolution.svg"
+                alt="Explore solutions by role"
+                width={235}
+                height={44}
+                className="h-11 w-auto transition-transform hover:-translate-y-0.5"
+              />
+            </Link>
+          </MotionDiv>
+
+          {/* Three role cards */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {CARDS.map((card) => (
+              <MotionDiv key={card.src} variants={fadeInUp}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={card.src} alt={card.alt} className="block h-auto w-full" />
               </MotionDiv>
             ))}
           </div>
-
-          <MotionDiv variants={fadeInUp} className="mt-10 text-center">
-            <Link
-              href="/solutions"
-              className="inline-flex items-center gap-1.5 font-semibold text-primary hover:text-primary-600 transition-colors"
-            >
-              {t("rolesCta")}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </MotionDiv>
         </div>
       </SectionReveal>
     </section>

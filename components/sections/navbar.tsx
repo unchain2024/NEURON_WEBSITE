@@ -6,21 +6,26 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
-import Lottie from "lottie-react";
-import blobAnimationData from "@/public/logos/neuron-blob.json";
 
 const MotionLink = motion.create(Link);
 
-const NAV_LINK_KEYS = [
+/* Match the hero headline's typeface across the nav. */
+const HEADLINE_FONT = {
+  fontFamily: '"Inter Display", var(--font-inter), sans-serif',
+  fontWeight: 500,
+  letterSpacing: "-0.02em",
+} as const;
+
+const SOLUTIONS_LINKS = [
   { key: "product", href: "/product" },
+  { key: "cognitionLayer", href: "/cognition-layer" },
+  { key: "whyNeuron", href: "/why-neuron" },
   { key: "caseStudies", href: "/case-studies" },
-  { key: "integrations", href: "/integrations" },
-  { key: "pricing", href: "/pricing" },
 ] as const;
 
-const RESOURCES_LINKS = [
-  { key: "docs", href: "/docs" },
-  { key: "blog", href: "/blog" },
+const NAV_LINK_KEYS = [
+  { key: "integrations", href: "/integrations" },
+  { key: "pricing", href: "/pricing" },
   { key: "company", href: "/company" },
 ] as const;
 
@@ -32,7 +37,6 @@ export default function Navbar() {
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [resourcesOpen, setResourcesOpen] = useState(false);
 
   useEffect(() => {
     let ticking = false;
@@ -68,21 +72,46 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0 group">
             <motion.div
-              whileHover={{ rotate: 180 }}
-              transition={{ duration: 0.5, type: "spring" }}
+              whileHover={{ scale: 1.08 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <Lottie
-                animationData={blobAnimationData}
-                loop
-                autoplay
-                className="h-8 w-8"
-              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logos/neuron-logo-dark.svg" alt="Neuron" className="h-6 w-6" />
             </motion.div>
-            <span className="text-xl font-bold tracking-tight text-slate-900">NEURON</span>
+            <span className="text-xl text-slate-900" style={HEADLINE_FONT}>Neuron</span>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8 ml-auto mr-8">
+          {/* Desktop Nav — centered */}
+          <div className="hidden md:flex flex-1 items-center justify-center gap-8" style={HEADLINE_FONT}>
+            {/* Solutions — dropdown */}
+            <motion.div
+              className="relative group/solutions"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+            >
+              <Link
+                href="/solutions"
+                className="flex items-center gap-1 text-sm text-text-secondary hover:text-slate-900 transition-colors"
+              >
+                {t("solutions")}
+                <ChevronDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover/solutions:rotate-180" />
+              </Link>
+              <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover/solutions:visible group-hover/solutions:opacity-100">
+                <div className="min-w-[220px] rounded-2xl border border-border/60 bg-white p-2 shadow-xl shadow-slate-900/10">
+                  {SOLUTIONS_LINKS.map((link) => (
+                    <Link
+                      key={link.key}
+                      href={link.href}
+                      className="block rounded-xl px-3 py-2 text-sm text-text-secondary transition-colors hover:bg-slate-50 hover:text-slate-900"
+                    >
+                      {t(link.key)}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
             {NAV_LINK_KEYS.map((link, i) => (
               <MotionLink
                 key={link.key}
@@ -90,82 +119,30 @@ export default function Navbar() {
                 className="text-sm text-text-secondary hover:text-slate-900 transition-colors relative group"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + i * 0.05 }}
+                transition={{ delay: 0.15 + i * 0.05 }}
               >
                 {t(link.key)}
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
               </MotionLink>
             ))}
-
-            {/* Resources dropdown */}
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + NAV_LINK_KEYS.length * 0.05 }}
-              onMouseEnter={() => setResourcesOpen(true)}
-              onMouseLeave={() => setResourcesOpen(false)}
-            >
-              <button
-                className="flex items-center gap-1 text-sm text-text-secondary hover:text-slate-900 transition-colors"
-                aria-haspopup="true"
-                aria-expanded={resourcesOpen}
-              >
-                {t("resources")}
-                <ChevronDown
-                  className={cn(
-                    "h-4 w-4 transition-transform",
-                    resourcesOpen && "rotate-180"
-                  )}
-                />
-              </button>
-              <AnimatePresence>
-                {resourcesOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full pt-3"
-                  >
-                    <div className="glass-nav rounded-xl border border-border/60 shadow-lg shadow-black/5 p-2 min-w-[180px]">
-                      {RESOURCES_LINKS.map((link) => (
-                        <Link
-                          key={link.key}
-                          href={link.href}
-                          className="block px-3 py-2 rounded-lg text-sm text-text-secondary hover:text-slate-900 hover:bg-slate-100 transition-colors"
-                        >
-                          {t(link.key)}
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
           </div>
 
           {/* Desktop CTAs */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2 shrink-0">
             <button
               onClick={switchLocale}
-              className="flex items-center gap-1.5 text-sm text-text-secondary hover:text-slate-900 transition-colors px-3 py-2 rounded-lg hover:bg-slate-100"
+              className="flex items-center justify-center h-9 w-9 text-text-secondary hover:text-slate-900 transition-colors rounded-full hover:bg-slate-100"
               aria-label="Switch language"
+              title={locale === "ja" ? "English" : "日本語"}
             >
               <Globe className="h-4 w-4" />
-              <span className="font-medium">{locale === "ja" ? "EN" : "JA"}</span>
             </button>
-            <a
-              href="#"
-              className="text-sm text-text-secondary hover:text-slate-900 transition-colors px-3 py-2"
-            >
-              {t("logIn")}
-            </a>
             <MotionLink
               href="/get-demo"
-              className="text-sm bg-primary hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition-colors font-medium"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="text-sm border border-slate-300 bg-white hover:border-slate-400 hover:bg-slate-50 text-slate-900 px-5 py-2 rounded-full transition-colors"
+              style={HEADLINE_FONT}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
             >
               {t("bookDemo")}
             </MotionLink>
@@ -191,7 +168,30 @@ export default function Navbar() {
               transition={{ duration: 0.3 }}
               className="md:hidden glass-nav border-t border-border/40 overflow-hidden"
             >
-              <div className="px-4 pb-6 pt-4 space-y-4">
+              <div className="px-4 pb-6 pt-4 space-y-4" style={HEADLINE_FONT}>
+                {/* Solutions + its sublinks */}
+                <div>
+                  <Link
+                    href="/solutions"
+                    className="block text-text-secondary hover:text-slate-900 transition-colors py-2"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {t("solutions")}
+                  </Link>
+                  <div className="ml-3 mt-1 space-y-1 border-l border-border/40 pl-3">
+                    {SOLUTIONS_LINKS.map((link) => (
+                      <Link
+                        key={link.key}
+                        href={link.href}
+                        className="block py-1.5 text-sm text-text-muted hover:text-slate-900 transition-colors"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {t(link.key)}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
                 {NAV_LINK_KEYS.map((link, i) => (
                   <MotionLink
                     key={link.key}
@@ -206,23 +206,6 @@ export default function Navbar() {
                   </MotionLink>
                 ))}
 
-                {/* Resources group */}
-                <div className="pt-2">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-text-muted mb-1">
-                    {t("resources")}
-                  </p>
-                  {RESOURCES_LINKS.map((link) => (
-                    <Link
-                      key={link.key}
-                      href={link.href}
-                      className="block text-text-secondary hover:text-slate-900 transition-colors py-2 pl-3"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {t(link.key)}
-                    </Link>
-                  ))}
-                </div>
-
                 <div className="pt-4 border-t border-border/40 space-y-3">
                   <button
                     onClick={() => {
@@ -234,12 +217,9 @@ export default function Navbar() {
                     <Globe className="h-4 w-4" />
                     <span>{locale === "ja" ? "English" : "日本語"}</span>
                   </button>
-                  <a href="#" className="block text-text-secondary hover:text-slate-900 transition-colors py-2">
-                    {t("logIn")}
-                  </a>
                   <Link
                     href="/get-demo"
-                    className="block text-center bg-primary hover:bg-primary-600 text-white px-4 py-2.5 rounded-lg transition-colors font-medium"
+                    className="block text-center border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 px-4 py-2.5 rounded-full transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
                     {t("bookDemo")}
