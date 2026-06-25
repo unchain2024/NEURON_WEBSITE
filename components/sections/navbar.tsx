@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
@@ -33,6 +33,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
+  const resourcesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let ticking = false;
@@ -47,6 +49,25 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    function onClick(e: MouseEvent) {
+      if (
+        resourcesRef.current &&
+        !resourcesRef.current.contains(e.target as Node)
+      ) {
+        setResourcesOpen(false);
+      }
+    }
+    if (resourcesOpen) {
+      document.addEventListener("mousedown", onClick);
+      return () => document.removeEventListener("mousedown", onClick);
+    }
+  }, [resourcesOpen]);
+
+  useEffect(() => {
+    setResourcesOpen(false);
+  }, [pathname]);
 
   function switchLocale() {
     const next = locale === "ja" ? "en" : "ja";
@@ -97,19 +118,17 @@ export default function Navbar() {
               </MotionLink>
             ))}
 
-            {/* Resources dropdown */}
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + NAV_LINK_KEYS.length * 0.05 }}
-              onMouseEnter={() => setResourcesOpen(true)}
-              onMouseLeave={() => setResourcesOpen(false)}
-            >
-              <button
-                className="flex items-center gap-1 text-sm text-text-secondary hover:text-slate-900 transition-colors"
-                aria-haspopup="true"
+            {/* Resources Dropdown */}
+            <div ref={resourcesRef} className="relative">
+              <motion.button
+                type="button"
+                onClick={() => setResourcesOpen((v) => !v)}
+                className="flex items-center gap-1 text-sm text-text-secondary hover:text-slate-900 transition-colors relative group"
+                aria-haspopup="menu"
                 aria-expanded={resourcesOpen}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + NAV_LINK_KEYS.length * 0.05 }}
               >
                 {t("resources")}
                 <ChevronDown
@@ -118,31 +137,48 @@ export default function Navbar() {
                     resourcesOpen && "rotate-180"
                   )}
                 />
-              </button>
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
+              </motion.button>
               <AnimatePresence>
                 {resourcesOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8 }}
+                    role="menu"
+                    initial={{ opacity: 0, y: -8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
+                    exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute left-1/2 -translate-x-1/2 top-full pt-3"
+                    className="absolute right-0 mt-3 w-44 rounded-xl border border-border/40 bg-white/95 backdrop-blur-md shadow-lg shadow-black/5 overflow-hidden"
                   >
-                    <div className="glass-nav rounded-xl border border-border/60 shadow-lg shadow-black/5 p-2 min-w-[180px]">
-                      {RESOURCES_LINKS.map((link) => (
-                        <Link
-                          key={link.key}
-                          href={link.href}
-                          className="block px-3 py-2 rounded-lg text-sm text-text-secondary hover:text-slate-900 hover:bg-slate-100 transition-colors"
-                        >
-                          {t(link.key)}
-                        </Link>
-                      ))}
-                    </div>
+                    <Link
+                      href="/blog"
+                      role="menuitem"
+                      onClick={() => setResourcesOpen(false)}
+                      className="block px-4 py-2.5 text-sm text-text-secondary hover:text-slate-900 hover:bg-slate-50 transition-colors"
+                    >
+                      {t("blog")}
+                    </Link>
+                    <a
+                      href={COMPANY_URLS[locale] ?? COMPANY_URLS.ja}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      role="menuitem"
+                      onClick={() => setResourcesOpen(false)}
+                      className="block px-4 py-2.5 text-sm text-text-secondary hover:text-slate-900 hover:bg-slate-50 transition-colors"
+                    >
+                      {t("company")}
+                    </a>
+                    <Link
+                      href="/docs"
+                      role="menuitem"
+                      onClick={() => setResourcesOpen(false)}
+                      className="block px-4 py-2.5 text-sm text-text-secondary hover:text-slate-900 hover:bg-slate-50 transition-colors"
+                    >
+                      {t("docs")}
+                    </Link>
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </div>
           </div>
 
           {/* Desktop CTAs */}
@@ -205,24 +241,61 @@ export default function Navbar() {
                     {t(link.key)}
                   </MotionLink>
                 ))}
-
-                {/* Resources group */}
-                <div className="pt-2">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-text-muted mb-1">
-                    {t("resources")}
-                  </p>
-                  {RESOURCES_LINKS.map((link) => (
-                    <Link
-                      key={link.key}
-                      href={link.href}
-                      className="block text-text-secondary hover:text-slate-900 transition-colors py-2 pl-3"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {t(link.key)}
-                    </Link>
-                  ))}
-                </div>
-
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: NAV_LINK_KEYS.length * 0.05 }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setMobileResourcesOpen((v) => !v)}
+                    className="flex items-center justify-between w-full text-text-secondary hover:text-slate-900 transition-colors py-2"
+                    aria-expanded={mobileResourcesOpen}
+                  >
+                    <span>{t("resources")}</span>
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 transition-transform",
+                        mobileResourcesOpen && "rotate-180"
+                      )}
+                    />
+                  </button>
+                  <AnimatePresence>
+                    {mobileResourcesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden pl-4 space-y-2"
+                      >
+                        <Link
+                          href="/blog"
+                          className="block text-text-secondary hover:text-slate-900 transition-colors py-2"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {t("blog")}
+                        </Link>
+                        <a
+                          href={COMPANY_URLS[locale] ?? COMPANY_URLS.ja}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block text-text-secondary hover:text-slate-900 transition-colors py-2"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {t("company")}
+                        </a>
+                        <Link
+                          href="/docs"
+                          className="block text-text-secondary hover:text-slate-900 transition-colors py-2"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {t("docs")}
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
                 <div className="pt-4 border-t border-border/40 space-y-3">
                   <button
                     onClick={() => {
