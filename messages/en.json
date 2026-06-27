@@ -124,17 +124,48 @@
     "flowInputsLabel": "Raw signals",
     "flowOutputsLabel": "Living decisions",
     "flowInputs": [
-      { "logo": "slack", "text": "Enterprise customers repeatedly requesting SSO" },
-      { "logo": "notion", "text": "Security concerns raised during customer interviews" },
-      { "logo": "jira", "text": "SSO implementation remains in backlog" },
-      { "logo": "github", "text": "Authentication discussion reopened" },
-      { "logo": "hubspot", "text": "¥18M opportunity stalled in procurement" }
+      {
+        "logo": "slack",
+        "text": "Enterprise customers repeatedly requesting SSO"
+      },
+      {
+        "logo": "notion",
+        "text": "Security concerns raised during customer interviews"
+      },
+      {
+        "logo": "jira",
+        "text": "SSO implementation remains in backlog"
+      },
+      {
+        "logo": "github",
+        "text": "Authentication discussion reopened"
+      },
+      {
+        "logo": "hubspot",
+        "text": "¥18M opportunity stalled in procurement"
+      }
     ],
     "flowOutputs": [
-      { "kind": "decision", "label": "Decision", "text": "Prioritize Enterprise SSO" },
-      { "kind": "risk", "label": "Risk", "text": "Enterprise expansion opportunities may be delayed" },
-      { "kind": "task", "label": "Task", "text": "Coordinate a cross-functional delivery plan" },
-      { "kind": "risk", "label": "Risk", "text": "High-value deals may shift to competitors" }
+      {
+        "kind": "decision",
+        "label": "Decision",
+        "text": "Prioritize Enterprise SSO"
+      },
+      {
+        "kind": "risk",
+        "label": "Risk",
+        "text": "Enterprise expansion opportunities may be delayed"
+      },
+      {
+        "kind": "task",
+        "label": "Task",
+        "text": "Coordinate a cross-functional delivery plan"
+      },
+      {
+        "kind": "risk",
+        "label": "Risk",
+        "text": "High-value deals may shift to competitors"
+      }
     ]
   },
   "TrustBar": {
@@ -320,11 +351,26 @@
     "heroDescription": "NEURON reads the decision signals already flowing through your stack — no new process, no manual entry. Connect in minutes; the layer builds itself.",
     "faqTitle": "Integration FAQ",
     "faqItems": [
-      { "q": "How do integrations connect?", "a": "Via API/OAuth, read-only by default, respecting the permissions already set in each tool." },
-      { "q": "Is my data moved or migrated?", "a": "No — NEURON reads from your tools in place. No migration, no new workflow." },
-      { "q": "Who can see what?", "a": "NEURON mirrors your existing tool permissions; people see only what they're already allowed to see." },
-      { "q": "How long to set up?", "a": "Core tools connect in a single session." },
-      { "q": "Don't see your tool?", "a": "New connectors are added regularly — talk to us about yours." }
+      {
+        "q": "How do integrations connect?",
+        "a": "Via API/OAuth, read-only by default, respecting the permissions already set in each tool."
+      },
+      {
+        "q": "Is my data moved or migrated?",
+        "a": "No — NEURON reads from your tools in place. No migration, no new workflow."
+      },
+      {
+        "q": "Who can see what?",
+        "a": "NEURON mirrors your existing tool permissions; people see only what they're already allowed to see."
+      },
+      {
+        "q": "How long to set up?",
+        "a": "Core tools connect in a single session."
+      },
+      {
+        "q": "Don't see your tool?",
+        "a": "New connectors are added regularly — talk to us about yours."
+      }
     ]
   },
   "IntegrationDetails": {
@@ -390,12 +436,30 @@
     "offeringCta": "Book a demo now",
     "faqTitle": "Pricing FAQ",
     "faqItems": [
-      { "q": "How does usage-based pricing work?", "a": "You're billed on the decisions/volume you run through NEURON [confirm exact metric], so cost tracks value rather than seat count." },
-      { "q": "Is there a pilot?", "a": "[confirm] — typically a scoped pilot on your real workflow." },
-      { "q": "What counts toward usage?", "a": "[define the metric here]" },
-      { "q": "Do you offer annual / enterprise terms?", "a": "Yes — set in the demo." },
-      { "q": "What's included?", "a": "All core capabilities; specifics scoped with you." },
-      { "q": "Can pricing scale as we grow?", "a": "Yes." }
+      {
+        "q": "How does usage-based pricing work?",
+        "a": "You're billed on the decisions/volume you run through NEURON [confirm exact metric], so cost tracks value rather than seat count."
+      },
+      {
+        "q": "Is there a pilot?",
+        "a": "[confirm] — typically a scoped pilot on your real workflow."
+      },
+      {
+        "q": "What counts toward usage?",
+        "a": "[define the metric here]"
+      },
+      {
+        "q": "Do you offer annual / enterprise terms?",
+        "a": "Yes — set in the demo."
+      },
+      {
+        "q": "What's included?",
+        "a": "All core capabilities; specifics scoped with you."
+      },
+      {
+        "q": "Can pricing scale as we grow?",
+        "a": "Yes."
+      }
     ]
   },
   "Pricing": {
@@ -1124,15 +1188,33 @@
       "howNeuronApplies": "NEURON builds an AI-Driven Ontology connecting services, decisions, incidents, tickets, and the people who made the calls. Open a ticket and it surfaces the decision behind the architecture, the incident from a similar past change, the dependencies at risk, and the person to consult.",
       "applyImage": "context panel on a Jira ticket",
       "whatYouGet": "Risk Score on every infra change [confirm \"Pxl\"] · architectural context on every ticket · auto-generated ADRs · weekly tech-debt digest · cascade risk tracing.",
-      "connectors": ["GitHub", "Jira", "Slack", "Confluence", "ServiceNow", "Linear", "PagerDuty", "Notion"],
+      "connectors": [
+        "GitHub",
+        "Jira",
+        "Slack",
+        "Confluence",
+        "ServiceNow",
+        "Linear",
+        "PagerDuty",
+        "Notion"
+      ],
       "scenario": "An engineer opens a ticket to refactor auth middleware. Before any code, NEURON surfaces a prior incident where a similar change took down notifications, the four dependent services, and the CTO's standing condition that migrations stay backward-compatible. Ships staged. No outage.",
       "scenarioImage": "scenario",
       "whoItsFor": "Eng Manager / VP Eng / CTO · Software / Senior / Staff Engineer · SRE / SecOps / IT Ops.",
       "japanNote": "Connects knowledge historically siloed across Chatwork, kintone, and internal wikis. (first-mover wording softened — confirm.)",
       "faq": [
-        { "q": "What is decision intelligence for IT teams?", "a": "A structured, living layer that connects your services, decisions, incidents, and tickets — so the reasoning behind every engineering decision stays findable, and the blast radius of a change is visible before you make it." },
-        { "q": "What is an AI-Driven Ontology for engineering teams?", "a": "A connected map of your services, the decisions that shaped them, the incidents that followed, and the people who made the calls — built automatically from Jira, Slack, GitHub, and Confluence." },
-        { "q": "How does NEURON reduce incidents?", "a": "By surfacing the prior incident from a similar past change, the dependencies at risk, and the standing constraints before a change ships — so the same outage isn't repeated." }
+        {
+          "q": "What is decision intelligence for IT teams?",
+          "a": "A structured, living layer that connects your services, decisions, incidents, and tickets — so the reasoning behind every engineering decision stays findable, and the blast radius of a change is visible before you make it."
+        },
+        {
+          "q": "What is an AI-Driven Ontology for engineering teams?",
+          "a": "A connected map of your services, the decisions that shaped them, the incidents that followed, and the people who made the calls — built automatically from Jira, Slack, GitHub, and Confluence."
+        },
+        {
+          "q": "How does NEURON reduce incidents?",
+          "a": "By surfacing the prior incident from a similar past change, the dependencies at risk, and the standing constraints before a change ships — so the same outage isn't repeated."
+        }
       ]
     },
     "manufacturing": {
@@ -1146,15 +1228,31 @@
       "howNeuronApplies": "An AI-Driven Ontology connects parts/BOMs, change orders, quality incidents, suppliers, lines, and the engineers behind each call — so proposing a change surfaces the past change that caused a defect, the suppliers and lines affected, and the veteran who knows the history, before approval. Reasoning is captured as it happens, so a retiring engineer's judgment stays.",
       "applyImage": "change-order context",
       "whatYouGet": "Risk briefs on change orders · quality/decision context on every ticket · decision records for audits and 技能伝承 · cascade mapping across suppliers and lines.",
-      "connectors": ["kintone", "ERP/PLM", "Chatwork", "Slack", "email", "Notion"],
+      "connectors": [
+        "kintone",
+        "ERP/PLM",
+        "Chatwork",
+        "Slack",
+        "email",
+        "Notion"
+      ],
       "scenario": "An engineer proposes a cheaper molded-component supplier. NEURON surfaces a quality incident from three years ago tied to a similar material change, two downstream assemblies depending on the tolerance, and the retired engineer's documented rationale. The plan changes before the PO.",
       "scenarioImage": "scenario",
       "whoItsFor": "Plant & production managers · design and production engineers · quality managers · procurement.",
       "japanNote": "For manufacturers facing an aging workforce, NEURON turns person-bound tacit knowledge into a layer the organization keeps.",
       "faq": [
-        { "q": "How does it handle change management?", "a": "Every engineering change order is connected to the parts, suppliers, lines, and quality criteria it touches, plus the prior changes that caused defects — so risk is visible before approval." },
-        { "q": "Can it capture retiring engineers' knowledge?", "a": "Yes — reasoning is captured as decisions happen, so a veteran's rationale stays in the organization as a connected record rather than leaving with them." },
-        { "q": "Does it work with kintone?", "a": "Yes. NEURON connects to kintone, ERP/PLM, Chatwork, Slack, email, and Notion." }
+        {
+          "q": "How does it handle change management?",
+          "a": "Every engineering change order is connected to the parts, suppliers, lines, and quality criteria it touches, plus the prior changes that caused defects — so risk is visible before approval."
+        },
+        {
+          "q": "Can it capture retiring engineers' knowledge?",
+          "a": "Yes — reasoning is captured as decisions happen, so a veteran's rationale stays in the organization as a connected record rather than leaving with them."
+        },
+        {
+          "q": "Does it work with kintone?",
+          "a": "Yes. NEURON connects to kintone, ERP/PLM, Chatwork, Slack, email, and Notion."
+        }
       ]
     },
     "automotive": {
@@ -1168,13 +1266,27 @@
       "howNeuronApplies": "An AI-Driven Ontology links components, software, suppliers, change decisions, field incidents, and the engineers and regulations involved — so a proposed change reveals its blast radius across mechanical and software systems and its prior-incident history, and a field failure traces back to the decisions and other vehicles that share it.",
       "applyImage": "blast-radius across hardware + software",
       "whatYouGet": "Change risk briefs across hardware + software · cascade tracing across the supply chain · auto-generated decision records for safety and certification reviews · recall-impact mapping.",
-      "connectors": ["PLM", "ERP", "GitHub", "Jira", "ServiceNow", "kintone", "Chatwork"],
+      "connectors": [
+        "PLM",
+        "ERP",
+        "GitHub",
+        "Jira",
+        "ServiceNow",
+        "kintone",
+        "Chatwork"
+      ],
       "scenario": "A team proposes a firmware change to a braking ECU. NEURON surfaces the original safety decision behind the current logic, the vehicle variants that share the module, and a prior field incident from a similar change — before sign-off.",
       "scenarioImage": "scenario",
       "whoItsFor": "Chief engineers · software & systems leads · quality/safety · supplier management.",
       "faq": [
-        { "q": "Does it cover software-defined vehicle decisions?", "a": "Yes — the ontology links software modules alongside mechanical components, suppliers, and regulations, so a change reveals its blast radius across both hardware and software." },
-        { "q": "How does it support recall tracing?", "a": "A field failure traces back to the decisions that caused it and forward to the other variants that share that decision — turning a slow manual investigation into a connected lookup." }
+        {
+          "q": "Does it cover software-defined vehicle decisions?",
+          "a": "Yes — the ontology links software modules alongside mechanical components, suppliers, and regulations, so a change reveals its blast radius across both hardware and software."
+        },
+        {
+          "q": "How does it support recall tracing?",
+          "a": "A field failure traces back to the decisions that caused it and forward to the other variants that share that decision — turning a slow manual investigation into a connected lookup."
+        }
       ]
     },
     "aerospaceDefense": {
@@ -1188,13 +1300,21 @@
       "howNeuronApplies": "An AI-Driven Ontology connects configurations, requirements, certification decisions, safety analyses, incidents, and owners — preserving traceability from requirement to decision to outcome across the platform's life, permission-aware for sensitive programs.",
       "applyImage": "requirement-to-decision traceability",
       "whatYouGet": "Configuration decision records with full rationale · requirement-to-decision traceability · safety/certification review support · permission-aware access.",
-      "connectors": ["approved connectors only; encrypted; see Security"],
+      "connectors": [
+        "approved connectors only; encrypted; see Security"
+      ],
       "scenario": "A change to a flight-control parameter is proposed. NEURON surfaces the original certification rationale, the requirements it traces to, and the prior analysis behind the limit — so the change carries its trail.",
       "scenarioImage": "scenario",
       "whoItsFor": "Systems & chief engineers · configuration management · safety & certification · program leadership.",
       "faq": [
-        { "q": "How is sensitive/classified context handled?", "a": "NEURON is permission-aware and connects only approved sources, with data encrypted in transit and at rest — people see only what they're already cleared to see. See Security & Trust." },
-        { "q": "Does it support long-lifecycle traceability?", "a": "Yes — it preserves the trail from requirement to decision to outcome across the full life of a platform, even as people and tools change." }
+        {
+          "q": "How is sensitive/classified context handled?",
+          "a": "NEURON is permission-aware and connects only approved sources, with data encrypted in transit and at rest — people see only what they're already cleared to see. See Security & Trust."
+        },
+        {
+          "q": "Does it support long-lifecycle traceability?",
+          "a": "Yes — it preserves the trail from requirement to decision to outcome across the full life of a platform, even as people and tools change."
+        }
       ]
     },
     "financialServices": {
@@ -1208,14 +1328,30 @@
       "howNeuronApplies": "An AI-Driven Ontology connects decisions to the risks that triggered them, the controls and regulations that shaped them, the outcomes that followed, and the people accountable — a living, auditable decision trail that already exists when audit comes. This is the high-value, auditable environment NEURON is built for.",
       "applyImage": "auditable decision trail",
       "whatYouGet": "Auditable decision records with full rationale · risk briefs linked to controls and prior outcomes · regulation-to-decision-to-result traceability · role views for risk, compliance, leadership.",
-      "connectors": ["Slack", "Confluence", "Google Workspace", "Microsoft 365", "ServiceNow", "Jira"],
+      "connectors": [
+        "Slack",
+        "Confluence",
+        "Google Workspace",
+        "Microsoft 365",
+        "ServiceNow",
+        "Jira"
+      ],
       "scenario": "A team proposes changing a lending product's eligibility logic. NEURON surfaces the risk decision behind the current rule, the regulation it maps to, a prior scrutiny incident, and the compliance owner to loop in.",
       "scenarioImage": "scenario",
       "whoItsFor": "Head of Risk · Compliance · Product · CTO.",
       "faq": [
-        { "q": "How does it support audit/regulatory traceability?", "a": "Every decision is connected to the risk that triggered it, the controls and regulations that shaped it, and the outcome that followed — so the trail already exists when audit comes." },
-        { "q": "Is access role-controlled?", "a": "Yes — NEURON mirrors your existing tool permissions and offers role views for risk, compliance, and leadership." },
-        { "q": "How is sensitive data handled?", "a": "NEURON connects read-only, respects existing permissions, and encrypts data in transit and at rest. See Security & Trust." }
+        {
+          "q": "How does it support audit/regulatory traceability?",
+          "a": "Every decision is connected to the risk that triggered it, the controls and regulations that shaped it, and the outcome that followed — so the trail already exists when audit comes."
+        },
+        {
+          "q": "Is access role-controlled?",
+          "a": "Yes — NEURON mirrors your existing tool permissions and offers role views for risk, compliance, and leadership."
+        },
+        {
+          "q": "How is sensitive data handled?",
+          "a": "NEURON connects read-only, respects existing permissions, and encrypts data in transit and at rest. See Security & Trust."
+        }
       ]
     },
     "fintech": {
@@ -1229,13 +1365,27 @@
       "howNeuronApplies": "An AI-Driven Ontology links product and risk decisions to the controls, regulations, and outcomes they touch — so speed and traceability stop being a trade-off. Ship fast; the audit trail builds itself.",
       "applyImage": "audit trail building itself",
       "whatYouGet": "Decision records with rationale, captured automatically · risk briefs on changes that touch compliance · context on every product/risk task · audit-ready trail.",
-      "connectors": ["Slack", "Linear", "Jira", "Notion", "GitHub", "HubSpot", "ServiceNow"],
+      "connectors": [
+        "Slack",
+        "Linear",
+        "Jira",
+        "Notion",
+        "GitHub",
+        "HubSpot",
+        "ServiceNow"
+      ],
       "scenario": "A team ships a change to KYC logic. NEURON surfaces the compliance decision behind the current flow, the regulation it serves, and the owner to confirm with — without slowing the release.",
       "scenarioImage": "scenario",
       "whoItsFor": "Founders / CPO · Head of Risk & Compliance · Engineering leads.",
       "faq": [
-        { "q": "How does it keep us audit-ready without slowing us down?", "a": "Decisions and their rationale are captured automatically from the tools you already ship in, so the audit trail builds itself — no extra process, no manual logging." },
-        { "q": "Does it work with our existing startup stack?", "a": "Yes — NEURON connects to Slack, Linear, Jira, Notion, GitHub, HubSpot, and ServiceNow." }
+        {
+          "q": "How does it keep us audit-ready without slowing us down?",
+          "a": "Decisions and their rationale are captured automatically from the tools you already ship in, so the audit trail builds itself — no extra process, no manual logging."
+        },
+        {
+          "q": "Does it work with our existing startup stack?",
+          "a": "Yes — NEURON connects to Slack, Linear, Jira, Notion, GitHub, HubSpot, and ServiceNow."
+        }
       ]
     },
     "insurance": {
@@ -1249,13 +1399,25 @@
       "howNeuronApplies": "An AI-Driven Ontology connects decisions to the policies, precedents, regulations, and outcomes behind them — so an underwriter or adjuster sees how similar cases were decided and why, and leadership sees the basis for consistency.",
       "applyImage": "precedent on a claim",
       "whatYouGet": "Decision records with precedent and rationale · consistency surfacing across similar cases · policy-change traceability · audit-ready trail.",
-      "connectors": ["Salesforce", "ServiceNow", "Microsoft 365", "Slack", "Confluence"],
+      "connectors": [
+        "Salesforce",
+        "ServiceNow",
+        "Microsoft 365",
+        "Slack",
+        "Confluence"
+      ],
       "scenario": "An adjuster works a borderline claim. NEURON surfaces how comparable claims were decided, the policy interpretation behind them, and the precedent that applies — so the determination is consistent and explainable.",
       "scenarioImage": "scenario",
       "whoItsFor": "Underwriting leads · Claims managers · Compliance · Actuarial/Product.",
       "faq": [
-        { "q": "How does it improve consistency?", "a": "It surfaces how comparable cases were decided and the reasoning behind them, so similar cases are handled consistently instead of reinvented." },
-        { "q": "How is sensitive policyholder data handled?", "a": "NEURON connects read-only, respects existing permissions, and encrypts data in transit and at rest. See Security & Trust." }
+        {
+          "q": "How does it improve consistency?",
+          "a": "It surfaces how comparable cases were decided and the reasoning behind them, so similar cases are handled consistently instead of reinvented."
+        },
+        {
+          "q": "How is sensitive policyholder data handled?",
+          "a": "NEURON connects read-only, respects existing permissions, and encrypts data in transit and at rest. See Security & Trust."
+        }
       ]
     },
     "saasProduct": {
@@ -1269,14 +1431,32 @@
       "howNeuronApplies": "An AI-Driven Ontology links customer feedback to the feature decisions it drove, the roadmap items they became, the dependent teams, and the outcomes — so opening a feature shows the feedback behind it, the decision and rollout plan, the dependencies, and the retro from last time.",
       "applyImage": "feature decision context",
       "whatYouGet": "Context on every task · decision records with rollout plans and thresholds · duplicate-work and dependency detection · weekly risk/signal digest.",
-      "connectors": ["Slack", "Jira", "Linear", "Notion", "Confluence", "HubSpot", "GitHub", "Figma"],
+      "connectors": [
+        "Slack",
+        "Jira",
+        "Linear",
+        "Notion",
+        "Confluence",
+        "HubSpot",
+        "GitHub",
+        "Figma"
+      ],
       "scenario": "A PM picks up the checkout redesign and asks NEURON. It returns the approved staged rollout (auto-rollback over 2% error), a Q1 retro showing a late scope freeze caused a three-week slip, and the payments team's one-launch limit this quarter. The week-long thread closes in minutes.",
       "scenarioImage": "scenario",
       "whoItsFor": "CPO / Head of Product · PMs · Engineering leads · Ops.",
       "faq": [
-        { "q": "How does it capture product decisions?", "a": "Decisions are captured automatically as they happen, with rationale, rollout plans, and thresholds attached and connected to the feedback that drove them." },
-        { "q": "Can it surface the feedback behind a feature?", "a": "Yes — opening a feature shows the customer feedback it came from, the decision and rollout plan, the dependent teams, and the retro from last time." },
-        { "q": "How does it catch duplicate work?", "a": "By connecting decisions and dependencies across teams, NEURON flags when work overlaps or a dependency is at risk." }
+        {
+          "q": "How does it capture product decisions?",
+          "a": "Decisions are captured automatically as they happen, with rationale, rollout plans, and thresholds attached and connected to the feedback that drove them."
+        },
+        {
+          "q": "Can it surface the feedback behind a feature?",
+          "a": "Yes — opening a feature shows the customer feedback it came from, the decision and rollout plan, the dependent teams, and the retro from last time."
+        },
+        {
+          "q": "How does it catch duplicate work?",
+          "a": "By connecting decisions and dependencies across teams, NEURON flags when work overlaps or a dependency is at risk."
+        }
       ]
     },
     "healthcare": {
@@ -1290,14 +1470,25 @@
       "howNeuronApplies": "A permission-aware AI-Driven Ontology connects operational decisions to the protocols they changed, the incidents that prompted them, the outcomes that followed, and the owners accountable — so a review's conclusion becomes connected knowledge the whole organization can learn from.",
       "applyImage": "cross-department learning",
       "whatYouGet": "Connected operational decision records · cross-department propagation of review/incident learnings · compliance-ready traceability · strict role-based access.",
-      "connectors": ["approved connectors only; encrypted; see Security"],
+      "connectors": [
+        "approved connectors only; encrypted; see Security"
+      ],
       "scenario": "An ops lead proposes a change to an intake process. NEURON surfaces the safety review that shaped the current process, a similar change at another site and its outcome, and the compliance owner to consult.",
       "scenarioImage": "scenario",
       "whoItsFor": "Operations leadership · Quality & safety · Compliance · Department heads.",
       "faq": [
-        { "q": "What decisions does it cover?", "a": "Organizational, operational, and governance decisions — protocol changes, safety reviews, compliance and process calls. NEURON is not a clinical record system." },
-        { "q": "How is access/privacy controlled?", "a": "NEURON is permission-aware with strict role-based access, connects only approved sources, and encrypts data in transit and at rest." },
-        { "q": "Does it connect to clinical systems?", "a": "Its scope is operational/governance; it is permission-aware and uses approved connectors only." }
+        {
+          "q": "What decisions does it cover?",
+          "a": "Organizational, operational, and governance decisions — protocol changes, safety reviews, compliance and process calls. NEURON is not a clinical record system."
+        },
+        {
+          "q": "How is access/privacy controlled?",
+          "a": "NEURON is permission-aware with strict role-based access, connects only approved sources, and encrypts data in transit and at rest."
+        },
+        {
+          "q": "Does it connect to clinical systems?",
+          "a": "Its scope is operational/governance; it is permission-aware and uses approved connectors only."
+        }
       ]
     },
     "pharmaLifeSciences": {
@@ -1311,13 +1502,21 @@
       "howNeuronApplies": "A permission-aware AI-Driven Ontology connects research and development decisions to the data, protocols, regulations, and outcomes behind them — preserving the rationale across the pipeline's life and making submissions and reviews traceable by design.",
       "applyImage": "regulatory traceability",
       "whatYouGet": "Go/no-go and protocol decision records with rationale · regulatory traceability · cross-program knowledge reuse · permission-aware access.",
-      "connectors": ["approved connectors only; encrypted; see Security"],
+      "connectors": [
+        "approved connectors only; encrypted; see Security"
+      ],
       "scenario": "A team revisits a dosing decision in a trial. NEURON surfaces the original rationale, the data behind it, the regulatory context, and the prior program that faced a similar question.",
       "scenarioImage": "scenario",
       "whoItsFor": "R&D leadership · Clinical operations · Regulatory affairs · Quality.",
       "faq": [
-        { "q": "How does it support regulatory submissions?", "a": "Decisions are connected to the data, protocols, and regulations behind them, so the rationale a submission needs is traceable by design rather than reconstructed at cost." },
-        { "q": "How is confidential research data protected?", "a": "NEURON is permission-aware, connects approved sources only, and encrypts data in transit and at rest. See Security & Trust." }
+        {
+          "q": "How does it support regulatory submissions?",
+          "a": "Decisions are connected to the data, protocols, and regulations behind them, so the rationale a submission needs is traceable by design rather than reconstructed at cost."
+        },
+        {
+          "q": "How is confidential research data protected?",
+          "a": "NEURON is permission-aware, connects approved sources only, and encrypts data in transit and at rest. See Security & Trust."
+        }
       ]
     },
     "ecommerceRetail": {
@@ -1331,13 +1530,26 @@
       "howNeuronApplies": "An AI-Driven Ontology connects merchandising, pricing, promo, and vendor decisions to the data behind them and the outcomes they produced — so this season's call is informed by exactly what happened last time.",
       "applyImage": "prior promo performance",
       "whatYouGet": "Decision records tied to outcomes · context on every merchandising/pricing call · vendor and category history · risk/signal digest for leads.",
-      "connectors": ["Shopify/commerce tools", "Slack", "Notion", "Google Workspace", "HubSpot", "Salesforce"],
+      "connectors": [
+        "Shopify/commerce tools",
+        "Slack",
+        "Notion",
+        "Google Workspace",
+        "HubSpot",
+        "Salesforce"
+      ],
       "scenario": "A team plans a seasonal promotion. NEURON surfaces last year's comparable promo, its margin outcome, the vendor terms behind it, and the decision not to repeat a discount that cannibalized full-price sales.",
       "scenarioImage": "scenario",
       "whoItsFor": "Merchandising · Pricing · E-commerce ops · Category management.",
       "faq": [
-        { "q": "How does it connect to our commerce stack?", "a": "NEURON connects to your commerce tools, Slack, Notion, Google Workspace, HubSpot, and Salesforce — reading the signals already flowing through them." },
-        { "q": "Can it surface prior promo performance?", "a": "Yes — each pricing or promo decision is tied to the data behind it and the outcome it produced, so last year's result informs this year's call." }
+        {
+          "q": "How does it connect to our commerce stack?",
+          "a": "NEURON connects to your commerce tools, Slack, Notion, Google Workspace, HubSpot, and Salesforce — reading the signals already flowing through them."
+        },
+        {
+          "q": "Can it surface prior promo performance?",
+          "a": "Yes — each pricing or promo decision is tied to the data behind it and the outcome it produced, so last year's result informs this year's call."
+        }
       ]
     },
     "mediaEntertainment": {
@@ -1351,13 +1563,25 @@
       "howNeuronApplies": "An AI-Driven Ontology connects content and campaign decisions to the rights, budgets, audiences, and outcomes behind them — so the reasoning behind every greenlight and campaign is preserved and reusable.",
       "applyImage": "greenlight rationale",
       "whatYouGet": "Decision records for greenlights and campaigns · rights/constraint context · campaign-outcome history · cross-team visibility.",
-      "connectors": ["Slack", "Notion", "Google Workspace", "Confluence", "HubSpot"],
+      "connectors": [
+        "Slack",
+        "Notion",
+        "Google Workspace",
+        "Confluence",
+        "HubSpot"
+      ],
       "scenario": "A team considers reviving a format. NEURON surfaces the original decision to shelve it, the rights issue behind that call, and how a similar format performed.",
       "scenarioImage": "scenario",
       "whoItsFor": "Content/production leadership · Rights & business affairs · Marketing · Strategy.",
       "faq": [
-        { "q": "How does it handle creative + business context together?", "a": "It connects creative decisions to the commercial constraints, rights, budgets, and outcomes behind them, so both sides of a greenlight live in one connected record." },
-        { "q": "Can it track rights constraints?", "a": "Yes — rights and constraint context is connected to the decisions they bear on and surfaced when a related decision comes up again." }
+        {
+          "q": "How does it handle creative + business context together?",
+          "a": "It connects creative decisions to the commercial constraints, rights, budgets, and outcomes behind them, so both sides of a greenlight live in one connected record."
+        },
+        {
+          "q": "Can it track rights constraints?",
+          "a": "Yes — rights and constraint context is connected to the decisions they bear on and surfaced when a related decision comes up again."
+        }
       ]
     },
     "gaming": {
@@ -1371,13 +1595,26 @@
       "howNeuronApplies": "An AI-Driven Ontology connects balance, monetization, and live-ops decisions to player feedback, telemetry, incidents, and outcomes — so a proposed change surfaces the last similar change and its economic and community impact, before it ships.",
       "applyImage": "economy impact history",
       "whatYouGet": "Decision records for balance/monetization changes · player-feedback and incident context · live-ops change risk · post-change outcome tracking.",
-      "connectors": ["Slack", "Jira", "Linear", "Notion", "GitHub", "analytics tools"],
+      "connectors": [
+        "Slack",
+        "Jira",
+        "Linear",
+        "Notion",
+        "GitHub",
+        "analytics tools"
+      ],
       "scenario": "A designer proposes a currency change. NEURON surfaces a prior similar change that crashed the economy, the player backlash that followed, and the decision to roll it back.",
       "scenarioImage": "scenario",
       "whoItsFor": "Game directors · Economy & design · Live-ops · Engineering.",
       "faq": [
-        { "q": "How does it connect live-ops and feedback?", "a": "It links balance, monetization, and live-ops decisions to player feedback, telemetry, incidents, and outcomes — so the history behind the current balance is visible." },
-        { "q": "Can it flag risky economy changes?", "a": "Yes — a proposed change surfaces the last similar change and its economic and community impact before it ships." }
+        {
+          "q": "How does it connect live-ops and feedback?",
+          "a": "It links balance, monetization, and live-ops decisions to player feedback, telemetry, incidents, and outcomes — so the history behind the current balance is visible."
+        },
+        {
+          "q": "Can it flag risky economy changes?",
+          "a": "Yes — a proposed change surfaces the last similar change and its economic and community impact before it ships."
+        }
       ]
     },
     "logisticsSupplyChain": {
@@ -1391,13 +1628,25 @@
       "howNeuronApplies": "An AI-Driven Ontology connects routing, sourcing, and inventory decisions to suppliers, lanes, partners, and outcomes — so a proposed change reveals its downstream cascade and prior-disruption history before it's made.",
       "applyImage": "cascade across the network",
       "whatYouGet": "Decision records tied to outcomes · cascade mapping across the network · supplier/lane history · disruption-response context.",
-      "connectors": ["ERP", "Slack", "ServiceNow", "Microsoft 365", "kintone"],
+      "connectors": [
+        "ERP",
+        "Slack",
+        "ServiceNow",
+        "Microsoft 365",
+        "kintone"
+      ],
       "scenario": "A team reroutes around a port delay. NEURON surfaces a prior similar reroute, the carrier issue it caused, and the dependent shipments affected.",
       "scenarioImage": "scenario",
       "whoItsFor": "Supply chain leadership · Logistics ops · Procurement · Planning.",
       "faq": [
-        { "q": "How does it map cascade risk?", "a": "It connects routing, sourcing, and inventory decisions to the suppliers, lanes, and partners they touch — so a change reveals its downstream cascade before it's made." },
-        { "q": "Does it connect to our ERP?", "a": "Yes — NEURON connects to ERP, Slack, ServiceNow, Microsoft 365, and kintone." }
+        {
+          "q": "How does it map cascade risk?",
+          "a": "It connects routing, sourcing, and inventory decisions to the suppliers, lanes, and partners they touch — so a change reveals its downstream cascade before it's made."
+        },
+        {
+          "q": "Does it connect to our ERP?",
+          "a": "Yes — NEURON connects to ERP, Slack, ServiceNow, Microsoft 365, and kintone."
+        }
       ]
     },
     "energyUtilities": {
@@ -1411,13 +1660,24 @@
       "howNeuronApplies": "A permission-aware AI-Driven Ontology connects asset, maintenance, safety, and regulatory decisions to incidents, outcomes, and owners — preserving rationale across the asset's life and making safety and compliance reviews traceable.",
       "applyImage": "asset decision history",
       "whatYouGet": "Decision records with rationale · asset and incident history · safety/regulatory traceability · permission-aware access.",
-      "connectors": ["ERP", "ServiceNow", "Slack", "Microsoft 365"],
+      "connectors": [
+        "ERP",
+        "ServiceNow",
+        "Slack",
+        "Microsoft 365"
+      ],
       "scenario": "A team plans a maintenance change on aging equipment. NEURON surfaces the original design decision, a prior incident on similar equipment, and the regulatory basis for the current procedure.",
       "scenarioImage": "scenario",
       "whoItsFor": "Operations & engineering leadership · Maintenance · Safety · Regulatory/compliance.",
       "faq": [
-        { "q": "How does it handle long-lifecycle assets?", "a": "It preserves the rationale behind asset, maintenance, and design decisions across the asset's full life, even as the people who made them move on." },
-        { "q": "How is safety-critical context controlled?", "a": "NEURON is permission-aware, connects approved sources only, and encrypts data in transit and at rest." }
+        {
+          "q": "How does it handle long-lifecycle assets?",
+          "a": "It preserves the rationale behind asset, maintenance, and design decisions across the asset's full life, even as the people who made them move on."
+        },
+        {
+          "q": "How is safety-critical context controlled?",
+          "a": "NEURON is permission-aware, connects approved sources only, and encrypts data in transit and at rest."
+        }
       ]
     },
     "telecommunications": {
@@ -1431,13 +1691,25 @@
       "howNeuronApplies": "An AI-Driven Ontology connects network elements, change decisions, incidents, regulations, and owners — so a proposed change reveals its dependencies and prior-incident history, and obligations stay traceable.",
       "applyImage": "network dependency map",
       "whatYouGet": "Change risk briefs · cascade mapping across the network · incident-learning propagation · regulatory traceability.",
-      "connectors": ["ServiceNow", "Jira", "Slack", "Confluence", "ERP"],
+      "connectors": [
+        "ServiceNow",
+        "Jira",
+        "Slack",
+        "Confluence",
+        "ERP"
+      ],
       "scenario": "A team proposes a config change to a core network element. NEURON surfaces the dependent services, a prior incident from a similar change, and the regulatory constraint that applies.",
       "scenarioImage": "scenario",
       "whoItsFor": "Network engineering · Operations / NOC · Regulatory · Leadership.",
       "faq": [
-        { "q": "How does it map network dependencies?", "a": "It connects network elements to the change decisions, incidents, and owners around them, so a proposed change reveals its dependencies and prior-incident history." },
-        { "q": "Does it support regulatory tracking?", "a": "Yes — regulatory obligations stay connected to the decisions they bear on, so they remain traceable rather than tracked manually." }
+        {
+          "q": "How does it map network dependencies?",
+          "a": "It connects network elements to the change decisions, incidents, and owners around them, so a proposed change reveals its dependencies and prior-incident history."
+        },
+        {
+          "q": "Does it support regulatory tracking?",
+          "a": "Yes — regulatory obligations stay connected to the decisions they bear on, so they remain traceable rather than tracked manually."
+        }
       ]
     },
     "professionalServices": {
@@ -1451,13 +1723,26 @@
       "howNeuronApplies": "An AI-Driven Ontology connects engagement decisions, methodologies, deliverables, and outcomes across the firm — so a new engagement starts with the relevant precedent, approach, and the colleague who's solved it before.",
       "applyImage": "cross-engagement precedent",
       "whatYouGet": "Cross-engagement decision and methodology reuse · context on every project task · precedent surfacing for new work · knowledge retention as people roll off.",
-      "connectors": ["Slack", "Notion", "Confluence", "Google Workspace", "Microsoft 365", "Jira"],
+      "connectors": [
+        "Slack",
+        "Notion",
+        "Confluence",
+        "Google Workspace",
+        "Microsoft 365",
+        "Jira"
+      ],
       "scenario": "A team scopes a new client problem. NEURON surfaces a similar past engagement, the approach that worked, the decision that didn't, and the partner who led it.",
       "scenarioImage": "scenario",
       "whoItsFor": "Partners / engagement leads · Consultants · Knowledge management · Operations.",
       "faq": [
-        { "q": "How does it reuse knowledge across engagements?", "a": "It connects decisions, methodologies, deliverables, and outcomes across the firm, so a new engagement starts with the relevant precedent and the colleague who solved it before." },
-        { "q": "How is client confidentiality maintained?", "a": "NEURON is permission-aware with per-client isolation, connecting read-only and respecting existing access controls." }
+        {
+          "q": "How does it reuse knowledge across engagements?",
+          "a": "It connects decisions, methodologies, deliverables, and outcomes across the firm, so a new engagement starts with the relevant precedent and the colleague who solved it before."
+        },
+        {
+          "q": "How is client confidentiality maintained?",
+          "a": "NEURON is permission-aware with per-client isolation, connecting read-only and respecting existing access controls."
+        }
       ]
     },
     "legal": {
@@ -1471,13 +1756,24 @@
       "howNeuronApplies": "A permission-aware AI-Driven Ontology connects matters, decisions, positions, precedent, and outcomes — so a new matter surfaces the firm's relevant prior reasoning and the lawyer who developed it, with strict confidentiality controls.",
       "applyImage": "matter precedent",
       "whatYouGet": "Decision/position records with rationale · precedent surfacing across matters · consistency support · knowledge retention.",
-      "connectors": ["iManage-style DMS", "Microsoft 365", "Slack", "Confluence"],
+      "connectors": [
+        "iManage-style DMS",
+        "Microsoft 365",
+        "Slack",
+        "Confluence"
+      ],
       "scenario": "A lawyer takes a new matter. NEURON surfaces a comparable past matter, the position taken, the reasoning, and the outcome.",
       "scenarioImage": "scenario",
       "whoItsFor": "Partners / GC · Associates / counsel · Knowledge management · Compliance.",
       "faq": [
-        { "q": "How is confidentiality and conflict isolation handled?", "a": "NEURON is permission-aware with strict confidentiality controls and per-matter isolation, connecting only approved sources." },
-        { "q": "Can it surface relevant precedent?", "a": "Yes — a new matter surfaces comparable past matters, the positions taken, the reasoning, and the outcomes." }
+        {
+          "q": "How is confidentiality and conflict isolation handled?",
+          "a": "NEURON is permission-aware with strict confidentiality controls and per-matter isolation, connecting only approved sources."
+        },
+        {
+          "q": "Can it surface relevant precedent?",
+          "a": "Yes — a new matter surfaces comparable past matters, the positions taken, the reasoning, and the outcomes."
+        }
       ]
     },
     "governmentPublicSector": {
@@ -1491,13 +1787,24 @@
       "howNeuronApplies": "A permission-aware AI-Driven Ontology connects policy and operational decisions to the inputs, regulations, outcomes, and owners behind them — so decisions remain accountable, reusable, and intact across transitions.",
       "applyImage": "decision continuity",
       "whatYouGet": "Decision records with rationale · continuity across transitions · accountability/transparency support · permission-aware access.",
-      "connectors": ["Microsoft 365", "Google Workspace", "ServiceNow", "Slack"],
+      "connectors": [
+        "Microsoft 365",
+        "Google Workspace",
+        "ServiceNow",
+        "Slack"
+      ],
       "scenario": "A team revisits a program decision after a leadership change. NEURON surfaces the original rationale, the inputs and regulations behind it, and the outcomes since.",
       "scenarioImage": "scenario",
       "whoItsFor": "Agency leadership · Program & operations · Policy · Compliance/audit.",
       "faq": [
-        { "q": "How does it preserve continuity across transitions?", "a": "It keeps every decision connected to its rationale, inputs, and outcomes, so an incoming administration inherits the full context instead of starting over." },
-        { "q": "How is access controlled?", "a": "NEURON is permission-aware, connects approved sources only, and respects existing access controls." }
+        {
+          "q": "How does it preserve continuity across transitions?",
+          "a": "It keeps every decision connected to its rationale, inputs, and outcomes, so an incoming administration inherits the full context instead of starting over."
+        },
+        {
+          "q": "How is access controlled?",
+          "a": "NEURON is permission-aware, connects approved sources only, and respects existing access controls."
+        }
       ]
     },
     "educationAcademia": {
@@ -1511,14 +1818,25 @@
       "howNeuronApplies": "A permission-aware AI-Driven Ontology connects institutional decisions to their rationale, policies, and outcomes — so rotating committees and staff inherit the full context instead of starting over.",
       "applyImage": "institutional memory",
       "whatYouGet": "Decision records with rationale · continuity across rotating roles · policy traceability · permission-aware access.",
-      "connectors": ["Google Workspace", "Microsoft 365", "Slack", "Confluence"],
+      "connectors": [
+        "Google Workspace",
+        "Microsoft 365",
+        "Slack",
+        "Confluence"
+      ],
       "scenario": "A new committee revisits an admissions or curriculum policy. NEURON surfaces the prior decision, the reasoning, and the outcome — so they build on it rather than redo it.",
       "scenarioImage": "scenario",
       "whoItsFor": "Administration & leadership · Committees & governance · Research administration · Operations.",
       "japanNote": "Validated with academic institutions in Japan; fits how committee-based bodies document and hand off decisions. (confirm specifics.)",
       "faq": [
-        { "q": "How does it preserve memory across rotating committees?", "a": "It connects each institutional decision to its rationale, policies, and outcomes, so a new committee inherits the full context instead of relitigating settled questions." },
-        { "q": "How is access controlled?", "a": "NEURON is permission-aware, connects approved sources only, and respects existing access controls." }
+        {
+          "q": "How does it preserve memory across rotating committees?",
+          "a": "It connects each institutional decision to its rationale, policies, and outcomes, so a new committee inherits the full context instead of relitigating settled questions."
+        },
+        {
+          "q": "How is access controlled?",
+          "a": "NEURON is permission-aware, connects approved sources only, and respects existing access controls."
+        }
       ]
     },
     "constructionRealEstate": {
@@ -1532,13 +1850,24 @@
       "howNeuronApplies": "An AI-Driven Ontology connects design and change decisions to drawings, RFIs, approvals, subcontractors, and outcomes — so a change surfaces its downstream impact and prior decisions, and the project's decision trail is intact for disputes and handover.",
       "applyImage": "change impact across trades",
       "whatYouGet": "Decision/RFI records with rationale · change-impact mapping across trades · approval traceability · dispute-ready trail.",
-      "connectors": ["Procore-style PM tools", "Microsoft 365", "Slack", "email"],
+      "connectors": [
+        "Procore-style PM tools",
+        "Microsoft 365",
+        "Slack",
+        "email"
+      ],
       "scenario": "A design change is proposed mid-project. NEURON surfaces the original spec decision, the trades affected, and a prior change that triggered a claim.",
       "scenarioImage": "scenario",
       "whoItsFor": "Project managers · Architects & engineers · Construction managers · Owners/developers.",
       "faq": [
-        { "q": "How does it map change impact across trades?", "a": "It connects design and change decisions to the drawings, RFIs, approvals, and subcontractors they touch, so a change surfaces its downstream impact across trades." },
-        { "q": "Does it keep a dispute-ready record?", "a": "Yes — the project's decision and RFI trail stays intact and connected, ready for disputes and handover." }
+        {
+          "q": "How does it map change impact across trades?",
+          "a": "It connects design and change decisions to the drawings, RFIs, approvals, and subcontractors they touch, so a change surfaces its downstream impact across trades."
+        },
+        {
+          "q": "Does it keep a dispute-ready record?",
+          "a": "Yes — the project's decision and RFI trail stays intact and connected, ready for disputes and handover."
+        }
       ]
     },
     "marketingAdvertising": {
@@ -1552,13 +1881,25 @@
       "howNeuronApplies": "An AI-Driven Ontology connects campaign and creative decisions to briefs, audiences, performance, and outcomes — so the reasoning and results behind every campaign are preserved and reusable for the next.",
       "applyImage": "campaign decision history",
       "whatYouGet": "Campaign decision records tied to performance · creative-rationale context · client-history surfacing · cross-team visibility.",
-      "connectors": ["Slack", "Notion", "Google Workspace", "HubSpot", "Figma"],
+      "connectors": [
+        "Slack",
+        "Notion",
+        "Google Workspace",
+        "HubSpot",
+        "Figma"
+      ],
       "scenario": "A team plans a new campaign for a returning client. NEURON surfaces the last campaign's decisions, what performed, and the client's stated preferences.",
       "scenarioImage": "scenario",
       "whoItsFor": "Creative & strategy leads · Account management · Brand · Analytics.",
       "faq": [
-        { "q": "How does it tie decisions to performance?", "a": "Each campaign and creative decision is connected to the briefs, audiences, and performance behind it, so the results that informed it are preserved and reusable." },
-        { "q": "Can it surface client history?", "a": "Yes — planning a campaign for a returning client surfaces the last campaign's decisions, what performed, and the client's stated preferences." }
+        {
+          "q": "How does it tie decisions to performance?",
+          "a": "Each campaign and creative decision is connected to the briefs, audiences, and performance behind it, so the results that informed it are preserved and reusable."
+        },
+        {
+          "q": "Can it surface client history?",
+          "a": "Yes — planning a campaign for a returning client surfaces the last campaign's decisions, what performed, and the client's stated preferences."
+        }
       ]
     },
     "ventureCapitalPrivateEquity": {
@@ -1572,13 +1913,24 @@
       "howNeuronApplies": "A permission-aware AI-Driven Ontology connects investment decisions to diligence, theses, outcomes, and the partners behind them — so a new decision draws on the firm's full history of similar calls and what they produced.",
       "applyImage": "investment precedent",
       "whatYouGet": "Decision records with thesis and diligence · pattern surfacing across the portfolio · pass/invest precedent · knowledge retention across the team.",
-      "connectors": ["Affinity/CRM", "Notion", "Slack", "Google Workspace"],
+      "connectors": [
+        "Affinity/CRM",
+        "Notion",
+        "Slack",
+        "Google Workspace"
+      ],
       "scenario": "A partner evaluates a new deal. NEURON surfaces comparable past decisions, why the firm passed or invested, the diligence findings, and how those bets performed.",
       "scenarioImage": "scenario",
       "whoItsFor": "Partners / investment team · Platform/operations · Diligence · LP relations.",
       "faq": [
-        { "q": "How does it surface investment precedent?", "a": "It connects each investment decision to its thesis, diligence, and outcome, so a new deal draws on the firm's full history of comparable calls." },
-        { "q": "How is sensitive deal data controlled?", "a": "NEURON is permission-aware, connects approved sources only, and encrypts data in transit and at rest." }
+        {
+          "q": "How does it surface investment precedent?",
+          "a": "It connects each investment decision to its thesis, diligence, and outcome, so a new deal draws on the firm's full history of comparable calls."
+        },
+        {
+          "q": "How is sensitive deal data controlled?",
+          "a": "NEURON is permission-aware, connects approved sources only, and encrypts data in transit and at rest."
+        }
       ]
     },
     "nonprofitNgo": {
@@ -1592,13 +1944,24 @@
       "howNeuronApplies": "A permission-aware AI-Driven Ontology connects program and operational decisions to their rationale, funders' requirements, and outcomes — so mission knowledge persists across turnover and informs the next decision.",
       "applyImage": "mission knowledge retained",
       "whatYouGet": "Decision records with rationale · continuity across staff/volunteer turnover · grant/funder-requirement context · outcome history.",
-      "connectors": ["Google Workspace", "Slack", "Notion", "Microsoft 365"],
+      "connectors": [
+        "Google Workspace",
+        "Slack",
+        "Notion",
+        "Microsoft 365"
+      ],
       "scenario": "A new program lead inherits an initiative. NEURON surfaces the decisions that shaped it, the funder requirements, and what the last cycle learned.",
       "scenarioImage": "scenario",
       "whoItsFor": "Program leadership · Operations · Development/grants · Board & governance.",
       "faq": [
-        { "q": "How does it preserve knowledge across turnover?", "a": "It connects program and operational decisions to their rationale, funder requirements, and outcomes, so mission knowledge persists as people cycle through." },
-        { "q": "How is access controlled?", "a": "NEURON is permission-aware, connects approved sources only, and respects existing access controls." }
+        {
+          "q": "How does it preserve knowledge across turnover?",
+          "a": "It connects program and operational decisions to their rationale, funder requirements, and outcomes, so mission knowledge persists as people cycle through."
+        },
+        {
+          "q": "How is access controlled?",
+          "a": "NEURON is permission-aware, connects approved sources only, and respects existing access controls."
+        }
       ]
     }
   },
@@ -1607,13 +1970,34 @@
     "heroTitle": "Everything you need to <highlight>get the most</highlight> from NEURON.",
     "heroDescription": "Set up your connectors, learn the decision layer, and find answers fast.",
     "sections": [
-      { "title": "Getting started", "body": "What NEURON is, connecting your first tools, how the decision layer builds, and inviting your team." },
-      { "title": "Integration setup guides", "body": "One page per connector (Slack, Jira, GitHub, Confluence, Notion, Linear, ServiceNow, Chatwork, kintone, LINE WORKS, …): how to connect, permissions/scopes, what NEURON reads, troubleshooting." },
-      { "title": "Using NEURON", "body": "Signals / risk radar, decision records, context on tasks, asking NEURON, and role views." },
-      { "title": "Admin", "body": "Permissions, data control / retention, SSO, and billing / usage." },
-      { "title": "FAQs", "body": "Setup, security, permissions, usage / billing, and supported tools." },
-      { "title": "API reference", "body": "Auth, endpoints, webhooks, and rate limits [as applicable]." },
-      { "title": "Changelog / what's new", "body": "The latest connectors, capabilities, and improvements." }
+      {
+        "title": "Getting started",
+        "body": "What NEURON is, connecting your first tools, how the decision layer builds, and inviting your team."
+      },
+      {
+        "title": "Integration setup guides",
+        "body": "One page per connector (Slack, Jira, GitHub, Confluence, Notion, Linear, ServiceNow, Chatwork, kintone, LINE WORKS, …): how to connect, permissions/scopes, what NEURON reads, troubleshooting."
+      },
+      {
+        "title": "Using NEURON",
+        "body": "Signals / risk radar, decision records, context on tasks, asking NEURON, and role views."
+      },
+      {
+        "title": "Admin",
+        "body": "Permissions, data control / retention, SSO, and billing / usage."
+      },
+      {
+        "title": "FAQs",
+        "body": "Setup, security, permissions, usage / billing, and supported tools."
+      },
+      {
+        "title": "API reference",
+        "body": "Auth, endpoints, webhooks, and rate limits [as applicable]."
+      },
+      {
+        "title": "Changelog / what's new",
+        "body": "The latest connectors, capabilities, and improvements."
+      }
     ]
   },
   "CompanyPage": {
@@ -1633,9 +2017,21 @@
     "teamHeading": "Team",
     "teamIntro": "Founders [confirm names and bios].",
     "founders": [
-      { "name": "Christian Park [confirm]", "role": "CEO", "bio": "[one-line bio]" },
-      { "name": "Ebina Lui [confirm]", "role": "CTO", "bio": "[one-line bio]" },
-      { "name": "Taizo Harada [confirm]", "role": "COO", "bio": "[one-line bio]" }
+      {
+        "name": "Christian Park [confirm]",
+        "role": "CEO",
+        "bio": "[one-line bio]"
+      },
+      {
+        "name": "Ebina Lui [confirm]",
+        "role": "CTO",
+        "bio": "[one-line bio]"
+      },
+      {
+        "name": "Taizo Harada [confirm]",
+        "role": "COO",
+        "bio": "[one-line bio]"
+      }
     ],
     "teamNote": "Advisors [confirm] · Backers / investors [confirm].",
     "teamImage": "real headshots",
@@ -1651,13 +2047,11 @@
     "heroTitle": "The Cognition Layer",
     "heroSubhead": "Most AI tools read your data. NEURON understands it.",
     "heroBody": "The Cognition Layer is the architectural foundation that turns 24 disconnected tools into one coherent map of your organization. Decisions are structured records. Risks are detected by purpose-built Sentinels. Every Signal carries its evidence. Every change is auditable. Nothing is guessed.",
-
     "s1Eyebrow": "The architectural shift",
     "s1Title": "A new way of detecting what matters.",
     "s1Body1": "Every other AI knowledge tool follows the same shape: pipe your messages into a large language model, ask the model what's important, hope the model is right. It's slow, it hallucinates, and you can't audit why it said what it said.",
     "s1Body2": "NEURON inverts the pipeline. Pattern Intelligence first. Language models second. For every kind of risk worth detecting, we built a focused Sentinel — a small, fast, deterministic detector that runs cheap statistical tests against structured signals. The language model only gets involved at the end, to describe what the math already found.",
     "s1Body3": "The result: detection that runs in milliseconds, scales linearly, can be unit-tested, and never invents what isn't there.",
-
     "s2Eyebrow": "Signal Objects",
     "s2Title": "The six things every organization actually produces.",
     "s2Intro": "The Cognition Layer is built around six first-class Signal Objects. Every piece of organizational reality NEURON captures fits into one of these — typed, structured, queryable, linked.",
@@ -1665,15 +2059,38 @@
     "s2ColCaptures": "What it captures",
     "s2ColExample": "Real example",
     "signalObjects": [
-      { "name": "Decision", "captures": "A choice your team made, with rationale, trade-offs, and decided-by", "example": "Switched billing provider from Stripe to Adyen — VP Finance — rationale: lower FX cost" },
-      { "name": "Risk", "captures": "Something that might go wrong, with category, probability × impact, and trend", "example": "Customer onboarding pipeline at risk — schedule slippage, P×I 0.7×0.85, trending worse" },
-      { "name": "Open Item", "captures": "An unresolved commitment, with urgency, owner clarity, and aging", "example": "Legal review of new ToS — unowned, soon-urgent, 17 days stale" },
-      { "name": "Countermeasure", "captures": "A planned response to a risk, with assignee and due date", "example": "Add a second contractor to onboarding team — Eng Manager — due 2026-07-15" },
-      { "name": "Outcome", "captures": "What actually happened after a decision or risk played out", "example": "Adyen migration completed 3 weeks ahead of plan, FX cost down 18%" },
-      { "name": "Lesson Learned", "captures": "A structured takeaway from an outcome, reusable for future decisions", "example": "Vendor migrations: budget 30% buffer for double-running costs" }
+      {
+        "name": "Decision",
+        "captures": "A choice your team made, with rationale, trade-offs, and decided-by",
+        "example": "Switched billing provider from Stripe to Adyen — VP Finance — rationale: lower FX cost"
+      },
+      {
+        "name": "Risk",
+        "captures": "Something that might go wrong, with category, probability × impact, and trend",
+        "example": "Customer onboarding pipeline at risk — schedule slippage, P×I 0.7×0.85, trending worse"
+      },
+      {
+        "name": "Open Item",
+        "captures": "An unresolved commitment, with urgency, owner clarity, and aging",
+        "example": "Legal review of new ToS — unowned, soon-urgent, 17 days stale"
+      },
+      {
+        "name": "Countermeasure",
+        "captures": "A planned response to a risk, with assignee and due date",
+        "example": "Add a second contractor to onboarding team — Eng Manager — due 2026-07-15"
+      },
+      {
+        "name": "Outcome",
+        "captures": "What actually happened after a decision or risk played out",
+        "example": "Adyen migration completed 3 weeks ahead of plan, FX cost down 18%"
+      },
+      {
+        "name": "Lesson Learned",
+        "captures": "A structured takeaway from an outcome, reusable for future decisions",
+        "example": "Vendor migrations: budget 30% buffer for double-running costs"
+      }
     ],
     "s2Outro": "The connective tissue: every Signal is linked to its source messages, its owning member, its project, and its history. Decisions supersede other decisions. Risks spawn Countermeasures. Outcomes produce Lessons Learned. The whole graph stays connected.",
-
     "s3Eyebrow": "The Sentinel Library",
     "s3Title": "Ten Sentinels. One library. Always growing.",
     "s3Intro": "Each Sentinel watches for one specific risk pattern. Each one is independently versioned, independently tested, and independently quality-gated. Adding a new kind of detection is a new Sentinel, not a new prompt.",
@@ -1681,21 +2098,67 @@
     "s3ColWatches": "Watches for",
     "s3Keystone": "keystone",
     "sentinels": [
-      { "name": "Unspoken Misalignment", "keystone": true, "watches": "Teams quietly drifting apart — topic divergence + graph fragmentation + engagement drop" },
-      { "name": "Scope Creep", "keystone": false, "watches": "Feature additions outpacing closes; backlog growth without corresponding velocity" },
-      { "name": "Schedule Slippage", "keystone": false, "watches": "Deliverables consistently late against original commit dates" },
-      { "name": "Stakeholder Disengagement", "keystone": false, "watches": "Exec or sponsor attention dropping off — fewer touches, longer response gaps" },
-      { "name": "Budget Overrun", "keystone": false, "watches": "Burn rate exceeding allocation, projected against cycle" },
-      { "name": "Quality Regression", "keystone": false, "watches": "Bug rate climbing, incident frequency rising" },
-      { "name": "Technical Debt Growth", "keystone": false, "watches": "Refactor backlog growing faster than new work shipping" },
-      { "name": "Coordination Silo", "keystone": false, "watches": "Sub-teams operating in isolation — cross-team comms below baseline" },
-      { "name": "Dependency Bottleneck", "keystone": false, "watches": "One team blocking many others — fan-out exceeding threshold" },
-      { "name": "Unresolved Blockers", "keystone": false, "watches": "Open items aging past urgency thresholds without owner action" }
+      {
+        "name": "Unspoken Misalignment",
+        "keystone": true,
+        "watches": "Teams quietly drifting apart — topic divergence + graph fragmentation + engagement drop"
+      },
+      {
+        "name": "Scope Creep",
+        "keystone": false,
+        "watches": "Feature additions outpacing closes; backlog growth without corresponding velocity"
+      },
+      {
+        "name": "Schedule Slippage",
+        "keystone": false,
+        "watches": "Deliverables consistently late against original commit dates"
+      },
+      {
+        "name": "Stakeholder Disengagement",
+        "keystone": false,
+        "watches": "Exec or sponsor attention dropping off — fewer touches, longer response gaps"
+      },
+      {
+        "name": "Budget Overrun",
+        "keystone": false,
+        "watches": "Burn rate exceeding allocation, projected against cycle"
+      },
+      {
+        "name": "Quality Regression",
+        "keystone": false,
+        "watches": "Bug rate climbing, incident frequency rising"
+      },
+      {
+        "name": "Technical Debt Growth",
+        "keystone": false,
+        "watches": "Refactor backlog growing faster than new work shipping"
+      },
+      {
+        "name": "Coordination Silo",
+        "keystone": false,
+        "watches": "Sub-teams operating in isolation — cross-team comms below baseline"
+      },
+      {
+        "name": "Dependency Bottleneck",
+        "keystone": false,
+        "watches": "One team blocking many others — fan-out exceeding threshold"
+      },
+      {
+        "name": "Unresolved Blockers",
+        "keystone": false,
+        "watches": "Open items aging past urgency thresholds without owner action"
+      }
     ],
     "s3CompoundTitle": "The Compound Patterns",
     "s3CompoundBody": "When two Sentinels correlate on the same team or project, the system names the compound pattern. Six named compound patterns ship today.",
-    "compoundPatterns": ["Scope Creep Spiral", "Silent Blocker", "Knowledge Silo", "Strategic Drift", "Execution Breakdown", "Technical Debt Trap"],
-
+    "compoundPatterns": [
+      "Scope Creep Spiral",
+      "Silent Blocker",
+      "Knowledge Silo",
+      "Strategic Drift",
+      "Execution Breakdown",
+      "Technical Debt Trap"
+    ],
     "s4Eyebrow": "Quality-Gated Detection",
     "s4Title": "If a Sentinel can't prove it works, it doesn't ship.",
     "s4Body1": "Every Sentinel has a Golden Dataset — a hand-labeled set of scenarios, positive and negative. The Sentinel must hit minimum precision and recall on its Golden Dataset before it merges into production. If a code change drops the numbers below the floor, CI blocks the merge.",
@@ -1710,42 +2173,60 @@
     "s4Metric3Label": "F1",
     "s4Metric3Note": "harmonic mean of precision and recall",
     "s4Outro": "These aren't aspirational numbers in a deck. They're enforced in CI. Quality regression is impossible by construction.",
-
     "s5Eyebrow": "The Trust Layer",
     "s5Title": "Three guarantees on every Signal.",
     "guarantees": [
-      { "title": "Provenance you can click into.", "body": "Open any Risk in NEURON. You see the fourteen messages, in four channels, across three days, that triggered the detection. No \"the AI thinks this.\" Just evidence." },
-      { "title": "Immutable audit trail.", "body": "Every change to every Signal is recorded append-only in the Provenance Chain. Enforced twice: a CI lint rule prevents code that would mutate the log, and a database trigger blocks the mutation at the storage layer. Defense in depth — the foundation for the compliance conversation you'll have with your security team." },
-      { "title": "Human-approved by default.", "body": "Sentinels don't write directly into the Cognition Layer. They produce Review Queue entries — pending suggestions a human approves or dismisses. Nothing in your organization's memory is there because \"the AI said so.\" Every Signal carries the signature of a human reviewer." }
+      {
+        "title": "Provenance you can click into.",
+        "body": "Open any Risk in NEURON. You see the fourteen messages, in four channels, across three days, that triggered the detection. No \"the AI thinks this.\" Just evidence."
+      },
+      {
+        "title": "Immutable audit trail.",
+        "body": "Every change to every Signal is recorded append-only in the Provenance Chain. Enforced twice: a CI lint rule prevents code that would mutate the log, and a database trigger blocks the mutation at the storage layer. Defense in depth — the foundation for the compliance conversation you'll have with your security team."
+      },
+      {
+        "title": "Human-approved by default.",
+        "body": "Sentinels don't write directly into the Cognition Layer. They produce Review Queue entries — pending suggestions a human approves or dismisses. Nothing in your organization's memory is there because \"the AI said so.\" Every Signal carries the signature of a human reviewer."
+      }
     ],
     "s5Outro": "For high-volume Sentinels you can configure auto-approval per-pattern. The default is human-in-the-loop. The audit trail records which Signals were human-approved and which were auto-approved — so the security team's question always has an answer.",
-
     "s6Eyebrow": "Unified Identity",
     "s6Title": "One Alice across twenty-four tools.",
     "s6Body1": "The same person has different handles in every tool — alice@slack, alice_dev@github, Alice Chen in Monday, a.chen in your SAML directory. NEURON's Unified Identity resolves all of them into one canonical Member record, automatically, the first time any new handle appears.",
     "s6Body2": "Five-tier match logic: exact ID, normalized email, fuzzy name, platform-specific heuristics, and — when ambiguous — a deferred review. No manual mapping. No CSV uploads. Your org chart materializes itself.",
-
     "s7Eyebrow": "The cost story",
     "s7Title": "74% fewer model tokens than a naive AI pipeline.",
     "s7Body1": "Because Pattern Intelligence runs first, the language model only sees the channels and time windows where structured signals actually appeared. Our multi-level extraction gate skips low-signal channels entirely — saving roughly 74% of language-model tokens on production traffic, compared to the LLM-first pipeline NEURON replaced.",
     "s7Body2": "Every language-model call is logged to the Provenance Chain with token count, cost, latency, and purpose. Cost is observable per workspace, per Sentinel, per call site.",
-
     "s8Eyebrow": "Under the hood",
     "s8Title": "For your engineering team.",
     "s8Body": "The Cognition Layer is implemented in PostgreSQL with pgvector for similarity search, exposed via a GraphQL API. Sentinels are versioned Python modules with YAML-configured thresholds, semver, and automatic provenance recording. Identity resolution is a 5-tier match with lazy creation of Member records. The detection pipeline runs incrementally — only the affected channels are re-evaluated when new messages land via the ingestion bridge. GraphQL subscriptions push detections to the frontend in real time. Workspace isolation is enforced at every layer — auth, query resolution, and per-workspace data filtering — so one NEURON deployment can safely host multiple organizations on shared infrastructure.",
-
     "s9Eyebrow": "Day one",
     "s9Title": "Connect the first tool. Watch your organization materialize.",
     "s9Intro": "The moment you connect a Slack workspace, a Monday board, or a Notion database:",
     "dayOne": [
-      { "title": "Members appear", "body": "Every person who has ever posted is recognized and de-duplicated across platforms." },
-      { "title": "Decisions extract", "body": "Every committed choice from the past four weeks becomes a structured Decision, with rationale and source trail." },
-      { "title": "Risks surface", "body": "The Sentinel Library runs against your history and proposes Risks. You triage them in the Review Queue." },
-      { "title": "Open Items pile up", "body": "Unresolved commitments get ranked by urgency, owner clarity, and staleness." },
-      { "title": "Cross-source decisions cluster", "body": "If the same decision was made in both Slack and Monday, the system detects the duplicate and merges the context." }
+      {
+        "title": "Members appear",
+        "body": "Every person who has ever posted is recognized and de-duplicated across platforms."
+      },
+      {
+        "title": "Decisions extract",
+        "body": "Every committed choice from the past four weeks becomes a structured Decision, with rationale and source trail."
+      },
+      {
+        "title": "Risks surface",
+        "body": "The Sentinel Library runs against your history and proposes Risks. You triage them in the Review Queue."
+      },
+      {
+        "title": "Open Items pile up",
+        "body": "Unresolved commitments get ranked by urgency, owner clarity, and staleness."
+      },
+      {
+        "title": "Cross-source decisions cluster",
+        "body": "If the same decision was made in both Slack and Monday, the system detects the duplicate and merges the context."
+      }
     ],
     "s9Outro": "From there the platform is reactive. New messages flow in. The Cognition Layer updates. The dashboards refresh. The Review Queue fills with new detections to triage.",
-
     "ctaTitle": "Built for organizations that need to be right.",
     "ctaBody": "The Cognition Layer is shipping today. Sentinels are running in production workspaces. The Provenance Chain has been audited.",
     "ctaPrimary": "Request a Demo",
@@ -1907,6 +2388,1587 @@
       "teamTitle": "Operational Blast Radius In One View",
       "teamDesc": "See the ripple effects of every change — how a delay in 1 region cascades to downstream fulfillment, which warehouses are at capacity, and what happened the last time this risk surfaced.",
       "teamExample": "Before rerouting shipments, NEURON showed me that the same route change last quarter caused a 3-day backlog at our hub — and the mitigation we used."
+    }
+  },
+  "SolutionsMenu": {
+    "tech": "Tech & Software",
+    "industrial": "Industrial & Physical",
+    "finance": "Finance",
+    "regulated": "Regulated / Public",
+    "operations": "Operations & Network",
+    "commerce": "Commerce & Media",
+    "services": "Services",
+    "items": {
+      "it": "Information Technology",
+      "saas": "SaaS & Product",
+      "gaming": "Gaming",
+      "manufacturing": "Manufacturing",
+      "automotive": "Automotive",
+      "aerospace": "Aerospace & Defense",
+      "energy": "Energy & Utilities",
+      "construction": "Construction & Real Estate",
+      "financialServices": "Financial Services",
+      "fintech": "Fintech",
+      "insurance": "Insurance",
+      "vc": "Venture Capital & Private Equity",
+      "healthcare": "Healthcare",
+      "pharma": "Pharmaceuticals & Life Sciences",
+      "government": "Government & Public Sector",
+      "education": "Education & Academia",
+      "logistics": "Logistics & Supply Chain",
+      "telecom": "Telecommunications",
+      "ecommerce": "E-commerce & Retail",
+      "mediaEnt": "Media & Entertainment",
+      "marketing": "Marketing & Advertising",
+      "consulting": "Professional Services & Consulting",
+      "legal": "Legal",
+      "nonprofit": "Nonprofit & NGO"
+    }
+  },
+  "CaseStudyIT": {
+    "Hero": {
+      "badge": "Information Technology",
+      "title": "Decision intelligence for IT teams",
+      "description": "Most tools treat your information as a pile of documents to search. Neuron treats it as a connected graph of people, decisions, systems, and outcomes.",
+      "primaryCta": "Book a demo",
+      "secondaryCta": "See the architecture",
+      "cardPill": "Tech & Software",
+      "riskLabel": "Risk",
+      "riskText": "Similar change caused instability",
+      "decisionLabel": "Decision",
+      "decisionText": "Staged rollout approved",
+      "outcomeLabel": "Outcome",
+      "outcomeText": "Shipped with context intact"
+    },
+    "Problem": {
+      "eyebrow": "How decisions actually work",
+      "title": "Fast to make, faster to bury",
+      "p1": "Every meaningful engineering decision is made fast and buried just as fast; the reasoning lives in whoever was in the room. Post-mortems stay in Slack, so a different engineer repeats the change that caused the last outage. Blast radius is underestimated.",
+      "p2": "New engineers spend months reconstructing why the codebase looks the way it does. Tech debt stays invisible to leadership until it's a crisis, PRs get rejected for missing context, and nothing moves when one senior engineer is out."
+    },
+    "Ontology": {
+      "eyebrow": "How Neuron applies",
+      "title": "The ontology, mapped to engineering",
+      "body": "Neuron builds an AI-Driven Ontology connecting services, decisions, incidents, tickets, and the people who made the calls. Open a ticket and it surfaces the decision behind the architecture, the incident from a similar past change, the dependencies at risk, and the person to consult."
+    },
+    "Workflow": {
+      "eyebrow": "What you get",
+      "title": "Where it shows up in your workflow",
+      "items": {
+        "risk": "Risk Score on every infra change",
+        "adr": "Auto-generated ADRs (decision records)",
+        "cascade": "Cascade risk tracing across services",
+        "arch": "Architectural context on every ticket",
+        "digest": "Weekly tech-debt digest"
+      }
+    },
+    "Personas": {
+      "eyebrow": "Who it's for",
+      "title": "Built for the people making the calls",
+      "leadLabel": "Leadership",
+      "leadRoles": "Eng Manager · VP Eng · CTO",
+      "engLabel": "Engineers",
+      "engRoles": "Software · Senior · Staff Engineer",
+      "opsLabel": "Operations",
+      "opsRoles": "SRE · SecOps · IT Ops"
+    },
+    "Faq": {
+      "title": "Frequently asked questions",
+      "items": {
+        "intelligence": {
+          "q": "What is decision intelligence for IT teams?",
+          "a": "It's structuring the engineering decisions, risks, and incidents already flowing through your tools into a connected layer — so the reasoning behind your architecture is searchable, traceable, and available the moment someone opens a ticket."
+        },
+        "ontology": {
+          "q": "What is an AI-Driven Ontology for engineering teams?",
+          "a": "An AI-Driven Ontology is a living graph that connects your services, decisions, incidents, tickets, and the people who made the calls. Instead of searching scattered documents, Neuron maps how everything relates — so the right context surfaces automatically wherever you work."
+        },
+        "incidents": {
+          "q": "How does Neuron reduce incidents?",
+          "a": "When an engineer proposes a change, Neuron surfaces the incidents from similar past changes, the dependencies at risk, and the original decisions behind the architecture — so blast radius gets caught before it ships instead of in the post-mortem."
+        }
+      }
+    },
+    "Cta": {
+      "title": "See it on your workflow",
+      "body": "A 30-minute demo on your real stack — Jira, Slack, GitHub, Confluence.",
+      "button": "Book a demo"
+    }
+  },
+  "CaseStudyPages": {
+    "_shared": {
+      "primaryCta": "Book a demo",
+      "secondaryCta": "See the architecture",
+      "riskLabel": "Risk",
+      "decisionLabel": "Decision",
+      "outcomeLabel": "Outcome",
+      "ontologyEyebrow": "How Neuron applies",
+      "workflowEyebrow": "What you get",
+      "personasEyebrow": "Who it's for",
+      "faqTitle": "Frequently asked questions",
+      "cta": {
+        "title": "See it on your workflow",
+        "body": "A 30-minute demo on your real stack — Slack, Jira, Confluence, and the tools you already run on.",
+        "button": "Book a demo"
+      }
+    },
+    "financialServices": {
+      "hero": {
+        "badge": "Financial Services",
+        "title": "Decision intelligence for financial services",
+        "description": "In financial services the decision is half the work — the other half is being able to show how and why you reached it, months or years later.",
+        "cardPill": "Finance",
+        "riskText": "Control breach flagged on a similar trade",
+        "decisionText": "Exception approved with rationale",
+        "outcomeText": "Cleared audit with the trail intact"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "The “why” is the half that goes missing",
+        "p1": "Decisions are governed and cross-checked across risk, compliance, product, and leadership, and the trail matters as much as the outcome. The “why” — which control applied, which regulation drove it, who approved it — lives in threads, decks, and minutes no one can reassemble on demand.",
+        "p2": "Risk decisions stay opaque to leadership, settled calls get relitigated, and compliance gaps only surface in audits — long after the people and context have moved on."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to financial services",
+        "body": "An AI-Driven Ontology connects decisions to the risks that triggered them, the controls and regulations that shaped them, the outcomes that followed, and the people accountable — a living, auditable decision trail that already exists when audit comes."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Auditable decision records with full rationale",
+          "Risk briefs linked to controls and prior outcomes",
+          "Regulation-to-decision-to-result traceability",
+          "Role views for risk, compliance, and leadership"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people on the hook",
+        "list": [
+          {
+            "label": "Risk & Compliance",
+            "roles": "Head of Risk · Compliance · Audit"
+          },
+          {
+            "label": "Product",
+            "roles": "Product leads · Decision owners"
+          },
+          {
+            "label": "Leadership",
+            "roles": "CTO · CRO · Executive team"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it support audit/regulatory traceability?",
+            "a": "Every decision is connected to the risk that triggered it, the controls and regulations that shaped it, and the outcome that followed — so the trail already exists when audit comes."
+          },
+          {
+            "q": "Is access role-controlled?",
+            "a": "Yes — NEURON mirrors your existing tool permissions and offers role views for risk, compliance, and leadership."
+          },
+          {
+            "q": "How is sensitive data handled?",
+            "a": "NEURON connects read-only, respects existing permissions, and encrypts data in transit and at rest."
+          }
+        ]
+      }
+    },
+    "healthcare": {
+      "hero": {
+        "badge": "Healthcare",
+        "title": "Decision intelligence for healthcare teams",
+        "description": "Healthcare organizations make high-stakes operational and governance decisions daily — protocol changes, safety reviews, compliance and process calls. NEURON operates on organizational decisions and is not a clinical record system.",
+        "cardPill": "Healthcare",
+        "riskText": "Similar protocol linked to a past event",
+        "decisionText": "Safety review change approved",
+        "outcomeText": "Learning reached every department"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "One team's lesson, trapped in one team",
+        "p1": "Decisions are departmental and heavily governed, and the rationale is exactly what must survive and propagate — yet it stays siloed in the team that made it.",
+        "p2": "Adverse-event learnings don't spread, protocol rationale is lost when staff rotate, and compliance traceability becomes a manual scramble."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to healthcare operations",
+        "body": "A permission-aware AI-Driven Ontology connects operational decisions to the protocols they changed, the incidents that prompted them, the outcomes that followed, and the owners accountable — so a review's conclusion becomes connected knowledge the whole organization can learn from."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Connected operational decision records",
+          "Cross-department propagation of review learnings",
+          "Compliance-ready traceability",
+          "Strict role-based access"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people making the calls",
+        "list": [
+          {
+            "label": "Operations Leadership",
+            "roles": "Ops directors · Service-line leads"
+          },
+          {
+            "label": "Quality & Safety",
+            "roles": "Quality · Safety · Risk review"
+          },
+          {
+            "label": "Compliance",
+            "roles": "Compliance · Governance · Audit"
+          },
+          {
+            "label": "Department Heads",
+            "roles": "Clinical ops · Department leads"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "What decisions does it cover?",
+            "a": "Organizational, operational, and governance decisions — protocol changes, safety reviews, compliance and process calls. NEURON is not a clinical record system."
+          },
+          {
+            "q": "How is access/privacy controlled?",
+            "a": "NEURON is permission-aware with strict role-based access, connects only approved sources, and encrypts data in transit and at rest."
+          },
+          {
+            "q": "Does it connect to clinical systems?",
+            "a": "Its scope is operational and governance; it is permission-aware and uses approved connectors only."
+          }
+        ]
+      }
+    },
+    "manufacturing": {
+      "hero": {
+        "badge": "Manufacturing",
+        "title": "Decision intelligence for manufacturing",
+        "description": "In manufacturing, one decision can echo for a decade — a part change, a supplier swap, a line tweak ripples across design, procurement, quality, and the floor, and depends on context that usually lives in one veteran engineer's head.",
+        "cardPill": "Industrial",
+        "riskText": "Prior change caused a line defect",
+        "decisionText": "Staged change order approved",
+        "outcomeText": "Veteran's reasoning captured"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "When veterans retire, the reasoning leaves with them",
+        "p1": "Decisions are cross-functional; an engineering change order touches the BOM, suppliers, lines, and quality criteria, with the reasoning scattered across PLM, ERP, quality reports, email, kintone, and conversations.",
+        "p2": "Change risk is underestimated, quality incidents recur because the last root-cause is buried, and — most acutely in Japan — tacit knowledge walks out the door as veterans retire, turning skill succession (技能伝承) into organizational risk."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to the factory floor",
+        "body": "An AI-Driven Ontology connects parts and BOMs, change orders, quality incidents, suppliers, lines, and the engineers behind each call — so proposing a change surfaces the past change that caused a defect, the suppliers and lines affected, and the veteran who knows the history, before approval."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Risk briefs on every change order",
+          "Quality and decision context on every ticket",
+          "Decision records for audits and 技能伝承",
+          "Cascade mapping across suppliers and lines"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who run the line",
+        "list": [
+          {
+            "label": "Plant & Production",
+            "roles": "Plant · Production managers"
+          },
+          {
+            "label": "Engineering",
+            "roles": "Design · Production engineers"
+          },
+          {
+            "label": "Quality",
+            "roles": "Quality managers · QA"
+          },
+          {
+            "label": "Procurement",
+            "roles": "Procurement · Supplier management"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it handle change management?",
+            "a": "Every engineering change order is connected to the parts, suppliers, lines, and quality criteria it touches, plus the prior changes that caused defects — so risk is visible before approval."
+          },
+          {
+            "q": "Can it capture retiring engineers' knowledge?",
+            "a": "Yes — reasoning is captured as decisions happen, so a veteran's rationale stays in the organization as a connected record rather than leaving with them."
+          },
+          {
+            "q": "Does it work with kintone?",
+            "a": "Yes. NEURON connects to kintone, ERP/PLM, Chatwork, Slack, email, and Notion."
+          }
+        ]
+      }
+    },
+    "ecommerceRetail": {
+      "hero": {
+        "badge": "E-commerce & Retail",
+        "title": "Decision intelligence for retail teams",
+        "description": "Retail and e-commerce run on fast, repeated decisions — merchandising, pricing, promotions, vendors, fulfillment — and the lessons from each cycle rarely survive into the next.",
+        "cardPill": "Commerce & Media",
+        "riskText": "Last year's promo underperformed",
+        "decisionText": "Seasonal pricing approved",
+        "outcomeText": "Margin held with context intact"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "Last season's lesson is gone before this season's call",
+        "p1": "Decisions are high-frequency and cross-functional, made across analytics, Slack, and vendor emails under seasonal pressure.",
+        "p2": "The rationale behind a pricing or promo call — and how it actually performed — isn't connected, so teams repeat last year's mistakes and relitigate the same decisions every cycle."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to retail decisions",
+        "body": "An AI-Driven Ontology connects merchandising, pricing, promo, and vendor decisions to the data behind them and the outcomes they produced — so this season's call is informed by exactly what happened last time."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision records tied to outcomes",
+          "Context on every merchandising and pricing call",
+          "Vendor and category history",
+          "Risk and signal digest for leads"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people behind the numbers",
+        "list": [
+          {
+            "label": "Merchandising",
+            "roles": "Merchandising · Buying"
+          },
+          {
+            "label": "Pricing",
+            "roles": "Pricing · Revenue"
+          },
+          {
+            "label": "E-commerce Ops",
+            "roles": "Ecommerce · Fulfillment ops"
+          },
+          {
+            "label": "Category Management",
+            "roles": "Category · Vendor management"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it connect to our commerce stack?",
+            "a": "NEURON connects to your commerce tools, Slack, Notion, Google Workspace, HubSpot, and Salesforce — reading the signals already flowing through them."
+          },
+          {
+            "q": "Can it surface prior promo performance?",
+            "a": "Yes — each pricing or promo decision is tied to the data behind it and the outcome it produced, so last year's result informs this year's call."
+          }
+        ]
+      }
+    },
+    "saasProduct": {
+      "hero": {
+        "badge": "SaaS & Product",
+        "title": "Decision intelligence for product teams",
+        "description": "Product orgs don't fail for lack of input — they drown in it. Feedback, analytics, and Slack debates pour in, decisions get made, and the reasoning evaporates.",
+        "cardPill": "Tech & Software",
+        "riskText": "Feature re-argued from scratch",
+        "decisionText": "Roadmap call approved",
+        "outcomeText": "Shipped with the retro attached"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "Stop relitigating the roadmap",
+        "p1": "Roadmap and feature decisions synthesize signals from sales, support, research, and analytics in a meeting — and get recorded almost nowhere.",
+        "p2": "Features get re-argued because the rationale and rollout plan can't be found, feedback stays scattered, teams duplicate work, and onboarding a PM takes weeks."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to product teams",
+        "body": "An AI-Driven Ontology links customer feedback to the feature decisions it drove, the roadmap items they became, the dependent teams, and the outcomes — so opening a feature shows the feedback behind it, the decision and rollout plan, the dependencies, and the retro from last time."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision and product context on every task",
+          "Decision records with rollout plans and thresholds",
+          "Duplicate-work and dependency detection",
+          "Weekly risk and signal digest"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people shaping the product",
+        "list": [
+          {
+            "label": "Product Leadership",
+            "roles": "CPO · Head of Product"
+          },
+          {
+            "label": "Product Managers",
+            "roles": "PMs · Product owners"
+          },
+          {
+            "label": "Engineering",
+            "roles": "Engineering leads · Staff"
+          },
+          {
+            "label": "Operations",
+            "roles": "Product ops · Programs",
+            "card": "red"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it capture product decisions?",
+            "a": "Decisions are captured automatically as they happen, with rationale, rollout plans, and thresholds attached and connected to the feedback that drove them."
+          },
+          {
+            "q": "Can it surface the feedback behind a feature?",
+            "a": "Yes — opening a feature shows the customer feedback it came from, the decision and rollout plan, the dependent teams, and the retro from last time."
+          },
+          {
+            "q": "How does it catch duplicate work?",
+            "a": "By connecting decisions and dependencies across teams, NEURON flags when work overlaps or a dependency is at risk."
+          }
+        ]
+      }
+    },
+    "automotive": {
+      "hero": {
+        "badge": "Automotive",
+        "title": "Decision intelligence for automotive",
+        "description": "Automotive decisions span mechanical, electronic, and now software domains — and any one of them can become a safety recall years after it shipped. The trail from a design choice to its consequence has to be reconstructable.",
+        "cardPill": "Mobility",
+        "riskText": "Prior field incident on similar change",
+        "decisionText": "Firmware change reviewed before sign-off",
+        "outcomeText": "Original safety decision surfaced"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "Every part and every line of code is a recall question",
+        "p1": "A change touches suppliers, sub-assemblies, software modules, and regulatory criteria across a multi-tier supply chain. Decisions are made in different systems by different teams.",
+        "p2": "When a field failure appears, tracing which decision caused it — and what else shares that decision — is slow and manual, exactly when speed matters most."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to hardware and software",
+        "body": "An AI-Driven Ontology links components, software, suppliers, change decisions, field incidents, and the engineers and regulations involved — so a proposed change reveals its blast radius across mechanical and software systems and its prior-incident history, and a field failure traces back to the decisions and other vehicles that share it."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Change risk briefs across hardware + software",
+          "Cascade tracing across the supply chain",
+          "Auto-generated decision records for safety and certification reviews",
+          "Recall-impact mapping"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who ship the vehicle",
+        "list": [
+          {
+            "label": "Chief engineers",
+            "roles": "Chief engineers"
+          },
+          {
+            "label": "Software & systems leads",
+            "roles": "Software & systems leads"
+          },
+          {
+            "label": "Quality / safety",
+            "roles": "Quality / safety"
+          },
+          {
+            "label": "Supplier management",
+            "roles": "Supplier management"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "Does it cover software-defined vehicle decisions?",
+            "a": "Yes — the ontology links software modules alongside mechanical components, suppliers, and regulations, so a change reveals its blast radius across both hardware and software."
+          },
+          {
+            "q": "How does it support recall tracing?",
+            "a": "A field failure traces back to the decisions that caused it and forward to the other variants that share that decision — turning a slow manual investigation into a connected lookup."
+          }
+        ]
+      }
+    },
+    "aerospaceDefense": {
+      "hero": {
+        "badge": "Aerospace & Defense",
+        "title": "Decision intelligence for aerospace & defense",
+        "description": "In aerospace and defense, configuration, certification, and safety decisions outlive programs and careers. The rationale behind each one must survive for the life of the platform.",
+        "cardPill": "Aerospace",
+        "riskText": "Original certification rationale at risk of loss",
+        "decisionText": "Flight-control parameter change proposed",
+        "outcomeText": "Change carries its full trail"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "Decisions you defend in twenty years should be traceable today",
+        "p1": "Decisions are governed by certification regimes and configuration control, with rationale spread across reviews, documents, and specialists.",
+        "p2": "Over a program's decades-long life, the people leave, the tools change, and the \"why\" behind a configuration choice becomes nearly impossible to reconstruct — a serious problem when it's questioned in an audit or an incident investigation."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to the platform lifecycle",
+        "body": "An AI-Driven Ontology connects configurations, requirements, certification decisions, safety analyses, incidents, and owners — preserving traceability from requirement to decision to outcome across the platform's life, permission-aware for sensitive programs."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Configuration decision records with full rationale",
+          "Requirement-to-decision traceability",
+          "Safety/certification review support",
+          "Permission-aware access"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who own the program",
+        "list": [
+          {
+            "label": "Systems & chief engineers",
+            "roles": "Systems & chief engineers"
+          },
+          {
+            "label": "Configuration management",
+            "roles": "Configuration management"
+          },
+          {
+            "label": "Safety & certification",
+            "roles": "Safety & certification"
+          },
+          {
+            "label": "Program leadership",
+            "roles": "Program leadership"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How is sensitive/classified context handled?",
+            "a": "NEURON is permission-aware and connects only approved sources, with data encrypted in transit and at rest — people see only what they're already cleared to see. See Security & Trust."
+          },
+          {
+            "q": "Does it support long-lifecycle traceability?",
+            "a": "Yes — it preserves the trail from requirement to decision to outcome across the full life of a platform, even as people and tools change."
+          }
+        ]
+      }
+    },
+    "fintech": {
+      "hero": {
+        "badge": "Fintech",
+        "title": "Decision intelligence for fintech",
+        "description": "Fintechs live in the tension between startup velocity and financial-grade accountability. You ship weekly — but every decision still has to be defensible to a regulator or a partner bank.",
+        "cardPill": "Finance",
+        "riskText": "KYC change with no durable record",
+        "decisionText": "Ship the change, confirm with owner",
+        "outcomeText": "Compliance decision and regulation surfaced"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "Move fast without losing the audit trail",
+        "p1": "Product, risk, and compliance decisions are made at startup speed across Slack, Linear, and Notion, and the reasoning rarely makes it into a durable, connected record.",
+        "p2": "When a partner or regulator asks for the basis of a decision, or when a risky change needs review, the team scrambles to reconstruct context it never structured."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to product and risk",
+        "body": "An AI-Driven Ontology links product and risk decisions to the controls, regulations, and outcomes they touch — so speed and traceability stop being a trade-off. Ship fast; the audit trail builds itself."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision records with rationale, captured automatically",
+          "Risk briefs on changes that touch compliance",
+          "Context on every product/risk task",
+          "Audit-ready trail"
+        ]
+      },
+      "personas": {
+        "title": "Built for the team shipping the product",
+        "list": [
+          {
+            "label": "Founders / CPO",
+            "roles": "Founders / CPO"
+          },
+          {
+            "label": "Head of Risk & Compliance",
+            "roles": "Head of Risk & Compliance"
+          },
+          {
+            "label": "Engineering leads",
+            "roles": "Engineering leads"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it keep us audit-ready without slowing us down?",
+            "a": "Decisions and their rationale are captured automatically from the tools you already ship in, so the audit trail builds itself — no extra process, no manual logging."
+          },
+          {
+            "q": "Does it work with our existing startup stack?",
+            "a": "Yes — NEURON connects to Slack, Linear, Jira, Notion, GitHub, HubSpot, and ServiceNow."
+          }
+        ]
+      }
+    },
+    "insurance": {
+      "hero": {
+        "badge": "Insurance",
+        "title": "Decision intelligence for insurance",
+        "description": "Insurance runs on judgment — underwriting decisions, claims determinations, policy and pricing changes — each of which has to be consistent, explainable, and defensible long after it's made.",
+        "cardPill": "Insurance",
+        "riskText": "Borderline claim decided inconsistently",
+        "decisionText": "Determination made on applicable precedent",
+        "outcomeText": "Consistent, explainable outcome"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "The calls you make today get questioned for years",
+        "p1": "Decisions rely on precedent and policy interpretation spread across systems and adjusters' experience.",
+        "p2": "Similar cases get decided inconsistently because the prior reasoning can't be found; the rationale behind a policy change is lost; and disputes or audits demand a trail that was never structured."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to underwriting and claims",
+        "body": "An AI-Driven Ontology connects decisions to the policies, precedents, regulations, and outcomes behind them — so an underwriter or adjuster sees how similar cases were decided and why, and leadership sees the basis for consistency."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision records with precedent and rationale",
+          "Consistency surfacing across similar cases",
+          "Policy-change traceability",
+          "Audit-ready trail"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who make the call",
+        "list": [
+          {
+            "label": "Underwriting leads",
+            "roles": "Underwriting leads"
+          },
+          {
+            "label": "Claims managers",
+            "roles": "Claims managers"
+          },
+          {
+            "label": "Compliance",
+            "roles": "Compliance"
+          },
+          {
+            "label": "Actuarial / Product",
+            "roles": "Actuarial / Product"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it improve consistency?",
+            "a": "It surfaces how comparable cases were decided and the reasoning behind them, so similar cases are handled consistently instead of reinvented."
+          },
+          {
+            "q": "How is sensitive policyholder data handled?",
+            "a": "NEURON connects read-only, respects existing permissions, and encrypts data in transit and at rest. See Security & Trust."
+          }
+        ]
+      }
+    },
+    "pharmaLifeSciences": {
+      "hero": {
+        "badge": "Pharma & Life Sciences",
+        "title": "Decision intelligence for pharma & life sciences",
+        "description": "Drug development spans years and gates — and every go/no-go, protocol change, and regulatory choice has to be reconstructable for submissions, audits, and the next program.",
+        "cardPill": "Life Sciences",
+        "riskText": "Dosing rationale lost between phases",
+        "decisionText": "Dosing decision revisited in trial",
+        "outcomeText": "Original rationale and data surfaced"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "A decade-long pipeline can't afford to forget why",
+        "p1": "Decisions are made by cross-functional committees against regulatory frameworks, with rationale spread across documents, meetings, and specialists.",
+        "p2": "Why a compound was advanced or dropped, why a trial protocol changed — this knowledge is lost between phases and programs, and reconstructing it for a submission or inspection is enormously expensive."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to the pipeline",
+        "body": "A permission-aware AI-Driven Ontology connects research and development decisions to the data, protocols, regulations, and outcomes behind them — preserving the rationale across the pipeline's life and making submissions and reviews traceable by design."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Go/no-go and protocol decision records with rationale",
+          "Regulatory traceability",
+          "Cross-program knowledge reuse",
+          "Permission-aware access"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who run the pipeline",
+        "list": [
+          {
+            "label": "R&D leadership",
+            "roles": "R&D leadership"
+          },
+          {
+            "label": "Clinical operations",
+            "roles": "Clinical operations"
+          },
+          {
+            "label": "Regulatory affairs",
+            "roles": "Regulatory affairs"
+          },
+          {
+            "label": "Quality",
+            "roles": "Quality"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it support regulatory submissions?",
+            "a": "Decisions are connected to the data, protocols, and regulations behind them, so the rationale a submission needs is traceable by design rather than reconstructed at cost."
+          },
+          {
+            "q": "How is confidential research data protected?",
+            "a": "NEURON is permission-aware, connects approved sources only, and encrypts data in transit and at rest. See Security & Trust."
+          }
+        ]
+      }
+    },
+    "mediaEntertainment": {
+      "hero": {
+        "badge": "Media & Entertainment",
+        "title": "Decision intelligence for media & entertainment",
+        "description": "Media organizations make greenlight, rights, scheduling, and campaign decisions across creative and business teams that rarely share a record of why.",
+        "cardPill": "Media",
+        "riskText": "Format was shelved over rights",
+        "decisionText": "Revival weighed against past performance",
+        "outcomeText": "Greenlight rationale preserved"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "Creative and business decisions disappear from both rooms",
+        "p1": "Decisions blend creative judgment and commercial constraints, made in meetings and threads and stored nowhere durable.",
+        "p2": "Why a project was greenlit or shelved, what rights constraints applied, why a campaign was structured a certain way — the rationale is lost, and new team members and leadership can't see it."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to every greenlight and campaign",
+        "body": "An AI-Driven Ontology connects content and campaign decisions to the rights, budgets, audiences, and outcomes behind them — so the reasoning behind every greenlight and campaign is preserved and reusable."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision records for greenlights and campaigns",
+          "Rights/constraint context",
+          "Campaign-outcome history",
+          "Cross-team visibility"
+        ]
+      },
+      "personas": {
+        "title": "Built for creative and business teams alike",
+        "list": [
+          {
+            "label": "Content & production",
+            "roles": "Content/production leadership"
+          },
+          {
+            "label": "Rights & business affairs",
+            "roles": "Rights & business affairs"
+          },
+          {
+            "label": "Marketing",
+            "roles": "Marketing"
+          },
+          {
+            "label": "Strategy",
+            "roles": "Strategy"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it handle creative + business context together?",
+            "a": "It connects creative decisions to the commercial constraints, rights, budgets, and outcomes behind them, so both sides of a greenlight live in one connected record."
+          },
+          {
+            "q": "Can it track rights constraints?",
+            "a": "Yes — rights and constraint context is connected to the decisions they bear on and surfaced when a related decision comes up again."
+          }
+        ]
+      }
+    },
+    "gaming": {
+      "hero": {
+        "badge": "Gaming",
+        "title": "Decision intelligence for gaming",
+        "description": "Live-service games make constant high-stakes decisions — balance, monetization, live-ops events, incident rollbacks — each of which can reshape the player economy and the community's trust.",
+        "cardPill": "Tech",
+        "riskText": "Prior change crashed the economy",
+        "decisionText": "Currency change rolled back",
+        "outcomeText": "Player backlash avoided"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "A balance change ripples through an economy and a community",
+        "p1": "Decisions are made fast by design, economy, and engineering teams against player feedback and telemetry.",
+        "p2": "Why a nerf or monetization change was made, and what it did to the economy, isn't connected — so the same destabilizing change gets retried, and new team members can't see the history behind the current balance."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to your live game",
+        "body": "An AI-Driven Ontology connects balance, monetization, and live-ops decisions to player feedback, telemetry, incidents, and outcomes — so a proposed change surfaces the last similar change and its economic and community impact, before it ships."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision records for balance/monetization changes",
+          "Player-feedback and incident context",
+          "Live-ops change risk",
+          "Post-change outcome tracking"
+        ]
+      },
+      "personas": {
+        "title": "Built for the teams who run live-ops",
+        "list": [
+          {
+            "label": "Game directors",
+            "roles": "Game directors"
+          },
+          {
+            "label": "Economy & design",
+            "roles": "Economy & design"
+          },
+          {
+            "label": "Live-ops",
+            "roles": "Live-ops"
+          },
+          {
+            "label": "Engineering",
+            "roles": "Engineering"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it connect live-ops and feedback?",
+            "a": "It links balance, monetization, and live-ops decisions to player feedback, telemetry, incidents, and outcomes — so the history behind the current balance is visible."
+          },
+          {
+            "q": "Can it flag risky economy changes?",
+            "a": "Yes — a proposed change surfaces the last similar change and its economic and community impact before it ships."
+          }
+        ]
+      }
+    },
+    "logisticsSupplyChain": {
+      "hero": {
+        "badge": "Logistics & Supply Chain",
+        "title": "Decision intelligence for logistics & supply chain",
+        "description": "Logistics decisions — routing, carrier and supplier selection, inventory, disruption response — propagate across a network where one change affects everything downstream.",
+        "cardPill": "Logistics",
+        "riskText": "Prior reroute caused a carrier issue",
+        "decisionText": "Reroute around port delay",
+        "outcomeText": "Dependent shipments surfaced"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "One change cascades down the whole chain",
+        "p1": "Decisions are made under time pressure across systems and partners, and the reasoning behind a routing or sourcing change isn't connected to its downstream effects.",
+        "p2": "When disruption hits, teams can't quickly see which past decisions and dependencies are in play."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to your network",
+        "body": "An AI-Driven Ontology connects routing, sourcing, and inventory decisions to suppliers, lanes, partners, and outcomes — so a proposed change reveals its downstream cascade and prior-disruption history before it's made."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision records tied to outcomes",
+          "Cascade mapping across the network",
+          "Supplier/lane history",
+          "Disruption-response context"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who run the network",
+        "list": [
+          {
+            "label": "Supply chain leadership",
+            "roles": "Supply chain leadership"
+          },
+          {
+            "label": "Logistics ops",
+            "roles": "Logistics ops"
+          },
+          {
+            "label": "Procurement",
+            "roles": "Procurement"
+          },
+          {
+            "label": "Planning",
+            "roles": "Planning"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it map cascade risk?",
+            "a": "It connects routing, sourcing, and inventory decisions to the suppliers, lanes, and partners they touch — so a change reveals its downstream cascade before it's made."
+          },
+          {
+            "q": "Does it connect to our ERP?",
+            "a": "Yes — NEURON connects to ERP, Slack, ServiceNow, Microsoft 365, and kintone."
+          }
+        ]
+      }
+    },
+    "energyUtilities": {
+      "hero": {
+        "badge": "Energy & Utilities",
+        "title": "Decision intelligence for energy & utilities",
+        "description": "Energy and utility decisions — maintenance, capital projects, safety, regulatory — concern assets with multi-decade lifecycles and serious safety and compliance stakes.",
+        "cardPill": "Energy",
+        "riskText": "Prior incident on similar equipment",
+        "decisionText": "Maintenance change on aging equipment",
+        "outcomeText": "Original design rationale surfaced"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "Infrastructure outlives the people who decided it",
+        "p1": "Decisions are governed and safety-critical, with rationale spread across engineering, operations, and regulatory teams.",
+        "p2": "Over an asset's long life the people change and the \"why\" behind a maintenance or design decision is lost — a real risk when it's questioned after an incident or in a regulatory review."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to your asset's life",
+        "body": "A permission-aware AI-Driven Ontology connects asset, maintenance, safety, and regulatory decisions to incidents, outcomes, and owners — preserving rationale across the asset's life and making safety and compliance reviews traceable."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision records with rationale",
+          "Asset and incident history",
+          "Safety/regulatory traceability",
+          "Permission-aware access"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who run the assets",
+        "list": [
+          {
+            "label": "Operations & engineering",
+            "roles": "Operations & engineering leadership"
+          },
+          {
+            "label": "Maintenance",
+            "roles": "Maintenance"
+          },
+          {
+            "label": "Safety",
+            "roles": "Safety"
+          },
+          {
+            "label": "Regulatory/compliance",
+            "roles": "Regulatory/compliance"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it handle long-lifecycle assets?",
+            "a": "It preserves the rationale behind asset, maintenance, and design decisions across the asset's full life, even as the people who made them move on."
+          },
+          {
+            "q": "How is safety-critical context controlled?",
+            "a": "NEURON is permission-aware, connects approved sources only, and encrypts data in transit and at rest."
+          }
+        ]
+      }
+    },
+    "telecommunications": {
+      "hero": {
+        "badge": "Telecommunications",
+        "title": "Decision intelligence for telecom networks",
+        "description": "Telecom decisions — network changes, capacity, incident response, regulatory — affect vast interdependent infrastructure where a single change can ripple widely.",
+        "cardPill": "Telecom",
+        "riskText": "Prior similar change caused an incident",
+        "decisionText": "Config change reviewed against dependencies",
+        "outcomeText": "Regulatory constraint surfaced before sign-off"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "A change underestimates its blast radius",
+        "p1": "Decisions are made across network engineering, operations, and regulatory teams, and the dependencies and rationale aren't connected.",
+        "p2": "A change underestimates its blast radius; incident learnings don't propagate; and regulatory obligations are tracked manually."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to the network",
+        "body": "An AI-Driven Ontology connects network elements, change decisions, incidents, regulations, and owners — so a proposed change reveals its dependencies and prior-incident history, and obligations stay traceable."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Change risk briefs",
+          "Cascade mapping across the network",
+          "Incident-learning propagation",
+          "Regulatory traceability"
+        ]
+      },
+      "personas": {
+        "title": "Built for the teams who run the network",
+        "list": [
+          {
+            "label": "Network engineering",
+            "roles": "Network engineering"
+          },
+          {
+            "label": "Operations / NOC",
+            "roles": "Operations / NOC"
+          },
+          {
+            "label": "Regulatory",
+            "roles": "Regulatory"
+          },
+          {
+            "label": "Leadership",
+            "roles": "Leadership"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it map network dependencies?",
+            "a": "It connects network elements to the change decisions, incidents, and owners around them, so a proposed change reveals its dependencies and prior-incident history."
+          },
+          {
+            "q": "Does it support regulatory tracking?",
+            "a": "Yes — regulatory obligations stay connected to the decisions they bear on, so they remain traceable rather than tracked manually."
+          }
+        ]
+      }
+    },
+    "professionalServices": {
+      "hero": {
+        "badge": "Professional Services",
+        "title": "Decision intelligence for professional services",
+        "description": "Consultancies and professional-services firms live or die on reusing knowledge across engagements — yet each project's decisions and learnings usually stay locked in that project's team.",
+        "cardPill": "Services",
+        "riskText": "Approach was reinvented from scratch",
+        "decisionText": "Relevant past engagement surfaced",
+        "outcomeText": "Precedent and the partner who led it reused"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "Every engagement relearns what the last one knew",
+        "p1": "Decisions and methodologies are developed per engagement, in decks and threads, and rarely connected across projects.",
+        "p2": "The firm reinvents approaches, can't surface relevant precedent for a new client, and loses hard-won judgment when consultants roll off or leave."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to the engagement",
+        "body": "An AI-Driven Ontology connects engagement decisions, methodologies, deliverables, and outcomes across the firm — so a new engagement starts with the relevant precedent, approach, and the colleague who's solved it before."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Cross-engagement decision and methodology reuse",
+          "Context on every project task",
+          "Precedent surfacing for new work",
+          "Knowledge retention as people roll off"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who run engagements",
+        "list": [
+          {
+            "label": "Partners / engagement leads",
+            "roles": "Partners / engagement leads"
+          },
+          {
+            "label": "Consultants",
+            "roles": "Consultants"
+          },
+          {
+            "label": "Knowledge management",
+            "roles": "Knowledge management"
+          },
+          {
+            "label": "Operations",
+            "roles": "Operations"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it reuse knowledge across engagements?",
+            "a": "It connects decisions, methodologies, deliverables, and outcomes across the firm, so a new engagement starts with the relevant precedent and the colleague who solved it before."
+          },
+          {
+            "q": "How is client confidentiality maintained?",
+            "a": "NEURON is permission-aware with per-client isolation, connecting read-only and respecting existing access controls."
+          }
+        ]
+      }
+    },
+    "legal": {
+      "hero": {
+        "badge": "Legal",
+        "title": "Decision intelligence for legal teams",
+        "description": "Law firms and in-house legal teams make decisions whose rationale must be consistent, defensible, and reusable — yet precedent and reasoning often live in individual lawyers' files and memories.",
+        "cardPill": "Legal",
+        "riskText": "Prior reasoning couldn't be found",
+        "decisionText": "Comparable past matter surfaced",
+        "outcomeText": "Position, reasoning, and outcome reused"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "The reasoning behind a position gets rebuilt",
+        "p1": "Legal decisions rely on precedent and interpretation spread across matters, documents, and experience.",
+        "p2": "Similar matters get handled inconsistently because prior reasoning can't be found; the basis for a position is lost; and conflicts or knowledge gaps appear when a lawyer leaves."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to the matter",
+        "body": "A permission-aware AI-Driven Ontology connects matters, decisions, positions, precedent, and outcomes — so a new matter surfaces the firm's relevant prior reasoning and the lawyer who developed it, with strict confidentiality controls."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision/position records with rationale",
+          "Precedent surfacing across matters",
+          "Consistency support",
+          "Knowledge retention"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who take the matter",
+        "list": [
+          {
+            "label": "Partners / GC",
+            "roles": "Partners / GC"
+          },
+          {
+            "label": "Associates / counsel",
+            "roles": "Associates / counsel"
+          },
+          {
+            "label": "Knowledge management",
+            "roles": "Knowledge management"
+          },
+          {
+            "label": "Compliance",
+            "roles": "Compliance"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How is confidentiality and conflict isolation handled?",
+            "a": "NEURON is permission-aware with strict confidentiality controls and per-matter isolation, connecting only approved sources."
+          },
+          {
+            "q": "Can it surface relevant precedent?",
+            "a": "Yes — a new matter surfaces comparable past matters, the positions taken, the reasoning, and the outcomes."
+          }
+        ]
+      }
+    },
+    "governmentPublicSector": {
+      "hero": {
+        "badge": "Government & Public Sector",
+        "title": "Decision intelligence for the public sector",
+        "description": "Government and public-sector bodies make policy, operational, and procurement decisions that demand accountability and must persist across administrations and staff turnover.",
+        "cardPill": "Public",
+        "riskText": "Basis for past decisions was lost",
+        "decisionText": "Original rationale and inputs surfaced",
+        "outcomeText": "Continuity kept across a leadership change"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "Continuity breaks across every transition",
+        "p1": "Decisions are governed and must be transparent, with rationale spread across meetings, documents, and departments.",
+        "p2": "Continuity breaks across transitions, the basis for past decisions is lost, and accountability/transparency requests are met with manual scrambles."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to public decisions",
+        "body": "A permission-aware AI-Driven Ontology connects policy and operational decisions to the inputs, regulations, outcomes, and owners behind them — so decisions remain accountable, reusable, and intact across transitions."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision records with rationale",
+          "Continuity across transitions",
+          "Accountability/transparency support",
+          "Permission-aware access"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who serve the public",
+        "list": [
+          {
+            "label": "Agency leadership",
+            "roles": "Agency leadership"
+          },
+          {
+            "label": "Program & operations",
+            "roles": "Program & operations"
+          },
+          {
+            "label": "Policy",
+            "roles": "Policy"
+          },
+          {
+            "label": "Compliance/audit",
+            "roles": "Compliance/audit"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it preserve continuity across transitions?",
+            "a": "It keeps every decision connected to its rationale, inputs, and outcomes, so an incoming administration inherits the full context instead of starting over."
+          },
+          {
+            "q": "How is access controlled?",
+            "a": "NEURON is permission-aware, connects approved sources only, and respects existing access controls."
+          }
+        ]
+      }
+    },
+    "educationAcademia": {
+      "hero": {
+        "badge": "Education & Academia",
+        "title": "Decision intelligence for education & academia",
+        "description": "Universities and educational institutions make governance, operational, and research-administration decisions through committees and roles that rotate constantly — so rationale is lost each cycle.",
+        "cardPill": "Education",
+        "riskText": "Settled policy up for relitigation",
+        "decisionText": "Build on the prior decision",
+        "outcomeText": "Reasoning and outcome inherited"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "Committees rotate, and the reasoning resets",
+        "p1": "Decisions are made by committees and offices with high turnover, recorded in minutes and emails that no one reassembles.",
+        "p2": "Each year's body relitigates settled questions, the basis for policies is lost, and institutional memory erodes."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to institutional memory",
+        "body": "A permission-aware AI-Driven Ontology connects institutional decisions to their rationale, policies, and outcomes — so rotating committees and staff inherit the full context instead of starting over."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision records with rationale",
+          "Continuity across rotating roles",
+          "Policy traceability",
+          "Permission-aware access"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who govern the institution",
+        "list": [
+          {
+            "label": "Administration & leadership",
+            "roles": "Administration & leadership"
+          },
+          {
+            "label": "Committees & governance",
+            "roles": "Committees & governance"
+          },
+          {
+            "label": "Research administration",
+            "roles": "Research administration"
+          },
+          {
+            "label": "Operations",
+            "roles": "Operations"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it preserve memory across rotating committees?",
+            "a": "It connects each institutional decision to its rationale, policies, and outcomes, so a new committee inherits the full context instead of relitigating settled questions."
+          },
+          {
+            "q": "How is access controlled?",
+            "a": "NEURON is permission-aware, connects approved sources only, and respects existing access controls."
+          }
+        ]
+      }
+    },
+    "constructionRealEstate": {
+      "hero": {
+        "badge": "Construction & Real Estate",
+        "title": "Decision intelligence for construction & real estate",
+        "description": "Construction and real-estate projects generate constant decisions — design changes, RFIs, approvals, contractor coordination — whose rationale becomes critical in disputes and future phases.",
+        "cardPill": "Construction",
+        "riskText": "Similar change once triggered a claim",
+        "decisionText": "Design change reviewed with trail",
+        "outcomeText": "Affected trades and spec surfaced"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "A change on site shows up in a dispute years later",
+        "p1": "Decisions span architects, engineers, contractors, and owners across documents and emails.",
+        "p2": "Why a spec changed, who approved an RFI, what trade-off was accepted — the reasoning isn't connected, so changes ripple to subcontractors unmapped and disputes hinge on a trail nobody kept."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to change impact across trades",
+        "body": "An AI-Driven Ontology connects design and change decisions to drawings, RFIs, approvals, subcontractors, and outcomes — so a change surfaces its downstream impact and prior decisions, and the project's decision trail is intact for disputes and handover."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision/RFI records with rationale",
+          "Change-impact mapping across trades",
+          "Approval traceability",
+          "Dispute-ready trail"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who deliver the project",
+        "list": [
+          {
+            "label": "Project managers",
+            "roles": "Project managers"
+          },
+          {
+            "label": "Architects & engineers",
+            "roles": "Architects & engineers"
+          },
+          {
+            "label": "Construction managers",
+            "roles": "Construction managers"
+          },
+          {
+            "label": "Owners/developers",
+            "roles": "Owners/developers"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it map change impact across trades?",
+            "a": "It connects design and change decisions to the drawings, RFIs, approvals, and subcontractors they touch, so a change surfaces its downstream impact across trades."
+          },
+          {
+            "q": "Does it keep a dispute-ready record?",
+            "a": "Yes — the project's decision and RFI trail stays intact and connected, ready for disputes and handover."
+          }
+        ]
+      }
+    },
+    "marketingAdvertising": {
+      "hero": {
+        "badge": "Marketing & Advertising",
+        "title": "Decision intelligence for marketing & advertising",
+        "description": "Marketing teams and agencies make rapid campaign, brand, and creative decisions whose reasoning and results are rarely connected — so each cycle starts from scratch.",
+        "cardPill": "Marketing",
+        "riskText": "Returning client, lost campaign history",
+        "decisionText": "New campaign planned on precedent",
+        "outcomeText": "Past results and preferences surfaced"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "Campaign decisions and their rationale vanish between cycles",
+        "p1": "Decisions are made fast across creative, strategy, and client teams, recorded in decks and threads.",
+        "p2": "Why a creative direction was chosen, how a campaign performed, what a client preferred — the context is lost, so teams repeat misses and can't show the basis for their recommendations."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to campaign decision history",
+        "body": "An AI-Driven Ontology connects campaign and creative decisions to briefs, audiences, performance, and outcomes — so the reasoning and results behind every campaign are preserved and reusable for the next."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Campaign decision records tied to performance",
+          "Creative-rationale context",
+          "Client-history surfacing",
+          "Cross-team visibility"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who run the campaigns",
+        "list": [
+          {
+            "label": "Creative & strategy leads",
+            "roles": "Creative & strategy leads"
+          },
+          {
+            "label": "Account management",
+            "roles": "Account management"
+          },
+          {
+            "label": "Brand",
+            "roles": "Brand"
+          },
+          {
+            "label": "Analytics",
+            "roles": "Analytics"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it tie decisions to performance?",
+            "a": "Each campaign and creative decision is connected to the briefs, audiences, and performance behind it, so the results that informed it are preserved and reusable."
+          },
+          {
+            "q": "Can it surface client history?",
+            "a": "Yes — planning a campaign for a returning client surfaces the last campaign's decisions, what performed, and the client's stated preferences."
+          }
+        ]
+      }
+    },
+    "ventureCapitalPrivateEquity": {
+      "hero": {
+        "badge": "VC & Private Equity",
+        "title": "Decision intelligence for venture capital & private equity",
+        "description": "Investment firms make decisions — invest, pass, follow-on, exit — whose reasoning is gold, yet often lives in individual partners' notes and memories.",
+        "cardPill": "Investment",
+        "riskText": "New deal, no view of past calls",
+        "decisionText": "Partner evaluates against precedent",
+        "outcomeText": "Diligence and outcomes surfaced"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "The reasoning behind every memo lives in one partner's head",
+        "p1": "Decisions rely on diligence and judgment spread across memos, calls, and partner experience.",
+        "p2": "Why the firm passed on a deal, what the diligence found, how a portfolio decision played out — the reasoning isn't connected, so the fund can't learn from its own pattern of decisions or surface relevant precedent for a new one."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to investment precedent",
+        "body": "A permission-aware AI-Driven Ontology connects investment decisions to diligence, theses, outcomes, and the partners behind them — so a new decision draws on the firm's full history of similar calls and what they produced."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision records with thesis and diligence",
+          "Pattern surfacing across the portfolio",
+          "Pass/invest precedent",
+          "Knowledge retention across the team"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who make the calls",
+        "list": [
+          {
+            "label": "Partners / investment team",
+            "roles": "Partners / investment team"
+          },
+          {
+            "label": "Platform/operations",
+            "roles": "Platform/operations"
+          },
+          {
+            "label": "Diligence",
+            "roles": "Diligence"
+          },
+          {
+            "label": "LP relations",
+            "roles": "LP relations"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it surface investment precedent?",
+            "a": "It connects each investment decision to its thesis, diligence, and outcome, so a new deal draws on the firm's full history of comparable calls."
+          },
+          {
+            "q": "How is sensitive deal data controlled?",
+            "a": "NEURON is permission-aware, connects approved sources only, and encrypts data in transit and at rest."
+          }
+        ]
+      }
+    },
+    "nonprofitNgo": {
+      "hero": {
+        "badge": "Nonprofit & NGO",
+        "title": "Decision intelligence for nonprofits & NGOs",
+        "description": "Nonprofits and NGOs make program, grant, and operational decisions under tight resources and high turnover — and lose hard-won judgment with every transition.",
+        "cardPill": "Nonprofit",
+        "riskText": "New lead inherits an initiative blind",
+        "decisionText": "Program continued on prior context",
+        "outcomeText": "Decisions and funder needs surfaced"
+      },
+      "problem": {
+        "eyebrow": "How decisions actually work",
+        "title": "Hard-won judgment lost with every transition",
+        "p1": "Decisions are made across programs, boards, and volunteers, recorded informally.",
+        "p2": "Why a program was structured a certain way, what a grant required, what a past initiative learned — the rationale is lost as people cycle through, and the organization repeats avoidable mistakes."
+      },
+      "ontology": {
+        "title": "The ontology, mapped to mission knowledge retained",
+        "body": "A permission-aware AI-Driven Ontology connects program and operational decisions to their rationale, funders' requirements, and outcomes — so mission knowledge persists across turnover and informs the next decision."
+      },
+      "workflow": {
+        "title": "Where it shows up in your workflow",
+        "items": [
+          "Decision records with rationale",
+          "Continuity across staff/volunteer turnover",
+          "Grant/funder-requirement context",
+          "Outcome history"
+        ]
+      },
+      "personas": {
+        "title": "Built for the people who carry the mission",
+        "list": [
+          {
+            "label": "Program leadership",
+            "roles": "Program leadership"
+          },
+          {
+            "label": "Operations",
+            "roles": "Operations"
+          },
+          {
+            "label": "Development/grants",
+            "roles": "Development/grants"
+          },
+          {
+            "label": "Board & governance",
+            "roles": "Board & governance"
+          }
+        ]
+      },
+      "faq": {
+        "items": [
+          {
+            "q": "How does it preserve knowledge across turnover?",
+            "a": "It connects program and operational decisions to their rationale, funder requirements, and outcomes, so mission knowledge persists as people cycle through."
+          },
+          {
+            "q": "How is access controlled?",
+            "a": "NEURON is permission-aware, connects approved sources only, and respects existing access controls."
+          }
+        ]
+      }
     }
   }
 }

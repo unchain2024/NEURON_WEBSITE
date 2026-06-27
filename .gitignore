@@ -37,3 +37,6 @@ next-env.d.ts
 CLAUDE.md
 .superpowers
 docs/
+# Case-study design sources (large Figma SVG exports) — not runtime assets.
+# Only the rendered .webp/.jpg/.png crops in public/case-studies/ ship.
+public/case-studies/*.svg

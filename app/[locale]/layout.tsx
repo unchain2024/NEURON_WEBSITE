@@ -6,8 +6,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Navbar from "@/components/sections/navbar";
 import Footer from "@/components/sections/footer";
-import ScrollProgress from "@/components/scroll-progress";
-import NeuralCanvas from "@/components/neural-canvas";
 import "../globals.css";
 
 const inter = Inter({
@@ -70,8 +68,6 @@ export default async function LocaleLayout({ children, params }: Props) {
       >
         <NextIntlClientProvider messages={messages}>
           <main className="relative overflow-x-clip">
-            <NeuralCanvas />
-            <ScrollProgress />
             <div className="relative z-10">
               <Navbar />
               {children}

@@ -2,14 +2,20 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import CaseStudyArticle from "@/components/sections/case-study-article";
+import CSPage from "@/components/sections/case-studies/cs-page";
 import { CASE_STUDY_SLUGS, getCaseStudy } from "@/lib/case-studies-data";
+import { isMigrated } from "@/lib/case-study-pages";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
 export function generateStaticParams() {
-  return CASE_STUDY_SLUGS.map((slug) => ({ slug }));
+  // `information-technology` has a dedicated static route (its own redesigned
+  // page), so exclude it here to avoid a route conflict.
+  return CASE_STUDY_SLUGS.filter((slug) => slug !== "information-technology").map(
+    (slug) => ({ slug })
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -26,8 +32,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
-  if (!getCaseStudy(slug)) {
+  const meta = getCaseStudy(slug);
+  if (!meta) {
     notFound();
+  }
+  if (isMigrated(slug)) {
+    return <CSPage k={meta.i18nKey} sector={meta.sector} />;
   }
   return <CaseStudyArticle slug={slug} />;
 }
