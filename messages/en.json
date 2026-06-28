@@ -223,6 +223,7 @@
     "signals": "{count} signals"
   },
   "HowItWorks": {
+    "badge": "How it works",
     "heading": "Three steps to a living\ndecision layer.",
     "subheading": "Connect once. NEURON does the structuring — and keeps it current.",
     "step1Title": "Connect your tools.",

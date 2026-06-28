@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 /* "Inter Display" (Figma spec) is Inter at its display optical size; the loaded
    Inter renders that cut at large sizes, so we put it first for determinism. */
@@ -19,6 +19,10 @@ export default function HowItWorks() {
   const t = useTranslations("HowItWorks");
   const sectionRef = useRef<HTMLElement>(null);
   const [activeStep, setActiveStep] = useState(0);
+  // 0→1 progress within the active step's scroll slice; drives the underline
+  // so it fills left→right on scroll down and collapses toward the left on
+  // scroll up.
+  const [lineProgress, setLineProgress] = useState(0);
 
   // Drive the active step from scroll position while the section is pinned.
   const { scrollYProgress } = useScroll({
@@ -26,8 +30,11 @@ export default function HowItWorks() {
     offset: ["start start", "end end"],
   });
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    const idx = Math.min(STEPS.length - 1, Math.max(0, Math.floor(v * STEPS.length)));
+    const raw = v * STEPS.length;
+    const idx = Math.min(STEPS.length - 1, Math.max(0, Math.floor(raw)));
+    const local = Math.min(1, Math.max(0, raw - idx));
     setActiveStep((prev) => (prev === idx ? prev : idx));
+    setLineProgress(local);
   });
 
   // Click a step to view it. On desktop the section is scroll-pinned, so we
@@ -50,14 +57,9 @@ export default function HowItWorks() {
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             {/* ── Left: badge + heading + steps ── */}
             <div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/howworks.svg"
-                alt="How it works"
-                width={119}
-                height={32}
-                className="mb-5 h-8 w-auto"
-              />
+              <span className="mb-5 inline-flex h-8 items-center rounded-full border border-[#E9EAEB] bg-white px-4 text-sm font-medium text-[#0A0D12]">
+                {t("badge")}
+              </span>
 
               <h2
                 className="text-slate-900"
@@ -104,10 +106,9 @@ export default function HowItWorks() {
                               <p className="pt-2 text-sm leading-relaxed text-[#414651]">
                                 {t(`${step.key}Description` as "step1Description")}
                               </p>
-                              <span
-                                className={`mt-4 block h-0.5 w-full rounded-full bg-[#0A0D12] transition-opacity duration-300 ${
-                                  isActive ? "opacity-100" : "opacity-0"
-                                }`}
+                              <motion.span
+                                className="mt-4 block h-0.5 w-full origin-left rounded-full bg-[#0A0D12]"
+                                style={{ scaleX: isActive ? lineProgress : 0 }}
                               />
                             </div>
                           </div>

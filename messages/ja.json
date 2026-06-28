@@ -223,6 +223,7 @@
     "signals": "{count} シグナル"
   },
   "HowItWorks": {
+    "badge": "仕組み",
     "heading": "意思決定レイヤーまで、3つのステップ。",
     "subheading": "接続は一度だけ。NEURONが構造化し、常に最新に保ちます。",
     "step1Title": "ツールを接続。",
