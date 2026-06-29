@@ -22,7 +22,7 @@
     "cognitionLayerTitle": "コグニションレイヤー — NEURON",
     "cognitionLayerDescription": "24個のばらばらなツールを、組織の一貫したマップへと変える基盤アーキテクチャ。パターンファーストのSentinel、6つの構造化シグナルオブジェクト、品質ゲート付き検出、すべてのシグナルにクリック可能な証跡。",
     "pricingTitle": "料金プラン — NEURON",
-    "pricingDescription": "あらゆる規模のリスク重視チームに対応するシンプルで透明な料金体系。無料で始めて、リスクサーフェスの拡大に合わせてスケール。",
+    "pricingDescription": "NEURONは、実際に処理する意思決定に合わせた従量制です。公開価格表はなく、料金はデモであなたと一緒に設定します。",
     "blogTitle": "ブログ — NEURON",
     "blogDescription": "NEURONチームによるリスクインテリジェンス、影響範囲設計、連鎖リスク検出、緩和策付きロールアウトの実践記録。",
     "getDemoTitle": "デモを予約 — NEURON",
@@ -62,42 +62,44 @@
   },
   "Home": {
     "problemBadge": "課題",
-    "problemHeading": "Your best thinking disappears the moment you make it",
-    "problemBody": "Every week, organizations make hundreds of decisions across Slack, meetings, and people's heads. Most are never connected or documented, so questions resurface, mistakes repeat, and valuable judgment disappears when people leave.",
-    "pain1Title": "Decisions get relitigated.",
-    "pain1Body": "What was already decided gets reopened because no one can find the context behind it.",
-    "pain2Title": "Risk shows up late.",
-    "pain2Body": "Problems surface after they've grown, not before — when they're expensive to fix.",
-    "pain3Title": "The \"why\" is gone.",
-    "pain3Body": "Leaders see what was decided, never why. Reviews run on guesswork.",
-    "whatIsBadge": "What Neuron is",
-    "whatIsHeading": "A living decision layer across everything you already use.",
-    "whatIsBody": "NEURON connects your existing tools and structures that flow through them — decisions, risks, results, and the reasoning behind them — into a single, connected layer that mirrors how your business actually works. Not another place to file things. A second brain that keeps your organization's knowledge alive and ready the moment you need it — even after the people who made the calls have moved on.",
+    "problemHeading": "最良の判断は、下した瞬間に消えていく",
+    "problemBody": "組織は毎週、Slackや会議、そして個人の頭の中で何百もの意思決定を行っています。その多くはつながりも記録もされず、同じ疑問が何度も蒸し返され、失敗が繰り返され、貴重な判断は人が去ると共に失われます。",
+    "pain1Title": "決定が蒸し返される。",
+    "pain1Body": "決定の背景を誰も見つけられず、すでに決まったことが再び議論される。",
+    "pain2Title": "リスクの表面化が遅い。",
+    "pain2Body": "問題は大きくなってから——修正に費用がかかる段階で——ようやく表面化する。",
+    "pain3Title": "「なぜ」が失われる。",
+    "pain3Body": "リーダーに見えるのは「何を決めたか」だけで、「なぜ」は見えない。振り返りは推測頼みになる。",
+    "whatIsBadge": "NEURONとは",
+    "whatIsHeading": "あなたが既に使うすべてにまたがる、生きた意思決定レイヤー。",
+    "whatIsBody": "NEURONは、既存のツールと、その中を流れるもの——意思決定、リスク、結果、そしてその背後にある理由——を、ビジネスの実際の動き方を映し出すひとつのつながったレイヤーへと結びつけます。情報を新たに保管する場所ではありません。意思決定を下した人がいなくなった後も、組織の知識を生きたまま保ち、必要な瞬間にすぐ使えるようにするセカンドブレインです。",
     "whatIsImage": "NEURON app — Signals / Dashboard",
-    "whatIsLinkText": "Curious how it's built?",
-    "whatIsLinkCta": "How it works · AI-Driven Ontology",
+    "whatIsLinkText": "どのように構築されているか気になりますか？",
+    "whatIsLinkCta": "仕組みを見る · AI駆動オントロジー",
+    "capBadge": "主な機能",
     "capHeading": "セカンドブレインがあなたのためにする4つのこと",
     "capSubheading": "毎週何百もの意思決定が行われますが、その多くはつながりも保存もされません。\n疑問が蒸し返され、ミスが繰り返され、貴重な知見は人とともに失われます。",
-    "cap1Title": "Risk radar.",
-    "cap1Body": "NEURON watches the signals across your conversations, meeting notes, and task updates and flags risk before it becomes a fire — each alert with severity, what it affects, why it matters now, and the related history.",
+    "cap1Title": "リスクレーダー",
+    "cap1Body": "NEURONは、会話・議事メモ・タスクの更新に表れるシグナルを監視し、問題が深刻化する前にリスクを検知します。各アラートには、深刻度・影響範囲・いま重要な理由・関連する履歴が添えられます。",
     "cap1Image": "Signals",
-    "cap2Title": "Decision memory.",
-    "cap2Body": "Every decision is captured automatically, with its reasoning and outcome attached and connected. Full traceability, zero manual logging.",
+    "cap2Title": "意思決定の記憶",
+    "cap2Body": "すべての意思決定が、その根拠と結果を添えて自動的に記録され、つながります。完全な追跡可能性を、手作業の記録なしで実現します。",
     "cap2Image": "decision record",
-    "cap3Title": "Context on every task.",
-    "cap3Body": "Open any task and the background, past decisions, dependencies, and the right person to ask are already there.",
+    "cap3Title": "あらゆるタスクに文脈を",
+    "cap3Body": "どのタスクを開いても、背景・過去の意思決定・依存関係・誰に聞けばよいかが、すでにそろっています。",
     "cap3Image": "context panel",
-    "cap4Title": "Ask anything.",
-    "cap4Body": "Ask NEURON a question in plain language and get an answer grounded in your organization's real history — with sources you can open.",
+    "cap4Title": "何でも聞ける",
+    "cap4Body": "NEURONに普通の言葉で質問すれば、組織の実際の履歴に基づいた答えが返ってきます。開いて確認できる出典付きです。",
     "cap4Image": "chat",
+    "rolesBadge": "あらゆる役割に",
     "rolesHeading": "ひとつのブレインで、\nすべての役割に必要なものを。",
-    "role1Title": "Executives & leaders",
-    "role1Body": "See the why behind decisions and keep teams consistent, without sitting in every meeting.",
-    "role2Title": "Managers",
-    "role2Body": "Catch risk early and decide faster, with the weight of past results behind you.",
-    "role3Title": "Teams",
-    "role3Body": "Stop hunting for context; spend your time on the work, not the archaeology.",
-    "rolesCta": "Explore solutions by role →",
+    "role1Title": "経営層・リーダー",
+    "role1Body": "すべての会議に出席しなくても、意思決定の「なぜ」を把握し、チームの一貫性を保てます。",
+    "role2Title": "マネージャー",
+    "role2Body": "リスクを早期に察知し、過去の実績を踏まえて、より速く意思決定できます。",
+    "role3Title": "チーム",
+    "role3Body": "コンテキストを探し回るのをやめ、発掘作業ではなく本来の仕事に時間を使えます。",
+    "rolesCta": "役割別のソリューションを見る →",
     "gameBadge": "無料・3分の診断",
     "gameHeading": "あなたは、本当はどんなマネージャー？",
     "gameBody": "24の質問に答えるだけで、状況を読み、決断を下し、肝心な場面でどう振る舞うかを左右する4つの隠れた要素が見えてきます。16のアーキタイプのうち、あなたはどれ？",
@@ -257,17 +259,17 @@
   },
   "Testimonials": {
     "heading": "導入チームの声。",
-    "quote1": "Our planning cycles used to end with a gut call no one could trace back to. NEURON turned those calls into structured decisions with full audit trails.",
-    "name1": "Head of Business Planning",
-    "title1": "Japanese Apparel Conglomerate",
-    "company1": "Group Holdings",
-    "quote2": "Our planning cycles used to end with a gut call no one could trace back to. NEURON turned those calls into structured decisions with full audit trails.",
-    "name2": "Head of Business Planning",
-    "title2": "Japanese Apparel Conglomerate",
-    "company2": "Group Holdings",
-    "quote3": "Logistics is all about decisions made under time pressure with incomplete data. NEURON gives our ops leads a live view of what was decided, why, and what the open items still are.",
-    "name3": "Head of New Business Development Division",
-    "title3": "Global Supply Chain & 3PL Provider",
+    "quote1": "以前の計画サイクルは、誰も根拠をたどれない勘頼みの判断で終わっていました。NEURON はそうした判断を、完全な監査証跡を備えた構造化された意思決定へと変えてくれました。",
+    "name1": "事業計画部長",
+    "title1": "日本のアパレル大手",
+    "company1": "グループホールディングス",
+    "quote2": "物流は、不完全なデータと時間的なプレッシャーの中で下す意思決定がすべてです。NEURON のおかげで、現場のリーダーは「何を、なぜ決めたのか」、そして「未解決の課題は何か」をリアルタイムで把握できるようになりました。",
+    "name2": "新規事業開発部長",
+    "title2": "グローバル・サプライチェーン／",
+    "company2": "3PL プロバイダー",
+    "quote3": "物流は、不完全なデータと時間的なプレッシャーの中で下す意思決定がすべてです。NEURON のおかげで、現場のリーダーは「何を、なぜ決めたのか」、そして「未解決の課題は何か」をリアルタイムで把握できるようになりました。",
+    "name3": "新規事業開発部長",
+    "title3": "グローバル・サプライチェーン／3PL プロバイダー",
     "company3": ""
   },
   "Integrations": {
@@ -348,29 +350,150 @@
   },
   "IntegrationsPage": {
     "heroEyebrow": "連携ツール",
-    "heroTitle": "Your second brain plugs into the <highlight>tools you already use</highlight>.",
-    "heroDescription": "NEURON reads the decision signals already flowing through your stack — no new process, no manual entry. Connect in minutes; the layer builds itself.",
-    "faqTitle": "Integration FAQ",
+    "heroTitle": "あなたのセカンドブレインは、<highlight>すでに使っているツール</highlight>につながる",
+    "heroDescription": "NEURONは、すでにあなたのスタックを流れている意思決定のシグナルを読み取ります。新しいプロセスも手入力も不要。数分で接続でき、レイヤーは自動で構築されます。",
+    "heroPills": {
+      "oauth": "OAuthベース",
+      "readonly": "デフォルトで読み取り専用",
+      "minutes": "数分で接続"
+    },
+    "categories": {
+      "communication": {
+        "title": "コミュニケーション",
+        "subtitle": "意思決定が議論され、下される場所。"
+      },
+      "projectTracking": {
+        "title": "プロジェクト・課題管理",
+        "subtitle": "チームが次に決めることのシグナルが流れる場所。"
+      },
+      "docs": {
+        "title": "ドキュメント・ナレッジ",
+        "subtitle": "本来コンテキストが蓄積される場所。"
+      },
+      "code": {
+        "title": "コード・デザイン",
+        "subtitle": "エンジニアリングとプロダクトの意思決定が形になる場所。"
+      },
+      "crm": {
+        "title": "CRM・オペレーション",
+        "subtitle": "顧客・取引先・インシデントに関する意思決定。"
+      },
+      "meetings": {
+        "title": "ミーティング",
+        "subtitle": "意思決定が下され、そして同じ時間に失われる場所。"
+      }
+    },
+    "items": {
+      "slack": {
+        "name": "Slack",
+        "desc": "スレッドと意思決定"
+      },
+      "chatwork": {
+        "name": "Chatwork",
+        "desc": "国内向けビジネスチャット"
+      },
+      "lineworks": {
+        "name": "LINE WORKS",
+        "desc": "モバイル中心のメッセージング"
+      },
+      "teams": {
+        "name": "Microsoft Teams",
+        "desc": "エンタープライズ向けチャット"
+      },
+      "jira": {
+        "name": "Jira",
+        "desc": "課題・スプリント管理"
+      },
+      "linear": {
+        "name": "Linear",
+        "desc": "モダンな課題トラッカー"
+      },
+      "asana": {
+        "name": "Asana",
+        "desc": "ワークマネジメント"
+      },
+      "monday": {
+        "name": "monday.com",
+        "desc": "Work OS"
+      },
+      "notion": {
+        "name": "Notion",
+        "desc": "ドキュメントとウィキ"
+      },
+      "confluence": {
+        "name": "Confluence",
+        "desc": "チームウィキ"
+      },
+      "googleWorkspace": {
+        "name": "Google Workspace",
+        "desc": "ドキュメント・ドライブ・Gmail"
+      },
+      "microsoft365": {
+        "name": "Microsoft 365",
+        "desc": "Office・OneDrive・Outlook"
+      },
+      "github": {
+        "name": "GitHub",
+        "desc": "PR・課題・リポジトリ"
+      },
+      "figma": {
+        "name": "Figma",
+        "desc": "デザインと仕様"
+      },
+      "salesforce": {
+        "name": "Salesforce",
+        "desc": "顧客・商談データ"
+      },
+      "hubspot": {
+        "name": "HubSpot",
+        "desc": "CRM・マーケティング"
+      },
+      "servicenow": {
+        "name": "ServiceNow",
+        "desc": "IT・サービス運用"
+      },
+      "kintone": {
+        "name": "kintone",
+        "desc": "国内向け業務プラットフォーム"
+      },
+      "pagerduty": {
+        "name": "PagerDuty",
+        "desc": "インシデント対応"
+      },
+      "recallai": {
+        "name": "Recall.ai",
+        "desc": "会議の文字起こし"
+      },
+      "granola": {
+        "name": "Granola",
+        "desc": "AI議事録"
+      }
+    },
+    "faqTitle": "よくあるご質問",
     "faqItems": [
       {
-        "q": "How do integrations connect?",
-        "a": "Via API/OAuth, read-only by default, respecting the permissions already set in each tool."
+        "q": "連携はどのように行われますか？",
+        "a": "API または OAuth 経由で、デフォルトは読み取り専用です。各ツールに設定済みの権限をそのまま尊重します。サービスアカウントもデータ移行も不要です。"
       },
       {
-        "q": "Is my data moved or migrated?",
-        "a": "No — NEURON reads from your tools in place. No migration, no new workflow."
+        "q": "データは移動・移行されますか？",
+        "a": "いいえ。NEURON はツール上のデータをそのまま読み取ります。移行も、新たに維持すべきワークフローもありません。"
       },
       {
-        "q": "Who can see what?",
-        "a": "NEURON mirrors your existing tool permissions; people see only what they're already allowed to see."
+        "q": "誰が何を見られますか？",
+        "a": "NEURON は既存のツール権限をそのまま反映します。各メンバーは、すでに閲覧を許可されている範囲のみを見られます。"
       },
       {
-        "q": "How long to set up?",
-        "a": "Core tools connect in a single session."
+        "q": "NEURON はどのようにインシデントを減らしますか？",
+        "a": "あらゆる変更の背後にある意思決定・担当者・コンテキストを可視化することで、アラートから根本原因までの道のりを短縮します。"
       },
       {
-        "q": "Don't see your tool?",
-        "a": "New connectors are added regularly — talk to us about yours."
+        "q": "セットアップにはどれくらいかかりますか？",
+        "a": "主要ツールは1セッションで接続できます。多くのチームは数週間ではなく数分で稼働を開始しています。"
+      },
+      {
+        "q": "お使いのツールが見つかりませんか？",
+        "a": "コネクタは随時追加しています。お使いのツールについてお気軽にご相談ください。"
       }
     ]
   },
@@ -429,37 +552,51 @@
   },
   "PricingPage": {
     "heroEyebrow": "料金プラン",
-    "heroTitle": "Priced around the value of your <highlight>decisions</highlight>.",
-    "heroDescription": "NEURON is usage-based — designed for the high-value, auditable decisions where getting it right matters most, not high-volume, low-stakes noise. You pay for the decisions you actually run through your second brain, and we scope pricing to your tools, teams, and goals.",
-    "offeringName": "NEURON",
-    "offeringTagline": "Usage-based, scoped to your organization",
-    "offeringDesc": "Core connectors, all capabilities, role-based views, enterprise security. No public list price — pricing is set with you.",
-    "offeringCta": "Book a demo now",
-    "faqTitle": "Pricing FAQ",
+    "heroTitle": "あなたの意思決定の価値に基づく料金",
+    "heroDescription": "NEURONは従量制です。大量で低リスクなノイズではなく、正確さが何より重要となる、価値が高く監査可能な意思決定のために設計されています。料金は、セカンドブレインを通じて実際に処理した意思決定に対してお支払いいただきます。",
+    "offeringHeading": "従量制で、あなたに最適化。",
+    "offeringLeadDesc": "ツール・チーム・目標に合わせて規模を調整する、単一のプラン。乗り換えるべき階層はありません。",
+    "panelTitle": "あなたと一緒に決める",
+    "panelDesc": "公開価格表はありません。NEURONを通じて実際に処理する意思決定に合わせて契約範囲を設計するため、コストは席数ではなく価値に連動します。",
+    "panelCta": "デモを予約",
+    "includedLabel": "すべて含まれます",
+    "features": [
+      "すべてのコア機能 — リスクレーダー、意思決定メモリ、コンテキスト、Ask NEURON",
+      "お使いのスタック全体をつなぐコアコネクター",
+      "経営層・マネージャー・チーム向けのロールベースビュー",
+      "ツールの権限を反映した、権限対応のアクセス制御",
+      "エンタープライズセキュリティ — 通信時・保存時の暗号化",
+      "実際のワークフローに沿った専任オンボーディング"
+    ],
+    "badgeSecurity": "エンタープライズグレード",
+    "badgeData": "お客様のデータでAIを学習させません",
+    "whyTitle": "なぜ公開価格がないのですか？",
+    "whyDesc": "意思決定インテリジェンスは組織ごとに異なります — 利用するツール、アクセスが必要なチーム、構造化する価値のある意思決定の量。デモであなたと一緒に料金を設定するため、推測ではなく価値に連動します。",
+    "faqTitle": "よくあるご質問",
     "faqItems": [
       {
-        "q": "How does usage-based pricing work?",
-        "a": "You're billed on the decisions/volume you run through NEURON [confirm exact metric], so cost tracks value rather than seat count."
+        "q": "従量課金はどのように機能しますか？",
+        "a": "NEURONを通じて処理した意思決定に基づいて課金されるため、コストは席数ではなく得られる価値に連動します。正確な指標は、組織の意思決定の進め方に応じてデモで一緒に決定します。"
       },
       {
-        "q": "Is there a pilot?",
-        "a": "[confirm] — typically a scoped pilot on your real workflow."
+        "q": "試験導入（パイロット）はありますか？",
+        "a": "はい。多くのチームは、実際のワークフローを対象とした範囲を絞ったパイロットから始め、本格導入の前に自社のツール上で意思決定レイヤーが機能する様子を確認できます。"
       },
       {
-        "q": "What counts toward usage?",
-        "a": "[define the metric here]"
+        "q": "何が利用量としてカウントされますか？",
+        "a": "受動的な席数ではなく、NEURONを通じて実際に処理する意思決定とその量です。重視する価値に対応するよう、正確な指標を一緒に定義します。"
       },
       {
-        "q": "Do you offer annual / enterprise terms?",
-        "a": "Yes — set in the demo."
+        "q": "年間契約やエンタープライズ向けの条件はありますか？",
+        "a": "はい。カスタムのセキュリティ・オンボーディング・調達条件を含む、年間およびエンタープライズ契約をデモ時に設定します。"
       },
       {
-        "q": "What's included?",
-        "a": "All core capabilities; specifics scoped with you."
+        "q": "何が含まれますか？",
+        "a": "すべての契約に、コア機能一式、コアコネクター、ロールベースビュー、エンタープライズグレードのセキュリティが含まれます。詳細は組織に合わせて設計します。"
       },
       {
-        "q": "Can pricing scale as we grow?",
-        "a": "Yes."
+        "q": "成長に合わせて料金を拡張できますか？",
+        "a": "はい。料金は処理する意思決定に連動するため、より多くのチームやワークフローが加わっても、煩雑な階層変更なしにスムーズに拡張します。"
       }
     ]
   },
@@ -1145,20 +1282,20 @@
   "Comparison": {
     "heading": "ドキュメントを検索することと、ビジネスを理解することは違う。",
     "subheading": "Wikiは情報を保存します。AI検索は類似したテキストを見つけます。NEURONは、意思決定が原因・依存関係・結果とどうつながっているかを理解します。",
-    "legacyLabel": "Wikis & AI search",
+    "legacyLabel": "Wiki・AI検索",
     "neuronLabel": "NEURON",
-    "row1Legacy": "You search after a problem appears",
-    "row1Neuron": "You're warned before the problem grows",
-    "row2Legacy": "No record of who decided what, or why",
-    "row2Neuron": "Decisions and their outcomes kept and connected",
-    "row3Legacy": "Knowledge leaves with people",
-    "row3Neuron": "Knowledge stays with the organization",
-    "row4Legacy": "Someone has to write it all down by hand",
-    "row4Neuron": "Captured automatically from your everyday tools",
-    "row5Legacy": "Everyone sees the same static page",
-    "row5Neuron": "Each person sees what's relevant to their role",
-    "row6Legacy": "Returns similar-looking text",
-    "row6Neuron": "Answers from connected facts and real history"
+    "row1Legacy": "問題が起きてから検索する",
+    "row1Neuron": "問題が大きくなる前に警告される",
+    "row2Legacy": "誰が何をなぜ決めたのか、記録が残らない",
+    "row2Neuron": "意思決定とその結果が記録され、つながっている",
+    "row3Legacy": "知識は人とともに去っていく",
+    "row3Neuron": "知識は組織に残り続ける",
+    "row4Legacy": "誰かが手作業ですべて書き留めなければならない",
+    "row4Neuron": "日々使うツールから自動で取り込まれる",
+    "row5Legacy": "全員が同じ静的なページを見る",
+    "row5Neuron": "一人ひとりが自分の役割に関連する情報を見る",
+    "row6Legacy": "似たようなテキストを返すだけ",
+    "row6Neuron": "つながった事実と実際の履歴にもとづいて答える"
   },
   "CaseStudiesPage": {
     "heroEyebrow": "Solutions",
@@ -2467,12 +2604,12 @@
     "Personas": {
       "eyebrow": "対象となる人",
       "title": "意思決定を担う人々のために",
-      "leadLabel": "リーダーシップ",
-      "leadRoles": "エンジニアリングマネージャー · VP Eng · CTO",
-      "engLabel": "エンジニア",
-      "engRoles": "ソフトウェア · シニア · スタッフエンジニア",
-      "opsLabel": "オペレーション",
-      "opsRoles": "SRE · SecOps · ITオペレーション"
+      "leadLabel": "CIO / IT部門長",
+      "leadRoles": "すべてのシステムのつながりを可視化し、移行やベンダー変更を承認する前に、その影響範囲を全体で把握できます。",
+      "engLabel": "システム管理者",
+      "engRoles": "メンテナンスでサーバーを停止する前に、どのサーバー・サービス・アプリがそのインフラに依存しているかを追跡できます。",
+      "opsLabel": "セキュリティ / コンプライアンス担当",
+      "opsRoles": "誰がどのシステムにアクセスできるかを横断的にマッピングし、アクセス権限の判断経緯を監査担当者に明確な記録として示せます。"
     },
     "Faq": {
       "title": "よくある質問",
@@ -2547,16 +2684,16 @@
         "title": "責任を負う人々のために",
         "list": [
           {
-            "label": "リスク・コンプライアンス",
-            "roles": "リスク責任者 · コンプラ · 監査"
+            "label": "リレーションシップマネージャー",
+            "roles": "顧客の取引全体——口座・商品・取引・世帯——を一つのつながった画面で確認できます。"
           },
           {
-            "label": "プロダクト",
-            "roles": "プロダクト責任者 · 意思決定者"
+            "label": "コンプライアンス / AML担当",
+            "roles": "顧客・口座・取引のつながりを追跡し、パターンを発見して規制当局からの照会に対応できます。"
           },
           {
-            "label": "経営陣",
-            "roles": "CTO · CRO · 経営チーム"
+            "label": "オペレーションリード",
+            "roles": "商品とプロセスのつながりをマッピングし、変更が影響するすべてを把握できます。"
           }
         ]
       },
@@ -2610,20 +2747,16 @@
         "title": "判断を下す人々のために",
         "list": [
           {
-            "label": "運用リーダーシップ",
-            "roles": "運用責任者 · サービス部門長"
+            "label": "臨床医 / ケアチームリード",
+            "roles": "患者の全履歴——治療・担当者・転帰——を一つのつながった画面で確認できます。"
           },
           {
-            "label": "品質・安全",
-            "roles": "品質 · 安全 · リスクレビュー"
+            "label": "病院運営マネージャー",
+            "roles": "スタッフ・リソース・患者の流れを結びつけ、ボトルネックがシステム全体にどう影響するかを把握できます。"
           },
           {
-            "label": "コンプライアンス",
-            "roles": "コンプラ · ガバナンス · 監査"
-          },
-          {
-            "label": "部門長",
-            "roles": "現場運用 · 部門リーダー"
+            "label": "コンプライアンス / 品質担当",
+            "roles": "ケアに関する判断が、転帰や評価基準とどうつながっているかを追跡できます。"
           }
         ]
       },
@@ -2677,20 +2810,16 @@
         "title": "ラインを動かす人々のために",
         "list": [
           {
-            "label": "工場・生産管理",
-            "roles": "工場長 · 生産管理者"
+            "label": "工場長",
+            "roles": "機械・材料・受注のつながりを可視化し、一台の故障が生産に与える影響をすぐに把握できます。"
           },
           {
-            "label": "エンジニアリング",
-            "roles": "設計 · 生産技術者"
+            "label": "調達 / サプライチェーン担当",
+            "roles": "遅延しているサプライヤーや部品に、どの受注や製品が依存しているかを追跡できます。"
           },
           {
-            "label": "品質",
-            "roles": "品質管理者 · QA"
-          },
-          {
-            "label": "調達",
-            "roles": "調達 · サプライヤー管理"
+            "label": "品質管理者",
+            "roles": "不良をその背景にある材料・機械・シフトに結びつけ、本当の原因を突き止められます。"
           }
         ]
       },
@@ -2744,20 +2873,16 @@
         "title": "数字の背後にいる人々のために",
         "list": [
           {
-            "label": "マーチャンダイジング",
-            "roles": "MD · バイヤー"
+            "label": "マーチャンダイジング / カテゴリーマネージャー",
+            "roles": "商品・顧客・受注・在庫を結びつけ、売上と在庫の背景にある全体像を把握できます。"
           },
           {
-            "label": "価格",
-            "roles": "プライシング · レベニュー"
+            "label": "サプライチェーン / 在庫マネージャー",
+            "roles": "在庫が受注やサプライヤーとどうつながっているかを追跡し、欠品を防げます。"
           },
           {
-            "label": "EC運用",
-            "roles": "EC · フルフィルメント運用"
-          },
-          {
-            "label": "カテゴリ管理",
-            "roles": "カテゴリ · ベンダー管理"
+            "label": "マーケティング / CRMマネージャー",
+            "roles": "顧客をその受注や行動に結びつけ、より的確にターゲティングできます。"
           }
         ]
       },
@@ -2807,21 +2932,16 @@
         "title": "プロダクトを形作る人々のために",
         "list": [
           {
-            "label": "プロダクトリーダー",
-            "roles": "CPO · プロダクト責任者"
-          },
-          {
             "label": "プロダクトマネージャー",
-            "roles": "PM · プロダクトオーナー"
+            "roles": "すべての機能要望を、要望した顧客・解約リスクのあるアカウント・関連するロードマップ項目に結びつけ、優先順位を勘ではなく根拠に基づいて決められます。"
           },
           {
-            "label": "エンジニアリング",
-            "roles": "エンジニアリングリード · スタッフ"
+            "label": "カスタマーサクセスマネージャー",
+            "roles": "更新の打ち合わせ前に、利用状況・問い合わせ・フィードバック・更新履歴といったアカウントの全履歴を一つのつながった画面で確認できます。"
           },
           {
-            "label": "オペレーション",
-            "roles": "プロダクトオプス · プログラム",
-            "card": "red"
+            "label": "エンジニアリングリード",
+            "roles": "チームを動かす前に、提案中の変更がどの機能や顧客に影響するかを追跡できます。"
           }
         ]
       },
@@ -2875,20 +2995,16 @@
         "title": "車両を世に出す人々のために",
         "list": [
           {
-            "label": "チーフエンジニア",
-            "roles": "チーフエンジニア"
+            "label": "エンジニアリング / 研究開発リード",
+            "roles": "一つの部品を、それが使われているすべての車種・プラットフォーム・サプライヤーにわたって追跡できます。"
           },
           {
-            "label": "ソフトウェア・システム責任者",
-            "roles": "ソフトウェア・システム責任者"
+            "label": "品質 / リコール担当",
+            "roles": "部品に問題が見つかった際、それが関わるすべての車両と出荷を即座に把握できます。"
           },
           {
-            "label": "品質・安全",
-            "roles": "品質・安全"
-          },
-          {
-            "label": "サプライヤー管理",
-            "roles": "サプライヤー管理"
+            "label": "サプライチェーンマネージャー",
+            "roles": "サプライヤー・部品・車種のつながりをマッピングし、調達変更の影響範囲を全体で把握できます。"
           }
         ]
       },
@@ -2938,20 +3054,16 @@
         "title": "プログラムを担う人々のために",
         "list": [
           {
-            "label": "システム・チーフエンジニア",
-            "roles": "システム・チーフエンジニア"
+            "label": "プログラムマネージャー",
+            "roles": "部品・認証・マイルストーン・契約を結びつけ、プログラム全体の依存関係を常に追跡可能な状態に保てます。"
           },
           {
-            "label": "コンフィギュレーション管理",
-            "roles": "コンフィギュレーション管理"
+            "label": "整備 / MRO担当",
+            "roles": "承認の前に、各部品の整備履歴とその他のつながりを確認できます。"
           },
           {
-            "label": "安全・認証",
-            "roles": "安全・認証"
-          },
-          {
-            "label": "プログラム統括",
-            "roles": "プログラム統括"
+            "label": "コンプライアンス / 認証担当",
+            "roles": "すべての部品とプロセスを、それが必要とする認証と照らし合わせて追跡できます。"
           }
         ]
       },
@@ -3001,16 +3113,16 @@
         "title": "プロダクトを届けるチームのために",
         "list": [
           {
-            "label": "創業者・CPO",
-            "roles": "創業者・CPO"
+            "label": "プロダクトマネージャー",
+            "roles": "ユーザー・商品・取引を結びつけ、商品の変更が顧客やパートナーにどう波及するかを把握できます。"
           },
           {
-            "label": "リスク・コンプライアンス責任者",
-            "roles": "リスク・コンプライアンス責任者"
+            "label": "リスク / コンプライアンス担当",
+            "roles": "取引と口座のつながりを追跡し、システム全体にわたる問いに答えられます。"
           },
           {
-            "label": "エンジニアリング責任者",
-            "roles": "エンジニアリング責任者"
+            "label": "パートナーシップマネージャー",
+            "roles": "各パートナーが、結びついている商品・ユーザー・フローとどうつながっているかを把握できます。"
           }
         ]
       },
@@ -3060,20 +3172,16 @@
         "title": "判断を下す人々のために",
         "list": [
           {
-            "label": "引受責任者",
-            "roles": "引受責任者"
+            "label": "アンダーライター",
+            "roles": "契約の背景にある全体像——顧客・履歴・リスク要因・関連契約——を一か所で確認できます。"
           },
           {
-            "label": "保険金支払いマネージャー",
-            "roles": "保険金支払いマネージャー"
+            "label": "損害査定担当",
+            "roles": "請求を契約・顧客履歴・関連する請求に結びつけ、十分な背景情報をもって対応できます。"
           },
           {
-            "label": "コンプライアンス",
-            "roles": "コンプライアンス"
-          },
-          {
-            "label": "アクチュアリー・プロダクト",
-            "roles": "アクチュアリー・プロダクト"
+            "label": "アクチュアリー / ポートフォリオマネージャー",
+            "roles": "契約・請求・リスク要因を保有契約全体にわたってマッピングし、エクスポージャーを把握できます。"
           }
         ]
       },
@@ -3123,20 +3231,16 @@
         "title": "パイプラインを担う人々のために",
         "list": [
           {
-            "label": "R&D統括",
-            "roles": "R&D統括"
+            "label": "臨床 / 研究開発リード",
+            "roles": "化合物の全行程——研究・治験・結果——とその依存関係を追跡できます。"
           },
           {
-            "label": "臨床オペレーション",
-            "roles": "臨床オペレーション"
+            "label": "薬事担当",
+            "roles": "各研究やプロセスを、それが必要とする薬事ステップや承認に結びつけられます。"
           },
           {
-            "label": "薬事",
-            "roles": "薬事"
-          },
-          {
-            "label": "品質",
-            "roles": "品質"
+            "label": "製造 / 品質リード",
+            "roles": "バッチ・材料・プロセスを結びつけ、品質問題をその発生源まで遡れます。"
           }
         ]
       },
@@ -3186,20 +3290,16 @@
         "title": "クリエイティブチームにもビジネスチームにも対応",
         "list": [
           {
-            "label": "コンテンツ・制作",
-            "roles": "コンテンツ・制作の責任者"
+            "label": "コンテンツ / 編成リード",
+            "roles": "一つの作品が、各プラットフォームの視聴者・権利・チャネルとどうつながっているかを把握できます。"
           },
           {
-            "label": "権利・ビジネスアフェアーズ",
-            "roles": "権利・ビジネスアフェアーズ"
+            "label": "権利 / ライセンス管理者",
+            "roles": "どのコンテンツが、どの権利・配信期間・地域に結びついているかを追跡できます。"
           },
           {
-            "label": "マーケティング",
-            "roles": "マーケティング"
-          },
-          {
-            "label": "戦略",
-            "roles": "戦略"
+            "label": "オーディエンス / アナリティクスリード",
+            "roles": "コンテンツの成果を、あらゆるチャネルの視聴者に結びつけられます。"
           }
         ]
       },
@@ -3249,20 +3349,16 @@
         "title": "ライブオペを担うチームのために",
         "list": [
           {
-            "label": "ゲームディレクター",
-            "roles": "ゲームディレクター"
+            "label": "ライブオプスマネージャー",
+            "roles": "イベント・パッチ・経済バランスの調整が、プレイヤー層・コンテンツ・収益にどうつながるかを、リリース前に把握できます。"
           },
           {
-            "label": "経済・デザイン",
-            "roles": "経済・デザイン"
+            "label": "ゲームデザイナー",
+            "roles": "コンテンツ・進行・ゲーム内経済のつながりを追跡し、バランス調整が他の部分を意図せず壊さないようにできます。"
           },
           {
-            "label": "ライブオペ",
-            "roles": "ライブオペ"
-          },
-          {
-            "label": "エンジニアリング",
-            "roles": "エンジニアリング"
+            "label": "コミュニティ / サポート担当",
+            "roles": "プレイヤーからの報告を、その背景にあるコンテンツやアップデートに結びつけ、不満の本当の原因を特定できます。"
           }
         ]
       },
@@ -3312,20 +3408,16 @@
         "title": "ネットワークを動かす人々のために",
         "list": [
           {
-            "label": "サプライチェーンの責任者",
-            "roles": "サプライチェーンの責任者"
+            "label": "オペレーションマネージャー",
+            "roles": "出荷・サプライヤー・ルート・在庫のつながりを可視化し、どこかの遅延がすべての関係箇所に見える状態にできます。"
           },
           {
-            "label": "ロジスティクス運用",
-            "roles": "ロジスティクス運用"
+            "label": "調達 / サプライヤーマネージャー",
+            "roles": "どの出荷や顧客が特定のサプライヤーに依存しているかを追跡できます。"
           },
           {
-            "label": "調達",
-            "roles": "調達"
-          },
-          {
-            "label": "計画",
-            "roles": "計画"
+            "label": "倉庫 / 在庫リード",
+            "roles": "在庫を受注やルートに結びつけ、混乱に備えて計画を立てられます。"
           }
         ]
       },
@@ -3375,20 +3467,16 @@
         "title": "資産を運用する人々のために",
         "list": [
           {
-            "label": "運用・エンジニアリング",
-            "roles": "運用・エンジニアリングの責任者"
+            "label": "系統 / ネットワーク運用マネージャー",
+            "roles": "一つの設備や停止が、ネットワーク全体とどうつながり需要にどう影響するかを把握できます。"
           },
           {
-            "label": "保守",
-            "roles": "保守"
+            "label": "資産 / 保全マネージャー",
+            "roles": "設備をその保全履歴と依存関係に結びつけ、予期せぬ事態なく作業を計画できます。"
           },
           {
-            "label": "安全",
-            "roles": "安全"
-          },
-          {
-            "label": "規制・コンプライアンス",
-            "roles": "規制・コンプライアンス"
+            "label": "規制 / コンプライアンス担当",
+            "roles": "業務が、それが該当する規制や報告とどうつながっているかを追跡できます。"
           }
         ]
       },
@@ -3438,20 +3526,16 @@
         "title": "ネットワークを運用するチームのために",
         "list": [
           {
-            "label": "ネットワークエンジニアリング",
-            "roles": "ネットワークエンジニアリング"
+            "label": "ネットワーク運用マネージャー",
+            "roles": "設備・ネットワーク・顧客のつながりを可視化し、障害の影響範囲を明確にできます。"
           },
           {
-            "label": "運用 / NOC",
-            "roles": "運用 / NOC"
+            "label": "現場 / 保全リード",
+            "roles": "メンテナンスやアップグレードの前に、各設備が何とつながっているかを追跡できます。"
           },
           {
-            "label": "規制対応",
-            "roles": "規制対応"
-          },
-          {
-            "label": "経営陣",
-            "roles": "経営陣"
+            "label": "カスタマーエクスペリエンス担当",
+            "roles": "サービスの問題を、その背景にあるネットワークや設備に結びつけられます。"
           }
         ]
       },
@@ -3501,20 +3585,16 @@
         "title": "案件を率いる人々のために",
         "list": [
           {
-            "label": "パートナー / 案件リード",
-            "roles": "パートナー / 案件リード"
+            "label": "エンゲージメント / プロジェクトリード",
+            "roles": "クライアント・プロジェクト・人・成果物を結びつけ、過去の実績を新しい案件に活かせます。"
           },
           {
-            "label": "コンサルタント",
-            "roles": "コンサルタント"
+            "label": "プラクティス / パートナーリード",
+            "roles": "社内の誰が何を知っているかを把握し、人員配置や案件のスコープをより的確に決められます。"
           },
           {
-            "label": "ナレッジマネジメント",
-            "roles": "ナレッジマネジメント"
-          },
-          {
-            "label": "オペレーション",
-            "roles": "オペレーション"
+            "label": "ナレッジマネージャー",
+            "roles": "成果物と専門知識を結びつけ、すでにある知見を再利用できます。"
           }
         ]
       },
@@ -3564,20 +3644,16 @@
         "title": "案件を担う人々のために",
         "list": [
           {
-            "label": "パートナー / GC",
-            "roles": "パートナー / GC"
+            "label": "パートナー / プラクティスリード",
+            "roles": "案件・クライアント・文書・先例を結びつけ、関連する実績を即座に見つけられます。"
           },
           {
-            "label": "アソシエイト / カウンセル",
-            "roles": "アソシエイト / カウンセル"
+            "label": "アソシエイト / パラリーガル",
+            "roles": "案件を関連文書や先例に結びつけ、既存の成果を再利用できます。"
           },
           {
-            "label": "ナレッジマネジメント",
-            "roles": "ナレッジマネジメント"
-          },
-          {
-            "label": "コンプライアンス",
-            "roles": "コンプライアンス"
+            "label": "ナレッジ / コンプライアンス管理者",
+            "roles": "案件と文書を結びつけ、ゼロから作り直すことをなくせます。"
           }
         ]
       },
@@ -3627,20 +3703,16 @@
         "title": "公共に奉仕する人々のために",
         "list": [
           {
-            "label": "省庁の経営層",
-            "roles": "省庁の経営層"
+            "label": "プログラム / 行政マネージャー",
+            "roles": "サービス・案件・部署を結びつけ、申請の全体的な背景を一か所で把握できます。"
           },
           {
-            "label": "プログラム・運用",
-            "roles": "プログラム・運用"
+            "label": "ケースワーカー",
+            "roles": "部署をまたいで追いかけることなく、市民の案件に関わるすべてを確認できます。"
           },
           {
-            "label": "政策",
-            "roles": "政策"
-          },
-          {
-            "label": "コンプライアンス・監査",
-            "roles": "コンプライアンス・監査"
+            "label": "政策 / コンプライアンス担当",
+            "roles": "プログラムが、それが該当する政策や報告とどうつながっているかを追跡できます。"
           }
         ]
       },
@@ -3690,20 +3762,16 @@
         "title": "機関を運営する人々のために",
         "list": [
           {
-            "label": "管理部門・経営層",
-            "roles": "管理部門・経営層"
+            "label": "管理者 / 学部長",
+            "roles": "学生・科目・プログラム・リソースを結びつけ、提供内容や支援についてより良い判断ができます。"
           },
           {
-            "label": "委員会・ガバナンス",
-            "roles": "委員会・ガバナンス"
+            "label": "学生サクセス / アドバイジング担当",
+            "roles": "学生に関わるすべて——科目・支援・進捗——を一つの画面で確認できます。"
           },
           {
-            "label": "研究管理",
-            "roles": "研究管理"
-          },
-          {
-            "label": "オペレーション",
-            "roles": "オペレーション"
+            "label": "研究支援部門リード",
+            "roles": "研究・資金・人を機関全体にわたって結びつけられます。"
           }
         ]
       },
@@ -3754,19 +3822,15 @@
         "list": [
           {
             "label": "プロジェクトマネージャー",
-            "roles": "プロジェクトマネージャー"
+            "roles": "業者・許認可・資材・スケジュールのつながりを可視化し、一つの遅延がスケジュールと予算に与える影響を明確にできます。"
           },
           {
-            "label": "建築士・エンジニア",
-            "roles": "建築士・エンジニア"
+            "label": "ポートフォリオ / アセットマネージャー",
+            "roles": "物件・賃貸契約・テナント・保全をポートフォリオ全体にわたって一つの画面に結びつけられます。"
           },
           {
-            "label": "施工管理者",
-            "roles": "施工管理者"
-          },
-          {
-            "label": "施主／デベロッパー",
-            "roles": "施主／デベロッパー"
+            "label": "調達担当",
+            "roles": "どのプロジェクトが特定のサプライヤーや資材発注に依存しているかを追跡できます。"
           }
         ]
       },
@@ -3816,20 +3880,16 @@
         "title": "キャンペーンを動かす人々のために",
         "list": [
           {
-            "label": "クリエイティブ・戦略責任者",
-            "roles": "クリエイティブ・戦略責任者"
+            "label": "CMO / マーケティングマネージャー",
+            "roles": "キャンペーン・オーディエンス・チャネル・成果を結びつけ、実際に成果を生んでいる要因を把握できます。"
           },
           {
-            "label": "アカウントマネジメント",
-            "roles": "アカウントマネジメント"
+            "label": "キャンペーン / メディアマネージャー",
+            "roles": "各チャネルやキャンペーンが、費用や成果とどうつながっているかを追跡できます。"
           },
           {
-            "label": "ブランド",
-            "roles": "ブランド"
-          },
-          {
-            "label": "アナリティクス",
-            "roles": "アナリティクス"
+            "label": "アナリティクスリード",
+            "roles": "成果を、その背景にあるキャンペーンやオーディエンスに遡って結びつけられます。"
           }
         ]
       },
@@ -3879,20 +3939,16 @@
         "title": "判断を下す人々のために",
         "list": [
           {
-            "label": "パートナー／投資チーム",
-            "roles": "パートナー／投資チーム"
+            "label": "パートナー / 投資家",
+            "roles": "ポートフォリオ企業・案件・人・指標が、ポートフォリオ全体でどうつながっているかを把握できます。"
           },
           {
-            "label": "プラットフォーム／オペレーション",
-            "roles": "プラットフォーム／オペレーション"
+            "label": "投資アナリスト",
+            "roles": "デューデリジェンスの際、投資先候補を市場・類似案件・関係者に結びつけられます。"
           },
           {
-            "label": "デューデリジェンス",
-            "roles": "デューデリジェンス"
-          },
-          {
-            "label": "LPリレーション",
-            "roles": "LPリレーション"
+            "label": "ポートフォリオオペレーション担当",
+            "roles": "各社の業績と関係性を、一つのつながった画面で追跡できます。"
           }
         ]
       },
@@ -3942,20 +3998,16 @@
         "title": "ミッションを担う人々のために",
         "list": [
           {
-            "label": "プログラム責任者",
-            "roles": "プログラム責任者"
+            "label": "プログラムマネージャー",
+            "roles": "プログラム・受益者・成果を結びつけ、活動がどう成果につながっているかを把握できます。"
           },
           {
-            "label": "オペレーション",
-            "roles": "オペレーション"
+            "label": "ファンドレイジング / 開発担当",
+            "roles": "寄付者や資金が、それらが支えるプログラムや成果とどうつながっているかを追跡できます。"
           },
           {
-            "label": "資金開発／助成",
-            "roles": "資金開発／助成"
-          },
-          {
-            "label": "理事会・ガバナンス",
-            "roles": "理事会・ガバナンス"
+            "label": "オペレーション / 助成金管理者",
+            "roles": "助成金・報告・プログラムを一つの画面に結びつけられます。"
           }
         ]
       },
@@ -3971,6 +4023,133 @@
           }
         ]
       }
+    }
+  },
+  "ArchitecturePage": {
+    "hero": {
+      "badge": "AI主導のオントロジー",
+      "title": "ほとんどのAIツールはデータを読むだけ。Neuron は理解します。",
+      "body": "Neuron は、ツール全体で起きていることを、組織の実際の働き方を映す一つのつながった監査可能なマップに構造化します。",
+      "demoCta": "デモを予約"
+    },
+    "shift": {
+      "badge": "アーキテクチャの転換",
+      "title": "検知が先。\n言語モデルは後。",
+      "body": "他のツールは「何が重要か」をモデルに推測させます。Neuron はまず構造化データから検知し、モデルはその説明だけに使います。"
+    },
+    "signals": {
+      "badge": "シグナルオブジェクト",
+      "title": "組織が実際に\n生み出す6つのもの",
+      "intro": "Neuron が捉えるすべては、6つの構造化オブジェクトのいずれかに収まります。それぞれが型付けされ、リンクされ、出所まで追跡できます。",
+      "colObject": "オブジェクト",
+      "colCaptures": "捉える内容",
+      "colExample": "実例",
+      "rows": [
+        {
+          "object": "決定",
+          "captures": "チームが下した選択。根拠と担当者付き。",
+          "example": "請求を Stripe → Adyen に変更 · 財務担当VP · FXコスト削減"
+        },
+        {
+          "object": "リスク",
+          "captures": "起こりうる問題。発生確率 × 影響度と傾向付き。",
+          "example": "オンボーディングのパイプラインにリスク · P×I 0.7×0.85 · 悪化傾向"
+        },
+        {
+          "object": "未解決事項",
+          "captures": "未解決のコミットメント。担当者と経過日数付き。",
+          "example": "新ToSの法務レビュー · 担当者未定 · 17日経過"
+        },
+        {
+          "object": "対策",
+          "captures": "計画された対応。担当者と期限付き。",
+          "example": "2人目の業務委託を追加 · エンジニアマネージャー · 期限 2026-07-15"
+        },
+        {
+          "object": "結果",
+          "captures": "決定やリスクの後に実際に起きたこと。",
+          "example": "Adyen移行を3週間前倒しで完了 · FXコスト18%削減"
+        },
+        {
+          "object": "教訓",
+          "captures": "今後の意思決定に再利用できる学び。",
+          "example": "ベンダー移行：二重稼働に備え予算に30%のバッファを"
+        }
+      ],
+      "note": "すべてのオブジェクトは、出所・担当者・プロジェクト、そしてそれが引き起こした／解決したオブジェクトにリンクします。グラフは常につながったままです。"
+    },
+    "detectors": {
+      "badge": "検知の仕組み",
+      "title": "リスクパターンごとに\n専用の検知器",
+      "intro": "それぞれが特定のパターンだけを監視する、専用検知器のライブラリ。すべてバージョン管理・テスト済み。新しい検知は新しいプロンプトではなく、新しい検知器です。",
+      "cards": [
+        {
+          "name": "潜在的なズレ",
+          "desc": "チームが静かに離れていく — 話題の乖離、グラフの分断、関与の低下。"
+        },
+        {
+          "name": "スケジュール遅延",
+          "desc": "成果物が当初のコミット日に対して恒常的に遅延。"
+        },
+        {
+          "name": "予算超過",
+          "desc": "消化率が配分を超過し、サイクルに対して超過見込み。"
+        },
+        {
+          "name": "サイレントブロッカー",
+          "desc": "誰かが声を上げずに行き詰まっている — 長い沈黙、繰り返される「待ち」の言及。"
+        }
+      ]
+    },
+    "trust": {
+      "badge": "信頼レイヤー",
+      "title": "すべてのシグナルに3つの保証",
+      "items": [
+        {
+          "title": "クリックで辿れる出所",
+          "body": "検知の根拠となった正確なメッセージと日付を確認 — ブラックボックスのスコアではなく、チームが監査できる証拠。"
+        },
+        {
+          "title": "改ざん不可能な監査証跡",
+          "body": "すべてのシグナルへのあらゆる変更を追記専用で記録 — セキュリティレビューにそのまま使えます。"
+        },
+        {
+          "title": "デフォルトで人間が承認",
+          "body": "検知器は提案するだけ。記録に入る前に必ず人が承認します。"
+        }
+      ]
+    },
+    "proof": {
+      "badge": "約束ではなく実証",
+      "title": "実証できない検知器は\n出荷しない",
+      "intro": "それぞれが特定のパターンだけを監視する、専用検知器のライブラリ。すべてバージョン管理・テスト済み。新しい検知は新しいプロンプトではなく、新しい検知器です。",
+      "metrics": [
+        {
+          "value": "0.91",
+          "label": "適合率",
+          "note": "偽陽性の上限を強制"
+        },
+        {
+          "value": "0.62",
+          "label": "再現率",
+          "note": "真陽性の下限を強制"
+        },
+        {
+          "value": "0.74",
+          "label": "F1",
+          "note": "基幹検知器・本番稼働中"
+        }
+      ]
+    },
+    "identity": {
+      "badge": "統合アイデンティティ",
+      "title": "すべてのツールをまたいで\n一人の人物に",
+      "body": "同じ人物でもツールごとにハンドル名は異なります。Neuron はそれらを自動的に1つのレコードに統合します — 手動マッピングは不要です。",
+      "handleGithub": "alice_dev@github",
+      "handleSlack": "alice@slack",
+      "handleSaml": "a.chen@saml",
+      "memberName": "Alice Chen",
+      "memberMeta": "1件のメンバーレコード"
     }
   }
 }

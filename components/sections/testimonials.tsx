@@ -1,94 +1,124 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { BlurReveal, MotionDiv, blurIn } from "@/components/motion-wrapper";
+import { cn } from "@/lib/utils";
 
-/* Each testimonial panel is delivered as a full-width 1080×500 SVG. */
-const PANELS = ["/test1.svg", "/test2.svg"];
-const INTERVAL = 5000; // ms between auto-advances
+const INTERVAL = 6000; // ms between auto-advances
+
+/* Two testimonials, both translatable via the `Testimonials` namespace.
+   Slide 2 reuses the same source photo, mirrored and emerald-graded so it
+   reads as a distinct branded card. */
+const SLIDES = [
+  { quote: "quote1", name: "name1", title: "title1", company: "company1", tint: false },
+  { quote: "quote2", name: "name2", title: "title2", company: "company2", tint: true },
+];
 
 export default function Testimonials() {
+  const t = useTranslations("Testimonials");
   const [index, setIndex] = useState(0);
 
-  const goTo = (i: number) => setIndex((i + PANELS.length) % PANELS.length);
+  const goTo = (i: number) => setIndex((i + SLIDES.length) % SLIDES.length);
   const prev = () => goTo(index - 1);
   const next = () => goTo(index + 1);
 
-  // Auto-advance through the panels on a timer. Resets whenever `index`
-  // changes (incl. manual arrow/dot clicks) so a click restarts the countdown.
+  // Auto-advance; resets whenever `index` changes (incl. manual clicks).
   useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((i) => (i + 1) % PANELS.length);
-    }, INTERVAL);
+    const id = setInterval(() => setIndex((i) => (i + 1) % SLIDES.length), INTERVAL);
     return () => clearInterval(id);
   }, [index]);
 
+  const slide = SLIDES[index];
+
   return (
-    <section className="section-padding">
+    <section className="section-padding" id="testimonials">
       <BlurReveal>
         <div className="section-container">
           <MotionDiv variants={blurIn}>
-            {/* Slider: panels stacked, crossfading; track width = #panels */}
-            <div className="relative w-full overflow-hidden">
-              <div className="relative aspect-[1080/500] w-full">
-                {PANELS.map((src, i) => (
-                  /* eslint-disable-next-line @next/next/no-img-element */
+            <div className="overflow-hidden rounded-xl border border-[#E9EAEB] bg-white p-3">
+              <MotionDiv
+                key={index}
+                variants={blurIn}
+                initial="hidden"
+                animate="visible"
+                className="grid gap-3 md:grid-cols-[395px_1fr]"
+              >
+                {/* photo */}
+                <div className="overflow-hidden rounded-md bg-[#4B6148]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    key={src}
-                    src={src}
-                    alt="What teams using NEURON say"
-                    width={1080}
-                    height={500}
-                    className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-700 ease-out ${
-                      index === i ? "opacity-100" : "opacity-0"
-                    }`}
+                    src="/testimonial.jpg"
+                    alt=""
+                    aria-hidden
+                    className="aspect-[395/300] h-full w-full object-cover md:aspect-[395/476]"
+                    style={
+                      slide.tint
+                        ? {
+                            transform: "scaleX(-1)",
+                            filter:
+                              "sepia(0.55) hue-rotate(78deg) saturate(1.7) brightness(0.92) contrast(1.05)",
+                          }
+                        : undefined
+                    }
                   />
-                ))}
+                </div>
 
-                {/* Transparent click targets over the arrow controls baked
-                    into the panel art (43×43 circles at y=404.5, x=928.5 /
-                    984.5 in the 1080×500 frame). */}
-                <button
-                  type="button"
-                  onClick={prev}
-                  aria-label="Previous testimonial"
-                  className="absolute cursor-pointer rounded-full focus:outline-none"
-                  style={{
-                    left: `${(928.5 / 1080) * 100}%`,
-                    top: `${(404.5 / 500) * 100}%`,
-                    width: `${(43 / 1080) * 100}%`,
-                    height: `${(43 / 500) * 100}%`,
-                  }}
-                />
-                <button
-                  type="button"
-                  onClick={next}
-                  aria-label="Next testimonial"
-                  className="absolute cursor-pointer rounded-full focus:outline-none"
-                  style={{
-                    left: `${(984.5 / 1080) * 100}%`,
-                    top: `${(404.5 / 500) * 100}%`,
-                    width: `${(43 / 1080) * 100}%`,
-                    height: `${(43 / 500) * 100}%`,
-                  }}
-                />
-              </div>
+                {/* content */}
+                <div className="flex flex-col justify-between px-2 py-6 md:px-10 md:py-10">
+                  <p className="text-xl font-medium leading-snug text-[#0A0D12] md:text-[30px] md:leading-[1.3]">
+                    &ldquo;{t(slide.quote)}&rdquo;
+                  </p>
 
-              {/* Dots */}
-              <div className="mt-6 flex justify-center gap-2">
-                {PANELS.map((src, i) => (
-                  <button
-                    key={src}
-                    type="button"
-                    onClick={() => setIndex(i)}
-                    aria-label={`Show testimonial ${i + 1}`}
-                    aria-current={index === i}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      index === i ? "w-6 bg-[#0A0D12]" : "w-2 bg-slate-300 hover:bg-slate-400"
-                    }`}
-                  />
-                ))}
-              </div>
+                  <div className="mt-10 flex items-end justify-between gap-4">
+                    <div>
+                      <div className="text-lg font-semibold text-[#0A0D12] md:text-xl">
+                        {t(slide.name)}
+                      </div>
+                      <div className="text-base text-[#717680] md:text-lg">
+                        {t(slide.title)} {t(slide.company)}
+                      </div>
+                    </div>
+
+                    <div className="flex shrink-0 gap-3">
+                      <button
+                        type="button"
+                        onClick={prev}
+                        aria-label="Previous testimonial"
+                        className="flex h-12 w-12 items-center justify-center rounded-full border border-[#E9EAEB] text-[#0A0D12] transition-colors hover:bg-[#F5F5F5] md:h-[52px] md:w-[52px]"
+                      >
+                        <ArrowLeft className="h-5 w-5" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={next}
+                        aria-label="Next testimonial"
+                        className="flex h-12 w-12 items-center justify-center rounded-full border border-[#E9EAEB] text-[#0A0D12] transition-colors hover:bg-[#F5F5F5] md:h-[52px] md:w-[52px]"
+                      >
+                        <ArrowRight className="h-5 w-5" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </MotionDiv>
+            </div>
+
+            {/* dots */}
+            <div className="mt-6 flex justify-center gap-2">
+              {SLIDES.map((s, i) => (
+                <button
+                  key={s.quote}
+                  type="button"
+                  onClick={() => setIndex(i)}
+                  aria-label={`Show testimonial ${i + 1}`}
+                  aria-current={index === i}
+                  className={cn(
+                    "h-2 rounded-full transition-all duration-300",
+                    index === i ? "w-6 bg-[#0A0D12]" : "w-2 bg-slate-300 hover:bg-slate-400",
+                  )}
+                />
+              ))}
             </div>
           </MotionDiv>
         </div>

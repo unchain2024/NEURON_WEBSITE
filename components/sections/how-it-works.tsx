@@ -1,22 +1,26 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 /* "Inter Display" (Figma spec) is Inter at its display optical size; the loaded
    Inter renders that cut at large sizes, so we put it first for determinism. */
 const DISPLAY_FONT = 'var(--font-inter), "Inter Display", Inter, sans-serif';
 
-/* Steps are built as text; each pairs with a 634×476 illustration on the right. */
+/* Steps are built as text; each pairs with a 634×476 illustration on the right.
+   Steps 2 & 3 have copy baked into the art, so they carry a `-ja` export with
+   the Japanese text on the same background. Step 1's art has no localized copy,
+   so JA falls back to the shared connect illustration. */
 const STEPS = [
-  { key: "step1", art: "/howitworks-connect.svg" },
-  { key: "step2", art: "/howitworks-structure.svg" },
-  { key: "step3", art: "/howitworks-deliver.svg" },
+  { key: "step1", art: "/howitworks-connect.svg", jaArt: "/howitworks-connect.svg" },
+  { key: "step2", art: "/howitworks-structure.svg", jaArt: "/howitworks-structure-ja.svg" },
+  { key: "step3", art: "/howitworks-deliver.svg", jaArt: "/howitworks-deliver-ja.svg" },
 ] as const;
 
 export default function HowItWorks() {
   const t = useTranslations("HowItWorks");
+  const isJa = useLocale() === "ja";
   const sectionRef = useRef<HTMLElement>(null);
   const [activeStep, setActiveStep] = useState(0);
   // 0→1 progress within the active step's scroll slice; drives the underline
@@ -128,7 +132,7 @@ export default function HowItWorks() {
                 /* eslint-disable-next-line @next/next/no-img-element */
                 <img
                   key={step.key}
-                  src={step.art}
+                  src={isJa ? step.jaArt : step.art}
                   alt={t(`${step.key}Title` as "step1Title")}
                   width={634}
                   height={476}

@@ -28,7 +28,7 @@ const HEADLINE_FONT = {
 /**
  * Solutions mega-menu — mirrors `public/Solutions.svg`. Labels come from the
  * `SolutionsMenu` namespace, icons are extracted verbatim from the SVG, and each
- * industry links to its case-study page (`/case-studies/<slug>`, see
+ * industry links to its solution page (`/solutions/<slug>`, see
  * `lib/case-studies-data.ts`).
  */
 const SOLUTION_CATEGORIES = [
@@ -358,7 +358,7 @@ export default function Navbar() {
                           {cat.items.map((item) => (
                             <Link
                               key={item.key}
-                              href={`/case-studies/${item.slug}`}
+                              href={`/solutions/${item.slug}`}
                               className="block py-1 text-sm text-text-muted hover:text-slate-900 transition-colors"
                               onClick={() => setMobileOpen(false)}
                             >
@@ -437,7 +437,7 @@ function SolutionCategory({
         {cat.items.map((item) => (
           <li key={item.key}>
             <Link
-              href={`/case-studies/${item.slug}`}
+              href={`/solutions/${item.slug}`}
               onClick={onNavigate}
               className="block text-sm text-[#535862] transition-colors hover:text-[#0A0D12]"
             >

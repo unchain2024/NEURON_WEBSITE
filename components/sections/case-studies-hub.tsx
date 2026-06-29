@@ -66,7 +66,7 @@ export default function CaseStudiesHub() {
           {visible.map(({ slug, i18nKey, icon: Icon, color }) => (
             <MotionDiv key={slug} variants={fadeInUp}>
                 <Link
-                  href={`/case-studies/${slug}`}
+                  href={`/solutions/${slug}`}
                   className="group flex h-full flex-col rounded-2xl bg-white border border-border p-6 transition-all hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-50"
                 >
                   <div

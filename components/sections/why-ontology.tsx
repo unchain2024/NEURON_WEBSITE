@@ -44,7 +44,7 @@ export default function WhyOntology() {
             <p className="text-sm text-text-secondary">
               {t("linkText")}{" "}
               <Link
-                href="/cognition-layer"
+                href="/ai-driven-ontology"
                 className="inline-flex items-center gap-1 font-semibold text-primary hover:text-primary-600 transition-colors"
               >
                 {t("linkCta")}

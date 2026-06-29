@@ -22,7 +22,7 @@
     "cognitionLayerTitle": "The Cognition Layer — NEURON",
     "cognitionLayerDescription": "The architectural foundation that turns 24 disconnected tools into one coherent map of your organization. Pattern-first Sentinels, six structured Signal Objects, quality-gated detection, and a clickable provenance trail on every signal.",
     "pricingTitle": "Pricing — NEURON",
-    "pricingDescription": "Simple, transparent pricing for risk-aware teams of every size. Start free, scale as your risk surface grows.",
+    "pricingDescription": "NEURON is usage-based, scoped to the decisions you actually run. No public list price — pricing is set with you in a demo.",
     "blogTitle": "Blog — NEURON",
     "blogDescription": "Field notes on risk intelligence, blast-radius engineering, cascade detection, and mitigated rollouts from the NEURON team.",
     "getDemoTitle": "Get a Demo — NEURON",
@@ -76,6 +76,7 @@
     "whatIsImage": "NEURON app — Signals / Dashboard",
     "whatIsLinkText": "Curious how it's built?",
     "whatIsLinkCta": "How it works · AI-Driven Ontology",
+    "capBadge": "Capabilities",
     "capHeading": "Four things your second brain does for you",
     "capSubheading": "Hundreds of decisions are made every week, but most are never connected or preserved. Questions resurface,\nmistakes repeat, and valuable knowledge walks out the door with people.",
     "cap1Title": "Risk radar.",
@@ -90,6 +91,7 @@
     "cap4Title": "Ask anything.",
     "cap4Body": "Ask NEURON a question in plain language and get an answer grounded in your organization's real history — with sources you can open.",
     "cap4Image": "chat",
+    "rolesBadge": "For every role",
     "rolesHeading": "One brain. Every role gets\nwhat it needs.",
     "role1Title": "Executives & leaders",
     "role1Body": "See the why behind decisions and keep teams consistent, without sitting in every meeting.",
@@ -261,10 +263,10 @@
     "name1": "Head of Business Planning",
     "title1": "Japanese Apparel Conglomerate",
     "company1": "Group Holdings",
-    "quote2": "Our planning cycles used to end with a gut call no one could trace back to. NEURON turned those calls into structured decisions with full audit trails.",
-    "name2": "Head of Business Planning",
-    "title2": "Japanese Apparel Conglomerate",
-    "company2": "Group Holdings",
+    "quote2": "Logistics is all about decisions made under time pressure with incomplete data. NEURON gives our ops leads a live view of what was decided, why, and what the open items still are.",
+    "name2": "Head of New Business Development Division",
+    "title2": "Global Supply Chain &",
+    "company2": "3PL Provider",
     "quote3": "Logistics is all about decisions made under time pressure with incomplete data. NEURON gives our ops leads a live view of what was decided, why, and what the open items still are.",
     "name3": "Head of New Business Development Division",
     "title3": "Global Supply Chain & 3PL Provider",
@@ -348,25 +350,146 @@
   },
   "IntegrationsPage": {
     "heroEyebrow": "Integrations",
-    "heroTitle": "Your second brain plugs into the <highlight>tools you already use</highlight>.",
-    "heroDescription": "NEURON reads the decision signals already flowing through your stack — no new process, no manual entry. Connect in minutes; the layer builds itself.",
-    "faqTitle": "Integration FAQ",
+    "heroTitle": "Your second brain plugs into the <highlight>tools you already use</highlight>",
+    "heroDescription": "Neuron reads the decision signals already flowing through your stack — no new process, no manual entry. Connect in minutes; the layer builds itself.",
+    "heroPills": {
+      "oauth": "OAuth-based",
+      "readonly": "Read-only by default",
+      "minutes": "Connects in minutes"
+    },
+    "categories": {
+      "communication": {
+        "title": "Communication",
+        "subtitle": "Where decisions get debated and made."
+      },
+      "projectTracking": {
+        "title": "Project & issue tracking",
+        "subtitle": "The signal stream of what teams are deciding next."
+      },
+      "docs": {
+        "title": "Docs & knowledge",
+        "subtitle": "Where context is supposed to live."
+      },
+      "code": {
+        "title": "Code & design",
+        "subtitle": "Where engineering and product decisions ship."
+      },
+      "crm": {
+        "title": "CRM & operations",
+        "subtitle": "The decisions about customers, vendors, and incidents."
+      },
+      "meetings": {
+        "title": "Meetings",
+        "subtitle": "Where decisions get made and lost in the same hour."
+      }
+    },
+    "items": {
+      "slack": {
+        "name": "Slack",
+        "desc": "Threads & decisions"
+      },
+      "chatwork": {
+        "name": "Chatwork",
+        "desc": "Japanese workplace chat"
+      },
+      "lineworks": {
+        "name": "LINE WORKS",
+        "desc": "Mobile-first messaging"
+      },
+      "teams": {
+        "name": "Microsoft Teams",
+        "desc": "Enterprise messaging"
+      },
+      "jira": {
+        "name": "Jira",
+        "desc": "Issue & sprint tracking"
+      },
+      "linear": {
+        "name": "Linear",
+        "desc": "Modern issue tracker"
+      },
+      "asana": {
+        "name": "Asana",
+        "desc": "Work management"
+      },
+      "monday": {
+        "name": "monday.com",
+        "desc": "Work OS"
+      },
+      "notion": {
+        "name": "Notion",
+        "desc": "Docs & wikis"
+      },
+      "confluence": {
+        "name": "Confluence",
+        "desc": "Team wiki"
+      },
+      "googleWorkspace": {
+        "name": "Google Workspace",
+        "desc": "Docs, Drive, Gmail"
+      },
+      "microsoft365": {
+        "name": "Microsoft 365",
+        "desc": "Office, OneDrive, Outlook"
+      },
+      "github": {
+        "name": "GitHub",
+        "desc": "PRs, issues, repos"
+      },
+      "figma": {
+        "name": "Figma",
+        "desc": "Design & specs"
+      },
+      "salesforce": {
+        "name": "Salesforce",
+        "desc": "Customer & deal data"
+      },
+      "hubspot": {
+        "name": "HubSpot",
+        "desc": "CRM & marketing"
+      },
+      "servicenow": {
+        "name": "ServiceNow",
+        "desc": "IT & service ops"
+      },
+      "kintone": {
+        "name": "kintone",
+        "desc": "Japanese workflow platform"
+      },
+      "pagerduty": {
+        "name": "PagerDuty",
+        "desc": "Incident response"
+      },
+      "recallai": {
+        "name": "Recall.ai",
+        "desc": "Meeting transcripts"
+      },
+      "granola": {
+        "name": "Granola",
+        "desc": "AI meeting notes"
+      }
+    },
+    "faqTitle": "Frequently asked questions",
     "faqItems": [
       {
         "q": "How do integrations connect?",
-        "a": "Via API/OAuth, read-only by default, respecting the permissions already set in each tool."
+        "a": "Via API or OAuth, read-only by default, respecting the permissions already set in each tool. No service accounts, no data migration."
       },
       {
         "q": "Is my data moved or migrated?",
-        "a": "No — NEURON reads from your tools in place. No migration, no new workflow."
+        "a": "No — Neuron reads from your tools in place. There's no migration and no new workflow to maintain."
       },
       {
         "q": "Who can see what?",
-        "a": "NEURON mirrors your existing tool permissions; people see only what they're already allowed to see."
+        "a": "Neuron mirrors your existing tool permissions; people see only what they're already allowed to see."
       },
       {
-        "q": "How long to set up?",
-        "a": "Core tools connect in a single session."
+        "q": "How does Neuron reduce incidents?",
+        "a": "By surfacing the decisions, owners, and context behind every change, Neuron shortens the path from alert to root cause."
+      },
+      {
+        "q": "How long does setup take?",
+        "a": "Core tools connect in a single session — most teams are up and running in minutes, not weeks."
       },
       {
         "q": "Don't see your tool?",
@@ -429,37 +552,51 @@
   },
   "PricingPage": {
     "heroEyebrow": "Pricing",
-    "heroTitle": "Priced around the value of your <highlight>decisions</highlight>.",
-    "heroDescription": "NEURON is usage-based — designed for the high-value, auditable decisions where getting it right matters most, not high-volume, low-stakes noise. You pay for the decisions you actually run through your second brain, and we scope pricing to your tools, teams, and goals.",
-    "offeringName": "NEURON",
-    "offeringTagline": "Usage-based, scoped to your organization",
-    "offeringDesc": "Core connectors, all capabilities, role-based views, enterprise security. No public list price — pricing is set with you.",
-    "offeringCta": "Book a demo now",
-    "faqTitle": "Pricing FAQ",
+    "heroTitle": "Priced around the value of your decisions",
+    "heroDescription": "NEURON is usage-based — designed for the high-value, auditable decisions where getting it right matters most, not high-volume, low-stakes noise. You pay for the decisions you actually run through your second brain.",
+    "offeringHeading": "Usage-based, scoped to you",
+    "offeringLeadDesc": "A single offering, sized to your tools, teams, and goals — no tiers to outgrow.",
+    "panelTitle": "Set with you",
+    "panelDesc": "No public list price. We scope the engagement to the decisions you actually run through NEURON, so cost tracks value, not seat count.",
+    "panelCta": "Book a demo now",
+    "includedLabel": "Everything included",
+    "features": [
+      "All core capabilities — Risk radar, Decision memory, Context, Ask NEURON",
+      "Core connectors across your stack",
+      "Role-based views for executives, managers, and teams",
+      "Permission-aware access mirrored from your tools",
+      "Enterprise security — encryption in transit and at rest",
+      "Dedicated onboarding on your real workflows"
+    ],
+    "badgeSecurity": "Enterprise-grade",
+    "badgeData": "Never trains AI on your data",
+    "whyTitle": "Why no public price?",
+    "whyDesc": "Decision intelligence is tied to your organization — the tools you use, the teams that need access, and the volume of decisions worth structuring. We set pricing with you in the demo, so it tracks value rather than guesswork.",
+    "faqTitle": "Frequently asked questions",
     "faqItems": [
       {
         "q": "How does usage-based pricing work?",
-        "a": "You're billed on the decisions/volume you run through NEURON [confirm exact metric], so cost tracks value rather than seat count."
+        "a": "You are billed on the decisions you run through NEURON, so cost tracks the value you get rather than how many seats you fill. We agree the exact metric with you in the demo, based on how your organization decides."
       },
       {
         "q": "Is there a pilot?",
-        "a": "[confirm] — typically a scoped pilot on your real workflow."
+        "a": "Yes. Most teams start with a scoped pilot on a real workflow, so you can see the decision layer working on your own tools before you commit."
       },
       {
         "q": "What counts toward usage?",
-        "a": "[define the metric here]"
+        "a": "The decisions and volume you actually run through NEURON — not passive seats. We define the precise metric together so it maps to the value you care about."
       },
       {
-        "q": "Do you offer annual / enterprise terms?",
-        "a": "Yes — set in the demo."
+        "q": "Do you offer annual or enterprise terms?",
+        "a": "Yes. Annual and enterprise agreements — including custom security, onboarding, and procurement terms — are set during the demo."
       },
       {
-        "q": "What's included?",
-        "a": "All core capabilities; specifics scoped with you."
+        "q": "What is included?",
+        "a": "Every engagement includes all core capabilities, core connectors, role-based views, and enterprise-grade security. The specifics are scoped to your organization."
       },
       {
         "q": "Can pricing scale as we grow?",
-        "a": "Yes."
+        "a": "Yes. Because pricing tracks the decisions you run, it scales smoothly as more teams and workflows come online — with no disruptive re-tiering."
       }
     ]
   },
@@ -2466,12 +2603,12 @@
     "Personas": {
       "eyebrow": "Who it's for",
       "title": "Built for the people making the calls",
-      "leadLabel": "Leadership",
-      "leadRoles": "Eng Manager · VP Eng · CTO",
-      "engLabel": "Engineers",
-      "engRoles": "Software · Senior · Staff Engineer",
-      "opsLabel": "Operations",
-      "opsRoles": "SRE · SecOps · IT Ops"
+      "leadLabel": "CIO / IT Director",
+      "leadRoles": "See how every system connects, so a planned migration or vendor change shows its full blast radius before it's approved.",
+      "engLabel": "Systems Administrator",
+      "engRoles": "Trace which servers, services, and apps depend on a piece of infrastructure before taking it offline for maintenance.",
+      "opsLabel": "Security / Compliance Lead",
+      "opsRoles": "Map who has access to what across systems, and show auditors a clean trail of how access decisions were made."
     },
     "Faq": {
       "title": "Frequently asked questions",
@@ -2546,16 +2683,16 @@
         "title": "Built for the people on the hook",
         "list": [
           {
-            "label": "Risk & Compliance",
-            "roles": "Head of Risk · Compliance · Audit"
+            "label": "Relationship Manager",
+            "roles": "See a client's full relationship — accounts, products, transactions, household — in one connected view."
           },
           {
-            "label": "Product",
-            "roles": "Product leads · Decision owners"
+            "label": "Compliance / AML Officer",
+            "roles": "Trace how clients, accounts, and transactions connect to spot patterns and answer regulator questions."
           },
           {
-            "label": "Leadership",
-            "roles": "CTO · CRO · Executive team"
+            "label": "Operations Lead",
+            "roles": "Map how products and processes link so a change shows everything it affects."
           }
         ]
       },
@@ -2609,20 +2746,16 @@
         "title": "Built for the people making the calls",
         "list": [
           {
-            "label": "Operations Leadership",
-            "roles": "Ops directors · Service-line leads"
+            "label": "Clinician / Care Team Lead",
+            "roles": "See a patient's full history — treatments, providers, outcomes — connected in one view."
           },
           {
-            "label": "Quality & Safety",
-            "roles": "Quality · Safety · Risk review"
+            "label": "Hospital Operations Manager",
+            "roles": "Connect staff, resources, and patient flow to see how a bottleneck affects the whole system."
           },
           {
-            "label": "Compliance",
-            "roles": "Compliance · Governance · Audit"
-          },
-          {
-            "label": "Department Heads",
-            "roles": "Clinical ops · Department leads"
+            "label": "Compliance / Quality Officer",
+            "roles": "Trace how care decisions connect to outcomes and the standards they're measured against."
           }
         ]
       },
@@ -2676,20 +2809,16 @@
         "title": "Built for the people who run the line",
         "list": [
           {
-            "label": "Plant & Production",
-            "roles": "Plant · Production managers"
+            "label": "Plant Manager",
+            "roles": "See how machines, materials, and orders connect, so a single breakdown's impact on production is visible immediately."
           },
           {
-            "label": "Engineering",
-            "roles": "Design · Production engineers"
+            "label": "Procurement / Supply Chain Lead",
+            "roles": "Trace which orders and products depend on a delayed supplier or part."
           },
           {
-            "label": "Quality",
-            "roles": "Quality managers · QA"
-          },
-          {
-            "label": "Procurement",
-            "roles": "Procurement · Supplier management"
+            "label": "Quality Manager",
+            "roles": "Link defects back to the materials, machines, and shifts behind them to find the real source."
           }
         ]
       },
@@ -2743,20 +2872,16 @@
         "title": "Built for the people behind the numbers",
         "list": [
           {
-            "label": "Merchandising",
-            "roles": "Merchandising · Buying"
+            "label": "Merchandising / Category Manager",
+            "roles": "Connect products, customers, orders, and inventory to see the full story behind sales and stock."
           },
           {
-            "label": "Pricing",
-            "roles": "Pricing · Revenue"
+            "label": "Supply Chain / Inventory Manager",
+            "roles": "Trace how inventory connects to orders and suppliers to avoid stockouts."
           },
           {
-            "label": "E-commerce Ops",
-            "roles": "Ecommerce · Fulfillment ops"
-          },
-          {
-            "label": "Category Management",
-            "roles": "Category · Vendor management"
+            "label": "Marketing / CRM Manager",
+            "roles": "Link customers to their orders and behavior to target better."
           }
         ]
       },
@@ -2806,21 +2931,16 @@
         "title": "Built for the people shaping the product",
         "list": [
           {
-            "label": "Product Leadership",
-            "roles": "CPO · Head of Product"
+            "label": "Product Manager",
+            "roles": "Link every feature request to the customers who asked, the accounts at risk, and the roadmap items it touches, so prioritization is grounded rather than guessed."
           },
           {
-            "label": "Product Managers",
-            "roles": "PMs · Product owners"
+            "label": "Customer Success Manager",
+            "roles": "See an account's full history — usage, tickets, feedback, renewals — in one connected view before a renewal call."
           },
           {
-            "label": "Engineering",
-            "roles": "Engineering leads · Staff"
-          },
-          {
-            "label": "Operations",
-            "roles": "Product ops · Programs",
-            "card": "red"
+            "label": "Engineering Lead",
+            "roles": "Trace how a proposed change connects to the features and customers it affects before committing the team."
           }
         ]
       },
@@ -2874,20 +2994,16 @@
         "title": "Built for the people who ship the vehicle",
         "list": [
           {
-            "label": "Chief engineers",
-            "roles": "Chief engineers"
+            "label": "Engineering / R&D Lead",
+            "roles": "Trace a single component across every model, platform, and supplier it appears in."
           },
           {
-            "label": "Software & systems leads",
-            "roles": "Software & systems leads"
+            "label": "Quality / Recall Manager",
+            "roles": "When a part is flagged, instantly see every vehicle and shipment it touches."
           },
           {
-            "label": "Quality / safety",
-            "roles": "Quality / safety"
-          },
-          {
-            "label": "Supplier management",
-            "roles": "Supplier management"
+            "label": "Supply Chain Manager",
+            "roles": "Map suppliers to parts to models so a sourcing change shows its full reach."
           }
         ]
       },
@@ -2937,20 +3053,16 @@
         "title": "Built for the people who own the program",
         "list": [
           {
-            "label": "Systems & chief engineers",
-            "roles": "Systems & chief engineers"
+            "label": "Program Manager",
+            "roles": "Connect components, certifications, milestones, and contracts so a program's full dependencies stay traceable."
           },
           {
-            "label": "Configuration management",
-            "roles": "Configuration management"
+            "label": "Maintenance / MRO Lead",
+            "roles": "See each part's full service history and what else it's connected to before sign-off."
           },
           {
-            "label": "Safety & certification",
-            "roles": "Safety & certification"
-          },
-          {
-            "label": "Program leadership",
-            "roles": "Program leadership"
+            "label": "Compliance / Certification Officer",
+            "roles": "Trace every component and process against the certifications it requires."
           }
         ]
       },
@@ -3000,16 +3112,16 @@
         "title": "Built for the team shipping the product",
         "list": [
           {
-            "label": "Founders / CPO",
-            "roles": "Founders / CPO"
+            "label": "Product Manager",
+            "roles": "Link users, products, and transactions to see how a product change flows through to customers and partners."
           },
           {
-            "label": "Head of Risk & Compliance",
-            "roles": "Head of Risk & Compliance"
+            "label": "Risk / Compliance Lead",
+            "roles": "Trace transaction and account relationships to answer questions across the whole system."
           },
           {
-            "label": "Engineering leads",
-            "roles": "Engineering leads"
+            "label": "Partnerships Manager",
+            "roles": "See how each partner connects to the products, users, and flows they're tied to."
           }
         ]
       },
@@ -3059,20 +3171,16 @@
         "title": "Built for the people who make the call",
         "list": [
           {
-            "label": "Underwriting leads",
-            "roles": "Underwriting leads"
+            "label": "Underwriter",
+            "roles": "See the full picture behind a policy — customer, history, risk factors, related policies — in one place."
           },
           {
-            "label": "Claims managers",
-            "roles": "Claims managers"
+            "label": "Claims Adjuster",
+            "roles": "Connect a claim to the policy, customer history, and related claims to handle it with full context."
           },
           {
-            "label": "Compliance",
-            "roles": "Compliance"
-          },
-          {
-            "label": "Actuarial / Product",
-            "roles": "Actuarial / Product"
+            "label": "Actuary / Portfolio Manager",
+            "roles": "Map policies, claims, and risk factors across the book to understand exposure."
           }
         ]
       },
@@ -3122,20 +3230,16 @@
         "title": "Built for the people who run the pipeline",
         "list": [
           {
-            "label": "R&D leadership",
-            "roles": "R&D leadership"
+            "label": "Clinical / R&D Lead",
+            "roles": "Trace a compound's full journey — studies, trials, results — and its dependencies."
           },
           {
-            "label": "Clinical operations",
-            "roles": "Clinical operations"
+            "label": "Regulatory Affairs Manager",
+            "roles": "Connect each study and process to the regulatory steps and approvals it requires."
           },
           {
-            "label": "Regulatory affairs",
-            "roles": "Regulatory affairs"
-          },
-          {
-            "label": "Quality",
-            "roles": "Quality"
+            "label": "Manufacturing / Quality Lead",
+            "roles": "Link batches, materials, and processes so a quality issue traces back to its source."
           }
         ]
       },
@@ -3185,20 +3289,16 @@
         "title": "Built for creative and business teams alike",
         "list": [
           {
-            "label": "Content & production",
-            "roles": "Content/production leadership"
+            "label": "Content / Programming Lead",
+            "roles": "See how a title connects to audiences, rights, and channels across platforms."
           },
           {
-            "label": "Rights & business affairs",
-            "roles": "Rights & business affairs"
+            "label": "Rights / Licensing Manager",
+            "roles": "Trace which content is tied to which rights, windows, and territories."
           },
           {
-            "label": "Marketing",
-            "roles": "Marketing"
-          },
-          {
-            "label": "Strategy",
-            "roles": "Strategy"
+            "label": "Audience / Analytics Lead",
+            "roles": "Connect content performance to audiences across every channel."
           }
         ]
       },
@@ -3248,20 +3348,16 @@
         "title": "Built for the teams who run live-ops",
         "list": [
           {
-            "label": "Game directors",
-            "roles": "Game directors"
+            "label": "Live Ops Manager",
+            "roles": "See how a single event, patch, or economy tweak connects to player segments, content, and revenue before it ships."
           },
           {
-            "label": "Economy & design",
-            "roles": "Economy & design"
+            "label": "Game Designer",
+            "roles": "Trace how content, progression, and the in-game economy link together so a balance change doesn't quietly break something else."
           },
           {
-            "label": "Live-ops",
-            "roles": "Live-ops"
-          },
-          {
-            "label": "Engineering",
-            "roles": "Engineering"
+            "label": "Community / Support Lead",
+            "roles": "Connect player reports to the content and updates behind them to spot what's actually causing complaints."
           }
         ]
       },
@@ -3311,20 +3407,16 @@
         "title": "Built for the people who run the network",
         "list": [
           {
-            "label": "Supply chain leadership",
-            "roles": "Supply chain leadership"
+            "label": "Operations Manager",
+            "roles": "See how shipments, suppliers, routes, and inventory connect, so a delay anywhere is visible everywhere."
           },
           {
-            "label": "Logistics ops",
-            "roles": "Logistics ops"
+            "label": "Procurement / Supplier Manager",
+            "roles": "Trace which shipments and customers depend on a given supplier."
           },
           {
-            "label": "Procurement",
-            "roles": "Procurement"
-          },
-          {
-            "label": "Planning",
-            "roles": "Planning"
+            "label": "Warehouse / Inventory Lead",
+            "roles": "Connect inventory to orders and routes to plan around disruptions."
           }
         ]
       },
@@ -3374,20 +3466,16 @@
         "title": "Built for the people who run the assets",
         "list": [
           {
-            "label": "Operations & engineering",
-            "roles": "Operations & engineering leadership"
+            "label": "Grid / Network Operations Manager",
+            "roles": "See how a single asset or outage connects across the network and affects demand."
           },
           {
-            "label": "Maintenance",
-            "roles": "Maintenance"
+            "label": "Asset / Maintenance Manager",
+            "roles": "Link assets to their maintenance history and dependencies to plan work without surprises."
           },
           {
-            "label": "Safety",
-            "roles": "Safety"
-          },
-          {
-            "label": "Regulatory/compliance",
-            "roles": "Regulatory/compliance"
+            "label": "Regulatory / Compliance Lead",
+            "roles": "Trace how operations connect to the regulations and reporting they fall under."
           }
         ]
       },
@@ -3437,20 +3525,16 @@
         "title": "Built for the teams who run the network",
         "list": [
           {
-            "label": "Network engineering",
-            "roles": "Network engineering"
+            "label": "Network Operations Manager",
+            "roles": "See how equipment, networks, and customers connect, so an outage's reach is clear."
           },
           {
-            "label": "Operations / NOC",
-            "roles": "Operations / NOC"
+            "label": "Field / Maintenance Lead",
+            "roles": "Trace what each piece of equipment connects to before maintenance or upgrades."
           },
           {
-            "label": "Regulatory",
-            "roles": "Regulatory"
-          },
-          {
-            "label": "Leadership",
-            "roles": "Leadership"
+            "label": "Customer Experience Lead",
+            "roles": "Connect service issues to the network and equipment behind them."
           }
         ]
       },
@@ -3500,20 +3584,16 @@
         "title": "Built for the people who run engagements",
         "list": [
           {
-            "label": "Partners / engagement leads",
-            "roles": "Partners / engagement leads"
+            "label": "Engagement / Project Lead",
+            "roles": "Connect clients, projects, people, and deliverables so past work applies to new engagements."
           },
           {
-            "label": "Consultants",
-            "roles": "Consultants"
+            "label": "Practice / Partner Lead",
+            "roles": "See who knows what across the firm to staff and scope work better."
           },
           {
-            "label": "Knowledge management",
-            "roles": "Knowledge management"
-          },
-          {
-            "label": "Operations",
-            "roles": "Operations"
+            "label": "Knowledge Manager",
+            "roles": "Link deliverables and expertise so the firm reuses what it already knows."
           }
         ]
       },
@@ -3563,20 +3643,16 @@
         "title": "Built for the people who take the matter",
         "list": [
           {
-            "label": "Partners / GC",
-            "roles": "Partners / GC"
+            "label": "Partner / Practice Lead",
+            "roles": "Connect matters, clients, documents, and precedents to find related work instantly."
           },
           {
-            "label": "Associates / counsel",
-            "roles": "Associates / counsel"
+            "label": "Associate / Paralegal",
+            "roles": "Trace a matter to related documents and precedents to reuse existing work."
           },
           {
-            "label": "Knowledge management",
-            "roles": "Knowledge management"
-          },
-          {
-            "label": "Compliance",
-            "roles": "Compliance"
+            "label": "Knowledge / Compliance Manager",
+            "roles": "Link matters and documents so nothing is recreated from scratch."
           }
         ]
       },
@@ -3626,20 +3702,16 @@
         "title": "Built for the people who serve the public",
         "list": [
           {
-            "label": "Agency leadership",
-            "roles": "Agency leadership"
+            "label": "Program / Agency Manager",
+            "roles": "Connect services, cases, and departments so the full context of a request is visible in one place."
           },
           {
-            "label": "Program & operations",
-            "roles": "Program & operations"
+            "label": "Caseworker",
+            "roles": "See everything connected to a citizen's case instead of chasing it across departments."
           },
           {
-            "label": "Policy",
-            "roles": "Policy"
-          },
-          {
-            "label": "Compliance/audit",
-            "roles": "Compliance/audit"
+            "label": "Policy / Compliance Lead",
+            "roles": "Trace how programs connect to the policies and reporting they fall under."
           }
         ]
       },
@@ -3689,20 +3761,16 @@
         "title": "Built for the people who govern the institution",
         "list": [
           {
-            "label": "Administration & leadership",
-            "roles": "Administration & leadership"
+            "label": "Administrator / Dean",
+            "roles": "Connect students, courses, programs, and resources to make better decisions about offerings and support."
           },
           {
-            "label": "Committees & governance",
-            "roles": "Committees & governance"
+            "label": "Student Success / Advising Lead",
+            "roles": "See everything connected to a student — courses, support, progress — in one view."
           },
           {
-            "label": "Research administration",
-            "roles": "Research administration"
-          },
-          {
-            "label": "Operations",
-            "roles": "Operations"
+            "label": "Research Office Lead",
+            "roles": "Link research, funding, and people across the institution."
           }
         ]
       },
@@ -3752,20 +3820,16 @@
         "title": "Built for the people who deliver the project",
         "list": [
           {
-            "label": "Project managers",
-            "roles": "Project managers"
+            "label": "Project Manager",
+            "roles": "See how contractors, permits, materials, and timelines connect, so one delay's effect on schedule and budget is clear."
           },
           {
-            "label": "Architects & engineers",
-            "roles": "Architects & engineers"
+            "label": "Portfolio / Asset Manager",
+            "roles": "Connect properties, leases, tenants, and maintenance into one view across the portfolio."
           },
           {
-            "label": "Construction managers",
-            "roles": "Construction managers"
-          },
-          {
-            "label": "Owners/developers",
-            "roles": "Owners/developers"
+            "label": "Procurement Lead",
+            "roles": "Trace which projects depend on a given supplier or material order."
           }
         ]
       },
@@ -3815,20 +3879,16 @@
         "title": "Built for the people who run the campaigns",
         "list": [
           {
-            "label": "Creative & strategy leads",
-            "roles": "Creative & strategy leads"
+            "label": "CMO / Marketing Manager",
+            "roles": "Connect campaigns, audiences, channels, and results to see what's actually driving outcomes."
           },
           {
-            "label": "Account management",
-            "roles": "Account management"
+            "label": "Campaign / Media Manager",
+            "roles": "Trace how each channel and campaign connects to spend and results."
           },
           {
-            "label": "Brand",
-            "roles": "Brand"
-          },
-          {
-            "label": "Analytics",
-            "roles": "Analytics"
+            "label": "Analytics Lead",
+            "roles": "Link results back to the campaigns and audiences behind them."
           }
         ]
       },
@@ -3878,20 +3938,16 @@
         "title": "Built for the people who make the calls",
         "list": [
           {
-            "label": "Partners / investment team",
-            "roles": "Partners / investment team"
+            "label": "Partner / Investor",
+            "roles": "See how portfolio companies, deals, people, and metrics connect across the whole portfolio."
           },
           {
-            "label": "Platform/operations",
-            "roles": "Platform/operations"
+            "label": "Investment Analyst",
+            "roles": "Connect a target to its market, comparable deals, and the people involved during diligence."
           },
           {
-            "label": "Diligence",
-            "roles": "Diligence"
-          },
-          {
-            "label": "LP relations",
-            "roles": "LP relations"
+            "label": "Portfolio Operations Lead",
+            "roles": "Track performance and relationships across companies in one connected view."
           }
         ]
       },
@@ -3941,20 +3997,16 @@
         "title": "Built for the people who carry the mission",
         "list": [
           {
-            "label": "Program leadership",
-            "roles": "Program leadership"
+            "label": "Program Manager",
+            "roles": "Connect programs, beneficiaries, and outcomes to see how the work links to impact."
           },
           {
-            "label": "Operations",
-            "roles": "Operations"
+            "label": "Development / Fundraising Lead",
+            "roles": "Trace how donors and funding connect to the programs and outcomes they support."
           },
           {
-            "label": "Development/grants",
-            "roles": "Development/grants"
-          },
-          {
-            "label": "Board & governance",
-            "roles": "Board & governance"
+            "label": "Operations / Grants Manager",
+            "roles": "Link grants, reporting, and programs in one view."
           }
         ]
       },
@@ -3970,6 +4022,133 @@
           }
         ]
       }
+    }
+  },
+  "ArchitecturePage": {
+    "hero": {
+      "badge": "AI-Driven Ontology",
+      "title": "Most AI tools just read your data. Neuron understands it.",
+      "body": "Neuron structures what happens across your tools into one connected, auditable map of how your organization actually works.",
+      "demoCta": "Book a demo"
+    },
+    "shift": {
+      "badge": "The architectural shift",
+      "title": "Detection first. Language\nmodels second.",
+      "body": "Other tools ask a model to guess what matters. Neuron detects it in your structured data first, then uses the model only to explain it."
+    },
+    "signals": {
+      "badge": "Signal objects",
+      "title": "The six things every\norganization actually produces",
+      "intro": "Everything Neuron captures fits one of six structured objects each typed, linked, and traceable to where it came from.",
+      "colObject": "Object",
+      "colCaptures": "What it captures",
+      "colExample": "Real example",
+      "rows": [
+        {
+          "object": "Decision",
+          "captures": "A choice your team made, with rationale and owner.",
+          "example": "Switched billing Stripe → Adyen · VP Finance · lower FX cost"
+        },
+        {
+          "object": "Risk",
+          "captures": "A possible problem, with probability × impact and trend.",
+          "example": "Onboarding pipeline at risk · P×I 0.7×0.85 · trending worse"
+        },
+        {
+          "object": "Open Item",
+          "captures": "An unresolved commitment, with owner and age.",
+          "example": "Legal review of new ToS · unowned · 17 days stale"
+        },
+        {
+          "object": "Countermeasure",
+          "captures": "A planned response, with assignee and due date.",
+          "example": "Add second contractor · Eng Mgr · due 2026-07-15"
+        },
+        {
+          "object": "Outcome",
+          "captures": "What actually happened after a decision or risk played out.",
+          "example": "Adyen migration done 3 weeks early · FX cost down 18%"
+        },
+        {
+          "object": "Lesson",
+          "captures": "A reusable takeaway for future decisions.",
+          "example": "Vendor migrations: budget 30% buffer for double-running"
+        }
+      ],
+      "note": "Every object links to its source, owner, and project and to the objects it caused or resolved. The graph stays connected."
+    },
+    "detectors": {
+      "badge": "How detection works",
+      "title": "Each risk pattern is its\nown detector",
+      "intro": "A library of focused detectors, each watching one specific pattern, each versioned and tested. New detection means a new detector, not a new prompt.",
+      "cards": [
+        {
+          "name": "Unspoken Misalignment",
+          "desc": "Teams quietly drifting apart topic divergence, graph fragmentation, engagement drop."
+        },
+        {
+          "name": "Schedule Slippage",
+          "desc": "Deliverables consistently late against original commit dates."
+        },
+        {
+          "name": "Budget Overrun",
+          "desc": "Burn rate exceeding allocation, projected against cycle."
+        },
+        {
+          "name": "Silent Blocker",
+          "desc": "Someone stuck without asking long quiet gaps, repeated \"waiting on\" mentions."
+        }
+      ]
+    },
+    "trust": {
+      "badge": "The trust layer",
+      "title": "Three guarantees on every signal",
+      "items": [
+        {
+          "title": "Provenance you can click into",
+          "body": "See the exact messages and dates behind every detection evidence your team can audit, not a black-box score."
+        },
+        {
+          "title": "Immutable audit trail",
+          "body": "Every change to every signal is recorded append-only ready for your security review."
+        },
+        {
+          "title": "Human-approved by default",
+          "body": "Detectors propose; a person approves before anything enters your records."
+        }
+      ]
+    },
+    "proof": {
+      "badge": "Proven, not promised",
+      "title": "If a detector can't prove it\nworks, it doesn't ship",
+      "intro": "A library of focused detectors, each watching one specific pattern, each versioned and tested. New detection means a new detector, not a new prompt.",
+      "metrics": [
+        {
+          "value": "0.91",
+          "label": "Precision",
+          "note": "False-positive ceiling enforced"
+        },
+        {
+          "value": "0.62",
+          "label": "Recall",
+          "note": "True-positive floor enforced"
+        },
+        {
+          "value": "0.74",
+          "label": "F1",
+          "note": "Keystone detector, in production"
+        }
+      ]
+    },
+    "identity": {
+      "badge": "Unified identity",
+      "title": "One person across\nevery tool",
+      "body": "The same person has a different handle in every tool. Neuron resolves them into one record automatically no manual mapping.",
+      "handleGithub": "alice_dev@github",
+      "handleSlack": "alice@slack",
+      "handleSaml": "a.chen@saml",
+      "memberName": "Alice Chen",
+      "memberMeta": "One member record"
     }
   }
 }

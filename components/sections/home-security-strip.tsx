@@ -1,7 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
 
 /* "Inter Display" (Figma spec) is Inter at its display optical size; the loaded
@@ -10,6 +9,7 @@ const DISPLAY_FONT = 'var(--font-inter), "Inter Display", Inter, sans-serif';
 
 export default function HomeSecurityStrip() {
   const t = useTranslations("Home");
+  const isJa = useLocale() === "ja";
 
   return (
     <section className="section-padding">
@@ -47,30 +47,16 @@ export default function HomeSecurityStrip() {
             </p>
           </MotionDiv>
 
-          {/* Shield graphic */}
+          {/* Shield graphic — locale-swapped (copy carried in the SVG export) */}
           <MotionDiv variants={fadeInUp} className="mt-12 w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/enterprise.svg"
+              src={isJa ? "/enterprise-ja.svg" : "/enterprise.svg"}
               alt="Enterprise-grade security: encryption in transit & at rest, read-only integrations, never used to train AI models, existing permissions preserved"
               width={860}
               height={475}
               className="mx-auto block h-auto w-full max-w-[860px]"
             />
-          </MotionDiv>
-
-          {/* CTA button */}
-          <MotionDiv variants={fadeInUp} className="mt-10">
-            <Link href="/security" aria-label="Security & Trust">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/sec.svg"
-                alt="Security & Trust"
-                width={177}
-                height={44}
-                className="h-11 w-auto transition-transform hover:-translate-y-0.5"
-              />
-            </Link>
           </MotionDiv>
         </div>
       </SectionReveal>

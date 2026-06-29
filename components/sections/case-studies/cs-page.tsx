@@ -109,7 +109,7 @@ function CSHero({
                 {s("primaryCta")}
               </Link>
               <Link
-                href="/cognition-layer"
+                href="/ai-driven-ontology"
                 className="inline-flex h-11 items-center rounded-full border border-[#E9EAEB] bg-white px-6 text-sm font-medium text-[#0A0D12] transition-colors hover:bg-slate-50"
                 style={HEADLINE_FONT}
               >
