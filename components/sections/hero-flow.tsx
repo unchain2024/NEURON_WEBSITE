@@ -6,17 +6,11 @@ import { motion, useReducedMotion } from "framer-motion";
 /* ─────────────────────────────────────────────────────
    Assets + geometry — traced 1:1 from the wireframe SVG.
 
-   Flow: a step-by-step story on a single synchronized clock (CYCLE).
-   1. All left cards fade in at their slots (the raw signals).
-   2. One by one, each is absorbed straight into the centre node.
-   3. The node pulses (processing).
-   4. One by one, decisions emerge from the node, glide out to their slots
-      and settle (readable, accumulating).
-   5. They hold, then clear together — and the cycle loops.
-
-   Every card shares the same CYCLE/period with no per-card delay, so the
-   sequence stays in sync forever. Y never changes — pure horizontal motion —
-   and the card slots / spacing / design are exactly as given.
+   Motion: signals in, decisions out. The left cards (Slack, Notion, …) sit at
+   their slots, then slide into the N logo and fade out — absorbed. Then the
+   right cards emerge from the logo, slide out to their slots on the right
+   (readable), and fade out. One continuous loop, constant-rate (linear)
+   timing. The node pulses as it processes.
    ───────────────────────────────────────────────────── */
 
 type Slot = { x: number; y: number };
@@ -45,39 +39,27 @@ const OUTPUT_CARDS: Card[] = [
   { src: "Risk-1.svg", w: 280, h: 69, slot: { x: 1073.5, y: 360 } },
 ];
 
-/* One synchronized cycle drives the whole sequence. Phase boundaries are
-   fractions of CYCLE so the timing is tunable in one place.
+/* One shared cycle drives the whole flow. Tunable in one place. */
+const FADE = 6; // seconds for one signals-in → decisions-out cycle
+const OUT_DRIFT = 120; // viewBox units the right cards drift further right as they fade
 
-   The loop is made seamless by a crossfade at the end: as the decisions
-   dissolve on the right (CLEAR), the signals fade back in at their slots on
-   the left (REAPPEAR). Each input card's state at t=1 is identical to its
-   state at t=0 (visible, at its slot), so the loop restart has nothing to
-   jump between — no blank beat, no snap back to the left. */
-const CYCLE = 11; // seconds for one full ingest → emit story
-const N_IN = INPUT_CARDS.length;
-const N_OUT = OUTPUT_CARDS.length;
-
-const INGEST_START = 0.14; // inputs start getting absorbed (one by one)
-const INGEST_END = 0.46; // last input absorbed
-const EMIT_START = 0.5; // outputs start emerging (one by one)
-const EMIT_END = 0.8; // last output settled
-const CLEAR_START = 0.84; // outputs begin fading out (staggered)
-const REAPPEAR_START = 0.85; // inputs begin fading back in for the next loop
-const BAND_END = 0.99; // last clear/reappear finishes just before the seam
+// Left cards: hold at slot → slide into the logo + fade out (first half).
+const IN_TIMES = [0, 0.12, 0.32, 0.5, 1];
+// Right cards: wait at logo → emerge to slot + fade in → hold → drift right + fade out.
+const OUT_TIMES = [0, 0.5, 0.7, 0.85, 1];
 
 /* ─────────────────────────────────────────────────────
-   Flowing card — step-by-step ingest / emit on the shared clock
+   Card — input: slot → into the logo (fades out, absorbed).
+           output: logo → slot on the right (fades in), then drifts off + fades.
    ───────────────────────────────────────────────────── */
 
 function FlowCard({
   card,
   kind,
-  index,
   cw,
 }: {
   card: Card;
   kind: "input" | "output";
-  index: number;
   cw: number;
 }) {
   const prefersReduced = useReducedMotion();
@@ -88,57 +70,38 @@ function FlowCard({
     width: cq(card.w),
   } as const;
 
-  // Reduced motion: show every card static at its slot (full end-state).
-  if (prefersReduced) {
-    return (
-      <div className="absolute z-[2] -translate-x-1/2 -translate-y-1/2" style={slotStyle}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={asset(card.src)} alt="" className="block w-full" draggable={false} />
-      </div>
-    );
-  }
+  // Offset (px) from the slot to the logo, on both axes (the container keeps a
+  // fixed aspect ratio, so both scale by cw / W).
+  const logoDX = ((NODE.x - card.slot.x) / W) * cw;
+  const logoDY = ((NODE.y - card.slot.y) / W) * cw;
+  const outDrift = (OUT_DRIFT / W) * cw;
 
-  // X offset (px) from the slot to the centre line at the card's own Y.
-  const toCentre = ((NODE.x - card.slot.x) / W) * cw;
+  const anim =
+    kind === "input"
+      ? {
+          // appear at slot → hold → slide into the logo, fading + shrinking
+          x: [0, 0, 0, logoDX, logoDX],
+          y: [0, 0, 0, logoDY, logoDY],
+          opacity: [0, 1, 1, 0, 0],
+          scale: [1, 1, 1, 0.6, 0.6],
+        }
+      : {
+          // wait (invisible) at the logo → emerge to slot, fading in → hold →
+          // drift further right and fade out
+          x: [logoDX, logoDX, 0, 0, outDrift],
+          y: [logoDY, logoDY, 0, 0, 0],
+          opacity: [0, 0, 1, 1, 0],
+          scale: [0.6, 0.6, 1, 1, 1],
+        };
 
-  let anim: { x: number[]; opacity: number[]; scale: number[] };
-  let times: number[];
-
-  if (kind === "input") {
-    // Present at slot from t=0 → held → absorbed straight into the node (one by
-    // one) → invisible → faded back in at the slot before the seam. t=0 and t=1
-    // are identical (visible at slot), so the loop is perfectly continuous.
-    const slice = (INGEST_END - INGEST_START) / N_IN;
-    const ingestStart = INGEST_START + slice * index;
-    const ingestEnd = ingestStart + slice * 0.85;
-    const reappear = REAPPEAR_START + ((BAND_END - REAPPEAR_START) / N_IN) * index;
-    times = [0, ingestStart, ingestEnd, reappear, 1];
-    anim = {
-      x: [0, 0, toCentre, 0, 0],
-      opacity: [1, 1, 0, 0, 1],
-      scale: [1, 1, 0.78, 0.95, 1],
-    };
-  } else {
-    // parked at node → emerge straight out to slot → settle/hold → faded out in
-    // place (staggered), crossfading with the inputs reappearing on the left.
-    const slice = (EMIT_END - EMIT_START) / N_OUT;
-    const emitStart = EMIT_START + slice * index;
-    const emitEnd = emitStart + slice * 0.7;
-    const clearStart = CLEAR_START + ((BAND_END - CLEAR_START) / N_OUT) * index;
-    times = [0, emitStart, emitEnd, clearStart, 1];
-    anim = {
-      x: [toCentre, toCentre, 0, 0, 0],
-      opacity: [0, 0, 1, 1, 0],
-      scale: [0.85, 0.85, 1, 1, 0.98],
-    };
-  }
+  const times = kind === "input" ? IN_TIMES : OUT_TIMES;
 
   return (
     <div className="absolute z-[2] -translate-x-1/2 -translate-y-1/2" style={slotStyle}>
       <motion.div
         style={{ willChange: "transform, opacity" }}
-        animate={anim}
-        transition={{ duration: CYCLE, times, ease: "easeInOut", repeat: Infinity }}
+        animate={prefersReduced ? undefined : anim}
+        transition={{ duration: FADE, times, ease: "linear", repeat: Infinity }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={asset(card.src)} alt="" className="block w-full" draggable={false} />
@@ -173,12 +136,11 @@ function Partition() {
 function NeuronNode() {
   const prefersReduced = useReducedMotion();
 
-  // Pulse synced to the cycle: gentle breathe, with a stronger bump at the
-  // process beat (~0.46→0.50) as the last signal is absorbed and decisions form.
-  const pulseTimes = [0, 0.44, 0.5, 0.56, 1];
-  const nodeTransition = {
-    duration: CYCLE,
-    times: pulseTimes,
+  // The node pulses as it processes — a stronger bump at mid-cycle, when the
+  // signals finish absorbing and the decisions start emerging.
+  const breathe = {
+    duration: FADE,
+    times: [0, 0.42, 0.5, 0.58, 1],
     repeat: Infinity,
     ease: "easeInOut" as const,
   };
@@ -197,13 +159,13 @@ function NeuronNode() {
       <motion.span
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400/25 blur-3xl"
         style={{ width: cq(150), height: cq(150) }}
-        animate={prefersReduced ? undefined : { opacity: [0.55, 0.75, 1, 0.75, 0.55], scale: [1, 1.06, 1.18, 1.06, 1] }}
-        transition={nodeTransition}
+        animate={prefersReduced ? undefined : { opacity: [0.55, 0.7, 1, 0.7, 0.55], scale: [1, 1.06, 1.18, 1.06, 1] }}
+        transition={breathe}
       />
       <motion.div
         className="relative"
         animate={prefersReduced ? undefined : { scale: [1, 1.03, 1.1, 1.03, 1] }}
-        transition={nodeTransition}
+        transition={breathe}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={asset("animation-logo.svg")} alt="" className="block w-full" draggable={false} />
@@ -213,7 +175,7 @@ function NeuronNode() {
 }
 
 /* ─────────────────────────────────────────────────────
-   HeroFlow — desktop canvas, straight-line train
+   HeroFlow — desktop canvas
    ───────────────────────────────────────────────────── */
 
 export default function HeroFlow() {
@@ -243,13 +205,13 @@ export default function HeroFlow() {
       <Partition />
 
       {INPUT_CARDS.map((card, i) => (
-        <FlowCard key={`input-${i}`} card={card} kind="input" index={i} cw={width} />
+        <FlowCard key={`input-${i}`} card={card} kind="input" cw={width} />
       ))}
 
       <NeuronNode />
 
       {OUTPUT_CARDS.map((card, i) => (
-        <FlowCard key={`output-${i}`} card={card} kind="output" index={i} cw={width} />
+        <FlowCard key={`output-${i}`} card={card} kind="output" cw={width} />
       ))}
     </div>
   );
