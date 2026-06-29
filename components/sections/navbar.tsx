@@ -115,6 +115,9 @@ export default function Navbar() {
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
+  const resourcesRef = useRef<HTMLDivElement>(null);
 
   // Solutions mega-menu: hover opens it; clicking the trigger "locks" it open
   // (survives mouse-leave); clicking a link or outside closes it.
