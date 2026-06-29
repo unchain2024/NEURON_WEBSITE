@@ -40,7 +40,7 @@ const OUTPUT_CARDS: Card[] = [
 ];
 
 /* One shared cycle drives the whole flow. Tunable in one place. */
-const FADE = 6; // seconds for one signals-in → decisions-out cycle
+const FADE = 4.5; // seconds for one signals-in → decisions-out cycle
 const OUT_DRIFT = 120; // viewBox units the right cards drift further right as they fade
 
 // Left cards: hold at slot → slide into the logo + fade out (first half).
