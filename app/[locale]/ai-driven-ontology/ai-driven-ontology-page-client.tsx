@@ -365,10 +365,10 @@ export default function AiDrivenOntologyPageClient() {
 
           <div className="mt-10 grid gap-10 border-t border-[#E9EAEB] pt-12 sm:grid-cols-3">
             {metrics.map((m) => (
-              <div key={m.label}>
+              <div key={m.label} className="text-center">
                 <div
-                  className="text-[64px] leading-none text-[#15A06B]"
-                  style={{ fontFamily: DISPLAY_FONT, fontWeight: 400 }}
+                  className="text-[80px] leading-none text-[#15A06B]"
+                  style={{ fontFamily: DISPLAY_FONT, fontWeight: 700 }}
                 >
                   {m.value}
                 </div>

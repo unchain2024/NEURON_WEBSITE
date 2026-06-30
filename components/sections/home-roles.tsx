@@ -23,7 +23,7 @@ export default function HomeRoles() {
   const isJa = useLocale() === "ja";
 
   return (
-    <section className="section-padding bg-white">
+    <section className="pb-20 md:pb-28 lg:pb-32 bg-white">
       <SectionReveal>
         <div className="section-container">
           {/* Header: badge + headline (left), CTA button (right) */}

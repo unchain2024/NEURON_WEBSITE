@@ -12,7 +12,7 @@ const HEADLINE_FONT = {
 
 type FooterLink = {
   key: string;
-  href: string | { ja: string; en: string };
+  href?: string | { ja: string; en: string };
   external?: boolean;
 };
 
@@ -23,8 +23,8 @@ const FOOTER_STRUCTURE: { titleKey: string; links: FooterLink[] }[] = [
   {
     titleKey: "col1Title", // Product
     links: [
-      { key: "col1Link1", href: "/product" }, // Features → Product
-      { key: "col1Link2", href: "/why-neuron" },
+      { key: "col1Link1" }, // Features → href TBD
+      { key: "col1Link2", href: "/ai-driven-ontology" }, // Why NEURON
       { key: "col1Link3", href: "/integrations" },
       { key: "col1Link4", href: "/pricing" },
     ],
@@ -32,7 +32,14 @@ const FOOTER_STRUCTURE: { titleKey: string; links: FooterLink[] }[] = [
   {
     titleKey: "col2Title", // Company
     links: [
-      { key: "col2Link1", href: "/company" }, // About
+      {
+        key: "col2Link1", // About
+        external: true,
+        href: {
+          ja: "https://www.the-unchain.com",
+          en: "https://www.the-unchain.com/en",
+        },
+      },
       { key: "col3Link2", href: "/blog" }, // Blog
       { key: "col2Link3", href: "/company#careers" }, // Careers
       { key: "col2Link4", href: "/get-demo" }, // Contact
@@ -55,7 +62,10 @@ const FOOTER_STRUCTURE: { titleKey: string; links: FooterLink[] }[] = [
   },
 ];
 
-function resolveHref(href: string | { ja: string; en: string }, locale: string): string {
+function resolveHref(
+  href: string | { ja: string; en: string },
+  locale: string,
+): string {
   if (typeof href === "string") return href;
   return locale === "en" ? href.en : href.ja;
 }
@@ -84,10 +94,16 @@ export default function Footer() {
                 </h4>
                 <ul className="space-y-3">
                   {column.links.map((link) => {
-                    const resolved = resolveHref(link.href, locale);
+                    const resolved = link.href
+                      ? resolveHref(link.href, locale)
+                      : null;
                     return (
                       <li key={link.key}>
-                        {link.external ? (
+                        {!resolved ? (
+                          <span className="text-sm text-[#414651]">
+                            {t(link.key)}
+                          </span>
+                        ) : link.external ? (
                           <a
                             href={resolved}
                             target="_blank"

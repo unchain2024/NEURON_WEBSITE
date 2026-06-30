@@ -9,11 +9,10 @@ import { cn } from "@/lib/utils";
 const INTERVAL = 6000; // ms between auto-advances
 
 /* Two testimonials, both translatable via the `Testimonials` namespace.
-   Slide 2 reuses the same source photo, mirrored and emerald-graded so it
-   reads as a distinct branded card. */
+   Each slide has its own photo. */
 const SLIDES = [
-  { quote: "quote1", name: "name1", title: "title1", company: "company1", tint: false },
-  { quote: "quote2", name: "name2", title: "title2", company: "company2", tint: true },
+  { quote: "quote1", name: "name1", title: "title1", company: "company1", src: "/testimonial.jpg" },
+  { quote: "quote2", name: "name2", title: "title2", company: "company2", src: "/testimonial2.jpg" },
 ];
 
 export default function Testimonials() {
@@ -49,19 +48,10 @@ export default function Testimonials() {
                 <div className="overflow-hidden rounded-md bg-[#4B6148]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/testimonial.jpg"
+                    src={slide.src}
                     alt=""
                     aria-hidden
                     className="aspect-[395/300] h-full w-full object-cover md:aspect-[395/476]"
-                    style={
-                      slide.tint
-                        ? {
-                            transform: "scaleX(-1)",
-                            filter:
-                              "sepia(0.55) hue-rotate(78deg) saturate(1.7) brightness(0.92) contrast(1.05)",
-                          }
-                        : undefined
-                    }
                   />
                 </div>
 

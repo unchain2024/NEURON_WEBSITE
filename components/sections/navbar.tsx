@@ -17,6 +17,7 @@ import {
 } from "@/components/solutions-icons";
 
 const MotionLink = motion.create(Link);
+const MotionA = motion.a;
 
 /* Match the hero headline's typeface across the nav. */
 const HEADLINE_FONT = {
@@ -100,11 +101,22 @@ const SOLUTION_CATEGORIES = [
   },
 ] as const;
 
-const NAV_LINK_KEYS = [
+const COMPANY_URLS = {
+  ja: "https://www.the-unchain.com",
+  en: "https://www.the-unchain.com/en",
+} as const;
+
+type NavLink = {
+  key: string;
+  href: string;
+  external?: boolean;
+};
+
+const NAV_LINK_KEYS: readonly NavLink[] = [
   { key: "integrations", href: "/integrations" },
   { key: "pricing", href: "/pricing" },
-  { key: "company", href: "/company" },
-] as const;
+  { key: "company", href: "", external: true },
+];
 
 export default function Navbar() {
   const t = useTranslations("Nav");
@@ -249,19 +261,36 @@ export default function Navbar() {
               />
             </motion.button>
 
-            {NAV_LINK_KEYS.map((link, i) => (
-              <MotionLink
-                key={link.key}
-                href={link.href}
-                className="text-sm text-text-secondary hover:text-slate-900 transition-colors relative group"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15 + i * 0.05 }}
-              >
-                {t(link.key)}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
-              </MotionLink>
-            ))}
+            {NAV_LINK_KEYS.map((link, i) => {
+              const sharedProps = {
+                className:
+                  "text-sm text-text-secondary hover:text-slate-900 transition-colors relative group",
+                initial: { opacity: 0, y: -10 },
+                animate: { opacity: 1, y: 0 },
+                transition: { delay: 0.15 + i * 0.05 },
+              };
+              const content = (
+                <>
+                  {t(link.key)}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#0A0D12] group-hover:w-full transition-all duration-300" />
+                </>
+              );
+              return link.external ? (
+                <MotionA
+                  key={link.key}
+                  href={COMPANY_URLS[locale === "en" ? "en" : "ja"]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  {...sharedProps}
+                >
+                  {content}
+                </MotionA>
+              ) : (
+                <MotionLink key={link.key} href={link.href} {...sharedProps}>
+                  {content}
+                </MotionLink>
+              );
+            })}
           </div>
 
           {/* Desktop CTAs */}
@@ -371,19 +400,31 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                {NAV_LINK_KEYS.map((link, i) => (
-                  <MotionLink
-                    key={link.key}
-                    href={link.href}
-                    className="block text-text-secondary hover:text-slate-900 transition-colors py-2"
-                    onClick={() => setMobileOpen(false)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                  >
-                    {t(link.key)}
-                  </MotionLink>
-                ))}
+                {NAV_LINK_KEYS.map((link, i) => {
+                  const sharedProps = {
+                    className:
+                      "block text-text-secondary hover:text-slate-900 transition-colors py-2",
+                    onClick: () => setMobileOpen(false),
+                    initial: { opacity: 0, x: -20 },
+                    animate: { opacity: 1, x: 0 },
+                    transition: { delay: i * 0.05 },
+                  };
+                  return link.external ? (
+                    <MotionA
+                      key={link.key}
+                      href={COMPANY_URLS[locale === "en" ? "en" : "ja"]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      {...sharedProps}
+                    >
+                      {t(link.key)}
+                    </MotionA>
+                  ) : (
+                    <MotionLink key={link.key} href={link.href} {...sharedProps}>
+                      {t(link.key)}
+                    </MotionLink>
+                  );
+                })}
 
                 <div className="pt-4 border-t border-border/40 space-y-3">
                   <button

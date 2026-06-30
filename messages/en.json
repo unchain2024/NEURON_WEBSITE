@@ -310,6 +310,13 @@
     "cta": "Book a demo now",
     "note": "Or download the overview."
   },
+  "HomeArchetype": {
+    "heading": "How do you make decisions when it matters most?",
+    "subheading": "A 3-minute experiment exploring the patterns behind how managers lead, challenge ideas, and navigate uncertainty.",
+    "stat1": "24 questions",
+    "stat2": "16 archetypes",
+    "cta": "Find your archetype"
+  },
   "Footer": {
     "tagline": "NEURON — your organization's second brain.",
     "copyright": "© 2026 NEURON. All rights reserved.",
