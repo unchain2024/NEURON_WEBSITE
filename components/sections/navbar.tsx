@@ -240,6 +240,18 @@ export default function Navbar() {
 
           {/* Desktop Nav — centered */}
           <div className="hidden md:flex flex-1 items-center justify-center gap-8" style={HEADLINE_FONT}>
+            {/* How Neuron Works — redirects to the AI-Driven Ontology page */}
+            <MotionLink
+              href="/ai-driven-ontology"
+              className="text-sm text-text-secondary hover:text-slate-900 transition-colors relative group"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.08 }}
+            >
+              {t("howNeuronWorks")}
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#0A0D12] group-hover:w-full transition-all duration-300" />
+            </MotionLink>
+
             {/* Solutions — full-width mega-menu trigger */}
             <motion.button
               type="button"
@@ -367,6 +379,15 @@ export default function Navbar() {
               className="md:hidden glass-nav border-t border-border/40 overflow-hidden"
             >
               <div className="px-4 pb-6 pt-4 space-y-4" style={HEADLINE_FONT}>
+                {/* How Neuron Works — redirects to the AI-Driven Ontology page */}
+                <Link
+                  href="/ai-driven-ontology"
+                  className="block text-text-secondary hover:text-slate-900 transition-colors py-2"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {t("howNeuronWorks")}
+                </Link>
+
                 {/* Solutions + its sublinks */}
                 <div>
                   <Link
