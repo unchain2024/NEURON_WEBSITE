@@ -14,18 +14,17 @@ const DISPLAY_FONT = 'var(--font-inter), "Inter Display", Inter, sans-serif';
    grid (matching their widths) lines their heights up exactly.
    Row 1: 450 | 614, row 2: 614 | 450.
 
-   EN cards are self-contained SVGs with the title + body baked into the bottom
-   of the card. The JA exports (`*-ja.svg`) are illustration-only (the same card
-   minus that text band), so for JA we render the illustration and lay the
-   localized title/body below it as live HTML (Home `cap*Title`/`cap*Body`). */
+   Both locales render the illustration-only export and lay the localized
+   title/body below it as live HTML (Home `cap*Title`/`cap*Body`). The `*-en.svg`
+   / `*-ja.svg` exports are the same card illustration minus the baked text band. */
 const ROWS = [
   [
-    { src: "/riskradar.svg", jaSrc: "/riskradar-ja.svg", key: "cap1", alt: "Risk radar — NEURON detects risks across conversations, meetings, and tasks before they escalate." },
-    { src: "/decisionmemory.svg", jaSrc: "/decisionmemory-ja.svg", key: "cap2", alt: "Decision memory — every decision is captured automatically with its reasoning and outcome connected." },
+    { enSrc: "/riskradar-en.svg", jaSrc: "/riskradar-ja.svg", key: "cap1" },
+    { enSrc: "/decisionmemory-en.svg", jaSrc: "/decisionmemory-ja.svg", key: "cap2" },
   ],
   [
-    { src: "/context.svg", jaSrc: "/context-ja.svg", key: "cap3", alt: "Context on every task — background, past decisions, dependencies, and the right person to ask are already there." },
-    { src: "/ask.svg", jaSrc: "/ask-ja.svg", key: "cap4", alt: "Ask anything — get answers backed by real organizational context." },
+    { enSrc: "/context-en.svg", jaSrc: "/context-ja.svg", key: "cap3" },
+    { enSrc: "/ask-en.svg", jaSrc: "/ask-ja.svg", key: "cap4" },
   ],
 ] as const;
 
@@ -48,12 +47,12 @@ export default function HomeCapabilities() {
               {t("capBadge")}
             </span>
             <h2
-              className="whitespace-nowrap text-slate-900"
+              className="text-slate-900"
               style={{
                 fontFamily: DISPLAY_FONT,
                 fontOpticalSizing: "auto",
                 fontWeight: 500,
-                fontSize: 40,
+                fontSize: "clamp(1.75rem, 6vw, 2.5rem)",
                 lineHeight: "110%",
                 letterSpacing: 0,
                 textAlign: "center",
@@ -62,16 +61,16 @@ export default function HomeCapabilities() {
               {t("capHeading")}
             </h2>
             <p
-              className="mx-auto mt-5 max-w-4xl text-text-secondary"
+              className="mx-auto mt-5 max-w-3xl text-text-secondary"
               style={{
                 fontFamily: DISPLAY_FONT,
                 fontOpticalSizing: "auto",
                 fontWeight: 400,
-                fontSize: 16,
+                fontSize: "clamp(0.875rem, 3.5vw, 1rem)",
                 lineHeight: "140%",
                 letterSpacing: 0,
-                textAlign: "center",
-                whiteSpace: "pre-line",
+                textAlign: "justify",
+                textJustify: "inter-word",
               }}
             >
               {t("capSubheading")}
@@ -85,37 +84,47 @@ export default function HomeCapabilities() {
             <SectionReveal key={i}>
               <MotionDiv variants={fadeInUp}>
                 <div className={`grid grid-cols-1 items-stretch gap-6 ${ROW_COLS[i]}`}>
-                  {row.map((card) =>
-                    isJa ? (
-                      <div
-                        key={card.src}
-                        className="flex h-full flex-col overflow-hidden rounded-lg border border-[#E9EAEB] bg-white"
-                      >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={card.jaSrc}
-                          alt={t(`${card.key}Title` as "cap1Title")}
-                          className="block h-auto w-full"
-                        />
-                        <div className="flex flex-1 flex-col px-7 pb-8 pt-5">
-                          <h3 className="text-2xl font-semibold text-[#0A0D12]">
-                            {t(`${card.key}Title` as "cap1Title")}
-                          </h3>
-                          <p className="mt-3 text-[15px] leading-relaxed text-[#535862]">
-                            {t(`${card.key}Body` as "cap1Body")}
-                          </p>
-                        </div>
-                      </div>
-                    ) : (
-                      /* eslint-disable-next-line @next/next/no-img-element */
+                  {row.map((card) => (
+                    <div
+                      key={card.key}
+                      className="flex h-full flex-col overflow-hidden rounded-lg border border-[#E9EAEB] bg-white"
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        key={card.src}
-                        src={card.src}
-                        alt={card.alt}
+                        src={isJa ? card.jaSrc : card.enSrc}
+                        alt={t(`${card.key}Title` as "cap1Title")}
                         className="block h-auto w-full"
                       />
-                    )
-                  )}
+                      <div className="flex flex-1 flex-col px-7 pb-8 pt-5">
+                        <h3
+                          className="text-[#0A0D12]"
+                          style={{
+                            fontFamily: DISPLAY_FONT,
+                            fontOpticalSizing: "auto",
+                            fontWeight: 500,
+                            fontSize: 20,
+                            lineHeight: "110%",
+                            letterSpacing: 0,
+                          }}
+                        >
+                          {t(`${card.key}Title` as "cap1Title")}
+                        </h3>
+                        <p
+                          className="mt-3 text-[#535862]"
+                          style={{
+                            fontFamily: DISPLAY_FONT,
+                            fontOpticalSizing: "auto",
+                            fontWeight: 400,
+                            fontSize: 14,
+                            lineHeight: "100%",
+                            letterSpacing: 0,
+                          }}
+                        >
+                          {t(`${card.key}Body` as "cap1Body")}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </MotionDiv>
             </SectionReveal>

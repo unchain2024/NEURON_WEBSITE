@@ -89,8 +89,14 @@ export default function HowItWorks() {
                       type="button"
                       onClick={() => goToStep(i)}
                       aria-current={isActive}
-                      className="block w-full border-t border-slate-200 py-5 text-left"
+                      className="relative block w-full border-t border-slate-200 py-5 text-left"
                     >
+                      {/* The step separator fills black left→right as you progress
+                          through the active step (replaces the old underline). */}
+                      <motion.span
+                        className="absolute inset-x-0 -top-px h-0.5 origin-left bg-[#0A0D12]"
+                        style={{ scaleX: isActive ? lineProgress : 0 }}
+                      />
                       <div className="flex gap-4">
                         <span className="pt-0.5 text-sm font-medium tabular-nums text-[#A4A7AE]">
                           0{i + 1}
@@ -110,10 +116,6 @@ export default function HowItWorks() {
                               <p className="pt-2 text-sm leading-relaxed text-[#414651]">
                                 {t(`${step.key}Description` as "step1Description")}
                               </p>
-                              <motion.span
-                                className="mt-4 block h-0.5 w-full origin-left rounded-full bg-[#0A0D12]"
-                                style={{ scaleX: isActive ? lineProgress : 0 }}
-                              />
                             </div>
                           </div>
                         </div>

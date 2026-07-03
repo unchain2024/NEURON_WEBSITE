@@ -23,7 +23,7 @@ export default function HomeSecurityStrip() {
                 fontFamily: DISPLAY_FONT,
                 fontOpticalSizing: "auto",
                 fontWeight: 500,
-                fontSize: 40,
+                fontSize: "clamp(1.75rem, 6vw, 2.5rem)",
                 lineHeight: "110%",
                 letterSpacing: 0,
                 textAlign: "center",
@@ -32,12 +32,12 @@ export default function HomeSecurityStrip() {
               {t("securityHeading")}
             </h2>
             <p
-              className="mx-auto mt-4 whitespace-nowrap text-text-secondary"
+              className="mx-auto mt-4 text-text-secondary"
               style={{
                 fontFamily: DISPLAY_FONT,
                 fontOpticalSizing: "auto",
                 fontWeight: 400,
-                fontSize: 16,
+                fontSize: "clamp(0.875rem, 3.5vw, 1rem)",
                 lineHeight: "140%",
                 letterSpacing: 0,
                 textAlign: "center",

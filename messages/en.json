@@ -108,8 +108,8 @@
     "capBadge": "Capabilities",
     "capHeading": "Four things your second brain does for you",
     "capSubheading": "Hundreds of decisions are made every week, but most are never connected or preserved. Questions resurface,\nmistakes repeat, and valuable knowledge walks out the door with people.",
-    "cap1Title": "Risk radar.",
-    "cap1Body": "NEURON watches the signals across your conversations, meeting notes, and task updates and flags risk before it becomes a fire — each alert with severity, what it affects, why it matters now, and the related history.",
+    "cap1Title": "Risk radar",
+    "cap1Body": "Neuron detects risks across conversations, meetings, and tasks before they escalate with context, impact, and history.",
     "cap1Image": "Signals",
     "cap2Title": "Decision memory.",
     "cap2Body": "Every decision is captured automatically, with its reasoning and outcome attached and connected. Full traceability, zero manual logging.",
@@ -393,6 +393,8 @@
       "readonly": "Read-only by default",
       "minutes": "Connects in minutes"
     },
+    "cloudTitle": "Connected to 100+ software your team already uses",
+    "cloudSubtitle": "Including Microsoft 365, Google Workspace, Slack, Notion, Linear, and more.",
     "categories": {
       "communication": {
         "title": "Communication",
@@ -1323,7 +1325,7 @@
     "heading": "Searching your docs isn't the same as\nunderstanding your business",
     "subheading": "Wikis store information. AI search finds similar text. Neuron understands how decisions connect to causes,\ndependencies, and outcomes.",
     "legacyLabel": "Wikis & AI search",
-    "neuronLabel": "NEURON",
+    "neuronLabel": "Neuron",
     "row1Legacy": "You search after a problem appears",
     "row1Neuron": "You're warned before the problem grows",
     "row2Legacy": "No record of who decided what, or why",

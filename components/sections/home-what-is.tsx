@@ -14,45 +14,26 @@ export default function HomeWhatIs() {
   const t = useTranslations("Home");
   const isJa = useLocale() === "ja";
 
-  /* EN still ships the whole section as one baked artwork (Section.svg). We only
-     overlay a real link on the baked "How it works" button so it routes to the
-     AI-Driven Ontology page. (No standalone EN mockup export exists yet to drive
-     the HTML layout used for JA below.) */
-  if (!isJa) {
-    return (
-      <section id="what-is" className="relative overflow-hidden bg-[#0A0D12]">
-        <SectionReveal>
-          <MotionDiv variants={fadeInUp} className="relative">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/Section.svg"
-              alt="What is NEURON — the AI-driven ontology that turns decisions into a connected layer"
-              width={1440}
-              height={1092}
-              className="block h-auto w-full"
-            />
-            <Link
-              href={ONTOLOGY_HREF}
-              aria-label={t("whatIsLinkCta")}
-              className="absolute cursor-pointer rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-              style={{
-                left: `${(1104.5 / 1440) * 100}%`,
-                top: `${(968.5 / 1092) * 100}%`,
-                width: `${(155 / 1440) * 100}%`,
-                height: `${(43 / 1092) * 100}%`,
-              }}
-            />
-          </MotionDiv>
-        </SectionReveal>
-      </section>
-    );
-  }
+  /* Both locales render live HTML over the dark background; only the product
+     mockup is an image, swapped by locale (copy is baked into each export). */
+  const mockupSrc = isJa ? "/risk-details-jp.svg" : "/risk-details-en.svg";
 
-  /* JA: live HTML over the same dark background, with the localized mockup. */
   return (
-    <section id="what-is" className="section-padding bg-[#0A0D12]">
+    <section
+      id="what-is"
+      className="section-padding relative overflow-hidden bg-[#0A0D12]"
+    >
+      {/* Soft spotlight glow over the flat dark base (matches the design shade) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(120% 90% at 55% 0%, rgba(120,128,140,0.28) 0%, rgba(60,66,76,0.14) 32%, rgba(10,13,18,0) 65%)",
+        }}
+      />
       <SectionReveal>
-        <div className="section-container">
+        <div className="section-container relative z-10">
           <MotionDiv variants={fadeInUp}>
             <span className="inline-flex h-8 items-center rounded-full border border-white/15 bg-white/5 px-4 text-sm font-medium text-white">
               {t("whatIsBadge")}
@@ -79,7 +60,7 @@ export default function HomeWhatIs() {
           <MotionDiv variants={fadeInUp} className="mt-12">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/risk-details-jp.svg"
+              src={mockupSrc}
               alt={t("whatIsImage")}
               width={1080}
               height={632}

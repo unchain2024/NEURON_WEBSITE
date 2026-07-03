@@ -23,7 +23,6 @@ const FOOTER_STRUCTURE: { titleKey: string; links: FooterLink[] }[] = [
   {
     titleKey: "col1Title", // Product
     links: [
-      { key: "col1Link1" }, // Features → href TBD
       { key: "col1Link2", href: "/ai-driven-ontology" }, // Why NEURON
       { key: "col1Link3", href: "/integrations" },
       { key: "col1Link4", href: "/pricing" },
@@ -41,7 +40,6 @@ const FOOTER_STRUCTURE: { titleKey: string; links: FooterLink[] }[] = [
         },
       },
       { key: "col3Link2", href: "/blog" }, // Blog
-      { key: "col2Link3", href: "/company#careers" }, // Careers
       { key: "col2Link4", href: "/get-demo" }, // Contact
     ],
   },

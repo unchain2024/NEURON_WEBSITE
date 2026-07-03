@@ -239,7 +239,7 @@ function CSOntology({ k }: { k: string }) {
     <section className="bg-white py-12 md:py-16">
       <SectionReveal className="relative mx-auto hidden w-[96%] max-w-[1800px] overflow-hidden rounded-2xl md:block [container-type:inline-size]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/case-studies/it3-section.webp" alt="" className="block h-auto w-full" />
+        <img src="/case-studies/it3-clean.svg" alt="" className="block h-auto w-full" />
         <div className="absolute" style={{ left: "7.1%", top: "13.5%", width: "28%" }}>
           <span
             className="inline-flex items-center rounded-full border border-[#E9EAEB] bg-white font-medium text-[#0A0D12]"
@@ -247,29 +247,35 @@ function CSOntology({ k }: { k: string }) {
           >
             {s("ontologyEyebrow")}
           </span>
-          <h2 className="text-[#0A0D12]" style={{ ...HEADLINE_FONT, fontSize: "2.7cqw", lineHeight: 1.13, marginTop: "1.7cqw" }}>
+          <h2 className="text-[#0A0D12]" style={{ ...HEADLINE_FONT, fontSize: "2.7cqw", lineHeight: 1.13, marginTop: "1.4cqw" }}>
             {t("title")}
           </h2>
-          <p className="text-[#535862]" style={{ fontSize: "1.07cqw", lineHeight: 1.6, marginTop: "2.1cqw" }}>
+          {/* Body scales with the container; sized + spaced so even the longest
+              case-study body (automotive) stays inside the baked card. */}
+          <p
+            className="text-[#535862]"
+            style={{ fontSize: "0.92cqw", lineHeight: 1.5, marginTop: "1.5cqw", textAlign: "justify", textJustify: "inter-word" }}
+          >
             {t("body")}
           </p>
         </div>
       </SectionReveal>
 
-      {/* Mobile */}
+      {/* Mobile — compact, left-aligned (justify only reads well on the wide
+          desktop card; on narrow screens it creates large word gaps). */}
       <div className="section-container md:hidden">
-        <div className="overflow-hidden rounded-2xl bg-gradient-to-b from-white to-[#E6E6E6] p-6">
-          <div className="rounded-xl border border-white/70 bg-white/50 p-6 backdrop-blur-sm">
+        <div className="overflow-hidden rounded-2xl bg-gradient-to-b from-white to-[#E6E6E6] p-4 sm:p-6">
+          <div className="rounded-xl border border-white/70 bg-white/50 p-5 backdrop-blur-sm">
             <span className="inline-flex items-center rounded-full border border-[#E9EAEB] bg-white px-3.5 py-1.5 text-[13px] font-medium text-[#0A0D12]">
               {s("ontologyEyebrow")}
             </span>
-            <h2 className="mt-5 text-3xl leading-[1.12] text-[#0A0D12]" style={HEADLINE_FONT}>
+            <h2 className="mt-4 text-2xl leading-[1.15] text-[#0A0D12] sm:text-[28px]" style={HEADLINE_FONT}>
               {t("title")}
             </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-[#535862]">{t("body")}</p>
+            <p className="mt-4 text-left text-[15px] leading-relaxed text-[#535862]">{t("body")}</p>
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/case-studies/it3-ontology.webp" alt={t("title")} className="mt-6 h-auto w-full" />
+          <img src="/case-studies/it3-ontology-clean.svg" alt={t("title")} className="mt-6 h-auto w-full" />
         </div>
       </div>
     </section>
@@ -420,7 +426,7 @@ function CSCta() {
     <section className="bg-white py-12 md:py-16">
       <div className="mx-auto w-[96%] max-w-[1800px]">
         <SectionReveal>
-          <div className="relative hidden overflow-hidden rounded-2xl md:block [container-type:inline-size]">
+          <div className="relative hidden overflow-hidden rounded-2xl lg:block [container-type:inline-size]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/case-studies/it6-bg.jpg" alt="" className="block h-auto w-full" />
             <div
@@ -456,10 +462,10 @@ function CSCta() {
               style={{ left: "73.94%", top: "31.90%", width: "11.26%", height: "40.71%" }}
             />
             <div className="absolute" style={{ left: "6.5%", top: "50%", transform: "translateY(-50%)", width: "46%" }}>
-              <h2 className="text-white" style={{ ...HEADLINE_FONT, fontSize: "2.55cqw", lineHeight: 1.12 }}>
+              <h2 className="text-[#0A0D12]" style={{ ...HEADLINE_FONT, fontSize: "2.55cqw", lineHeight: 1.12 }}>
                 {s("title")}
               </h2>
-              <p className="text-white/85" style={{ fontSize: "1.05cqw", lineHeight: 1.55, marginTop: "1.4cqw", maxWidth: "26cqw" }}>
+              <p className="text-[#0A0D12]/85" style={{ fontSize: "1.05cqw", lineHeight: 1.55, marginTop: "1.4cqw", maxWidth: "26cqw" }}>
                 {s("body")}
               </p>
               <Link
@@ -472,22 +478,62 @@ function CSCta() {
             </div>
           </div>
 
-          {/* Mobile */}
-          <div className="md:hidden">
-            <div className="relative overflow-hidden rounded-2xl">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/case-studies/it6-bg.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
-              <div className="relative p-7">
-                <h2 className="text-2xl leading-tight text-white" style={HEADLINE_FONT}>
+          {/* Mobile — light text section on top, green brain/rings image below
+              (per wireframe). Desktop banner above is unchanged. */}
+          <div className="relative overflow-hidden rounded-2xl border border-[#E9EAEB] lg:hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/case-studies/it6-bg.jpg"
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-3/4"
+              style={{ background: "linear-gradient(180deg, #F3F7F3 0%, rgba(243,247,243,0.82) 45%, rgba(243,247,243,0) 100%)" }}
+            />
+            <div className="relative">
+              <div className="px-6 pt-6">
+                <h2 className="text-[26px] leading-tight text-[#0A0D12]" style={HEADLINE_FONT}>
                   {s("title")}
                 </h2>
-                <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/85">{s("body")}</p>
+                <p className="mt-3 text-sm leading-relaxed text-[#414651]">{s("body")}</p>
                 <Link
                   href="/get-demo"
-                  className="mt-5 inline-flex items-center rounded-full bg-[#0A0D12] px-5 py-2.5 text-sm font-medium text-white"
+                  className="mt-6 flex w-full items-center justify-center rounded-full bg-[#0A0D12] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#0A0D12]/90"
                 >
                   {s("button")}
                 </Link>
+              </div>
+              <div className="relative mt-4 h-56">
+                <svg
+                  viewBox="0 0 320 320"
+                  preserveAspectRatio="xMidYMid slice"
+                  className="pointer-events-none absolute inset-0 h-full w-full"
+                  aria-hidden="true"
+                >
+                  <g stroke="white" opacity="0.55">
+                    <line x1="160" y1="-40" x2="160" y2="360" strokeWidth="0.8" strokeDasharray="3 3" />
+                    <line x1="-40" y1="160" x2="360" y2="160" strokeWidth="0.8" strokeDasharray="3 3" />
+                  </g>
+                  <g fill="none" stroke="white">
+                    <circle cx="160" cy="160" r="58" strokeOpacity="0.5" strokeWidth="1" />
+                    <circle cx="160" cy="160" r="102" strokeOpacity="0.3" strokeWidth="1" />
+                    <circle cx="160" cy="160" r="146" strokeOpacity="0.18" strokeWidth="1" />
+                  </g>
+                  <g fill="white" fillOpacity="0.7">
+                    <circle cx="160" cy="58" r="2.5" />
+                    <circle cx="58" cy="160" r="2.5" />
+                    <circle cx="262" cy="160" r="2.5" />
+                    <circle cx="160" cy="262" r="2.5" />
+                  </g>
+                </svg>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/case-studies/it6-brain.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="pointer-events-none absolute left-1/2 top-1/2 w-[30%] max-w-[130px] -translate-x-1/2 -translate-y-1/2 mix-blend-screen"
+                />
               </div>
             </div>
           </div>

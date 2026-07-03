@@ -1,8 +1,6 @@
 "use client";
 
-import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
 import { ShieldCheck, EyeOff, Zap } from "lucide-react";
 import {
   Accordion,
@@ -11,65 +9,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
-
-type Item = { key: string; logo: string };
-type Category = { key: string; items: Item[]; boxed?: boolean };
-
-const CATEGORIES: Category[] = [
-  {
-    key: "communication",
-    items: [
-      { key: "slack", logo: "/logos/slack.svg" },
-      { key: "chatwork", logo: "/logos/chatwork.svg" },
-      { key: "lineworks", logo: "/logos/line.svg" },
-      { key: "teams", logo: "/logos/teams.svg" },
-    ],
-  },
-  {
-    key: "projectTracking",
-    items: [
-      { key: "jira", logo: "/logos/jira.svg" },
-      { key: "linear", logo: "/logos/linear.svg" },
-      { key: "asana", logo: "/logos/asana.svg" },
-      { key: "monday", logo: "/logos/monday.svg" },
-    ],
-  },
-  {
-    key: "docs",
-    items: [
-      { key: "notion", logo: "/logos/notion.svg" },
-      { key: "confluence", logo: "/logos/confluence.svg" },
-      { key: "googleWorkspace", logo: "/logos/google.svg" },
-      { key: "microsoft365", logo: "/logos/microsoft.svg" },
-    ],
-  },
-  {
-    key: "code",
-    items: [
-      { key: "github", logo: "/logos/github.svg" },
-      { key: "figma", logo: "/logos/figma.svg" },
-    ],
-  },
-  {
-    key: "crm",
-    boxed: true,
-    items: [
-      { key: "salesforce", logo: "/logos/salesforce.svg" },
-      { key: "hubspot", logo: "/logos/hubspot.svg" },
-      { key: "servicenow", logo: "/logos/servicenow.svg" },
-      { key: "kintone", logo: "/logos/kintone.svg" },
-      { key: "pagerduty", logo: "/logos/pagerduty.svg" },
-    ],
-  },
-  {
-    key: "meetings",
-    boxed: true,
-    items: [
-      { key: "recallai", logo: "/logos/recallai.svg" },
-      { key: "granola", logo: "/logos/granola.svg" },
-    ],
-  },
-];
+import IntegrationCloud from "@/components/sections/integration-cloud";
 
 const HERO_PILLS = [
   { key: "oauth", Icon: ShieldCheck },
@@ -80,45 +20,6 @@ const HERO_PILLS = [
 interface FaqItem {
   q: string;
   a: string;
-}
-
-function IntegrationCard({
-  item,
-  t,
-}: {
-  item: Item;
-  t: ReturnType<typeof useTranslations>;
-}) {
-  return (
-    <motion.div
-      whileHover={{ y: -3 }}
-      transition={{ type: "spring", stiffness: 300, damping: 22 }}
-      className="group flex min-h-[166px] flex-col rounded-lg border border-[#E9EAEB] bg-white p-6 transition-colors hover:border-primary/40"
-    >
-      <div
-        className="flex h-[60px] w-[60px] items-center justify-center rounded-[14px] transition-transform duration-300 group-hover:scale-105"
-        style={{
-          background: "linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%)",
-        }}
-      >
-        <Image
-          src={item.logo}
-          alt=""
-          width={28}
-          height={28}
-          className="h-7 w-7 object-contain"
-        />
-      </div>
-      <div className="mt-auto pt-5">
-        <h3 className="text-base font-semibold text-[#0A0D12]">
-          {t(`items.${item.key}.name`)}
-        </h3>
-        <p className="mt-1 text-[13px] leading-relaxed text-text-muted">
-          {t(`items.${item.key}.desc`)}
-        </p>
-      </div>
-    </motion.div>
-  );
 }
 
 export default function IntegrationsHub() {
@@ -196,36 +97,8 @@ export default function IntegrationsHub() {
         </div>
       </section>
 
-      {/* ─── Categories ─── */}
-      <section className="bg-slate-50/70 py-16 md:py-24">
-        <div className="section-container space-y-14">
-          {CATEGORIES.map((category) => {
-            const grid = (
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                {category.items.map((item) => (
-                  <IntegrationCard key={item.key} item={item} t={t} />
-                ))}
-              </div>
-            );
-
-            return (
-              <SectionReveal key={category.key}>
-                <MotionDiv variants={fadeInUp}>
-                  <div>
-                    <h2 className="text-[32px] font-medium leading-[1.1] tracking-normal text-[#0A0D12]">
-                      {t(`categories.${category.key}.title`)}
-                    </h2>
-                    <p className="mb-6 mt-2 text-base font-normal leading-[1.4] tracking-normal text-[#414651]">
-                      {t(`categories.${category.key}.subtitle`)}
-                    </p>
-                    {grid}
-                  </div>
-                </MotionDiv>
-              </SectionReveal>
-            );
-          })}
-        </div>
-      </section>
+      {/* ─── Honeycomb logo cloud ─── */}
+      <IntegrationCloud />
 
       {/* ─── FAQ ─── */}
       <section className="section-padding">

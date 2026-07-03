@@ -76,7 +76,7 @@ function HeroHeadline({ onWatchDemo }: { onWatchDemo: () => void }) {
             fontFamily: '"Inter Display", var(--font-inter), sans-serif',
             fontWeight: 500,
             fontStyle: "normal",
-            fontSize: "64px",
+            fontSize: "clamp(2.5rem, 9vw, 64px)",
             lineHeight: "100%",
             letterSpacing: "-0.04em",
             textAlign: "center",

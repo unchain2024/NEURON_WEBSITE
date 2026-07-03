@@ -25,7 +25,7 @@ export default function FinalCTA() {
     <section className="bg-white py-12 md:py-16">
       <div className="mx-auto w-[96%] max-w-[1800px]">
         <SectionReveal>
-          <div className="relative hidden overflow-hidden rounded-2xl md:block [container-type:inline-size]">
+          <div className="relative hidden overflow-hidden rounded-2xl lg:block [container-type:inline-size]">
             {/* Exact green texture background */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/case-studies/it6-bg.jpg" alt="" className="block h-auto w-full" />
@@ -87,13 +87,13 @@ export default function FinalCTA() {
               style={{ left: "6.5%", top: "50%", transform: "translateY(-50%)", width: "50%" }}
             >
               <h2
-                className="text-white"
+                className="text-[#0A0D12]"
                 style={{ ...HEADLINE_FONT, fontSize: "2.55cqw", lineHeight: 1.12 }}
               >
                 {t("heading")}
               </h2>
               <p
-                className="text-white/85"
+                className="text-[#0A0D12]/85"
                 style={{ fontSize: "1.05cqw", lineHeight: 1.55, marginTop: "1.4cqw", maxWidth: "30cqw" }}
               >
                 {t("subheading")}
@@ -106,36 +106,80 @@ export default function FinalCTA() {
                 >
                   {t("cta")}
                 </Link>
-                <span className="text-white/80" style={{ fontSize: "1.02cqw" }}>
+                <span className="text-[#0A0D12]/80" style={{ fontSize: "1.02cqw" }}>
                   {t("note")}
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Mobile: stacked card */}
-          <div className="md:hidden">
-            <div className="relative mt-0 overflow-hidden rounded-2xl">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/case-studies/it6-bg.jpg"
-                alt=""
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="relative p-7">
-                <h2 className="text-2xl leading-tight text-white" style={HEADLINE_FONT}>
+          {/* Mobile/tablet — one unified green-gradient card (per reference):
+              dark text + two full-width buttons on a light wash up top, the
+              brain/rings blended into the green below. Desktop banner unchanged. */}
+          <div className="relative overflow-hidden rounded-2xl border border-[#E9EAEB] lg:hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/case-studies/it6-bg.jpg"
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            {/* Light wash over the top so dark text stays readable, fading into the green */}
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-3/4"
+              style={{ background: "linear-gradient(180deg, #F3F7F3 0%, rgba(243,247,243,0.82) 45%, rgba(243,247,243,0) 100%)" }}
+            />
+            <div className="relative">
+              <div className="px-6 pt-6">
+                <h2 className="text-[26px] leading-tight text-[#0A0D12]" style={HEADLINE_FONT}>
                   {t("heading")}
                 </h2>
-                <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/85">
+                <p className="mt-3 text-sm leading-relaxed text-[#414651]">
                   {t("subheading")}
                 </p>
                 <Link
                   href="/get-demo"
-                  className="mt-5 inline-flex items-center rounded-full bg-[#0A0D12] px-5 py-2.5 text-sm font-medium text-white"
+                  className="mt-6 flex w-full items-center justify-center rounded-full bg-[#0A0D12] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#0A0D12]/90"
                 >
                   {t("cta")}
                 </Link>
-                <p className="mt-3 text-xs text-white/80">{t("note")}</p>
+                <Link
+                  href="/get-demo"
+                  className="mt-3 flex w-full items-center justify-center rounded-full border border-[#E9EAEB] bg-white px-6 py-3.5 text-sm font-semibold text-[#0A0D12] transition-colors hover:bg-white/80"
+                >
+                  {t("note")}
+                </Link>
+              </div>
+              {/* Brain + rings, blended into the green at the bottom */}
+              <div className="relative mt-4 h-56">
+                <svg
+                  viewBox="0 0 320 320"
+                  preserveAspectRatio="xMidYMid slice"
+                  className="pointer-events-none absolute inset-0 h-full w-full"
+                  aria-hidden="true"
+                >
+                  <g stroke="white" opacity="0.55">
+                    <line x1="160" y1="-40" x2="160" y2="360" strokeWidth="0.8" strokeDasharray="3 3" />
+                    <line x1="-40" y1="160" x2="360" y2="160" strokeWidth="0.8" strokeDasharray="3 3" />
+                  </g>
+                  <g fill="none" stroke="white">
+                    <circle cx="160" cy="160" r="58" strokeOpacity="0.5" strokeWidth="1" />
+                    <circle cx="160" cy="160" r="102" strokeOpacity="0.3" strokeWidth="1" />
+                    <circle cx="160" cy="160" r="146" strokeOpacity="0.18" strokeWidth="1" />
+                  </g>
+                  <g fill="white" fillOpacity="0.7">
+                    <circle cx="160" cy="58" r="2.5" />
+                    <circle cx="58" cy="160" r="2.5" />
+                    <circle cx="262" cy="160" r="2.5" />
+                    <circle cx="160" cy="262" r="2.5" />
+                  </g>
+                </svg>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/case-studies/it6-brain.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="pointer-events-none absolute left-1/2 top-1/2 w-[30%] max-w-[130px] -translate-x-1/2 -translate-y-1/2 mix-blend-screen"
+                />
               </div>
             </div>
           </div>

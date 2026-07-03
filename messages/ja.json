@@ -393,6 +393,8 @@
       "readonly": "デフォルトで読み取り専用",
       "minutes": "数分で接続"
     },
+    "cloudTitle": "チームがすでに使っている100以上のソフトウェアと連携",
+    "cloudSubtitle": "Microsoft 365、Google Workspace、Slack、Notion、Linear など。",
     "categories": {
       "communication": {
         "title": "コミュニケーション",
@@ -1323,7 +1325,7 @@
     "heading": "ドキュメントを検索することと、ビジネスを理解することは違う。",
     "subheading": "Wikiは情報を保存します。AI検索は類似したテキストを見つけます。NEURONは、意思決定が原因・依存関係・結果とどうつながっているかを理解します。",
     "legacyLabel": "Wiki・AI検索",
-    "neuronLabel": "NEURON",
+    "neuronLabel": "Neuron",
     "row1Legacy": "問題が起きてから検索する",
     "row1Neuron": "問題が大きくなる前に警告される",
     "row2Legacy": "誰が何をなぜ決めたのか、記録が残らない",

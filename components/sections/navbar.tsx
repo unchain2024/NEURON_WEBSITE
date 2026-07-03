@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Globe, ChevronDown } from "lucide-react";
+import { Menu, X, Globe, ChevronDown, Play } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/navigation";
@@ -127,6 +127,7 @@ export default function Navbar() {
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
 
   // Solutions mega-menu: hover opens it; clicking the trigger "locks" it open
   // (survives mouse-leave); clicking a link or outside closes it.
@@ -243,13 +244,12 @@ export default function Navbar() {
             {/* How Neuron Works — redirects to the AI-Driven Ontology page */}
             <MotionLink
               href="/ai-driven-ontology"
-              className="text-sm text-text-secondary hover:text-slate-900 transition-colors relative group"
+              className="text-sm text-text-secondary hover:text-slate-900 transition-colors"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.08 }}
             >
               {t("howNeuronWorks")}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#0A0D12] group-hover:w-full transition-all duration-300" />
             </MotionLink>
 
             {/* Solutions — full-width mega-menu trigger */}
@@ -276,17 +276,12 @@ export default function Navbar() {
             {NAV_LINK_KEYS.map((link, i) => {
               const sharedProps = {
                 className:
-                  "text-sm text-text-secondary hover:text-slate-900 transition-colors relative group",
+                  "text-sm text-text-secondary hover:text-slate-900 transition-colors",
                 initial: { opacity: 0, y: -10 },
                 animate: { opacity: 1, y: 0 },
                 transition: { delay: 0.15 + i * 0.05 },
               };
-              const content = (
-                <>
-                  {t(link.key)}
-                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#0A0D12] group-hover:w-full transition-all duration-300" />
-                </>
-              );
+              const content = <>{t(link.key)}</>;
               return link.external ? (
                 <MotionA
                   key={link.key}
@@ -378,93 +373,122 @@ export default function Navbar() {
               transition={{ duration: 0.3 }}
               className="md:hidden glass-nav border-t border-border/40 overflow-hidden"
             >
-              <div className="px-4 pb-6 pt-4 space-y-4" style={HEADLINE_FONT}>
-                {/* How Neuron Works — redirects to the AI-Driven Ontology page */}
+              <div
+                className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain px-5 pb-6 pt-1"
+                style={HEADLINE_FONT}
+              >
+                {/* How Neuron Works */}
                 <Link
                   href="/ai-driven-ontology"
-                  className="block text-text-secondary hover:text-slate-900 transition-colors py-2"
+                  className="block border-b border-border/40 py-4 text-[15px] text-slate-900 transition-colors hover:text-slate-600"
                   onClick={() => setMobileOpen(false)}
                 >
                   {t("howNeuronWorks")}
                 </Link>
 
-                {/* Solutions + its sublinks */}
-                <div>
-                  <Link
-                    href="/solutions"
-                    className="block text-text-secondary hover:text-slate-900 transition-colors py-2"
-                    onClick={() => setMobileOpen(false)}
+                {/* Solutions — collapsible dropdown */}
+                <div className="border-b border-border/40">
+                  <button
+                    type="button"
+                    onClick={() => setMobileSolutionsOpen((v) => !v)}
+                    aria-expanded={mobileSolutionsOpen}
+                    className="flex w-full items-center justify-between py-4 text-left text-[15px] text-slate-900 transition-colors hover:text-slate-600"
                   >
                     {t("solutions")}
-                  </Link>
-                  <div className="ml-3 mt-1 space-y-3 border-l border-border/40 pl-3">
-                    {SOLUTION_CATEGORIES.map((cat) => (
-                      <div key={cat.key}>
-                        <div className="flex items-center gap-2 py-1 text-sm font-medium text-slate-900">
-                          <cat.Icon className="h-4 w-4 text-slate-700" />
-                          {tm(cat.key)}
-                        </div>
-                        <div className="ml-6 space-y-0.5">
-                          {cat.items.map((item) => (
-                            <Link
-                              key={item.key}
-                              href={`/solutions/${item.slug}`}
-                              className="block py-1 text-sm text-text-muted hover:text-slate-900 transition-colors"
-                              onClick={() => setMobileOpen(false)}
-                            >
-                              {tm(`items.${item.key}`)}
-                            </Link>
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 text-slate-500 transition-transform duration-300",
+                        mobileSolutionsOpen && "rotate-180"
+                      )}
+                    />
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {mobileSolutionsOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="space-y-3 pb-4 pl-1">
+                          {SOLUTION_CATEGORIES.map((cat) => (
+                            <div key={cat.key}>
+                              <div className="flex items-center gap-2 py-1 text-sm font-medium text-slate-900">
+                                <cat.Icon className="h-4 w-4 text-slate-700" />
+                                {tm(cat.key)}
+                              </div>
+                              <div className="ml-6 space-y-0.5">
+                                {cat.items.map((item) => (
+                                  <Link
+                                    key={item.key}
+                                    href={`/solutions/${item.slug}`}
+                                    className="block py-1 text-sm text-text-muted transition-colors hover:text-slate-900"
+                                    onClick={() => setMobileOpen(false)}
+                                  >
+                                    {tm(`items.${item.key}`)}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
                           ))}
                         </div>
-                      </div>
-                    ))}
-                  </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
-                {NAV_LINK_KEYS.map((link, i) => {
-                  const sharedProps = {
-                    className:
-                      "block text-text-secondary hover:text-slate-900 transition-colors py-2",
-                    onClick: () => setMobileOpen(false),
-                    initial: { opacity: 0, x: -20 },
-                    animate: { opacity: 1, x: 0 },
-                    transition: { delay: i * 0.05 },
-                  };
-                  return link.external ? (
-                    <MotionA
+                {/* Integrations / Pricing / Company */}
+                {NAV_LINK_KEYS.map((link) =>
+                  link.external ? (
+                    <a
                       key={link.key}
                       href={COMPANY_URLS[locale === "en" ? "en" : "ja"]}
                       target="_blank"
                       rel="noopener noreferrer"
-                      {...sharedProps}
+                      className="block border-b border-border/40 py-4 text-[15px] text-slate-900 transition-colors hover:text-slate-600"
                     >
                       {t(link.key)}
-                    </MotionA>
+                    </a>
                   ) : (
-                    <MotionLink key={link.key} href={link.href} {...sharedProps}>
+                    <Link
+                      key={link.key}
+                      href={link.href}
+                      className="block border-b border-border/40 py-4 text-[15px] text-slate-900 transition-colors hover:text-slate-600"
+                      onClick={() => setMobileOpen(false)}
+                    >
                       {t(link.key)}
-                    </MotionLink>
-                  );
-                })}
+                    </Link>
+                  )
+                )}
 
-                <div className="pt-4 border-t border-border/40 space-y-3">
+                {/* Bottom CTAs */}
+                <div className="mt-8 space-y-3">
+                  <Link
+                    href="/get-demo"
+                    className="flex w-full items-center justify-center rounded-full bg-[#0A0D12] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#0A0D12]/90"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {t("bookDemo")}
+                  </Link>
+                  <Link
+                    href="/ai-driven-ontology"
+                    className="flex w-full items-center justify-center gap-2 rounded-full border border-[#E9EAEB] bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-50"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <Play className="h-3.5 w-3.5" fill="currentColor" />
+                    {t("howNeuronWorks")}
+                  </Link>
                   <button
                     onClick={() => {
                       switchLocale();
                       setMobileOpen(false);
                     }}
-                    className="flex items-center gap-2 text-text-secondary hover:text-slate-900 transition-colors py-2 w-full"
+                    className="mt-1 flex w-full items-center justify-center gap-2 py-2 text-sm text-text-secondary transition-colors hover:text-slate-900"
                   >
                     <Globe className="h-4 w-4" />
                     <span>{locale === "ja" ? "English" : "日本語"}</span>
                   </button>
-                  <Link
-                    href="/get-demo"
-                    className="block text-center border border-slate-300 bg-white hover:bg-slate-50 text-slate-900 px-4 py-2.5 rounded-full transition-colors"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {t("bookDemo")}
-                  </Link>
                 </div>
               </div>
             </motion.div>

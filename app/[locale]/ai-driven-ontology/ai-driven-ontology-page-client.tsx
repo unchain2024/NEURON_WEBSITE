@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft, ArrowRight, Info } from "lucide-react";
 import FinalCTA from "@/components/sections/final-cta";
+import { SectionReveal, FadeUpReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
 
 /* "Inter Display" (Figma spec) is Inter at its display optical size; the loaded
    Inter renders that cut at large sizes, so we put it first for determinism. */
@@ -105,7 +106,7 @@ export default function AiDrivenOntologyPageClient() {
           className="overflow-hidden rounded-2xl bg-[#F6F9F6] bg-cover bg-center"
           style={{ backgroundImage: "url(/architecture/hero-bg.svg)" }}
         >
-          <div className="section-container grid items-center gap-8 py-12 md:grid-cols-[minmax(0,460px)_1fr] md:gap-8 md:py-16">
+          <div className="section-container grid items-center gap-8 py-12 md:grid-cols-[minmax(0,460px)_1fr] md:items-start md:gap-8 md:py-16">
           {/* left text card */}
           <div className="z-10 rounded-3xl border border-white/70 bg-white/60 p-8 backdrop-blur-sm md:p-10">
             <Badge>{t("hero.badge")}</Badge>
@@ -148,21 +149,26 @@ export default function AiDrivenOntologyPageClient() {
 
       {/* ── The architectural shift ─────────────────── */}
       <section className="bg-white">
-        <div className="section-container flex flex-col items-center py-20 text-center md:py-28">
-          <Badge>{t("shift.badge")}</Badge>
-          <SectionTitle className="mt-7 max-w-2xl">{t("shift.title")}</SectionTitle>
-          <p
+        <SectionReveal className="section-container flex flex-col items-center py-20 text-center md:py-28">
+          <MotionDiv variants={fadeInUp}>
+            <Badge>{t("shift.badge")}</Badge>
+          </MotionDiv>
+          <MotionDiv variants={fadeInUp}>
+            <SectionTitle className="mt-7 max-w-2xl">{t("shift.title")}</SectionTitle>
+          </MotionDiv>
+          <MotionDiv
+            variants={fadeInUp}
             className="mt-8 max-w-xl text-2xl leading-[1.45] text-[#717680] md:text-[28px]"
             style={{ whiteSpace: "pre-line" }}
           >
             {t("shift.body")}
-          </p>
-        </div>
+          </MotionDiv>
+        </SectionReveal>
       </section>
 
       {/* ── Signal objects (the six things) ─────────── */}
       <section className="bg-white">
-        <div className="section-container py-20 md:py-24">
+        <FadeUpReveal className="section-container py-20 md:py-24">
           <div className="grid gap-6 md:grid-cols-2 md:items-start">
             <div>
               <Badge>{t("signals.badge")}</Badge>
@@ -173,41 +179,46 @@ export default function AiDrivenOntologyPageClient() {
             </p>
           </div>
 
-          {/* Table: Object | What it captures | Real example (highlighted) */}
-          <div className="mt-12 hidden md:block">
-            <div className="flex">
-              {/* left two columns */}
-              <div className="flex-1">
-                <div className="grid grid-cols-[200px_1fr] border-b border-[#E9EAEB] px-1 py-4 text-sm font-medium text-[#0A0D12]">
-                  <span>{t("signals.colObject")}</span>
-                  <span>{t("signals.colCaptures")}</span>
+          {/* Table — exact rebuild of the design SVG (1080×460). A left card
+              (Object / What it captures, gray border, shaded header, rounded on
+              the left only) sits flush against a taller "Real example" card that
+              protrudes 20px above & below (80px header + 20px bottom pad), with a
+              green gradient border + green wash. items-center centers the shorter
+              left card so the 60px rows line up across both. */}
+          <div className="mt-8 hidden md:block">
+            <div className="flex items-center">
+              {/* Left card — Object + What it captures (633/1080) */}
+              <div className="flex-1 overflow-hidden rounded-l-lg border border-r-0 border-[#E9EAEB]">
+                <div className="flex h-[60px] items-center border-b border-[#E9EAEB] bg-[#FAFAFA] text-[15px] font-medium text-[#0A0D12]">
+                  <span className="w-[30%] shrink-0 px-6">{t("signals.colObject")}</span>
+                  <span className="px-6">{t("signals.colCaptures")}</span>
                 </div>
                 {rows.map((r) => (
                   <div
                     key={r.object}
-                    className="grid grid-cols-[200px_1fr] items-center border-b border-[#F2F3F4] px-1 py-5 last:border-0"
+                    className="flex h-[60px] items-center border-b border-[#E9EAEB] last:border-b-0"
                   >
-                    <span className="text-[15px] text-[#0A0D12]">{r.object}</span>
-                    <span className="text-[15px] text-[#535862]">{r.captures}</span>
+                    <span className="w-[30%] shrink-0 px-6 text-[15px] text-[#414651]">{r.object}</span>
+                    <span className="px-6 text-[15px] text-[#414651]">{r.captures}</span>
                   </div>
                 ))}
               </div>
-              {/* right highlighted column — background lifted directly from the SVG */}
+              {/* Right card — Real example (447/1080), taller so it protrudes */}
               <div
-                className="ml-6 w-[447px] shrink-0 rounded-lg"
+                className="w-[41.4%] shrink-0 overflow-hidden rounded-lg pb-5"
                 style={{
-                  backgroundImage: "url(/architecture/signals-panel-bg.svg)",
+                  backgroundImage: "url(/architecture/signals-real-bg.svg)",
                   backgroundSize: "100% 100%",
                   backgroundRepeat: "no-repeat",
                 }}
               >
-                <div className="border-b border-[#E9EAEB] px-5 py-4 text-sm font-medium text-[#0A0D12]">
+                <div className="flex h-20 items-center border-b border-[#E9EAEB] bg-[#FAFAFA] px-6 text-[15px] font-medium text-[#0A0D12]">
                   {t("signals.colExample")}
                 </div>
                 {rows.map((r) => (
                   <div
                     key={r.object}
-                    className="mx-5 border-b border-[#E9EAEB] py-5 text-[14px] leading-snug text-[#535862] last:border-0"
+                    className="flex h-[60px] items-center border-b border-[#E9EAEB] px-6 text-[14px] leading-snug text-[#414651]"
                   >
                     {r.example}
                   </div>
@@ -233,7 +244,7 @@ export default function AiDrivenOntologyPageClient() {
             <Info className="mt-0.5 h-4 w-4 shrink-0 text-[#A4A7AE]" />
             <p>{t("signals.note")}</p>
           </div>
-        </div>
+        </FadeUpReveal>
       </section>
 
       {/* ── Detectors (dark) ────────────────────────── */}
@@ -246,7 +257,7 @@ export default function AiDrivenOntologyPageClient() {
           aria-hidden
           className="pointer-events-none absolute inset-x-0 top-0 w-full select-none"
         />
-        <div className="relative section-container py-20 md:py-24">
+        <FadeUpReveal className="relative section-container py-20 md:py-24">
           <div className="grid gap-6 md:grid-cols-2 md:items-start">
             <div>
               <Badge dark>{t("detectors.badge")}</Badge>
@@ -312,12 +323,12 @@ export default function AiDrivenOntologyPageClient() {
               <ArrowRight className="h-4 w-4" />
             </button>
           </div>
-        </div>
+        </FadeUpReveal>
       </section>
 
       {/* ── Trust layer ─────────────────────────────── */}
       <section className="bg-[#FAFAFA]">
-        <div className="section-container py-20 md:py-24">
+        <FadeUpReveal className="section-container py-20 md:py-24">
           <Badge>{t("trust.badge")}</Badge>
           <SectionTitle className="mt-5 max-w-2xl">{t("trust.title")}</SectionTitle>
 
@@ -347,12 +358,12 @@ export default function AiDrivenOntologyPageClient() {
               );
             })}
           </div>
-        </div>
+        </FadeUpReveal>
       </section>
 
       {/* ── Proven, not promised ────────────────────── */}
       <section className="bg-[#FAFAFA]">
-        <div className="section-container pb-24 pt-4 md:pb-28">
+        <FadeUpReveal className="section-container pb-24 pt-4 md:pb-28">
           <div className="grid gap-6 md:grid-cols-2 md:items-start">
             <div>
               <Badge>{t("proof.badge")}</Badge>
@@ -377,12 +388,12 @@ export default function AiDrivenOntologyPageClient() {
               </div>
             ))}
           </div>
-        </div>
+        </FadeUpReveal>
       </section>
 
       {/* ── Unified identity ────────────────────────── */}
       <section className="bg-[#FAFAFA]">
-        <div className="section-container pb-24 md:pb-28">
+        <FadeUpReveal className="section-container pb-24 md:pb-28">
           <div className="grid gap-6 md:grid-cols-2">
             {/* left text card */}
             <div className="flex flex-col rounded-3xl border border-[#E9EAEB] bg-white p-8 md:p-10">
@@ -409,7 +420,7 @@ export default function AiDrivenOntologyPageClient() {
               />
             </div>
           </div>
-        </div>
+        </FadeUpReveal>
       </section>
 
       {/* ── Give your organization a second brain ───── */}
