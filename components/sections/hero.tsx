@@ -136,16 +136,6 @@ function HeroHeadline({ onWatchDemo }: { onWatchDemo: () => void }) {
           <PlayCircle className="h-5 w-5" />
           {t("ctaSecondary")}
         </motion.button>
-        {/* Download overview — placeholder for now; wire up the asset link later. */}
-        <motion.button
-          type="button"
-          className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-7 py-3 text-[15px] font-medium text-slate-900 transition-colors hover:border-slate-300"
-          whileHover={{ scale: 1.04, y: -2 }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        >
-          {t("ctaDownload")}
-        </motion.button>
       </MotionDiv>
     </div>
   );
