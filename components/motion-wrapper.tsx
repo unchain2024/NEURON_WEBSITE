@@ -76,6 +76,22 @@ export const slideInRight: Variants = {
   },
 };
 
+// Fade-and-rise a whole block as it scrolls into view (same feel as the home
+// sections, without needing per-child MotionDiv wrappers).
+export function FadeUpReveal({ children, className }: { children: ReactNode; className?: string }) {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeInUp}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 export function SectionReveal({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <motion.div

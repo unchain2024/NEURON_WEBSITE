@@ -1,23 +1,12 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { PlayCircle, X } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import {
-  AnimatePresence,
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import {
-  MotionDiv,
-  MotionSection,
-  fadeInUp,
-  staggerContainer,
-} from "@/components/motion-wrapper";
-import TrustBar from "@/components/sections/trust-bar";
-import NeuronBlob, { NeuronBlobMobile } from "@/components/neuron-blob";
+import { AnimatePresence, motion } from "framer-motion";
+import { MotionDiv, MotionSection, fadeInUp, staggerContainer } from "@/components/motion-wrapper";
+import HeroFlow, { HeroFlowMobile } from "@/components/sections/hero-flow";
 
 /* ─────────────────────────────────────────────────────
    VideoModal
@@ -64,95 +53,83 @@ function VideoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
         >
           <X className="h-7 w-7" />
         </button>
-        <video
-          src={videoSrc}
-          controls
-          autoPlay
-          className="w-full h-full rounded-xl shadow-2xl"
-        />
+        <video src={videoSrc} controls autoPlay className="w-full h-full rounded-xl shadow-2xl" />
       </motion.div>
     </motion.div>
   );
 }
 
 /* ─────────────────────────────────────────────────────
-   HeroText
+   Headline + CTAs (shared between desktop & mobile)
    ───────────────────────────────────────────────────── */
 
-function HeroText({ onWatchDemo }: { onWatchDemo: () => void }) {
+function HeroHeadline({ onWatchDemo }: { onWatchDemo: () => void }) {
   const t = useTranslations("Hero");
   const h1 = t("h1");
-  const highlightWords = t("highlightWords").split(",");
 
   return (
-    <div className="text-center lg:text-left">
-      {/* Badge */}
-      <MotionDiv variants={fadeInUp} className="flex justify-center lg:justify-start">
-        <div className="signal-badge">
-          <div className="signal-badge-border" />
-          <div className="signal-badge-inner">
-            <span className="signal-dot" />
-            <span>{t("eyebrow")}</span>
-          </div>
-        </div>
-      </MotionDiv>
-
-      {/* H1 */}
-      <MotionDiv variants={fadeInUp} className="mt-8">
-        <h1 className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-balance text-slate-900">
+    <div className="section-container relative z-10 text-center">
+      <MotionDiv variants={fadeInUp}>
+        <h1
+          className="mx-auto max-w-5xl text-balance text-slate-900"
+          style={{
+            fontFamily: '"Inter Display", var(--font-inter), sans-serif',
+            fontWeight: 500,
+            fontStyle: "normal",
+            fontSize: "clamp(2.5rem, 9vw, 64px)",
+            lineHeight: "100%",
+            letterSpacing: "-0.04em",
+            textAlign: "center",
+          }}
+        >
           {h1.split(" ").map((word, i) => (
             <motion.span
               key={i}
-              className="inline-block mr-[0.3em] last:mr-0"
+              className="mr-[0.22em] inline-block last:mr-0"
               initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{
-                delay: 0.4 + i * 0.08,
-                type: "spring",
-                stiffness: 150,
-                damping: 15,
-              }}
+              transition={{ delay: 0.2 + i * 0.08, type: "spring", stiffness: 150, damping: 15 }}
             >
-              {highlightWords.some(
-                (hw) => word.replace(/[。.]/g, "") === hw.replace(/[。.]/g, "")
-              ) ? (
-                <span className="gradient-text">{word}</span>
-              ) : (
-                word
-              )}
+              {word}
             </motion.span>
           ))}
         </h1>
       </MotionDiv>
 
-      {/* Subtitle */}
-      <MotionDiv variants={fadeInUp} className="mt-6">
-        <p className="text-lg md:text-xl text-text-secondary max-w-xl mx-auto lg:mx-0 leading-relaxed">
+      <MotionDiv variants={fadeInUp} className="mt-3">
+        <p
+          className="mx-auto max-w-2xl text-text-secondary"
+          style={{
+            fontFamily: 'var(--font-inter), sans-serif',
+            fontWeight: 400,
+            fontStyle: "normal",
+            fontSize: "16px",
+            lineHeight: "100%",
+            letterSpacing: "0%",
+            textAlign: "center",
+          }}
+        >
           {t("h2")}
         </p>
       </MotionDiv>
 
-      {/* CTAs */}
-      <MotionDiv
-        variants={fadeInUp}
-        className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
-      >
+      <MotionDiv variants={fadeInUp} className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <motion.div
-          whileHover={{ scale: 1.05, y: -2 }}
+          whileHover={{ scale: 1.04, y: -2 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
           <Link
             href="/get-demo"
-            className="inline-block bg-primary hover:bg-primary-600 text-white px-8 py-3.5 rounded-xl text-base font-semibold transition-colors shadow-lg shadow-primary/25"
+            className="inline-flex items-center justify-center rounded-full bg-black px-7 py-3 text-[15px] font-medium text-white transition-colors hover:bg-slate-800"
           >
             {t("ctaPrimary")}
           </Link>
         </motion.div>
         <motion.button
           onClick={onWatchDemo}
-          className="inline-flex items-center gap-2 border border-border hover:border-slate-400 text-slate-900 px-8 py-3.5 rounded-xl text-base font-medium transition-colors"
-          whileHover={{ scale: 1.05, y: -2 }}
+          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-3 text-[15px] font-medium text-slate-900 transition-colors hover:border-slate-300"
+          whileHover={{ scale: 1.04, y: -2 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
@@ -160,91 +137,68 @@ function HeroText({ onWatchDemo }: { onWatchDemo: () => void }) {
           {t("ctaSecondary")}
         </motion.button>
       </MotionDiv>
-
-      {/* Trust line */}
-      <MotionDiv variants={fadeInUp} className="mt-8">
-        <p className="text-sm text-text-muted">{t("trustLine")}</p>
-      </MotionDiv>
     </div>
   );
 }
 
+/* Full-section green base, anchored to the bottom edge so it always reaches
+   the viewport bottom (colour #3D8F66, lifted from the wireframe SVG). */
+function SectionGlow() {
+  return (
+    <>
+      {/* Soft, even mint-green base rising from the bottom edge.
+          Bleeds 2px past the bottom to avoid a hairline seam with the next section. */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -bottom-0.5"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(61,143,102,0.46) 0%, rgba(61,143,102,0.30) 24%, rgba(61,143,102,0.14) 46%, rgba(61,143,102,0.04) 64%, transparent 80%)",
+        }}
+      />
+      {/* Gentle green pooling toward the bottom-centre, fading to the edges */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -bottom-0.5"
+        style={{
+          background:
+            "radial-gradient(100% 80% at 50% 104%, rgba(61,143,102,0.30) 0%, rgba(61,143,102,0.10) 48%, transparent 74%)",
+        }}
+      />
+    </>
+  );
+}
+
 /* ─────────────────────────────────────────────────────
-   Hero — main export
+   Hero
    ───────────────────────────────────────────────────── */
 
 export default function Hero() {
-  const wrapperRef = useRef<HTMLDivElement>(null);
   const [showVideo, setShowVideo] = useState(false);
   const closeVideo = useCallback(() => setShowVideo(false), []);
 
-  const { scrollYProgress } = useScroll({
-    target: wrapperRef,
-    offset: ["start start", "end end"],
-  });
-
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0.3]);
-  const heroY = useTransform(scrollYProgress, [0.8, 1], [0, -60]);
-
   return (
     <>
-      {/* Desktop: scroll-pinned */}
-      <div ref={wrapperRef} className="hidden lg:block relative" style={{ height: "300vh" }}>
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse at center, rgba(34,197,94,0.06) 0%, transparent 70%)",
-          }}
-        />
-
-        <div className="sticky top-0 h-screen flex flex-col justify-center overflow-x-clip">
-          <motion.div
-            className="section-container relative z-10 w-full"
-            style={{ opacity: heroOpacity, y: heroY }}
-          >
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-                <HeroText onWatchDemo={() => setShowVideo(true)} />
-              </motion.div>
-
-              <MotionDiv
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="flex items-center justify-center"
-              >
-                <NeuronBlob scrollYProgress={scrollYProgress} />
-              </MotionDiv>
-            </div>
-
-            <div className="-mt-2">
-              <TrustBar />
-            </div>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* Mobile: normal non-sticky */}
       <MotionSection
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="relative section-padding overflow-x-clip lg:hidden"
+        className="relative flex min-h-screen flex-col justify-center overflow-x-clip pt-4 pb-32"
       >
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse at center, rgba(34,197,94,0.06) 0%, transparent 70%)",
-          }}
-        />
-        <div className="section-container relative z-10">
-          <HeroText onWatchDemo={() => setShowVideo(true)} />
-          <MotionDiv variants={fadeInUp} className="mt-12 flex justify-center">
-            <NeuronBlobMobile />
-          </MotionDiv>
-        </div>
-        <div className="mt-8">
-          <TrustBar />
+        <SectionGlow />
+        <HeroHeadline onWatchDemo={() => setShowVideo(true)} />
+
+        <div className="relative mt-6">
+          <div className="section-container relative z-10">
+            {/* Desktop: animated canvas */}
+            <div className="hidden lg:block">
+              <HeroFlow />
+            </div>
+            {/* Mobile / tablet: stacked */}
+            <div className="lg:hidden">
+              <MotionDiv variants={fadeInUp}>
+                <HeroFlowMobile />
+              </MotionDiv>
+            </div>
+          </div>
         </div>
       </MotionSection>
 

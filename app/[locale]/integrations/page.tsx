@@ -1,8 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import PageHero from "@/components/sections/page-hero";
-import TrustBar from "@/components/sections/trust-bar";
-import IntegrationDetails from "@/components/sections/integration-details";
+import IntegrationsHub from "@/components/sections/integrations-hub";
+import FinalCTA from "@/components/sections/final-cta";
 
 export async function generateMetadata({
   params,
@@ -20,9 +19,8 @@ export async function generateMetadata({
 export default function IntegrationsPage() {
   return (
     <>
-      <PageHero namespace="IntegrationsPage" />
-      <TrustBar />
-      <IntegrationDetails />
+      <IntegrationsHub />
+      <FinalCTA />
     </>
   );
 }
