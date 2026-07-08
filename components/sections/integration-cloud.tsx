@@ -84,13 +84,22 @@ export default function IntegrationCloud() {
         alt=""
         className="pointer-events-none absolute inset-0 h-full w-full object-cover"
       />
-      {/* Soft white fade at the top/bottom edges so it blends into the
-          adjacent white sections. */}
+      {/* Soft white fade at the edges so the beige blends into the adjacent
+          white sections. Desktop keeps the texture rich through the middle;
+          mobile (a much taller, narrower section) resolves to plain white
+          earlier so the beige never lingers past the honeycomb. */}
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 md:hidden"
         style={{
           background:
-            "linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0) 16%, rgba(255,255,255,0) 84%, #fff 100%)",
+            "linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0) 14%, rgba(255,255,255,0) 46%, #fff 74%)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 hidden md:block"
+        style={{
+          background:
+            "linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0) 16%, rgba(255,255,255,0) 80%, #fff 100%)",
         }}
       />
 
