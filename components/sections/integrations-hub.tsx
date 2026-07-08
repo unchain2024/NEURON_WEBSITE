@@ -9,7 +9,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
-import IntegrationCloud from "@/components/sections/integration-cloud";
+import IntegrationShowcase from "@/components/sections/integration-showcase";
 
 const HERO_PILLS = [
   { key: "oauth", Icon: ShieldCheck },
@@ -97,8 +97,8 @@ export default function IntegrationsHub() {
         </div>
       </section>
 
-      {/* ─── Honeycomb logo cloud ─── */}
-      <IntegrationCloud />
+      {/* ─── Connected-software showcase (Integration-new.svg + live text) ─── */}
+      <IntegrationShowcase />
 
       {/* ─── FAQ ─── */}
       <section className="section-padding">

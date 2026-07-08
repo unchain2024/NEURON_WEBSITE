@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Globe, ChevronDown, Play } from "lucide-react";
+import { Menu, X, Globe, ChevronDown, Play, Rocket, Plug } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/navigation";
@@ -118,6 +118,19 @@ const NAV_LINK_KEYS: readonly NavLink[] = [
   { key: "company", href: "", external: true },
 ];
 
+/**
+ * Docs dropdown — labels come from the `Nav` namespace. Placeholder routes for
+ * now; point these at the real docs destinations when they exist.
+ */
+const DOCS_ITEMS: readonly {
+  key: string;
+  href: string;
+  Icon: typeof Rocket;
+}[] = [
+  { key: "quickstart", href: "/docs/quick-start", Icon: Rocket },
+  { key: "integrations", href: "/docs/integrations", Icon: Plug },
+];
+
 export default function Navbar() {
   const t = useTranslations("Nav");
   const tm = useTranslations("SolutionsMenu");
@@ -133,8 +146,22 @@ export default function Navbar() {
   // (survives mouse-leave); clicking a link or outside closes it.
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [solutionsLocked, setSolutionsLocked] = useState(false);
+  const [mobileDocsOpen, setMobileDocsOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Docs dropdown — hover opens a small anchored menu; leaving closes it after
+  // a short grace period so the pointer can travel into the panel.
+  const [docsOpen, setDocsOpen] = useState(false);
+  const docsCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openDocs = () => {
+    if (docsCloseTimer.current) clearTimeout(docsCloseTimer.current);
+    setDocsOpen(true);
+  };
+  const scheduleCloseDocs = () => {
+    if (docsCloseTimer.current) clearTimeout(docsCloseTimer.current);
+    docsCloseTimer.current = setTimeout(() => setDocsOpen(false), 120);
+  };
 
   const clearCloseTimer = () => {
     if (closeTimer.current) {
@@ -207,6 +234,7 @@ export default function Navbar() {
     clearCloseTimer();
     setSolutionsOpen(false);
     setSolutionsLocked(false);
+    setDocsOpen(false);
   }, [pathname]);
 
   function switchLocale() {
@@ -298,6 +326,55 @@ export default function Navbar() {
                 </MotionLink>
               );
             })}
+
+            {/* Docs — small anchored dropdown (Quickstart / Integrations) */}
+            <div
+              className="relative"
+              onMouseEnter={openDocs}
+              onMouseLeave={scheduleCloseDocs}
+            >
+              <motion.button
+                type="button"
+                onClick={() => setDocsOpen((v) => !v)}
+                aria-expanded={docsOpen}
+                className="flex items-center gap-1 text-sm text-text-secondary hover:text-slate-900 transition-colors"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                {t("docs")}
+                <ChevronDown
+                  className={cn(
+                    "h-3.5 w-3.5 transition-transform duration-300",
+                    docsOpen && "rotate-180"
+                  )}
+                />
+              </motion.button>
+              <AnimatePresence>
+                {docsOpen && (
+                  <motion.div
+                    key="docs-panel"
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.16, ease: "easeOut" }}
+                    className="absolute left-1/2 top-full mt-3 w-56 -translate-x-1/2 rounded-xl border border-border/60 bg-white p-2 shadow-xl shadow-slate-900/10"
+                  >
+                    {DOCS_ITEMS.map((item) => (
+                      <Link
+                        key={item.key}
+                        href={item.href}
+                        onClick={() => setDocsOpen(false)}
+                        className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-[#535862] transition-colors hover:bg-slate-50 hover:text-[#0A0D12]"
+                      >
+                        <item.Icon className="h-[18px] w-[18px] text-slate-500" />
+                        {t(item.key)}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Desktop CTAs */}
@@ -310,9 +387,17 @@ export default function Navbar() {
             >
               <Globe className="h-4 w-4" />
             </button>
+            {/* Login — placeholder for now; wire up to the auth destination later. */}
+            <button
+              type="button"
+              className="text-sm text-text-secondary hover:text-slate-900 transition-colors px-3 py-2"
+              style={HEADLINE_FONT}
+            >
+              {t("logIn")}
+            </button>
             <MotionLink
               href="/get-demo"
-              className="text-sm border border-slate-300 bg-white hover:border-slate-400 hover:bg-slate-50 text-slate-900 px-5 py-2 rounded-full transition-colors"
+              className="text-sm bg-[#0A0D12] hover:bg-[#0A0D12]/90 text-white px-5 py-2 rounded-full transition-colors"
               style={HEADLINE_FONT}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
@@ -462,8 +547,59 @@ export default function Navbar() {
                   )
                 )}
 
+                {/* Docs — collapsible dropdown */}
+                <div className="border-b border-border/40">
+                  <button
+                    type="button"
+                    onClick={() => setMobileDocsOpen((v) => !v)}
+                    aria-expanded={mobileDocsOpen}
+                    className="flex w-full items-center justify-between py-4 text-left text-[15px] text-slate-900 transition-colors hover:text-slate-600"
+                  >
+                    {t("docs")}
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 text-slate-500 transition-transform duration-300",
+                        mobileDocsOpen && "rotate-180"
+                      )}
+                    />
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {mobileDocsOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="space-y-0.5 pb-4 pl-1">
+                          {DOCS_ITEMS.map((item) => (
+                            <Link
+                              key={item.key}
+                              href={item.href}
+                              className="flex items-center gap-2.5 py-1.5 text-sm text-text-muted transition-colors hover:text-slate-900"
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              <item.Icon className="h-4 w-4 text-slate-500" />
+                              {t(item.key)}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
                 {/* Bottom CTAs */}
                 <div className="mt-8 space-y-3">
+                  {/* Login — placeholder for now; wire up to the auth destination later. */}
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-center rounded-full border border-[#E9EAEB] bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-50"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {t("logIn")}
+                  </button>
                   <Link
                     href="/get-demo"
                     className="flex w-full items-center justify-center rounded-full bg-[#0A0D12] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#0A0D12]/90"

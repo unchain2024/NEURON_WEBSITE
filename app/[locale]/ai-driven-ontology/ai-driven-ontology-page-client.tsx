@@ -31,10 +31,12 @@ function SectionTitle({
   children,
   className = "",
   dark = false,
+  style,
 }: {
   children: string;
   className?: string;
   dark?: boolean;
+  style?: React.CSSProperties;
 }) {
   return (
     <h2
@@ -43,11 +45,12 @@ function SectionTitle({
         fontFamily: DISPLAY_FONT,
         fontOpticalSizing: "auto",
         fontWeight: 500,
-        fontSize: 40,
+        fontSize: "clamp(30px, 8vw, 40px)",
         lineHeight: "110%",
         letterSpacing: 0,
         whiteSpace: "pre-line",
         color: dark ? "#FFFFFF" : "#0A0D12",
+        ...style,
       }}
     >
       {children}
@@ -149,7 +152,7 @@ export default function AiDrivenOntologyPageClient() {
 
       {/* ── The architectural shift ─────────────────── */}
       <section className="bg-white">
-        <SectionReveal className="section-container flex flex-col items-center py-20 text-center md:py-28">
+        <SectionReveal className="section-container flex flex-col items-center pb-10 pt-20 text-center md:pb-12 md:pt-28">
           <MotionDiv variants={fadeInUp}>
             <Badge>{t("shift.badge")}</Badge>
           </MotionDiv>
@@ -168,13 +171,15 @@ export default function AiDrivenOntologyPageClient() {
 
       {/* ── Signal objects (the six things) ─────────── */}
       <section className="bg-white">
-        <FadeUpReveal className="section-container py-20 md:py-24">
-          <div className="grid gap-6 md:grid-cols-2 md:items-start">
+        <FadeUpReveal className="section-container pb-20 pt-8 md:pb-24 md:pt-10">
+          <div className="grid gap-4 md:grid-cols-2 md:items-start md:gap-6">
             <div>
               <Badge>{t("signals.badge")}</Badge>
-              <SectionTitle className="mt-5 max-w-md">{t("signals.title")}</SectionTitle>
+              <SectionTitle className="mt-5" style={{ fontSize: "clamp(28px, 4vw, 34px)" }}>
+                {t("signals.title")}
+              </SectionTitle>
             </div>
-            <p className="text-base leading-relaxed text-[#717680] md:mt-12 md:max-w-md md:justify-self-end">
+            <p className="text-base leading-relaxed text-[#717680] md:mt-[52px] md:max-w-lg md:justify-self-end">
               {t("signals.intro")}
             </p>
           </div>
@@ -203,41 +208,89 @@ export default function AiDrivenOntologyPageClient() {
                   </div>
                 ))}
               </div>
-              {/* Right card — Real example (447/1080), taller so it protrudes */}
+              {/* Right card — Real example (447/1080), taller so it protrudes.
+                  Green gradient border (greener at top, fading down) via a p-px
+                  wrapper; the SVG background keeps the green wash + corner glow. */}
               <div
-                className="w-[41.4%] shrink-0 overflow-hidden rounded-lg pb-5"
+                className="w-[41.4%] shrink-0 rounded-lg p-px"
                 style={{
-                  backgroundImage: "url(/architecture/signals-real-bg.svg)",
-                  backgroundSize: "100% 100%",
-                  backgroundRepeat: "no-repeat",
+                  background:
+                    "linear-gradient(180deg, #6EC49B 0%, rgba(110,196,155,0.3) 55%, rgba(110,196,155,0) 100%)",
                 }}
               >
-                <div className="flex h-20 items-center border-b border-[#E9EAEB] bg-[#FAFAFA] px-6 text-[15px] font-medium text-[#0A0D12]">
-                  {t("signals.colExample")}
-                </div>
-                {rows.map((r) => (
-                  <div
-                    key={r.object}
-                    className="flex h-[60px] items-center border-b border-[#E9EAEB] px-6 text-[14px] leading-snug text-[#414651]"
-                  >
-                    {r.example}
+                <div
+                  className="overflow-hidden rounded-[7px] pb-5"
+                  style={{
+                    backgroundImage: "url(/architecture/signals-real-bg.svg)",
+                    backgroundSize: "100% 100%",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                >
+                  <div className="flex h-20 items-center border-b border-[#E9EAEB] bg-[#FAFAFA] px-6 text-[15px] font-medium text-[#0A0D12]">
+                    {t("signals.colExample")}
                   </div>
-                ))}
+                  {rows.map((r) => (
+                    <div
+                      key={r.object}
+                      className="flex h-[60px] items-center border-b border-[#E9EAEB] px-6 text-[14px] leading-snug text-[#414651]"
+                    >
+                      {r.example}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Mobile: stacked cards */}
-          <div className="mt-10 space-y-4 md:hidden">
-            {rows.map((r) => (
-              <div key={r.object} className="rounded-2xl border border-[#E9EAEB] p-5">
-                <div className="font-medium text-[#0A0D12]">{r.object}</div>
-                <p className="mt-1 text-sm text-[#535862]">{r.captures}</p>
-                <p className="mt-3 rounded-lg bg-[#F4FBF7] px-3 py-2 text-sm text-[#535862]">
-                  {r.example}
-                </p>
+          {/* Mobile: same two-card design as desktop, horizontally scrollable */}
+          <div className="mt-8 overflow-x-auto md:hidden">
+            <div className="flex min-w-[680px] items-center pb-1">
+              {/* Left card — Object + What it captures */}
+              <div className="flex-1 overflow-hidden rounded-l-lg border border-r-0 border-[#E9EAEB]">
+                <div className="flex h-[60px] items-center border-b border-[#E9EAEB] bg-[#FAFAFA] text-[15px] font-medium text-[#0A0D12]">
+                  <span className="w-[38%] shrink-0 px-5">{t("signals.colObject")}</span>
+                  <span className="px-5">{t("signals.colCaptures")}</span>
+                </div>
+                {rows.map((r) => (
+                  <div
+                    key={r.object}
+                    className="flex h-[60px] items-center border-b border-[#E9EAEB] last:border-b-0"
+                  >
+                    <span className="w-[38%] shrink-0 px-5 text-[15px] text-[#414651]">{r.object}</span>
+                    <span className="px-5 text-[15px] text-[#414651]">{r.captures}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+              {/* Right card — Real example (green gradient border + green wash) */}
+              <div
+                className="w-[46%] shrink-0 rounded-lg p-px"
+                style={{
+                  background:
+                    "linear-gradient(180deg, #6EC49B 0%, rgba(110,196,155,0.3) 55%, rgba(110,196,155,0) 100%)",
+                }}
+              >
+                <div
+                  className="overflow-hidden rounded-[7px] pb-5"
+                  style={{
+                    backgroundImage: "url(/architecture/signals-real-bg.svg)",
+                    backgroundSize: "100% 100%",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                >
+                  <div className="flex h-20 items-center border-b border-[#E9EAEB] bg-[#FAFAFA] px-5 text-[15px] font-medium text-[#0A0D12]">
+                    {t("signals.colExample")}
+                  </div>
+                  {rows.map((r) => (
+                    <div
+                      key={r.object}
+                      className="flex h-[60px] items-center border-b border-[#E9EAEB] px-5 text-[14px] leading-snug text-[#414651]"
+                    >
+                      {r.example}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="mt-8 flex items-start gap-2 text-[15px] text-[#535862]">
@@ -363,7 +416,7 @@ export default function AiDrivenOntologyPageClient() {
 
       {/* ── Proven, not promised ────────────────────── */}
       <section className="bg-[#FAFAFA]">
-        <FadeUpReveal className="section-container pb-24 pt-4 md:pb-28">
+        <FadeUpReveal className="section-container pb-12 pt-4 md:pb-16">
           <div className="grid gap-6 md:grid-cols-2 md:items-start">
             <div>
               <Badge>{t("proof.badge")}</Badge>
@@ -374,9 +427,9 @@ export default function AiDrivenOntologyPageClient() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-10 border-t border-[#E9EAEB] pt-12 sm:grid-cols-3">
+          <div className="mt-10 flex flex-col gap-10 border-t border-[#E9EAEB] pt-12 sm:flex-row sm:justify-between sm:gap-12">
             {metrics.map((m) => (
-              <div key={m.label} className="text-center">
+              <div key={m.label} className="text-left">
                 <div
                   className="text-[80px] leading-none text-[#15A06B]"
                   style={{ fontFamily: DISPLAY_FONT, fontWeight: 700 }}
@@ -393,21 +446,21 @@ export default function AiDrivenOntologyPageClient() {
 
       {/* ── Unified identity ────────────────────────── */}
       <section className="bg-[#FAFAFA]">
-        <FadeUpReveal className="section-container pb-24 md:pb-28">
+        <FadeUpReveal className="section-container pb-0 md:pb-28">
           <div className="grid gap-6 md:grid-cols-2">
-            {/* left text card */}
-            <div className="flex flex-col rounded-3xl border border-[#E9EAEB] bg-white p-8 md:p-10">
+            {/* text card — below the illustration on mobile, left column on desktop */}
+            <div className="order-last flex flex-col rounded-3xl border border-[#E9EAEB] bg-white p-8 md:order-none md:p-10">
               <span className="self-start">
                 <Badge>{t("identity.badge")}</Badge>
               </span>
               <SectionTitle className="mt-5">{t("identity.title")}</SectionTitle>
-              <p className="mt-auto max-w-sm pt-12 text-[15px] leading-relaxed text-[#717680]">
+              <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-[#717680] md:mt-auto md:pt-12">
                 {t("identity.body")}
               </p>
             </div>
 
-            {/* right identity-graph illustration (locale-swapped SVG) */}
-            <div className="overflow-hidden rounded-3xl">
+            {/* identity-graph illustration (locale-swapped SVG) — on top on mobile, right column on desktop */}
+            <div className="order-first overflow-hidden rounded-3xl md:order-none">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={
