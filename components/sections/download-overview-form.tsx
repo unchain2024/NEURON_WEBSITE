@@ -2,25 +2,25 @@
 
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { Check, Loader2, Calendar, Clock, Video } from "lucide-react";
+import { CheckCircle2, Loader2, FileText, Calendar, ArrowRight } from "lucide-react";
 import {
   MotionDiv,
   BlurReveal,
   fadeInUp,
   blurIn,
 } from "@/components/motion-wrapper";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
-const BOOKING_URLS: Record<string, string> = {
-  ja: "https://timerex.net/s/tharada_4c59/03bbdfd0",
-  en: "https://calendar.app.google/B8uDN6oxopCFkpD2A",
+const PRIVACY_URLS: Record<string, string> = {
+  ja: "https://www.the-unchain.com/privacy-policy",
+  en: "https://www.the-unchain.com/en/privacy-policy",
 };
 
-const VALUE_PROPS = [
-  { src: "/demo/icon-workflow.svg", key: "value1" },
-  { src: "/demo/icon-secure.svg", key: "value2" },
-  { src: "/demo/icon-layer.svg", key: "value3" },
-] as const;
+const SLIDE_VISUALS: Record<string, string> = {
+  ja: "/download/slide-visual-jp.svg",
+  en: "/download/slide-visual-en.svg",
+};
 
 const COMPANY_SIZE_KEYS = [
   "size1to10",
@@ -35,10 +35,11 @@ const inputClass =
 
 const labelClass = "block text-sm font-medium text-slate-700 mb-1.5";
 
-export default function GetDemoForm() {
-  const t = useTranslations("GetDemo");
+export default function DownloadOverviewForm() {
+  const t = useTranslations("DownloadOverview");
   const locale = useLocale();
-  const bookingUrl = BOOKING_URLS[locale] || BOOKING_URLS.en;
+  const privacyUrl = PRIVACY_URLS[locale] || PRIVACY_URLS.en;
+  const slideVisual = SLIDE_VISUALS[locale] || SLIDE_VISUALS.en;
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -50,7 +51,7 @@ export default function GetDemoForm() {
     message: "",
   });
   const [loading, setLoading] = useState(false);
-  const [step, setStep] = useState<1 | 2>(1);
+  const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
   function handleChange(
@@ -72,7 +73,7 @@ export default function GetDemoForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           access_key: "496c179e-e42c-4de5-b705-95ca27e2d158",
-          subject: `Demo Request from ${formData.firstName} ${formData.lastName}`,
+          subject: `Overview Request from ${formData.firstName} ${formData.lastName}`,
           from_name: `${formData.firstName} ${formData.lastName}`,
           ...formData,
         }),
@@ -80,7 +81,7 @@ export default function GetDemoForm() {
 
       const data = await res.json();
       if (data.success) {
-        setStep(2);
+        setSuccess(true);
       } else {
         setError(t("errorGeneric"));
       }
@@ -95,12 +96,9 @@ export default function GetDemoForm() {
     <section className="py-16 md:py-20 lg:py-24">
       <div className="section-container">
         <BlurReveal>
-          <div className="grid gap-x-12 gap-y-12 lg:grid-cols-2 lg:gap-x-16 lg:grid-rows-[auto_1fr] lg:items-start">
-            {/* Header — copy (mobile: first; desktop: top-left) */}
-            <MotionDiv
-              variants={blurIn}
-              className="order-1 lg:col-start-1 lg:row-start-1 lg:pt-2"
-            >
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
+            {/* Left Column — Copy + Overview card */}
+            <MotionDiv variants={blurIn} className="lg:pt-4">
               <h1
                 className="mb-5 text-[2rem] leading-[1.1] text-slate-900 sm:text-[2.25rem] lg:text-[40px]"
                 style={{
@@ -109,40 +107,85 @@ export default function GetDemoForm() {
                   letterSpacing: "0",
                 }}
               >
-                {t.rich("heading", {
-                  highlight: (chunks) => <span>{chunks}</span>,
-                })}
+                {t("heading")}
               </h1>
-              <p className="max-w-lg text-base text-text-secondary sm:text-lg">
+              <p className="text-base sm:text-lg text-text-secondary mb-8 max-w-lg">
                 {t("subheading")}
               </p>
+
+              {/* Product Overview card */}
+              <div className="max-w-md">
+                <div className="overflow-hidden rounded-xl shadow-xl shadow-slate-900/10 ring-1 ring-slate-900/5">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={slideVisual}
+                    alt={t("cardTitle")}
+                    className="block h-auto w-full"
+                  />
+                </div>
+                <div className="mt-3 flex items-center gap-2 text-sm text-text-muted">
+                  <FileText className="h-4 w-4" />
+                  <span>{t("cardMeta")}</span>
+                </div>
+              </div>
             </MotionDiv>
 
-            {/* Form card — spans both rows on desktop, right column */}
-            <MotionDiv
-              variants={fadeInUp}
-              className="order-2 lg:col-start-2 lg:row-span-2 lg:row-start-1"
-            >
+            {/* Right Column — Form */}
+            <MotionDiv variants={fadeInUp}>
               <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-                {/* Stepper */}
-                <Stepper step={step} t={t} />
-
-                {step === 1 ? (
+                {success ? (
+                  <div className="flex flex-col items-center justify-center py-10 text-center">
+                    <MotionDiv
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 15,
+                      }}
+                    >
+                      <CheckCircle2 className="mb-6 h-16 w-16 text-primary" />
+                    </MotionDiv>
+                    <h2 className="mb-2 text-2xl font-bold text-slate-900">
+                      {t("successTitle")}
+                    </h2>
+                    <p className="mb-8 max-w-sm text-text-secondary">
+                      {t("successMessage")}
+                    </p>
+                    <p className="mb-4 text-sm text-text-muted">
+                      {t("successCtaNote")}
+                    </p>
+                    <Link
+                      href="/get-demo"
+                      className="group inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-white transition-colors hover:bg-primary-600"
+                    >
+                      <Calendar className="h-4 w-4" />
+                      {t("successCta")}
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
-                    <div>
-                      <h2 className="text-xl font-bold text-slate-900">
-                        {t("formTitle")}
-                      </h2>
-                      <p className="mt-1 text-sm text-text-muted">
-                        {t("formSubtitle")}
-                      </p>
-                    </div>
+                    <h2
+                      className="text-[24px] leading-[1.1] text-slate-900"
+                      style={{
+                        fontFamily:
+                          '"Inter Display", var(--font-inter), sans-serif',
+                        fontWeight: 500,
+                        letterSpacing: "0",
+                      }}
+                    >
+                      {t("formTitle")}
+                    </h2>
+                    <p className="!mt-1 text-sm text-text-muted">
+                      {t("formSubtitle")}
+                    </p>
 
                     {/* Name row */}
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div>
                         <label htmlFor="firstName" className={labelClass}>
-                          {t("firstName")} <Req />
+                          {t("firstName")} <span className="text-red-500">*</span>
                         </label>
                         <input
                           id="firstName"
@@ -157,7 +200,7 @@ export default function GetDemoForm() {
                       </div>
                       <div>
                         <label htmlFor="lastName" className={labelClass}>
-                          {t("lastName")} <Req />
+                          {t("lastName")} <span className="text-red-500">*</span>
                         </label>
                         <input
                           id="lastName"
@@ -175,7 +218,7 @@ export default function GetDemoForm() {
                     {/* Email */}
                     <div>
                       <label htmlFor="email" className={labelClass}>
-                        {t("email")} <Req />
+                        {t("email")} <span className="text-red-500">*</span>
                       </label>
                       <input
                         id="email"
@@ -192,7 +235,7 @@ export default function GetDemoForm() {
                     {/* Company */}
                     <div>
                       <label htmlFor="company" className={labelClass}>
-                        {t("company")} <Req />
+                        {t("company")} <span className="text-red-500">*</span>
                       </label>
                       <input
                         id="company"
@@ -209,7 +252,7 @@ export default function GetDemoForm() {
                     {/* Job Title */}
                     <div>
                       <label htmlFor="jobTitle" className={labelClass}>
-                        {t("jobTitle")} <Req />
+                        {t("jobTitle")} <span className="text-red-500">*</span>
                       </label>
                       <input
                         id="jobTitle"
@@ -226,7 +269,7 @@ export default function GetDemoForm() {
                     {/* Company Size */}
                     <div>
                       <label htmlFor="companySize" className={labelClass}>
-                        {t("companySize")} <Req />
+                        {t("companySize")} <span className="text-red-500">*</span>
                       </label>
                       <select
                         id="companySize"
@@ -280,7 +323,7 @@ export default function GetDemoForm() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="flex w-full items-center justify-center gap-2 rounded-full bg-[#0A0D12] px-6 py-3.5 font-medium text-white transition-colors hover:bg-[#0A0D12]/90 disabled:cursor-not-allowed disabled:opacity-60"
+                      className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#0A0D12] px-6 py-3.5 font-medium text-white transition-colors hover:bg-[#0A0D12]/90 disabled:cursor-not-allowed disabled:opacity-60"
                     >
                       {loading ? (
                         <>
@@ -293,158 +336,24 @@ export default function GetDemoForm() {
                     </button>
 
                     <p className="text-xs leading-relaxed text-text-muted">
-                      {t("disclaimer")}
+                      {t("disclaimerBefore")}
+                      <a
+                        href={privacyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium text-slate-700 underline underline-offset-2 hover:text-primary"
+                      >
+                        {t("disclaimerLink")}
+                      </a>
+                      {t("disclaimerAfter")}
                     </p>
                   </form>
-                ) : (
-                  <div className="flex flex-col items-center py-6 text-center">
-                    <MotionDiv
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                      className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-b from-[#F7F8FA] to-[#EBECEF]"
-                    >
-                      <Calendar className="h-9 w-9 text-slate-900" strokeWidth={1.75} />
-                    </MotionDiv>
-                    <h2 className="mb-2 text-2xl font-bold text-slate-900">
-                      {t("successTitle")}
-                    </h2>
-                    <p className="mb-6 max-w-md text-text-secondary">
-                      {t("successMessage")}
-                    </p>
-
-                    {/* Meta pill */}
-                    <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-700">
-                      <span className="inline-flex items-center gap-1.5">
-                        <Clock className="h-4 w-4 text-slate-900" strokeWidth={1.75} />
-                        {t("bookingDuration")}
-                      </span>
-                      <span className="text-slate-300">•</span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <Video className="h-4 w-4 text-slate-900" strokeWidth={1.75} />
-                        {t("bookingFormat")}
-                      </span>
-                    </div>
-
-                    {/* CTA */}
-                    <a
-                      href={bookingUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex w-full items-center justify-center rounded-full bg-[#0A0D12] px-6 py-3.5 font-medium text-white transition-colors hover:bg-[#0A0D12]/90"
-                    >
-                      {t("bookingCTA")}
-                    </a>
-
-                    <p className="mt-4 text-xs leading-relaxed text-text-muted">
-                      {t("bookingFootnote")}
-                    </p>
-                  </div>
                 )}
               </div>
-            </MotionDiv>
-
-            {/* Value props (mobile: last; desktop: bottom-left) */}
-            <MotionDiv
-              variants={blurIn}
-              className="order-3 space-y-8 lg:col-start-1 lg:row-start-2"
-            >
-              {VALUE_PROPS.map(({ src, key }) => (
-                <div key={key} className="flex items-start gap-3">
-                  {/* Exact icon extracted from the Figma export (public/demo/*) */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={src}
-                    alt=""
-                    aria-hidden="true"
-                    className="-mt-1.5 h-12 w-12 flex-shrink-0"
-                  />
-                  <div>
-                    <h3 className="mb-1 text-lg font-semibold text-slate-900">
-                      {t(`${key}Title`)}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-text-secondary">
-                      {t(`${key}Description`)}
-                    </p>
-                  </div>
-                </div>
-              ))}
             </MotionDiv>
           </div>
         </BlurReveal>
       </div>
     </section>
-  );
-}
-
-/* Red required-field asterisk */
-function Req() {
-  return <span className="text-red-500">*</span>;
-}
-
-/* Two-step progress header inside the card */
-function Stepper({
-  step,
-  t,
-}: {
-  step: 1 | 2;
-  t: ReturnType<typeof useTranslations>;
-}) {
-  return (
-    <div className="mb-6 flex items-center justify-center gap-4 border-b border-slate-200 pb-5 sm:gap-8">
-      {/* Step 1 is always emphasized: active on step 1, completed on step 2 */}
-      <StepItem
-        dark
-        showCheck={step > 1}
-        labelActive
-        label={t("stepDetails")}
-        index={1}
-      />
-      {/* Step 2 circle stays light; only its label darkens once active */}
-      <StepItem
-        dark={false}
-        showCheck={false}
-        labelActive={step >= 2}
-        label={t("stepPickTime")}
-        index={2}
-      />
-    </div>
-  );
-}
-
-function StepItem({
-  dark,
-  showCheck,
-  labelActive,
-  label,
-  index,
-}: {
-  dark: boolean;
-  showCheck: boolean;
-  labelActive: boolean;
-  label: string;
-  index: number;
-}) {
-  return (
-    <div className="flex items-center gap-2.5">
-      <span
-        className={cn(
-          "flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium",
-          dark
-            ? "bg-gradient-to-b from-[#52525B] to-[#0A0D12] text-white shadow-sm"
-            : "bg-gradient-to-b from-[#F4F4F5] to-[#D9DADD] text-slate-500"
-        )}
-      >
-        {showCheck ? <Check className="h-4 w-4" /> : index}
-      </span>
-      <span
-        className={cn(
-          "text-sm",
-          labelActive ? "font-medium text-slate-900" : "text-slate-400"
-        )}
-      >
-        {label}
-      </span>
-    </div>
   );
 }
