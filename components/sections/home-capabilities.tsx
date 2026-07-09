@@ -1,6 +1,6 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
+import { readFileSync } from "fs";
+import { join } from "path";
+import { getLocale, getTranslations } from "next-intl/server";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
 
 /* "Inter Display" (the Figma spec) is just Inter at its display optical size.
@@ -16,15 +16,23 @@ const DISPLAY_FONT = 'var(--font-inter), "Inter Display", Inter, sans-serif';
 
    Both locales render the illustration-only export and lay the localized
    title/body below it as live HTML (Home `cap*Title`/`cap*Body`). The `*-en.svg`
-   / `*-ja.svg` exports are the same card illustration minus the baked text band. */
+   / `*-ja.svg` exports are the same card illustration minus the baked text band.
+
+   The illustrations are INLINED into the DOM rather than shown through `<img src>`.
+   These Figma exports carry `feGaussianBlur` filters (shadows/glows); when an SVG
+   with filters is drawn via `<img>`, mobile Safari/Chrome rasterise the filter
+   region at the SVG's intrinsic viewBox size, ignoring the device pixel ratio,
+   then upscale it — so the cards looked blurry on phones while crisp on desktop.
+   Inline `<svg>` is rendered in the live pipeline at device resolution, so it
+   stays sharp everywhere. */
 const ROWS = [
   [
-    { enSrc: "/riskradar-en.svg", jaSrc: "/riskradar-ja.svg", key: "cap1" },
-    { enSrc: "/decisionmemory-en.svg", jaSrc: "/decisionmemory-ja.svg", key: "cap2" },
+    { file: "riskradar", key: "cap1" },
+    { file: "decisionmemory", key: "cap2" },
   ],
   [
-    { enSrc: "/context-en.svg", jaSrc: "/context-ja.svg", key: "cap3" },
-    { enSrc: "/ask-en.svg", jaSrc: "/ask-ja.svg", key: "cap4" },
+    { file: "context", key: "cap3" },
+    { file: "ask", key: "cap4" },
   ],
 ] as const;
 
@@ -33,9 +41,25 @@ const ROW_COLS = [
   "lg:grid-cols-[614fr_450fr]",
 ];
 
-export default function HomeCapabilities() {
-  const t = useTranslations("Home");
-  const isJa = useLocale() === "ja";
+/* Read a card illustration and make its root <svg> fluid: drop the fixed
+   width/height attributes (the viewBox keeps the aspect ratio) so it fills the
+   card width and scales cleanly. Runs at build time (both locales are statically
+   generated), so there is no per-request filesystem cost. */
+function loadInlineSvg(file: string, isJa: boolean): string {
+  const svg = readFileSync(
+    join(process.cwd(), "public", `${file}-${isJa ? "ja" : "en"}.svg`),
+    "utf8",
+  );
+  return svg.replace(
+    /<svg\b([^>]*)>/,
+    (_m, attrs: string) =>
+      `<svg${attrs.replace(/\s(?:width|height)="[^"]*"/g, "")} style="display:block;width:100%;height:auto">`,
+  );
+}
+
+export default async function HomeCapabilities() {
+  const t = await getTranslations("Home");
+  const isJa = (await getLocale()) === "ja";
 
   return (
     <section className="section-padding">
@@ -89,11 +113,11 @@ export default function HomeCapabilities() {
                       key={card.key}
                       className="flex h-full flex-col overflow-hidden rounded-lg border border-[#E9EAEB] bg-white"
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={isJa ? card.jaSrc : card.enSrc}
-                        alt={t(`${card.key}Title` as "cap1Title")}
-                        className="block h-auto w-full"
+                      <div
+                        role="img"
+                        aria-label={t(`${card.key}Title` as "cap1Title")}
+                        className="w-full"
+                        dangerouslySetInnerHTML={{ __html: loadInlineSvg(card.file, isJa) }}
                       />
                       <div className="flex flex-1 flex-col px-7 pb-8 pt-5">
                         <h3

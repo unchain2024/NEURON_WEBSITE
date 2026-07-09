@@ -2,6 +2,9 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
+import { InlineSvg } from "@/components/inline-svg";
+import enterpriseEn from "@/public/enterprise.svg?raw";
+import enterpriseJa from "@/public/enterprise-ja.svg?raw";
 
 /* "Inter Display" (Figma spec) is Inter at its display optical size; the loaded
    Inter renders that cut at large sizes, so we put it first for determinism. */
@@ -47,15 +50,13 @@ export default function HomeSecurityStrip() {
             </p>
           </MotionDiv>
 
-          {/* Shield graphic — locale-swapped (copy carried in the SVG export) */}
+          {/* Shield graphic — locale-swapped (copy carried in the SVG export).
+              Inlined (not <img>) so the filter glows stay sharp on mobile. */}
           <MotionDiv variants={fadeInUp} className="mt-12 w-full">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={isJa ? "/enterprise-ja.svg" : "/enterprise.svg"}
-              alt="Enterprise-grade security: encryption in transit & at rest, read-only integrations, never used to train AI models, existing permissions preserved"
-              width={860}
-              height={475}
-              className="mx-auto block h-auto w-full max-w-[860px]"
+            <InlineSvg
+              svg={isJa ? enterpriseJa : enterpriseEn}
+              ariaLabel="Enterprise-grade security: encryption in transit & at rest, read-only integrations, never used to train AI models, existing permissions preserved"
+              className="mx-auto w-full max-w-[860px]"
             />
           </MotionDiv>
         </div>

@@ -6,6 +6,9 @@ import { Link } from "@/i18n/navigation";
 import { ArrowLeft, ArrowRight, Info } from "lucide-react";
 import FinalCTA from "@/components/sections/final-cta";
 import { SectionReveal, FadeUpReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
+import { InlineSvg } from "@/components/inline-svg";
+import heroDiagramEn from "@/public/architecture/hero-diagram-en.svg?raw";
+import heroDiagramJa from "@/public/architecture/hero-ja.svg?raw";
 
 /* "Inter Display" (Figma spec) is Inter at its display optical size; the loaded
    Inter renders that cut at large sizes, so we put it first for determinism. */
@@ -92,8 +95,7 @@ export default function AiDrivenOntologyPageClient() {
 
   // The hero diagram is the swappable, locale-specific artwork; the card text is
   // HTML so the layout is identical across locales.
-  const heroDiagram =
-    locale === "ja" ? "/architecture/hero-ja.svg" : "/architecture/hero-diagram-en.svg";
+  const heroDiagram = locale === "ja" ? heroDiagramJa : heroDiagramEn;
 
   const scroller = useRef<HTMLDivElement>(null);
   const scrollCards = (dir: number) =>
@@ -137,13 +139,12 @@ export default function AiDrivenOntologyPageClient() {
             </Link>
           </div>
 
-          {/* right diagram */}
+          {/* right diagram — inlined so the filter glows stay sharp on mobile */}
           <div className="flex justify-center md:justify-end">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={heroDiagram}
-              alt="Neuron connects your data sources into one ontology that powers every solution."
-              className="h-auto w-full max-w-[760px]"
+            <InlineSvg
+              svg={heroDiagram}
+              ariaLabel="Neuron connects your data sources into one ontology that powers every solution."
+              className="w-full max-w-[760px]"
             />
           </div>
           </div>

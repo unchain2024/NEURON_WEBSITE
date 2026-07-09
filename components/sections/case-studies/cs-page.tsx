@@ -22,6 +22,9 @@ import {
   HERO_CARD_IMAGE,
 } from "@/lib/case-study-pages";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
+import { InlineSvg } from "@/components/inline-svg";
+import ontologyDesktopSvg from "@/public/case-studies/it3-clean.svg?raw";
+import ontologyMobileSvg from "@/public/case-studies/it3-ontology-clean.svg?raw";
 
 const HEADLINE_FONT = {
   fontFamily: '"Inter Display", var(--font-inter), sans-serif',
@@ -238,8 +241,7 @@ function CSOntology({ k }: { k: string }) {
   return (
     <section className="bg-white py-12 md:py-16">
       <SectionReveal className="relative mx-auto hidden w-[96%] max-w-[1800px] overflow-hidden rounded-2xl md:block [container-type:inline-size]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/case-studies/it3-clean.svg" alt="" className="block h-auto w-full" />
+        <InlineSvg svg={ontologyDesktopSvg} className="w-full" />
         <div className="absolute" style={{ left: "7.1%", top: "13.5%", width: "28%" }}>
           <span
             className="inline-flex items-center rounded-full border border-[#E9EAEB] bg-white font-medium text-[#0A0D12]"
@@ -274,8 +276,7 @@ function CSOntology({ k }: { k: string }) {
             </h2>
             <p className="mt-4 text-left text-[15px] leading-relaxed text-[#535862]">{t("body")}</p>
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/case-studies/it3-ontology-clean.svg" alt={t("title")} className="mt-6 h-auto w-full" />
+          <InlineSvg svg={ontologyMobileSvg} ariaLabel={t("title")} className="mt-6 w-full" />
         </div>
       </div>
     </section>

@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { InlineSvg } from "@/components/inline-svg";
+import animationLogo from "@/public/hero-animation/animation-logo.svg?raw";
 
 /* ─────────────────────────────────────────────────────
    Assets + geometry — traced 1:1 from the wireframe SVGs.
@@ -238,8 +240,7 @@ function NeuronNode({ geo }: { geo: Geo }) {
         animate={prefersReduced ? undefined : { scale: [1, 1.03, 1.1, 1.03, 1] }}
         transition={breathe}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={asset("animation-logo.svg")} alt="" className="block w-full" draggable={false} />
+        <InlineSvg svg={animationLogo} className="w-full" />
       </motion.div>
     </div>
   );
