@@ -44,7 +44,7 @@ export default function IntegrationsHub() {
                 transition: { staggerChildren: 0.12, delayChildren: 0.05 },
               },
             }}
-            className="mx-auto max-w-3xl text-center"
+            className="mx-auto max-w-3xl rounded-2xl border border-[#E9EAEB] p-6 text-center shadow-sm md:rounded-none md:border-0 md:p-0 md:shadow-none"
           >
             <MotionDiv variants={fadeInUp}>
               <span className="inline-flex items-center rounded-full border border-[#E9EAEB] bg-white px-4 py-1.5 text-sm font-medium text-[#0A0D12] shadow-sm">
@@ -67,17 +67,11 @@ export default function IntegrationsHub() {
             </MotionDiv>
 
             <MotionDiv variants={fadeInUp} className="mt-8 flex justify-center">
-              <div
-                className="inline-flex flex-wrap items-center justify-center gap-x-7 gap-y-3 rounded-full border border-[#E9EAEB] px-6 py-3 shadow-sm"
-                style={{
-                  background:
-                    "linear-gradient(180deg, #FFFFFF 0%, #F6F6F6 100%)",
-                }}
-              >
+              <div className="inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-3 md:gap-x-7 md:rounded-full md:border md:border-[#E9EAEB] md:px-6 md:py-3 md:shadow-sm md:[background:linear-gradient(180deg,#FFFFFF_0%,#F6F6F6_100%)]">
                 {HERO_PILLS.map(({ key, Icon }) => (
                   <span
                     key={key}
-                    className="inline-flex items-center gap-2.5 text-sm font-medium text-[#0A0D12]"
+                    className="inline-flex items-center gap-2.5 rounded-full border border-[#E9EAEB] bg-white px-3 py-1.5 text-sm font-medium text-[#0A0D12] md:border-0 md:bg-transparent md:px-0 md:py-0"
                   >
                     <span
                       className="flex h-8 w-8 items-center justify-center rounded-full shadow-[0_1px_2px_rgba(28,168,88,0.4)]"

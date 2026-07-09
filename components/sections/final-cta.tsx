@@ -106,14 +106,13 @@ export default function FinalCTA() {
                 >
                   {t("cta")}
                 </Link>
-                {/* Download overview — placeholder for now; wire up the asset link later. */}
-                <button
-                  type="button"
+                <Link
+                  href="/download"
                   className="inline-flex items-center rounded-full border border-[#E9EAEB] bg-white font-medium text-[#0A0D12] transition-colors hover:bg-white/80"
                   style={{ fontSize: "1.02cqw", padding: "0.95cqw 1.7cqw" }}
                 >
                   {t("note")}
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -147,13 +146,12 @@ export default function FinalCTA() {
                 >
                   {t("cta")}
                 </Link>
-                {/* Download overview — placeholder for now; wire up the asset link later. */}
-                <button
-                  type="button"
+                <Link
+                  href="/download"
                   className="mt-3 flex w-full items-center justify-center rounded-full border border-[#E9EAEB] bg-white px-6 py-3.5 text-sm font-semibold text-[#0A0D12] transition-colors hover:bg-white/80"
                 >
                   {t("note")}
-                </button>
+                </Link>
               </div>
               {/* Brain + rings, blended into the green at the bottom */}
               <div className="relative mt-4 h-56">
