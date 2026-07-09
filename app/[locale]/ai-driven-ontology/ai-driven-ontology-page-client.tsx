@@ -363,7 +363,7 @@ export default function AiDrivenOntologyPageClient() {
               type="button"
               onClick={() => scrollCards(-1)}
               aria-label="Previous"
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#0A0D12] transition-transform hover:scale-105"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.08] text-white transition-transform hover:scale-105"
             >
               <ArrowLeft className="h-4 w-4" />
             </button>
@@ -371,7 +371,7 @@ export default function AiDrivenOntologyPageClient() {
               type="button"
               onClick={() => scrollCards(1)}
               aria-label="Next"
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#0A0D12] transition-transform hover:scale-105"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.08] text-white transition-transform hover:scale-105"
             >
               <ArrowRight className="h-4 w-4" />
             </button>

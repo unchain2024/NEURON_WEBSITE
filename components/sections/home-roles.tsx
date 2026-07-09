@@ -1,7 +1,6 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
 
 /* "Inter Display" (Figma spec) is Inter at its display optical size; the loaded
@@ -55,26 +54,6 @@ export default function HomeRoles() {
                 {t("rolesHeading")}
               </h2>
             </div>
-
-            {isJa ? (
-              <Link
-                href="/solutions"
-                className="inline-flex h-11 shrink-0 items-center gap-2 rounded-full border border-[#E9EAEB] bg-white px-6 text-sm font-semibold text-[#0A0D12] transition-transform hover:-translate-y-0.5"
-              >
-                {t("rolesCta")}
-              </Link>
-            ) : (
-              <Link href="/solutions" className="shrink-0" aria-label="Explore solutions by role">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/exploresolution.svg"
-                  alt="Explore solutions by role"
-                  width={235}
-                  height={44}
-                  className="h-11 w-auto transition-transform hover:-translate-y-0.5"
-                />
-              </Link>
-            )}
           </MotionDiv>
 
           {/* Three role cards — illustration only (same SVG, CSS-cropped to its
