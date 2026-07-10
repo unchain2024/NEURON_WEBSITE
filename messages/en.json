@@ -4265,7 +4265,9 @@
     "faq4Q": "Ut labore et dolore magna aliqua?",
     "faq4A": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "faq5Q": "Quis nostrud exercitation ullamco?",
-    "faq5A": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "faq5A": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "navHeading": "Documentation",
+    "next": "Next"
   },
   "DocsQuickStart": {
     "heroEyebrow": "Documentation",
@@ -4337,13 +4339,13 @@
     "tocLabel": "On this page",
     "overviewTitle": "Overview",
     "overviewP1": "Chatwork issues a personal API token from your Service / Packages settings page. Copy that token into Neuron's Chatwork connection screen during onboarding (or anytime from Settings → Integrations).",
-    "setupTitle": "Setup steps",
+    "setupTitle": "Setup Steps",
     "step1": "Log in to chatwork.com.",
     "step2": "Go to Integrations by navigating to your Service / Packages settings page.",
     "step3": "In the left sidebar under API, click API Token.",
     "step4": "Your API token is displayed on this page. Click Copy to copy it.",
     "step5": "Paste the token into Neuron's Chatwork connection screen.",
-    "videoTitle": "Video walkthrough",
+    "videoTitle": "Video Walkthrough",
     "videoLabel": "Watch the setup video"
   },
   "DocsIntegrationGithub": {
@@ -4354,7 +4356,7 @@
     "tocLabel": "On this page",
     "overviewTitle": "Overview",
     "overviewP1": "GitHub uses personal access tokens (classic) for third-party integrations. Generate one with the repo scope, then paste it into Neuron's GitHub connection screen.",
-    "setupTitle": "Setup steps",
+    "setupTitle": "Setup Steps",
     "step1": "Log in to github.com and click your profile avatar in the top-right corner.",
     "step2": "Click Settings from the dropdown menu.",
     "step3": "Scroll down in the left sidebar and click Developer settings.",
@@ -4365,7 +4367,7 @@
     "step8": "Scroll down and click Generate token.",
     "step9": "Copy the token immediately — GitHub will only show it once.",
     "step10": "Paste the token into Neuron's GitHub connection screen.",
-    "videoTitle": "Video walkthrough",
+    "videoTitle": "Video Walkthrough",
     "videoLabel": "Watch the setup video"
   },
   "DocsIntegrationDiscord": {
@@ -4376,7 +4378,7 @@
     "tocLabel": "On this page",
     "overviewTitle": "Overview",
     "overviewP1": "Discord integrations are built on top of a Developer Portal application. Create one for Neuron, then copy its Application ID, Public Key, and Bot Token into Neuron's Discord connection screen.",
-    "setupTitle": "Setup steps",
+    "setupTitle": "Setup Steps",
     "step1": "Go to the Discord Developer Portal and log in.",
     "step2": "Click New Application in the top-right corner.",
     "step3": "Enter a Name for the app (e.g., \"Neuron\") and click Create.",
@@ -4385,7 +4387,7 @@
     "step6": "Click Reset Token and verify your identity (Discord may prompt for your password or MFA).",
     "step7": "Your new bot token will be displayed. Click Copy to copy it — you won't be able to see it again.",
     "step8": "Paste the Application ID, Public Key, and Bot Token into Neuron's Discord connection screen.",
-    "videoTitle": "Video walkthrough",
+    "videoTitle": "Video Walkthrough",
     "videoLabel": "Watch the setup video"
   },
   "DocsIntegrationGranola": {
@@ -4396,14 +4398,14 @@
     "tocLabel": "On this page",
     "overviewTitle": "Overview",
     "overviewP1": "Granola exposes API keys from its desktop app's Settings panel. Generate a Personal API key (or Enterprise for admins) and paste it into Neuron's Granola connection screen.",
-    "setupTitle": "Setup steps",
+    "setupTitle": "Setup Steps",
     "step1": "Open the Granola desktop app and go to Settings.",
     "step2": "In the left sidebar under Connectors, click API.",
     "step3": "Click Create new key.",
     "step4": "In the \"Generate API Key\" dialog, select Personal API (accesses notes you own and notes shared with you) or Enterprise API (for enterprise admins only).",
     "step5": "Click Generate and wait for the key to be created.",
     "step6": "Copy the API key and paste it into Neuron's Granola connection screen.",
-    "videoTitle": "Video walkthrough",
+    "videoTitle": "Video Walkthrough",
     "videoLabel": "Watch the setup video"
   },
   "DocsIntegrationHubspot": {
@@ -4414,7 +4416,7 @@
     "tocLabel": "On this page",
     "overviewTitle": "Overview",
     "overviewP1": "HubSpot uses personal access keys for programmatic integrations. Generate one from Development → Keys, select the scopes Neuron needs, then paste the key into Neuron's HubSpot connection screen.",
-    "setupTitle": "Setup steps",
+    "setupTitle": "Setup Steps",
     "step1": "Log in to app.hubspot.com.",
     "step2": "Click the Settings gear icon in the bottom-left of the sidebar.",
     "step3": "In the left sidebar, navigate to Development (under the developer overview at app.hubspot.com/developer-overview).",
@@ -4422,7 +4424,7 @@
     "step5": "Select the scopes / permissions you want the key to have, then click Generate personal access key.",
     "step6": "Once generated, click Show or Copy to copy your Personal Access Key.",
     "step7": "Paste the key into Neuron's HubSpot connection screen.",
-    "videoTitle": "Video walkthrough",
+    "videoTitle": "Video Walkthrough",
     "videoLabel": "Watch the setup video"
   },
   "DocsIntegrationJira": {
@@ -4433,7 +4435,7 @@
     "tocLabel": "On this page",
     "overviewTitle": "Overview",
     "overviewP1": "Jira (and the rest of Atlassian Cloud) uses account-wide API tokens. Create one from id.atlassian.com, copy it immediately, and paste it into Neuron's Jira connection screen.",
-    "setupTitle": "Setup steps",
+    "setupTitle": "Setup Steps",
     "step1": "Go to your Atlassian Account settings at id.atlassian.com.",
     "step2": "Click Security in the top navigation bar.",
     "step3": "Navigate to the API Tokens section (at id.atlassian.com/manage-profile/security/api-tokens).",
@@ -4442,7 +4444,7 @@
     "step6": "Click Create.",
     "step7": "Copy the token immediately — you won't be able to see it again after closing this dialog.",
     "step8": "Paste the token into Neuron's Jira connection screen.",
-    "videoTitle": "Video walkthrough",
+    "videoTitle": "Video Walkthrough",
     "videoLabel": "Watch the setup video"
   },
   "DocsIntegrationKintone": {
@@ -4453,7 +4455,7 @@
     "tocLabel": "On this page",
     "overviewTitle": "Overview",
     "overviewP1": "Kintone issues API tokens scoped to read or write apps. Generate one with read scope from your portal's admin page, then paste it into Neuron's Kintone connection screen.",
-    "setupTitle": "Setup steps",
+    "setupTitle": "Setup Steps",
     "step1": "Log in to your Kintone portal (e.g., yourcompany.kintone.com).",
     "step2": "Click your profile name in the top-right corner and select Users & system administration.",
     "step3": "In the left sidebar under Integrations, click API tokens.",
@@ -4462,7 +4464,7 @@
     "step6": "Click Generate.",
     "step7": "Copy the API token immediately — you won't be able to view it again after leaving the page.",
     "step8": "Paste the token into Neuron's Kintone connection screen.",
-    "videoTitle": "Video walkthrough",
+    "videoTitle": "Video Walkthrough",
     "videoLabel": "Watch the setup video"
   },
   "DocsIntegrationLinear": {
@@ -4473,7 +4475,7 @@
     "tocLabel": "On this page",
     "overviewTitle": "Overview",
     "overviewP1": "Linear uses personal API keys for third-party integrations. Generate one from Settings → Security & access and paste it into Neuron's Linear connection screen before leaving the page (Linear only shows the key once).",
-    "setupTitle": "Setup steps",
+    "setupTitle": "Setup Steps",
     "step1": "Log in to linear.app.",
     "step2": "Go to Settings → Security & access (at linear.app/[workspace]/settings/account/security).",
     "step3": "Scroll down to the Personal API keys section.",
@@ -4481,7 +4483,7 @@
     "step5": "Enter a name (e.g., \"Neuron\") and confirm.",
     "step6": "Copy the API key immediately — Linear will not show it again after you leave the page.",
     "step7": "Paste the key into Neuron's Linear connection screen.",
-    "videoTitle": "Video walkthrough",
+    "videoTitle": "Video Walkthrough",
     "videoLabel": "Watch the setup video"
   },
   "DocsIntegrationMonday": {
@@ -4492,13 +4494,13 @@
     "tocLabel": "On this page",
     "overviewTitle": "Overview",
     "overviewP1": "Monday.com exposes a per-user Personal API token from the Administration panel. Copy it into Neuron's Monday.com connection screen.",
-    "setupTitle": "Setup steps",
+    "setupTitle": "Setup Steps",
     "step1": "Log in to monday.com.",
     "step2": "Click your profile avatar in the top-right corner and go to Administration.",
     "step3": "In the left sidebar, expand Connections and click Personal API token.",
     "step4": "Your Personal API Token is displayed on this page. Click Copy to copy it.",
     "step5": "Paste the token into Neuron's Monday.com connection screen.",
-    "videoTitle": "Video walkthrough",
+    "videoTitle": "Video Walkthrough",
     "videoLabel": "Watch the setup video"
   },
   "DocsIntegrationNotion": {
@@ -4509,14 +4511,14 @@
     "tocLabel": "On this page",
     "overviewTitle": "Overview",
     "overviewP1": "Notion connects via internal integrations scoped to one workspace. Create one for Neuron, copy the integration secret, and paste it into Neuron's Notion connection screen.",
-    "setupTitle": "Setup steps",
+    "setupTitle": "Setup Steps",
     "step1": "Go to notion.so/profile and log in.",
     "step2": "In the left sidebar under Build, click Internal integrations.",
     "step3": "Click Create a new integration.",
     "step4": "Enter an Integration name (e.g., \"Neuron\"), select the Associated workspace you want Neuron to access, and click Create.",
     "step5": "On the integration page, you'll see the Internal integration secret (hidden by default). Click Show to reveal it, then copy the secret.",
     "step6": "Paste the secret into Neuron's Notion connection screen.",
-    "videoTitle": "Video walkthrough",
+    "videoTitle": "Video Walkthrough",
     "videoLabel": "Watch the setup video"
   },
   "DocsIntegrationRecallai": {
@@ -4527,14 +4529,14 @@
     "tocLabel": "On this page",
     "overviewTitle": "Overview",
     "overviewP1": "Recall.ai issues API keys from your dashboard's Developers section. Generate one, copy it, and paste it into Neuron's Recall connection screen.",
-    "setupTitle": "Setup steps",
+    "setupTitle": "Setup Steps",
     "step1": "Log in to your Recall.ai dashboard (e.g., ap-northeast-1.recall.ai/dashboard).",
     "step2": "In the left sidebar under Account, click Developers.",
     "step3": "On the API Keys & Secrets tab, click + New API Key.",
     "step4": "Enter a Name for the key (e.g., \"Neuron\") and click Create Key.",
     "step5": "Copy the generated API key.",
     "step6": "Paste the key into Neuron's Recall connection screen.",
-    "videoTitle": "Video walkthrough",
+    "videoTitle": "Video Walkthrough",
     "videoLabel": "Watch the setup video"
   },
   "DocsIntegrationSlack": {
@@ -4545,7 +4547,7 @@
     "tocLabel": "On this page",
     "overviewTitle": "Overview",
     "overviewP1": "Slack integrations are built on top of Slack apps. Create one from api.slack.com/apps, generate an app-level token (starts with xapp-), and paste it into Neuron's Slack connection screen along with the values from the Basic Information page.",
-    "setupTitle": "Setup steps",
+    "setupTitle": "Setup Steps",
     "step1": "Go to api.slack.com/apps and sign in.",
     "step2": "Click Create an App, choose From scratch, enter an app name (e.g., \"Neuron\"), select your workspace, and complete the creation wizard.",
     "step3": "After creation, you'll land on the app's Basic Information page. Here you can find your App ID, Client ID, Client Secret, and Signing Secret.",
@@ -4553,7 +4555,7 @@
     "step5": "Enter a Token Name (e.g., \"Neuron\"), add the required scopes, and click Generate.",
     "step6": "Copy the generated token (starts with xapp-).",
     "step7": "Paste the token into Neuron's Slack connection screen.",
-    "videoTitle": "Video walkthrough",
+    "videoTitle": "Video Walkthrough",
     "videoLabel": "Watch the setup video"
   }
 }

@@ -1,4 +1,4 @@
-import { Lightbulb, PlayCircle } from "lucide-react";
+import { Lightbulb } from "lucide-react";
 import { localizeDocImageSrc, type DocBlock } from "@/lib/docs-config";
 
 // Loose translator shape so both the server `getTranslations` result and
@@ -39,10 +39,16 @@ export default function Block({
 
   if (block.type === "ordered-list") {
     return (
-      <ol className="list-decimal space-y-2 pl-6 text-base leading-relaxed text-text-secondary marker:text-primary marker:font-semibold">
-        {block.keys.map((k) => (
-          <li key={k} className="pl-1">
-            {t(k)}
+      <ol className="space-y-4">
+        {block.keys.map((k, i) => (
+          <li key={k} className="flex items-start gap-3">
+            {/* Dark gradient numbered badge (24px) — mirrors the wireframe. */}
+            <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A0D12] to-[#0A0D12]/60 text-xs font-medium text-white">
+              {i + 1}
+            </span>
+            <span className="text-base leading-relaxed text-text-secondary">
+              {t(k)}
+            </span>
           </li>
         ))}
       </ol>
@@ -50,16 +56,21 @@ export default function Block({
   }
 
   if (block.type === "video") {
+    // Drive "view" links become inline players via /preview.
+    const embedUrl = block.url.replace(/\/view.*$/, "/preview");
     return (
-      <a
-        href={block.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-primary shadow-sm transition-colors hover:border-primary/40 hover:bg-primary/5"
-      >
-        <PlayCircle className="h-4 w-4" aria-hidden />
-        {t(block.labelKey)}
-      </a>
+      <figure className="overflow-hidden rounded-lg border border-[#E9EAEB]">
+        <div className="relative aspect-video w-full bg-slate-900">
+          <iframe
+            src={embedUrl}
+            title={t(block.labelKey)}
+            allow="autoplay; encrypted-media; fullscreen"
+            allowFullScreen
+            loading="lazy"
+            className="absolute inset-0 h-full w-full"
+          />
+        </div>
+      </figure>
     );
   }
 

@@ -123,6 +123,15 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Hide the scrollbar while keeping the element scrollable. */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE / old Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome / Safari / WebKit */
+  }
 }
 
 /* ─── Animated Beam (flow graph) ─── */
