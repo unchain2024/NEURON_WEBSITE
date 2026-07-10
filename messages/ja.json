@@ -4266,7 +4266,9 @@
     "faq4Q": "Ut labore et dolore magna aliqua?",
     "faq4A": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "faq5Q": "Quis nostrud exercitation ullamco?",
-    "faq5A": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "faq5A": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "navHeading": "ドキュメント",
+    "next": "次へ"
   },
   "DocsQuickStart": {
     "heroEyebrow": "ドキュメント",

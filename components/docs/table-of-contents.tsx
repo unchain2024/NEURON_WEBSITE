@@ -85,10 +85,24 @@ export default function TableOfContents({
 
   return (
     <nav aria-label={label} className={cn("text-sm", className)}>
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-text-muted">
+      <p className="mb-4 flex items-center gap-2 text-sm font-medium text-text-muted">
+        {/* menu-02 glyph (public/docs/menu-02.svg): long top, short middle,
+            long bottom. Inlined so it inherits the label color. */}
+        <svg
+          viewBox="0 0 18 18"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.67}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-[18px] w-[18px] shrink-0"
+          aria-hidden
+        >
+          <path d="M2.25 9H11.25M2.25 4.5H15.75M2.25 13.5H15.75" />
+        </svg>
         {label}
       </p>
-      <ul className="space-y-1 border-l border-slate-200/80">
+      <ul className="space-y-3">
         {items.map((item) => {
           const isActive = item.id === activeId;
           return (
@@ -96,14 +110,26 @@ export default function TableOfContents({
               <a
                 href={`#${item.id}`}
                 onClick={(e) => handleClick(e, item.id)}
-                className={cn(
-                  "-ml-px block border-l py-1.5 pl-4 transition-all duration-200",
-                  isActive
-                    ? "border-primary text-[0.95rem] font-medium text-slate-900"
-                    : "border-transparent text-text-muted hover:text-slate-700",
-                )}
+                className="flex items-start gap-2.5"
               >
-                {item.title}
+                {/* Fixed dot gutter — filled for the active item, invisible
+                    otherwise so every label stays left-aligned. */}
+                <span
+                  className={cn(
+                    "mt-[0.4rem] h-1.5 w-1.5 shrink-0 rounded-full transition-colors duration-200",
+                    isActive ? "bg-slate-900" : "bg-transparent",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "block leading-relaxed transition-colors duration-200",
+                    isActive
+                      ? "font-semibold text-slate-900"
+                      : "text-text-muted hover:text-slate-700",
+                  )}
+                >
+                  {item.title}
+                </span>
               </a>
             </li>
           );

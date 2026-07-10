@@ -15,6 +15,7 @@ import {
   CommerceIcon,
   ServicesIcon,
 } from "@/components/solutions-icons";
+import { INTEGRATION_SLUGS } from "@/lib/docs-config";
 
 const MotionLink = motion.create(Link);
 const MotionA = motion.a;
@@ -128,7 +129,7 @@ const DOCS_ITEMS: readonly {
   Icon: typeof Rocket;
 }[] = [
   { key: "quickstart", href: "/docs/quick-start", Icon: Rocket },
-  { key: "integrations", href: "/docs/integrations", Icon: Plug },
+  { key: "integrations", href: `/docs/integrations/${INTEGRATION_SLUGS[0]}`, Icon: Plug },
 ];
 
 export default function Navbar() {

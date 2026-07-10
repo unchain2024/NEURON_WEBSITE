@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import Block from "@/components/docs/doc-block";
-import DocsSidebar from "@/components/docs/docs-sidebar";
-import TableOfContents from "@/components/docs/table-of-contents";
+import DocsShell from "@/components/docs/docs-shell";
 import { routing } from "@/i18n/routing";
 import {
   getIntegrationTopic,
@@ -55,6 +54,8 @@ export default async function IntegrationDetailPage({
   if (!topic) notFound();
 
   const t = await getTranslations(topic.namespace);
+  const tc = await getTranslations("Docs");
+  const ti = await getTranslations("DocsIntegrations");
 
   // Pre-resolve translated topics for the sidebar so the client component
   // stays dumb (it just renders strings).
@@ -77,80 +78,63 @@ export default async function IntegrationDetailPage({
     title: t(s.titleKey),
   }));
 
+  // "Next" points at the following integration in the sidebar order; the last
+  // one has no next link.
+  const currentIndex = INTEGRATION_SLUGS.indexOf(slug);
+  const nextSlug = INTEGRATION_SLUGS[currentIndex + 1];
+  const next = nextSlug
+    ? {
+        href: `/docs/integrations/${nextSlug}`,
+        label: tc("next"),
+        title: ti(`${nextSlug}Title`),
+      }
+    : undefined;
+
   return (
-    <div className="relative pt-20 md:pt-24 pb-16 scroll-smooth">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[220px_minmax(0,1fr)] xl:grid-cols-[220px_minmax(0,1fr)_220px] gap-8 xl:gap-12">
-          {/* Left: sidebar */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pr-2">
-              <DocsSidebar
-                topics={sidebarTopics}
-                activeSlug="integrations"
-                activeSubSlug={slug}
-                ariaLabel={t("sidebarLabel")}
-              />
-            </div>
-          </aside>
+    <DocsShell
+      topics={sidebarTopics}
+      activeSlug="integrations"
+      activeSubSlug={slug}
+      navHeading={tc("navHeading")}
+      navAriaLabel={t("sidebarLabel")}
+      tocItems={tocItems}
+      tocLabel={t("tocLabel")}
+      next={next}
+    >
+      <header className="mb-10">
+        <div className="flex items-center gap-4">
+          <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-[14px] bg-gradient-to-b from-[#FAFAFA] to-[#F5F5F5]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={INTEGRATION_LOGOS[slug]}
+              alt=""
+              aria-hidden
+              className="h-12 w-12 object-contain"
+            />
+          </div>
+          <h1 className="font-medium text-[2rem] leading-[1.1] tracking-[-0.04em] text-slate-900">
+            {t(topic.titleKey)}
+          </h1>
+        </div>
+        <p className="mt-4 font-normal text-base leading-none tracking-normal text-text-secondary">
+          {t("description")}
+        </p>
+      </header>
 
-          {/* Middle: content */}
-          <article className="min-w-0 max-w-3xl">
-            <header className="mb-10">
-              <p className="text-sm font-medium text-primary uppercase tracking-wide mb-3">
-                {t("heroEyebrow")}
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white p-2 ring-1 ring-slate-200/70 shadow-sm">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={INTEGRATION_LOGOS[slug]}
-                    alt=""
-                    aria-hidden
-                    className="h-full w-full object-contain"
-                  />
-                </div>
-                <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900">
-                  {t(topic.titleKey)}
-                </h1>
-              </div>
-              <p className="mt-4 text-base md:text-lg text-text-secondary leading-relaxed">
-                {t("description")}
-              </p>
-            </header>
-
-            <div className="space-y-12">
-              {topic.sections.map((section) => (
-                <section
-                  key={section.id}
-                  id={section.id}
-                  className="scroll-mt-24"
-                >
-                  <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-slate-900 mb-4">
-                    {t(section.titleKey)}
-                  </h2>
-                  <div className="space-y-4">
-                    {section.blocks.map((block, idx) => (
-                      <Block key={idx} block={block} t={t} locale={locale} />
-                    ))}
-                  </div>
-                </section>
+      <div className="space-y-12">
+        {topic.sections.map((section) => (
+          <section key={section.id} id={section.id} className="scroll-mt-24">
+            <h2 className="font-medium text-2xl leading-[1.1] tracking-[-0.04em] text-slate-900 mb-4">
+              {t(section.titleKey)}
+            </h2>
+            <div className="space-y-4">
+              {section.blocks.map((block, idx) => (
+                <Block key={idx} block={block} t={t} locale={locale} />
               ))}
             </div>
-          </article>
-
-          {/* Right: table of contents */}
-          <aside className="hidden xl:block">
-            <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto">
-              <TableOfContents items={tocItems} label={t("tocLabel")} />
-            </div>
-          </aside>
-        </div>
-
-        {/* Mobile TOC — appears below content on small screens */}
-        <div className="xl:hidden mt-12 rounded-2xl border border-slate-200/70 bg-white/80 p-5">
-          <TableOfContents items={tocItems} label={t("tocLabel")} />
-        </div>
+          </section>
+        ))}
       </div>
-    </div>
+    </DocsShell>
   );
 }

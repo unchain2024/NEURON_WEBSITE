@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Plug, Rocket, type LucideIcon } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
@@ -22,7 +22,16 @@ export interface DocsSidebarProps {
   activeSubSlug?: string;
   className?: string;
   ariaLabel?: string;
+  // Fired whenever a link is followed — lets the mobile dropdown close itself.
+  onNavigate?: () => void;
 }
+
+// Icon per top-level topic slug. Mirrors the icons used in the navbar's Docs
+// dropdown so the two navigations stay visually consistent.
+const TOPIC_ICONS: Record<string, LucideIcon> = {
+  "quick-start": Rocket,
+  integrations: Plug,
+};
 
 export default function DocsSidebar({
   topics,
@@ -30,6 +39,7 @@ export default function DocsSidebar({
   activeSubSlug,
   className,
   ariaLabel = "Documentation navigation",
+  onNavigate,
 }: DocsSidebarProps) {
   return (
     <nav aria-label={ariaLabel} className={cn("w-full text-sm", className)}>
@@ -40,6 +50,7 @@ export default function DocsSidebar({
             topic={topic}
             isActive={topic.slug === activeSlug}
             activeSubSlug={activeSubSlug}
+            onNavigate={onNavigate}
           />
         ))}
       </ul>
@@ -51,15 +62,18 @@ function SidebarTopicNode({
   topic,
   isActive,
   activeSubSlug,
+  onNavigate,
 }: {
   topic: SidebarTopic;
   isActive: boolean;
   activeSubSlug?: string;
+  onNavigate?: () => void;
 }) {
   // Default the active parent open so the visitor can see the rest of the
   // section they're in without an extra click.
   const [open, setOpen] = useState(isActive);
   const hasSubtopics = topic.subtopics.length > 0;
+  const Icon = TOPIC_ICONS[topic.slug];
 
   // Without subtopics there's nothing to expand — render the parent as a
   // direct link to its page instead of a toggle.
@@ -68,14 +82,16 @@ function SidebarTopicNode({
       <li>
         <Link
           href={`/docs/${topic.slug}`}
+          onClick={onNavigate}
           className={cn(
-            "block rounded-lg px-3 py-2 font-semibold transition-colors",
+            "flex items-center gap-2.5 rounded-full px-4 py-2.5 font-medium transition-colors",
             isActive
-              ? "bg-primary/5 text-primary"
-              : "text-slate-700 hover:bg-slate-100 hover:text-slate-900",
+              ? "bg-slate-100 text-slate-900"
+              : "text-slate-800 hover:bg-slate-100 hover:text-slate-900",
           )}
         >
-          {topic.title}
+          {Icon && <Icon className="h-[18px] w-[18px] shrink-0 text-slate-500" />}
+          <span>{topic.title}</span>
         </Link>
       </li>
     );
@@ -88,16 +104,17 @@ function SidebarTopicNode({
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         className={cn(
-          "flex w-full items-center justify-between rounded-lg px-3 py-2 text-left font-semibold transition-colors",
+          "flex w-full items-center gap-2.5 rounded-full px-4 py-2.5 text-left font-medium transition-colors",
           isActive
-            ? "text-slate-900"
-            : "text-slate-700 hover:bg-slate-100 hover:text-slate-900",
+            ? "bg-slate-100 text-slate-900"
+            : "text-slate-800 hover:bg-slate-100 hover:text-slate-900",
         )}
       >
-        <span>{topic.title}</span>
+        {Icon && <Icon className="h-[18px] w-[18px] shrink-0 text-slate-500" />}
+        <span className="flex-1">{topic.title}</span>
         <ChevronRight
           className={cn(
-            "h-4 w-4 text-text-muted transition-transform duration-200",
+            "h-4 w-4 shrink-0 text-slate-400 transition-transform duration-200",
             open && "rotate-90",
           )}
         />
@@ -109,18 +126,19 @@ function SidebarTopicNode({
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
         )}
       >
-        <ul className="min-h-0 ml-3 border-l border-slate-200/80 pl-3">
+        <ul className="min-h-0 space-y-1 pt-1">
           {topic.subtopics.map((sub) => {
             const subActive = sub.slug === activeSubSlug;
             return (
               <li key={sub.slug}>
                 <Link
                   href={`/docs/${topic.slug}/${sub.slug}`}
+                  onClick={onNavigate}
                   className={cn(
-                    "block rounded-md px-3 py-1.5 text-sm transition-colors",
+                    "block rounded-full px-4 py-2.5 transition-colors",
                     subActive
-                      ? "bg-primary/5 font-medium text-primary"
-                      : "text-text-secondary hover:bg-slate-100 hover:text-slate-900",
+                      ? "bg-slate-100 font-medium text-slate-900"
+                      : "font-normal text-slate-500 hover:bg-slate-100 hover:text-slate-900",
                   )}
                 >
                   {sub.title}
