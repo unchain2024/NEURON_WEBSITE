@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useLocale } from "next-intl";
 
 /* ─────────────────────────────────────────────────────
    Assets + geometry — traced 1:1 from the wireframe SVGs.
@@ -35,6 +36,9 @@ type Geo = {
 };
 
 const asset = (file: string) => `/hero-animation/${file.replace(/ /g, "%20")}`;
+/* Card artwork has the copy baked in; ja gets its own localized set. */
+const localizedCard = (file: string, locale: string) =>
+  locale === "ja" ? file.replace(/\.svg$/, "-ja.svg") : file;
 const pct = (v: number, total: number) => `${(v / total) * 100}%`;
 const cq = (px: number, W: number) => `${(px / W) * 100}cqw`;
 
@@ -114,6 +118,7 @@ function FlowCard({
   geo: Geo;
 }) {
   const prefersReduced = useReducedMotion();
+  const locale = useLocale();
 
   const slotStyle = {
     left: pct(card.slot.x, geo.W),
@@ -155,7 +160,7 @@ function FlowCard({
         transition={{ duration: FADE, times, ease: "linear", repeat: Infinity }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={asset(card.src)} alt="" className="block w-full" draggable={false} />
+        <img src={asset(localizedCard(card.src, locale))} alt="" className="block w-full" draggable={false} />
       </motion.div>
     </div>
   );

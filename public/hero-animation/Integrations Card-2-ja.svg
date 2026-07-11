@@ -1,0 +1,20 @@
+<svg width="272" height="64" viewBox="0 0 272 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="271" height="63" rx="3.5" fill="white"/>
+<rect x="0.5" y="0.5" width="271" height="63" rx="3.5" stroke="#E9EAEB"/>
+<rect x="12" y="12" width="40" height="40" rx="20" fill="#F5F5F5"/>
+<path d="M40.2557 23H31.5898C31.5898 25.16 33.3381 26.909 35.4987 26.909H37.0924V28.4514C37.0924 30.6114 38.8414 32.3604 41.0014 32.3604V23.7457C41.0013 23.548 40.9226 23.3584 40.7828 23.2186C40.643 23.0788 40.4534 23.0001 40.2557 23Z" fill="#2684FF"/>
+<path d="M35.9571 27.32H27.291C27.291 29.4798 29.0395 31.2288 31.1993 31.2288H32.7938V32.7712C32.7938 34.9312 34.5428 36.6802 36.7028 36.6802V28.0655C36.7025 27.8678 36.6238 27.6783 36.484 27.5386C36.3443 27.3988 36.1548 27.3203 35.9571 27.32Z" fill="url(#paint0_linear_142_6984)"/>
+<path d="M31.6661 31.6396H23C23 33.8004 24.7482 35.5486 26.909 35.5486H28.5027V37.0918C28.5027 39.2518 30.2517 41 32.4116 41V32.3861C32.4114 32.1884 32.3328 31.9988 32.193 31.8589C32.0533 31.719 31.8638 31.64 31.6661 31.6396Z" fill="url(#paint1_linear_142_6984)"/>
+<defs>
+<linearGradient id="paint0_linear_142_6984" x1="36.5224" y1="27.3298" x2="32.8354" y2="31.1315" gradientUnits="userSpaceOnUse">
+<stop offset="0.176" stop-color="#0052CC"/>
+<stop offset="1" stop-color="#2684FF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_142_6984" x1="32.4807" y1="31.673" x2="28.2177" y2="35.8205" gradientUnits="userSpaceOnUse">
+<stop offset="0.176" stop-color="#0052CC"/>
+<stop offset="1" stop-color="#2684FF"/>
+</linearGradient>
+</defs>
+<text x="64" y="27.5" font-family="'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo','Noto Sans JP',sans-serif" font-size="12" font-weight="400" fill="#363636">SSOの実装が</text>
+<text x="64" y="45.5" font-family="'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo','Noto Sans JP',sans-serif" font-size="12" font-weight="400" fill="#363636">バックログに残っている</text>
+</svg>

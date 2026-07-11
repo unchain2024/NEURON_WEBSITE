@@ -1,0 +1,15 @@
+<svg width="280" height="69" viewBox="0 0 280 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="279" height="68" rx="3.5" fill="white"/>
+<rect x="0.5" y="0.5" width="279" height="68" rx="3.5" stroke="#E9EAEB"/>
+<rect x="12" y="12" width="72" height="20" rx="10" fill="#F5F5F5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M24 16.5C20.9624 16.5 18.5 18.9624 18.5 22C18.5 25.0376 20.9624 27.5 24 27.5C27.0376 27.5 29.5 25.0376 29.5 22C29.5 18.9624 27.0376 16.5 24 16.5ZM26.6036 20.8536C26.7988 20.6583 26.7988 20.3417 26.6036 20.1464C26.4083 19.9512 26.0917 19.9512 25.8964 20.1464L23.25 22.7929L22.1036 21.6464C21.9083 21.4512 21.5917 21.4512 21.3964 21.6464C21.2012 21.8417 21.2012 22.1583 21.3964 22.3536L22.8964 23.8536C23.0917 24.0488 23.4083 24.0488 23.6036 23.8536L26.6036 20.8536Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M24 16.5C20.9624 16.5 18.5 18.9624 18.5 22C18.5 25.0376 20.9624 27.5 24 27.5C27.0376 27.5 29.5 25.0376 29.5 22C29.5 18.9624 27.0376 16.5 24 16.5ZM26.6036 20.8536C26.7988 20.6583 26.7988 20.3417 26.6036 20.1464C26.4083 19.9512 26.0917 19.9512 25.8964 20.1464L23.25 22.7929L22.1036 21.6464C21.9083 21.4512 21.5917 21.4512 21.3964 21.6464C21.2012 21.8417 21.2012 22.1583 21.3964 22.3536L22.8964 23.8536C23.0917 24.0488 23.4083 24.0488 23.6036 23.8536L26.6036 20.8536Z" fill="url(#paint0_linear_142_7000)"/>
+<defs>
+<linearGradient id="paint0_linear_142_7000" x1="24" y1="16.5" x2="24" y2="27.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#53E591"/>
+<stop offset="1" stop-color="#1CA858"/>
+</linearGradient>
+</defs>
+<text x="36.5" y="25.5" font-family="'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo','Noto Sans JP',sans-serif" font-size="10" font-weight="500" fill="#535862">意思決定</text>
+<text x="13" y="53" font-family="'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Meiryo','Noto Sans JP',sans-serif" font-size="13" font-weight="500" fill="#0A0D12">エンタープライズSSOを優先する</text>
+</svg>
