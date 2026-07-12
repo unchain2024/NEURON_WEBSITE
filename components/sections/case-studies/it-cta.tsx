@@ -97,13 +97,22 @@ export default function ITCta() {
               >
                 {t("body")}
               </p>
-              <Link
-                href="/get-demo"
-                className="inline-flex items-center rounded-full bg-[#0A0D12] font-medium text-white transition-colors hover:bg-[#0A0D12]/90"
-                style={{ fontSize: "1.02cqw", padding: "0.95cqw 1.7cqw", marginTop: "2cqw" }}
-              >
-                {t("button")}
-              </Link>
+              <div className="flex items-center" style={{ gap: "1.7cqw", marginTop: "2cqw" }}>
+                <Link
+                  href="/get-demo"
+                  className="inline-flex items-center rounded-full bg-[#0A0D12] font-medium text-white transition-colors hover:bg-[#0A0D12]/90"
+                  style={{ fontSize: "1.02cqw", padding: "0.95cqw 1.7cqw" }}
+                >
+                  {t("button")}
+                </Link>
+                <Link
+                  href="/download"
+                  className="inline-flex items-center rounded-full border border-[#E9EAEB] bg-white font-medium text-[#0A0D12] transition-colors hover:bg-white/80"
+                  style={{ fontSize: "1.02cqw", padding: "0.95cqw 1.7cqw" }}
+                >
+                  {t("download")}
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -131,6 +140,12 @@ export default function ITCta() {
                   className="mt-6 flex w-full items-center justify-center rounded-full bg-[#0A0D12] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#0A0D12]/90"
                 >
                   {t("button")}
+                </Link>
+                <Link
+                  href="/download"
+                  className="mt-3 flex w-full items-center justify-center rounded-full border border-[#E9EAEB] bg-white px-6 py-3.5 text-sm font-semibold text-[#0A0D12] transition-colors hover:bg-white/80"
+                >
+                  {t("download")}
                 </Link>
               </div>
               <div className="relative mt-4 h-56">

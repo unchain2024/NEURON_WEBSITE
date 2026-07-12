@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { MotionDiv, fadeInUp } from "@/components/motion-wrapper";
 
@@ -16,6 +16,11 @@ const HEADLINE_FONT = {
 
 export default function ITHero() {
   const t = useTranslations("CaseStudyIT.Hero");
+  const locale = useLocale();
+  const cardSrc =
+    locale === "ja"
+      ? "/case-studies/hero-tech-ja.webp"
+      : "/case-studies/it-hero-card.webp";
 
   return (
     <section className="relative overflow-hidden bg-white pt-28 md:pt-32 pb-16 md:pb-20">
@@ -79,7 +84,7 @@ export default function ITHero() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/case-studies/it-hero-card.webp"
+              src={cardSrc}
               alt={t("cardPill")}
               width={516}
               height={476}

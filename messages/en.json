@@ -2717,7 +2717,8 @@
     "Cta": {
       "title": "See it on your workflow",
       "body": "A 30-minute demo on your real stack — Jira, Slack, GitHub, Confluence.",
-      "button": "Book a demo"
+      "button": "Book a demo",
+      "download": "Download overview"
     }
   },
   "CaseStudyPages": {
@@ -2734,7 +2735,8 @@
       "cta": {
         "title": "See it on your workflow",
         "body": "A 30-minute demo on your real stack — Slack, Jira, Confluence, and the tools you already run on.",
-        "button": "Book a demo"
+        "button": "Book a demo",
+        "download": "Download overview"
       }
     },
     "financialServices": {

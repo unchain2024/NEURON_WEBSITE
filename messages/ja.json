@@ -2718,7 +2718,8 @@
     "Cta": {
       "title": "ワークフローで体験する",
       "body": "Jira、Slack、GitHub、Confluence——実際のスタックで30分のデモを。",
-      "button": "デモを予約"
+      "button": "デモを予約",
+      "download": "概要資料をダウンロード"
     }
   },
   "CaseStudyPages": {
@@ -2735,7 +2736,8 @@
       "cta": {
         "title": "ワークフローで体験する",
         "body": "Slack、Jira、Confluenceなど、実際に使っているスタックでの30分間のデモ。",
-        "button": "デモを予約"
+        "button": "デモを予約",
+        "download": "概要資料をダウンロード"
       }
     },
     "financialServices": {
