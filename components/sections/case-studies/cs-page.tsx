@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import {
   Minus,
@@ -15,11 +15,11 @@ import { cn } from "@/lib/utils";
 import type { Sector } from "@/lib/case-studies-data";
 import {
   ARCHETYPE_ASSETS,
-  ARCHETYPE_HERO_CARD,
   SECTOR_ARCHETYPE,
   PERSONA_CARDS,
   PERSONA_CARD_BY_NAME,
   HERO_CARD_IMAGE,
+  heroCardForArchetype,
 } from "@/lib/case-study-pages";
 import { SectionReveal, MotionDiv, fadeInUp } from "@/components/motion-wrapper";
 
@@ -42,9 +42,10 @@ interface Persona {
    `CaseStudyPages.<key>` i18n namespace + per-sector config.
    ════════════════════════════════════════════════════════════ */
 export default function CSPage({ k, sector }: { k: string; sector: Sector }) {
+  const locale = useLocale();
   const archetype = SECTOR_ARCHETYPE[sector];
   const asset = ARCHETYPE_ASSETS[archetype];
-  const heroCard = HERO_CARD_IMAGE[k] ?? ARCHETYPE_HERO_CARD[archetype];
+  const heroCard = HERO_CARD_IMAGE[k] ?? heroCardForArchetype(archetype, locale);
   return (
     <>
       <CSHero k={k} photo={asset.photo} tint={asset.tint} card={heroCard} />
@@ -468,13 +469,22 @@ function CSCta() {
               <p className="text-[#0A0D12]/85" style={{ fontSize: "1.05cqw", lineHeight: 1.55, marginTop: "1.4cqw", maxWidth: "26cqw" }}>
                 {s("body")}
               </p>
-              <Link
-                href="/get-demo"
-                className="inline-flex items-center rounded-full bg-[#0A0D12] font-medium text-white transition-colors hover:bg-[#0A0D12]/90"
-                style={{ fontSize: "1.02cqw", padding: "0.95cqw 1.7cqw", marginTop: "2cqw" }}
-              >
-                {s("button")}
-              </Link>
+              <div className="flex items-center" style={{ gap: "1.7cqw", marginTop: "2cqw" }}>
+                <Link
+                  href="/get-demo"
+                  className="inline-flex items-center rounded-full bg-[#0A0D12] font-medium text-white transition-colors hover:bg-[#0A0D12]/90"
+                  style={{ fontSize: "1.02cqw", padding: "0.95cqw 1.7cqw" }}
+                >
+                  {s("button")}
+                </Link>
+                <Link
+                  href="/download"
+                  className="inline-flex items-center rounded-full border border-[#E9EAEB] bg-white font-medium text-[#0A0D12] transition-colors hover:bg-white/80"
+                  style={{ fontSize: "1.02cqw", padding: "0.95cqw 1.7cqw" }}
+                >
+                  {s("download")}
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -502,6 +512,12 @@ function CSCta() {
                   className="mt-6 flex w-full items-center justify-center rounded-full bg-[#0A0D12] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#0A0D12]/90"
                 >
                   {s("button")}
+                </Link>
+                <Link
+                  href="/download"
+                  className="mt-3 flex w-full items-center justify-center rounded-full border border-[#E9EAEB] bg-white px-6 py-3.5 text-sm font-semibold text-[#0A0D12] transition-colors hover:bg-white/80"
+                >
+                  {s("download")}
                 </Link>
               </div>
               <div className="relative mt-4 h-56">

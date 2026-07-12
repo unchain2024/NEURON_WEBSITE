@@ -388,14 +388,14 @@ export default function Navbar() {
             >
               <Globe className="h-4 w-4" />
             </button>
-            {/* Login — placeholder for now; wire up to the auth destination later. */}
-            <button
-              type="button"
+            {/* Login — opens the NEURON app. */}
+            <a
+              href="https://app.the-neuron.com/"
               className="text-sm text-text-secondary hover:text-slate-900 transition-colors px-3 py-2"
               style={HEADLINE_FONT}
             >
               {t("logIn")}
-            </button>
+            </a>
             <MotionLink
               href="/get-demo"
               className="text-sm bg-[#0A0D12] hover:bg-[#0A0D12]/90 text-white px-5 py-2 rounded-full transition-colors"
@@ -593,14 +593,14 @@ export default function Navbar() {
 
                 {/* Bottom CTAs */}
                 <div className="mt-8 space-y-3">
-                  {/* Login — placeholder for now; wire up to the auth destination later. */}
-                  <button
-                    type="button"
+                  {/* Login — opens the NEURON app. */}
+                  <a
+                    href="https://app.the-neuron.com/"
                     className="flex w-full items-center justify-center rounded-full border border-[#E9EAEB] bg-white px-6 py-3.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-50"
                     onClick={() => setMobileOpen(false)}
                   >
                     {t("logIn")}
-                  </button>
+                  </a>
                   <Link
                     href="/get-demo"
                     className="flex w-full items-center justify-center rounded-full bg-[#0A0D12] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#0A0D12]/90"

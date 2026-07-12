@@ -52,6 +52,28 @@ export const ARCHETYPE_HERO_CARD: Record<Archetype, string> = {
   public: "/case-studies/hero-public.webp",
 };
 
+/**
+ * Japanese hero cards — same Figma sector cards with localized pills/labels,
+ * rasterized from `public/case-studies/Case study - Hero card*.svg` to webp at
+ * the same 1032×952 as the English set.
+ */
+export const ARCHETYPE_HERO_CARD_JA: Record<Archetype, string> = {
+  tech: "/case-studies/hero-tech-ja.webp",
+  commerce: "/case-studies/hero-commerce-ja.webp",
+  finance: "/case-studies/hero-finance-ja.webp",
+  industrial: "/case-studies/hero-industrial-ja.webp",
+  operations: "/case-studies/hero-operations-ja.webp",
+  services: "/case-studies/hero-services-ja.webp",
+  public: "/case-studies/hero-public-ja.webp",
+};
+
+/** Locale-aware hero card for a sector archetype (falls back to English). */
+export function heroCardForArchetype(archetype: Archetype, locale: string): string {
+  return locale === "ja"
+    ? ARCHETYPE_HERO_CARD_JA[archetype]
+    : ARCHETYPE_HERO_CARD[archetype];
+}
+
 /** Each sector maps to one hero-card archetype. */
 export const SECTOR_ARCHETYPE: Record<Sector, Archetype> = {
   Technology: "tech",
@@ -86,12 +108,12 @@ export const PERSONA_CARD_BY_NAME: Record<string, string> = {
 };
 
 /**
- * Industries (by i18nKey) that use a pre-rendered hero card image instead of
- * the HTML reconstruction. SaaS reuses the exact IT hero card.
+ * Industries (by i18nKey) that pin a specific hero card image regardless of
+ * sector archetype. Empty by default: SaaS is sector Technology, so it resolves
+ * to the (locale-aware) tech archetype card via `heroCardForArchetype`, which
+ * gives the English "Tech & Software" card in `en` and its JP counterpart in `ja`.
  */
-export const HERO_CARD_IMAGE: Record<string, string> = {
-  saasProduct: "/case-studies/it-hero-card.webp",
-};
+export const HERO_CARD_IMAGE: Record<string, string> = {};
 
 /**
  * Slugs that have been migrated to the new design (i.e. have content under the
