@@ -236,12 +236,16 @@ function CSProblem({ k }: { k: string }) {
 function CSOntology({ k }: { k: string }) {
   const t = useTranslations(`CaseStudyPages.${k}.ontology`);
   const s = useTranslations("CaseStudyPages._shared");
+  const locale = useLocale();
   return (
     <section className="bg-white py-12 md:py-16">
-      <SectionReveal className="relative mx-auto hidden w-[96%] max-w-[1800px] overflow-hidden rounded-2xl md:block [container-type:inline-size]">
+      <SectionReveal className="relative mx-auto hidden aspect-[1408/728] w-[96%] max-w-[1800px] overflow-hidden rounded-2xl md:block [container-type:inline-size]">
+        {/* The baked SVG canvas (1408×1078) carries ~350px of empty space below
+            the ONTOLOGY bar; crop to the content bottom (~728) via the container's
+            aspect ratio and top-align the image so the empty tail is clipped. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/case-studies/it3-clean.svg" alt="" className="block h-auto w-full" />
-        <div className="absolute" style={{ left: "7.1%", top: "13.5%", width: "28%" }}>
+        <img src={locale === "ja" ? "/case-studies/it3-cleanja.svg" : "/case-studies/it3-clean.svg"} alt="" className="absolute inset-x-0 top-0 block w-full" />
+        <div className="absolute" style={{ left: "7.1%", top: "20%", width: "28%" }}>
           <span
             className="inline-flex items-center rounded-full border border-[#E9EAEB] bg-white font-medium text-[#0A0D12]"
             style={{ fontSize: "0.95cqw", padding: "0.5cqw 1.1cqw" }}
