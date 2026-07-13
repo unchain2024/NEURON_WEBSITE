@@ -42,3 +42,8 @@ docs/
 # Case-study design sources (large Figma SVG exports) — not runtime assets.
 # Only the rendered .webp/.jpg/.png crops in public/case-studies/ ship.
 public/case-studies/*.svg
+# ...except these SVGs, which ARE loaded at runtime via <img src> and must ship.
+!public/case-studies/ithome.svg
+!public/case-studies/it3-clean.svg
+!public/case-studies/it3-cleanja.svg
+!public/case-studies/it3-ontology-clean.svg

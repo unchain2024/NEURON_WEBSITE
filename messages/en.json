@@ -2737,6 +2737,19 @@
         "body": "A 30-minute demo on your real stack — Slack, Jira, Confluence, and the tools you already run on.",
         "button": "Book a demo",
         "download": "Download overview"
+      },
+      "ontologyDiagram": {
+        "dataSource": "DATA SOURCE",
+        "ontology": "ONTOLOGY",
+        "risk": "Risk",
+        "decision": "Decision",
+        "outcome": "Outcome",
+        "lesson": "Lesson",
+        "signal": "Signal",
+        "person": "Person",
+        "team": "Team",
+        "task": "Task",
+        "project": "Project"
       }
     },
     "financialServices": {
