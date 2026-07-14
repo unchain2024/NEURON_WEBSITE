@@ -56,12 +56,33 @@ export default function Block({
   }
 
   if (block.type === "video") {
+    // Pick this locale's video; fall back to any other locale that has one so
+    // a missing translation still shows a video rather than nothing.
+    const url =
+      block.urls[locale] ||
+      Object.values(block.urls).find((u) => u) ||
+      "";
+
+    // No video for any locale yet — render a neutral placeholder.
+    if (!url) {
+      return (
+        <figure className="overflow-hidden rounded-lg border border-[#E9EAEB]">
+          <div className="flex aspect-video w-full items-center justify-center bg-slate-100">
+            <span className="text-sm text-text-muted">{t(block.labelKey)}</span>
+          </div>
+        </figure>
+      );
+    }
+
     // Drive "view" links become inline players via /preview.
-    const embedUrl = block.url.replace(/\/view.*$/, "/preview");
+    const embedUrl = url.replace(/\/view.*$/, "/preview");
     return (
       <figure className="overflow-hidden rounded-lg border border-[#E9EAEB]">
         <div className="relative aspect-video w-full bg-slate-900">
           <iframe
+            // Re-mount the iframe when the source changes so switching locales
+            // reloads the correct video.
+            key={embedUrl}
             src={embedUrl}
             title={t(block.labelKey)}
             allow="autoplay; encrypted-media; fullscreen"

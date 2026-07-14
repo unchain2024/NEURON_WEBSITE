@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "NEURON — 組織のセカンドブレイン",
+    "title": "NEURON — 組織を理解して成長するAI",
     "description": "NEURON structures your organization's knowledge into a living decision layer built around how your business actually works. Decision intelligence powered by an AI-Driven Ontology — a connected map of your decisions, risks, systems, and people.",
     "ogDescription": "Your organization's second brain. NEURON turns the decisions, risks, and reasoning flowing through your tools into a living, connected decision layer.",
     "productTitle": "プロダクト — NEURON",
@@ -81,11 +81,11 @@
     "bookDemo": "デモを予約"
   },
   "Messaging": {
-    "umbrella": "組織のセカンドブレイン",
+    "umbrella": "組織を理解して成長するAI",
     "category": "Decision intelligence",
     "mechanism": "AI-Driven Ontology",
     "mechanismGloss": "a connected map of how your business actually works",
-    "oneSentence": "NEURONは社内の知識を、会社の実際の動き方に沿った「意思決定レイヤー」として構造化します。だから判断の文脈は失われず、組織は自らの経験から学び続けます。",
+    "oneSentence": "NEURONは、社内に散らばる知識を「意思決定の履歴」として整理し、会社が実際にどう動いているかを可視化します。判断に至った経緯が失われることはなく、組織は自分たちの経験から学び続けられます。",
     "proof1": "Nothing important gets lost",
     "proof2": "The same mistakes aren't repeated",
     "proof3": "The why behind every decision stays, even after people leave",
@@ -94,8 +94,8 @@
   },
   "Home": {
     "problemBadge": "課題",
-    "problemHeading": "最良の判断は、下した瞬間に消えていく",
-    "problemBody": "組織は毎週、Slackや会議、そして個人の頭の中で何百もの意思決定を行っています。その多くはつながりも記録もされず、同じ疑問が何度も蒸し返され、失敗が繰り返され、貴重な判断は人が去ると共に失われます。",
+    "problemHeading": "最良の判断は時間と共に失われていきます",
+    "problemBody": "組織では、毎週SlackやMTG、あるいは誰かの頭の中だけで、何百もの意思決定が行われています。その多くはどこにも記録されず、つながりも残りません。結果、同じ議論が何度も繰り返され、担当者が異動、退職すれば判断の背景ごと失われてしまいます。",
     "pain1Title": "決定が蒸し返される。",
     "pain1Body": "決定の背景を誰も見つけられず、すでに決まったことが再び議論される。",
     "pain2Title": "リスクの表面化が遅い。",
@@ -103,34 +103,34 @@
     "pain3Title": "「なぜ」が失われる。",
     "pain3Body": "リーダーに見えるのは「何を決めたか」だけで、「なぜ」は見えない。振り返りは推測頼みになる。",
     "whatIsBadge": "NEURONとは",
-    "whatIsHeading": "あなたが既に使うすべてにまたがる、生きた意思決定レイヤー。",
-    "whatIsBody": "NEURONは、既存のツールと、その中を流れるもの——意思決定、リスク、結果、そしてその背後にある理由——を、ビジネスの実際の動き方を映し出すひとつのつながったレイヤーへと結びつけます。情報を新たに保管する場所ではありません。意思決定を下した人がいなくなった後も、組織の知識を生きたまま保ち、必要な瞬間にすぐ使えるようにするセカンドブレインです。",
+    "whatIsHeading": "組織を理解し、大人数の判断の履歴を積み重ねるAIシステム",
+    "whatIsBody": "NEURONは、今使っているツールの中に溢れる情報（意思決定、リスク、結果、判断の背景）をつなぎ合わせ、組織の実際の動き方を可視化します。判断を下した本人がいなくなっても、組織の知識は失われることなく、必要な時にすぐに引き出せる状態を保ちます。",
     "whatIsImage": "NEURON app — Signals / Dashboard",
     "whatIsLinkText": "どのように構築されているか気になりますか？",
     "whatIsLinkCta": "仕組みを見る",
     "capBadge": "主な機能",
-    "capHeading": "セカンドブレインがあなたのためにする4つのこと",
+    "capHeading": "NEURONがあなたのために行う4つのこと",
     "capSubheading": "毎週何百もの意思決定が行われますが、その多くはつながりも保存もされません。\n疑問が蒸し返され、ミスが繰り返され、貴重な知見は人とともに失われます。",
     "cap1Title": "リスクレーダー",
     "cap1Body": "NEURONは、会話・議事メモ・タスクの更新に表れるシグナルを監視し、問題が深刻化する前にリスクを検知します。各アラートには、深刻度・影響範囲・いま重要な理由・関連する履歴が添えられます。",
     "cap1Image": "Signals",
     "cap2Title": "意思決定の記憶",
-    "cap2Body": "すべての意思決定が、その根拠と結果を添えて自動的に記録され、つながります。完全な追跡可能性を、手作業の記録なしで実現します。",
+    "cap2Body": "すべての意思決定が、その根拠と結果とともに自動で記録・関連付けされます。手作業の議事録なしで、完全な追跡可能性を実現します。",
     "cap2Image": "decision record",
     "cap3Title": "あらゆるタスクに文脈を",
-    "cap3Body": "どのタスクを開いても、背景・過去の意思決定・依存関係・誰に聞けばよいかが、すでにそろっています。",
+    "cap3Body": "どのタスクを開いても、背景・過去の意思決定・依存関係・誰に聞けば良いかが一瞬で可視化されます。",
     "cap3Image": "context panel",
     "cap4Title": "何でも聞ける",
-    "cap4Body": "NEURONに普通の言葉で質問すれば、組織の実際の履歴に基づいた答えが返ってきます。開いて確認できる出典付きです。",
+    "cap4Body": "普段の言葉でNEURONに質問するだけで、組織の実際の履歴に基づいた答えが、出典付きで返ってきます。",
     "cap4Image": "chat",
     "rolesBadge": "あらゆる役割に",
-    "rolesHeading": "ひとつのブレインで、\nすべての役割に必要なものを。",
+    "rolesHeading": "NEURONだけで、\n個々の役割にそれぞれ必要なものを",
     "role1Title": "経営層・リーダー",
     "role1Body": "すべての会議に出席しなくても、意思決定の「なぜ」を把握し、チームの一貫性を保てます。",
     "role2Title": "マネージャー",
-    "role2Body": "リスクを早期に察知し、過去の実績を踏まえて、より速く意思決定できます。",
+    "role2Body": "リスクをいち早く察知し、過去の実績を踏まえたうえで、より速く意思決定できます。",
     "role3Title": "チーム",
-    "role3Body": "コンテキストを探し回るのをやめ、発掘作業ではなく本来の仕事に時間を使えます。",
+    "role3Body": "情報を探し回る時間をなくし、発掘作業ではなく本来の仕事に集中できます。",
     "rolesCta": "役割別のソリューションを見る →",
     "gameBadge": "無料・3分の診断",
     "gameHeading": "あなたは、本当はどんなマネージャー？",
@@ -143,14 +143,14 @@
     "gameStat2Label": "で結果が出る",
     "gameStat3Value": "16",
     "gameStat3Label": "のマネージャー像",
-    "securityHeading": "設計段階からエンタープライズグレード",
+    "securityHeading": "設計段階から業界最高水準",
     "securityBody": "NEURONは、これまで信頼してきた管理体制を維持しながら、重要な組織のコンテキストへのアクセスを可能にします。",
     "securityLink": "Learn about Security & Trust"
   },
   "Hero": {
     "eyebrow": "意思決定インテリジェンス",
-    "h1": "組織のセカンドブレイン",
-    "h2": "NEURONは社内の知識を、会社の実際の動き方に沿った「意思決定レイヤー」として構造化します。だから判断の文脈は失われず、組織は自らの経験から学び続けます。",
+    "h1": "組織を理解して成長するAI",
+    "h2": "NEURONは、社内に散らばる知識を「意思決定の履歴」として整理し、会社が実際にどう動いているかを可視化します。判断に至った経緯が失われることはなく、組織は自分たちの経験から学び続けられます。",
     "ctaPrimary": "デモを予約",
     "ctaSecondary": "仕組みを見る",
     "ctaDownload": "資料をダウンロード",
@@ -259,7 +259,7 @@
   },
   "HowItWorks": {
     "badge": "仕組み",
-    "heading": "意思決定レイヤーまで、3つのステップ。",
+    "heading": "NEURONのセットアップは3ステップのみです",
     "subheading": "接続は一度だけ。NEURONが構造化し、常に最新に保ちます。",
     "step1Title": "ツールを接続。",
     "step1Description": "チャット、プロジェクト管理、ドキュメント、メールをリンク — 読み取り専用、既存の権限を尊重します。",
@@ -310,20 +310,20 @@
     "seeAll": "すべての連携を見る"
   },
   "FinalCTA": {
-    "heading": "組織にセカンドブレインを。",
+    "heading": "組織を理解するAI「NEURON」を、あなたのチームにも。",
     "subheading": "30分のデモで、あなたのツールからNEURONが構築する意思決定レイヤーをお見せします。",
     "cta": "デモを予約",
     "note": "概要資料をダウンロード"
   },
   "HomeArchetype": {
-    "heading": "重要な局面で、あなたはどう決断しますか？",
+    "heading": "あなたの決断タイプを診断しましょう",
     "subheading": "マネージャーがどのようにリードし、アイデアに挑み、不確実性を乗り越えるのか——その背後にあるパターンを探る3分間の実験。",
     "stat1": "24の質問",
     "stat2": "16のアーキタイプ",
     "cta": "あなたのアーキタイプを見つける"
   },
   "Footer": {
-    "tagline": "NEURON — 組織のセカンドブレイン",
+    "tagline": "NEURON — 組織を理解して成長するAI",
     "copyright": "© 2026 NEURON. All rights reserved.",
     "col1Title": "プロダクト",
     "col1Link1": "機能",
@@ -374,19 +374,19 @@
     "linkCta": "See the architecture"
   },
   "SolutionsPage": {
-    "heroEyebrow": "Solutions",
-    "heroTitle": "A second brain serves <highlight>everyone who makes the call</highlight> — differently.",
-    "heroDescription": "The same connected layer, delivered to each role in the form they need."
+    "heroEyebrow": "ソリューション",
+    "heroTitle": "組織を理解するAIは、<highlight>意思決定に関わるすべての人</highlight>に、それぞれ違う形で応える。",
+    "heroDescription": "繋がった情報は一つでも、届き方は役割によって異なります。"
   },
   "SolutionsByRole": {
-    "role1Title": "For Executives & Leaders",
-    "role1Body": "Lead with evidence, not guesswork. See the reasoning behind every decision, keep teams consistent across the organization, and run strategy reviews on what actually happened. Stay informed without sitting in every meeting.",
-    "role2Title": "For Managers",
-    "role2Body": "Catch risk before it's a fire. NEURON flags what needs your attention across scattered conversations and shows you how similar calls played out before — so you decide faster, with confidence, and spend less time chasing status.",
-    "role3Title": "For Teams & Product/Ops",
-    "role3Body": "Stop switching context. Every task arrives with its background, past decisions, and dependencies attached. Less rework, fewer crossed wires, more time on the actual work.",
-    "ctaText": "See how it works on your workflow",
-    "ctaButton": "Book a demo now"
+    "role1Title": "経営層・リーダー向け",
+    "role1Body": "勘ではなく、根拠にもとづいてリードします。すべての決定の裏にある理由を把握し、組織全体で判断の一貫性を保ちながら、実際に起きたことをもとに戦略を振り返ります。これによってすべての会議に出席しなくても、状況を正確に把握できます。",
+    "role2Title": "マネージャー向け",
+    "role2Body": "リスクが火種になる前に気付くことが可能に。散らばった会話の中からNEURONが「いま注意すべきこと」を拾い出し、過去の似た判断がどんな結果になったかも一緒に示します。これによって進捗確認に時間を取られることなく、自信を持って速く決断できます。",
+    "role3Title": "チーム・プロダクト/オペレーション向け",
+    "role3Body": "コンテキストの切り替えの時間が省けます。どのタスクにも、背景・過去の意思決定・依存関係がすでに揃った状態で届きます。手戻りが減り、行き違いが減り、本来の仕事に使える時間が増えます。",
+    "ctaText": "あなたのワークフローでの動きを見る",
+    "ctaButton": "デモを予約"
   },
   "IntegrationsPage": {
     "heroEyebrow": "連携ツール",
@@ -835,14 +835,14 @@
     "article4Body": "リスクが現実になった時、判断は簡単な部分です。難しいのは緩和策です — 間違っていた場合に被害を全部受けることなくリスクを通り抜けるための運用上の形です。これをうまく行うチームは、すべてのコミットを、希望ではなくアーキテクチャによって下振れが限定された賭けとして扱います。それが緩和策エンジニアリングです。\n\n第一原則はロールバック前提設計です。変更を顧客への影響なしに数分で取り消せないなら、コードがリリースされていてもその変更は不完全です。これは、悪いロールアウトを3分で切れるフィーチャーフラグと、取り消すのに3日かかる永続的な移行という2つの結果を比較するまでは極端に聞こえます。後者の影響範囲は1桁大きく、その非対称性はすべてのPxlスコアに織り込まれるべきです。NEURONの推奨エンジンは、ロールバック策を後付けではなく、第一級のスコアリング入力として扱います。\n\n第二原則は過去の類似事例にアンカーされた段階的展開です。10% → 50% → 100%のカナリアと、定義されたエラー閾値での自動ロールバックはプロセスではなく、データとの契約です。各フェーズは元のPxlスコアを確認するか反証する証拠を生成します。フェーズデータがそれを反証すれば、ロールアウトは自動的に一時停止します — 揺り戻しの議論ではなく、定義されたゲートです。これは過去の類似事例検索とペアにすると最もうまく機能します：前四半期に成功したものに似た形の段階的展開は既知の量ですが、ゼロから設計したものは新たな実験です。ロールアウトを過去の類似事例にマッチさせれば、チームは英雄的である必要はありません — 過去がすでに書いてくれたプレイブックに従うだけです。"
   },
   "GetDemo": {
-    "heading": "使い慣れたツールが、組織の<highlight>セカンドブレイン</highlight>になる。",
-    "subheading": "実際の業務フローに沿った30分のデモ。NEURONがお使いのツール群から構築する「意思決定レイヤー」をご覧いただけます。",
-    "value1Title": "実際の業務フローで",
-    "value1Description": "汎用的な製品ツアーではなく、チームのツールに合わせて設定したNEURONをご覧いただけます。",
-    "value2Title": "読み取り専用で安全",
-    "value2Description": "読み取り専用で接続し、既存の権限設定を尊重。通信時・保存時ともにデータを暗号化します。",
-    "value3Title": "レイヤーは自動で構築",
-    "value3Description": "主要なツールは1回のセッションで接続でき、意思決定レイヤーはすぐに形成され始めます。",
+    "heading": "あなたのツールが、<highlight>組織を理解するAI</highlight>に変わる瞬間を体験しましょう",
+    "subheading": "普段のワークフローに沿った30分間のデモ。NEURONがあなたの会社のツール群からどのように判断の履歴を構築していくかをお見せします。",
+    "value1Title": "あなたの実際のワークフローで",
+    "value1Description": "ありきたりな製品紹介ではなく、あなたの組織が使うツールに最適化されたNEURONをご覧いただけます。",
+    "value2Title": "読み取り専用・安全設計",
+    "value2Description": "接続は読み取り専用。既存の権限設定はそのまま尊重し、通信中・保存中のデータはすべて暗号化されます。",
+    "value3Title": "デモはその場から",
+    "value3Description": "主要なツールを接続するだけで、意思決定の履歴はすぐに形成され始めます。",
     "testimonialQuote": "以前は計画サイクルの最後に、誰も根拠をたどれない勘に頼った判断で終わっていました。NEURONはそうした判断を、完全な監査証跡を備えた構造化された意思決定に変えてくれました。",
     "testimonialName": "経営企画部長",
     "testimonialRole": "国内アパレル大手グループホールディングス",
@@ -1367,8 +1367,8 @@
     "multiPerspective": "マルチ視点"
   },
   "Comparison": {
-    "heading": "ドキュメントを検索することと、ビジネスを理解することは違う。",
-    "subheading": "Wikiは情報を保存します。AI検索は類似したテキストを見つけます。NEURONは、意思決定が原因・依存関係・結果とどうつながっているかを理解します。",
+    "heading": "ドキュメント検索だけではなく、ビジネスの理解まで",
+    "subheading": "Wikiは情報を保存するだけ。AI検索は似た言葉を見つけるだけ。NEURONは、意思決定が原因・依存関係・結果とどうつながっているかを理解します。",
     "legacyLabel": "Wiki・AI検索",
     "neuronLabel": "Neuron",
     "row1Legacy": "問題が起きてから検索する",
@@ -4130,19 +4130,19 @@
   "ArchitecturePage": {
     "hero": {
       "badge": "AIネイティブ オントロジ",
-      "title": "ほとんどのAIツールはデータを読むだけ。Neuron は理解します。",
+      "title": "多くのAIツールは、データを「読む」だけ。NEURONはそれを「理解」します",
       "body": "Neuron は、ツール全体で起きていることを、組織の実際の働き方を映す一つのつながった監査可能なマップに構造化します。",
       "demoCta": "デモを予約"
     },
     "shift": {
       "badge": "アーキテクチャの転換",
-      "title": "検知が先。\n言語モデルは後。",
-      "body": "他のツールは「何が重要か」をモデルに推測させます。Neuron はまず構造化データから検知し、モデルはその説明だけに使います。"
+      "title": "検知が最優先",
+      "body": "他の多くのツールは「何が重要か」をモデルの推測に委ねます。NEURONは、まず構造化されたデータから重要な兆候を先に検知し、言語モデルはその内容を説明するためだけに用いられます。"
     },
     "signals": {
       "badge": "シグナルオブジェクト",
       "title": "組織が実際に\n生み出す6つのもの",
-      "intro": "Neuron が捉えるすべては、6つの構造化オブジェクトのいずれかに収まります。それぞれが型付けされ、リンクされ、出所まで追跡できます。",
+      "intro": "Neuronが捉える情報はすべて、6つの構造化オブジェクトのいずれかに分類されます。それぞれに型があり、他のオブジェクトとリンクし、出所までたどれます。",
       "colObject": "オブジェクト",
       "colCaptures": "捉える内容",
       "colExample": "実例",
@@ -4182,49 +4182,49 @@
     },
     "detectors": {
       "badge": "検知の仕組み",
-      "title": "リスクパターンごとに\n専用の検知器",
-      "intro": "それぞれが特定のパターンだけを監視する、専用検知器のライブラリ。すべてバージョン管理・テスト済み。新しい検知は新しいプロンプトではなく、新しい検知器です。",
+      "title": "リスクのパターンごとに、\n専用の検知器を用意",
+      "intro": "NEURONは、特定のパターンだけを見張る専用検知器のライブラリで構成されています。新しいリスクを見つけるために必要なのは新しいプロンプトではなく、新たな検知器です。",
       "cards": [
         {
           "name": "潜在的なズレ",
-          "desc": "チームが静かに離れていく — 話題の乖離、グラフの分断、関与の低下。"
+          "desc": "チームが気づかないうちに離れていく状態。話題のズレ、関係グラフの分断、関与の低下として現れます。"
         },
         {
           "name": "スケジュール遅延",
-          "desc": "成果物が当初のコミット日に対して恒常的に遅延。"
+          "desc": "成果物が、当初約束した期日に対して恒常的に遅れている状態。"
         },
         {
           "name": "予算超過",
-          "desc": "消化率が配分を超過し、サイクルに対して超過見込み。"
+          "desc": "消化率が配分を超え、サイクル全体で予算を超過する見込みの状態。"
         },
         {
           "name": "サイレントブロッカー",
-          "desc": "誰かが声を上げずに行き詰まっている — 長い沈黙、繰り返される「待ち」の言及。"
+          "desc": "誰も声を上げないまま、作業が止まっている状態。長い沈黙や、「待ち」という言葉の繰り返しに現れます。"
         }
       ]
     },
     "trust": {
       "badge": "信頼レイヤー",
-      "title": "すべてのシグナルに3つの保証",
+      "title": "すべてのシグナルに3つの保証を",
       "items": [
         {
           "title": "クリックで辿れる出所",
-          "body": "検知の根拠となった正確なメッセージと日付を確認 — ブラックボックスのスコアではなく、チームが監査できる証拠。"
+          "body": "検知の根拠になった実際のメッセージと日付を確認できます。ブラックボックスのスコアではなく、チームが検証できる証拠です。"
         },
         {
           "title": "改ざん不可能な監査証跡",
-          "body": "すべてのシグナルへのあらゆる変更を追記専用で記録 — セキュリティレビューにそのまま使えます。"
+          "body": "シグナルへのあらゆる変更を、追記専用の形式で記録します。セキュリティーレビューにそのまま提出できます。"
         },
         {
-          "title": "デフォルトで人間が承認",
-          "body": "検知器は提案するだけ。記録に入る前に必ず人が承認します。"
+          "title": "最終判断は、必ず人が行う",
+          "body": "検知器はあくまで「提案」するだけに過ぎません。記録として残る前に、必ず人の承認を得ます。"
         }
       ]
     },
     "proof": {
       "badge": "約束ではなく実証",
-      "title": "実証できない検知器は\n出荷しない",
-      "intro": "それぞれが特定のパターンだけを監視する、専用検知器のライブラリ。すべてバージョン管理・テスト済み。新しい検知は新しいプロンプトではなく、新しい検知器です。",
+      "title": "実証できない検知器は\nリリースしません",
+      "intro": "NEURONは、特定のパターンだけを見張る専用検知器のライブラリで構成されています。新しいリスクを見つけるために必要なのは新しいプロンプトではなく、新しい検知器です。",
       "metrics": [
         {
           "value": "0.91",
