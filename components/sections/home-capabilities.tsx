@@ -15,16 +15,20 @@ const DISPLAY_FONT = 'var(--font-inter), "Inter Display", Inter, sans-serif';
    Row 1: 450 | 614, row 2: 614 | 450.
 
    Both locales render the illustration-only export and lay the localized
-   title/body below it as live HTML (Home `cap*Title`/`cap*Body`). The `*-en.svg`
-   / `*-ja.svg` exports are the same card illustration minus the baked text band. */
+   title/body below it as live HTML (Home `cap*Title`/`cap*Body`).
+
+   Served as high-res WebP (rendered from the design SVGs at 1600px): iOS Safari
+   rasterizes SVG-in-`<img>` at the SVG's small intrinsic size and upscales →
+   blur on 3× phones. A plain raster displays at native resolution, sharp on
+   every device; desktop is unchanged. */
 const ROWS = [
   [
-    { enSrc: "/riskradar-en.svg", jaSrc: "/riskradar-ja.svg", key: "cap1" },
-    { enSrc: "/decisionmemory-en.svg", jaSrc: "/decisionmemory-ja.svg", key: "cap2" },
+    { enSrc: "/riskradar-en.webp", jaSrc: "/riskradar-ja.webp", key: "cap1" },
+    { enSrc: "/decisionmemory-en.webp", jaSrc: "/decisionmemory-ja.webp", key: "cap2" },
   ],
   [
-    { enSrc: "/context-en.svg", jaSrc: "/context-ja.svg", key: "cap3" },
-    { enSrc: "/ask-en.svg", jaSrc: "/ask-ja.svg", key: "cap4" },
+    { enSrc: "/context-en.webp", jaSrc: "/context-ja.webp", key: "cap3" },
+    { enSrc: "/ask-en.webp", jaSrc: "/ask-ja.webp", key: "cap4" },
   ],
 ] as const;
 

@@ -47,11 +47,13 @@ export default function HomeSecurityStrip() {
             </p>
           </MotionDiv>
 
-          {/* Shield graphic — locale-swapped (copy carried in the SVG export) */}
+          {/* Shield graphic — locale-swapped (copy carried in the export), shown
+              identically on mobile and desktop. Served as high-res WebP: iOS Safari
+              blurs SVG-in-<img>, a raster stays sharp at any size. */}
           <MotionDiv variants={fadeInUp} className="mt-12 w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={isJa ? "/enterprise-ja.svg" : "/enterprise.svg"}
+              src={isJa ? "/enterprise-ja.webp" : "/enterprise.webp"}
               alt="Enterprise-grade security: encryption in transit & at rest, read-only integrations, never used to train AI models, existing permissions preserved"
               width={860}
               height={475}
