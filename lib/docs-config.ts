@@ -59,7 +59,9 @@ export type DocBlock =
   | { type: "tip"; key: string }
   | { type: "image"; src: string; altKey: string }
   | { type: "ordered-list"; keys: string[] }
-  | { type: "video"; url: string; labelKey: string };
+  // `urls` holds one video URL per locale (keyed by locale code, e.g. `en`/`ja`).
+  // The renderer picks `urls[locale]` so the player swaps when the language does.
+  | { type: "video"; urls: Record<string, string>; labelKey: string };
 
 export type DocSection = {
   id: string;
@@ -117,85 +119,116 @@ export const INTEGRATION_LOGOS: Record<IntegrationSlug, string> = {
   slack: "/logos/slack.svg",
 };
 
-// Per-integration namespace + video URL.
+// Per-integration namespace + per-locale video URLs.
 // Step counts vary per platform (see `Doc for Integrations.pdf`).
+//
+// `videoUrls` holds one Google Drive "view" link per locale. The link is
+// swapped automatically when the site language changes. To add/replace a
+// video, paste the Drive share link (…/file/d/<id>/view?usp=drive_link) into
+// the matching `en` / `ja` slot below. Leave a slot as "" until you have that
+// language's video — the player falls back to the other locale's URL, and
+// shows a "coming soon" placeholder only if BOTH are empty.
 type IntegrationMeta = {
   namespace: string;
-  videoUrl: string;
+  videoUrls: { en: string; ja: string };
   stepCount: number;
 };
 
 const INTEGRATION_META: Record<IntegrationSlug, IntegrationMeta> = {
   chatwork: {
     namespace: "DocsIntegrationChatwork",
-    videoUrl:
-      "https://drive.google.com/file/d/12iFRhhSJQszazLxjHyWDtzM4-O70Vvgw/view?usp=drive_link",
+    videoUrls: {
+      en: "https://drive.google.com/file/d/1j2yDEj6VaUeC43wJ1UAJh1x_ZnHpq1gx/view?usp=drive_link", 
+      ja: "https://drive.google.com/file/d/1F6ICIrdhPJl5DbgsGvB73FQpcMEvogCc/view?usp=drive_link",
+    },
     stepCount: 5,
   },
   github: {
     namespace: "DocsIntegrationGithub",
-    videoUrl:
-      "https://drive.google.com/file/d/1l-YlQvMPiqa0lWS58O4GZVU-peJGO4Gd/view?usp=drive_link",
+    videoUrls: {
+      en: "https://drive.google.com/file/d/1obxHvq_ksswQUOLGDLwiEAxktkRq949c/view?usp=drive_link", // TODO: add English video link
+      ja: "https://drive.google.com/file/d/1tsC3qpbme6DVwDT42QT-NUPB-WbnO9NE/view?usp=drive_link",
+    },
     stepCount: 10,
   },
   discord: {
     namespace: "DocsIntegrationDiscord",
-    videoUrl:
-      "https://drive.google.com/file/d/1R10MZpjOIVu-Hf7XSDiAyfPqOzrajj-P/view?usp=drive_link",
+    videoUrls: {
+      en: "https://drive.google.com/file/d/1d5ixOWh8HPWQD1V1THZquLOQ_0drgswV/view?usp=drive_link", // TODO: add English video link
+      ja: "https://drive.google.com/file/d/1qbycTOGrGzy88V7hJIgynfpQEmhrPdTP/view?usp=drive_link",
+    },
     stepCount: 8,
   },
   granola: {
     namespace: "DocsIntegrationGranola",
-    videoUrl:
-      "https://drive.google.com/file/d/1S4zK0FnInRKQcQ47cF1qyCEh0Rc7NwH0/view?usp=drive_link",
+    videoUrls: {
+      en: "", // TODO: add English video link
+      ja: "",
+    },
     stepCount: 6,
   },
   hubspot: {
     namespace: "DocsIntegrationHubspot",
-    videoUrl:
-      "https://drive.google.com/file/d/1NGFY2Smn2Ij5ZKKEx6xfM2s93ae9tBev/view?usp=drive_link",
+    videoUrls: {
+      en: "https://drive.google.com/file/d/1fWAsPiQUZYTCDDjHtNc-4KeWx7NDQhPg/view?usp=drive_link", // TODO: add English video link
+      ja: "https://drive.google.com/file/d/1HSYTYvOGDYaj62aLsscsuHU9qNStWHDj/view?usp=drive_link",
+    },
     stepCount: 7,
   },
   jira: {
     namespace: "DocsIntegrationJira",
-    videoUrl:
-      "https://drive.google.com/file/d/1dJftyjke_r_0c_uYLQbd_SwVXq4msQt4/view?usp=drive_link",
+    videoUrls: {
+      en: "https://drive.google.com/file/d/1SCz_xncUiOCT2sSo5v6oqwXCT77VVstj/view?usp=drive_link", // TODO: add English video link
+      ja: "https://drive.google.com/file/d/1AJDtwQfjl7KJKpqpI3k60rzBTq2BkyxZ/view?usp=drive_link",
+    },
     stepCount: 8,
   },
   kintone: {
     namespace: "DocsIntegrationKintone",
-    videoUrl:
-      "https://drive.google.com/file/d/1DolI4oCdVgiWgs_6-VE7q8k85mwj6PNm/view?usp=drive_link",
+    videoUrls: {
+      en: "https://drive.google.com/file/d/1CNMKd7bKw2H2N_lTnU_SFsFEp3JyMmJt/view?usp=drive_link", // TODO: add English video link
+      ja: "https://drive.google.com/file/d/1CtNHM8qNGp_puL5mfEfEi-FjeIcSl0wo/view?usp=drive_link",
+    },
     stepCount: 8,
   },
   linear: {
     namespace: "DocsIntegrationLinear",
-    videoUrl:
-      "https://drive.google.com/file/d/1jMb9ucTbYwtoZ5SaU5Za8nc0WXUaRGCy/view?usp=drive_link",
+    videoUrls: {
+      en: "https://drive.google.com/file/d/1DXMTaRlA4X7vaA94x-fp53L2gzi_IaOw/view?usp=drive_link", // TODO: add English video link
+      ja: "https://drive.google.com/file/d/1t23j-ODXWGWgdHEd84gVh8XOCdR8XDaL/view?usp=drive_link",
+    },
     stepCount: 7,
   },
   monday: {
     namespace: "DocsIntegrationMonday",
-    videoUrl:
-      "https://drive.google.com/file/d/1bXnoNiB1taajSKyPQzRq1DIDS-Tmcjp2/view?usp=drive_link",
+    videoUrls: {
+      en: "https://drive.google.com/file/d/11m7A3ydsuqtldvdrgLk-wQBaJBuuKA5S/view?usp=drive_link", // TODO: add English video link
+      ja: "https://drive.google.com/file/d/15AlVQ9m_tFZ5r2ClyrkzYD9qXyxm-5cp/view?usp=drive_link",
+    },
     stepCount: 5,
   },
   notion: {
     namespace: "DocsIntegrationNotion",
-    videoUrl:
-      "https://drive.google.com/file/d/1CmZj6cTKGnzHFt8-XSMfZeDBoXXgPBMZ/view?usp=drive_link",
+    videoUrls: {
+      en: "https://drive.google.com/file/d/1bi5y230vJPHOv-kk5DG7iC5n93CA4AaH/view?usp=drive_link", // TODO: add English video link
+      ja: "https://drive.google.com/file/d/1MzCjsdbzZ5z7V5G6Ca0scNWEzY04XvCG/view?usp=drive_link",
+    },
     stepCount: 6,
   },
   recallai: {
     namespace: "DocsIntegrationRecallai",
-    videoUrl:
-      "https://drive.google.com/file/d/1Qk5_N5o6qUkEPpOMPDZBkCCUeeuRXumg/view?usp=drive_link",
+    videoUrls: {
+      en: "https://drive.google.com/file/d/1wWGjWr4ZKJo-Vu8aAWGyjs2UfduZZDdv/view?usp=drive_link", // TODO: add English video link
+      ja: "https://drive.google.com/file/d/1zQ9TwKRXa_NaJRMZxWSmdMuRzsc1yh5i/view?usp=drive_link",
+    },
     stepCount: 6,
   },
   slack: {
     namespace: "DocsIntegrationSlack",
-    videoUrl:
-      "https://drive.google.com/file/d/1NgVfpoZJwdqHhPc0SaBtXA1u0tL3Iv7M/view?usp=drive_link",
+    videoUrls: {
+      en: "https://drive.google.com/file/d/1yBdk2UYZNZVtpGWhjzozmq6EzihtfGy5/view?usp=drive_link", // TODO: add English video link
+      ja: "https://drive.google.com/file/d/1vPi75M8vZB3jI3AdR9N1_pif3ylxUCiE/view?usp=drive_link",
+    },
     stepCount: 7,
   },
 };
@@ -204,7 +237,7 @@ const INTEGRATION_META: Record<IntegrationSlug, IntegrationMeta> = {
 // section shape (overview → setup steps → video), so the body is generated
 // rather than copy-pasted.
 function buildIntegrationTopic(slug: IntegrationSlug): DocTopic {
-  const { namespace, videoUrl, stepCount } = INTEGRATION_META[slug];
+  const { namespace, videoUrls, stepCount } = INTEGRATION_META[slug];
   const stepKeys = Array.from({ length: stepCount }, (_, i) => `step${i + 1}`);
   return {
     slug,
@@ -226,7 +259,7 @@ function buildIntegrationTopic(slug: IntegrationSlug): DocTopic {
         id: "video",
         titleKey: "videoTitle",
         blocks: [
-          { type: "video", url: videoUrl, labelKey: "videoLabel" },
+          { type: "video", urls: videoUrls, labelKey: "videoLabel" },
         ],
       },
     ],
