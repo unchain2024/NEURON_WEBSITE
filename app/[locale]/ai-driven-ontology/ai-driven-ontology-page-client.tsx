@@ -93,7 +93,7 @@ export default function AiDrivenOntologyPageClient() {
   // The hero diagram is the swappable, locale-specific artwork; the card text is
   // HTML so the layout is identical across locales.
   const heroDiagram =
-    locale === "ja" ? "/architecture/hero-ja.svg" : "/architecture/hero-diagram-en.svg";
+    locale === "ja" ? "/architecture/hero-ja.webp" : "/architecture/hero-diagram-en.webp";
 
   const scroller = useRef<HTMLDivElement>(null);
   const scrollCards = (dir: number) =>
