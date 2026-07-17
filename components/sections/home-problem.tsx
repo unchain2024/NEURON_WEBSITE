@@ -47,7 +47,7 @@ export default function HomeProblem() {
             <MotionDiv variants={fadeInUp}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={isJa ? "/pain-ja.svg" : "/pain.svg"}
+                src={isJa ? "/pain-ja.webp" : "/pain.webp"}
                 alt="Decisions get relitigated, risk shows up late, and the why is gone"
                 width={532}
                 height={476}

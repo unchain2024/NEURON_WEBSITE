@@ -16,7 +16,7 @@ export default function HomeWhatIs() {
 
   /* Both locales render live HTML over the dark background; only the product
      mockup is an image, swapped by locale (copy is baked into each export). */
-  const mockupSrc = isJa ? "/risk-details-jp.svg" : "/risk-details-en.svg";
+  const mockupSrc = isJa ? "/risk-details-jp.webp" : "/risk-details-en.webp";
 
   return (
     <section

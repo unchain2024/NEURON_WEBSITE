@@ -13,9 +13,9 @@ const DISPLAY_FONT = 'var(--font-inter), "Inter Display", Inter, sans-serif';
    the Japanese text on the same background. Step 1's art has no localized copy,
    so JA falls back to the shared connect illustration. */
 const STEPS = [
-  { key: "step1", art: "/howitworks-connect.svg", jaArt: "/howitworks-connect.svg" },
-  { key: "step2", art: "/howitworks-structure.svg", jaArt: "/howitworks-structure-ja.svg" },
-  { key: "step3", art: "/howitworks-deliver.svg", jaArt: "/howitworks-deliver-ja.svg" },
+  { key: "step1", art: "/howitworks-connect.webp", jaArt: "/howitworks-connect.webp" },
+  { key: "step2", art: "/howitworks-structure.webp", jaArt: "/howitworks-structure-ja.webp" },
+  { key: "step3", art: "/howitworks-deliver.webp", jaArt: "/howitworks-deliver-ja.webp" },
 ] as const;
 
 export default function HowItWorks() {

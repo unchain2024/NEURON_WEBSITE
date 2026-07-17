@@ -93,7 +93,7 @@ export default function AiDrivenOntologyPageClient() {
   // The hero diagram is the swappable, locale-specific artwork; the card text is
   // HTML so the layout is identical across locales.
   const heroDiagram =
-    locale === "ja" ? "/architecture/hero-ja.svg" : "/architecture/hero-diagram-en.svg";
+    locale === "ja" ? "/architecture/hero-ja.webp" : "/architecture/hero-diagram-en.webp";
 
   const scroller = useRef<HTMLDivElement>(null);
   const scrollCards = (dir: number) =>
@@ -105,10 +105,11 @@ export default function AiDrivenOntologyPageClient() {
           The textured backdrop is lifted verbatim from the design SVG
           (grain + ambient light) and laid full-bleed behind the content. */}
       <section className="bg-white px-2 pt-2 md:px-4 md:pt-4">
-        <div
-          className="overflow-hidden rounded-2xl bg-[#F6F9F6] bg-cover bg-center"
-          style={{ backgroundImage: "url(/architecture/hero-bg.svg)" }}
-        >
+        {/* The textured backdrop (feTurbulence grain + ambient light) is only used
+            from md up: bg-cover scales the SVG so far on a tall, narrow phone that
+            the grain rasterizes coarse/noisy. On mobile we fall back to the flat
+            base tint so the hero reads clean. Desktop is unchanged. */}
+        <div className="overflow-hidden rounded-2xl bg-[#F6F9F6] bg-cover bg-center md:bg-[url('/architecture/hero-bg.svg')]">
           <div className="section-container grid items-center gap-8 py-12 md:grid-cols-[minmax(0,460px)_1fr] md:items-start md:gap-8 md:py-16">
           {/* left text card */}
           <div className="z-10 rounded-3xl border border-white/70 bg-white/60 p-8 backdrop-blur-sm md:p-10">
@@ -465,8 +466,8 @@ export default function AiDrivenOntologyPageClient() {
               <img
                 src={
                   locale === "ja"
-                    ? "/architecture/Illustration-ja.svg"
-                    : "/architecture/Illustration-en.svg"
+                    ? "/architecture/Illustration-ja.webp"
+                    : "/architecture/Illustration-en.webp"
                 }
                 alt={t("identity.title")}
                 className="h-full w-full object-cover"

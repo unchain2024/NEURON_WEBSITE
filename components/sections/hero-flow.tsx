@@ -73,31 +73,34 @@ const DESKTOP: Geo = {
 };
 
 /* Mobile — portrait crop traced from Hero.svg (393-wide). Input cards fan in
-   from the left edge, decisions fan out to the right; both clip at the sides as
-   in the wireframe. A vertical green line links them through the node. */
+   from the left, decisions fan out to the right, linked through the node by a
+   vertical green line. Slots and card widths are tuned so every card sits fully
+   inside the 393-wide canvas at rest (half-width ≤ its margin from each edge) —
+   the motion still carries them in/out, but no card is clipped mid-word while it
+   is readable. Only this mobile geometry changed; DESKTOP is untouched. */
 const MOBILE: Geo = {
   W: 393,
   H: 250,
-  node: { x: 200, y: 125 },
+  node: { x: 196, y: 125 },
   nodeW: 62,
   nodeGlow: 92,
   nodeTransform: "translate(-50%, -50%)",
   input: [
-    { src: "Integrations Card.svg", w: 188, h: 44, slot: { x: 96, y: 30 } },
-    { src: "Integrations Card-4.svg", w: 188, h: 44, slot: { x: 60, y: 78 } },
-    { src: "Integrations Card-2.svg", w: 188, h: 44, slot: { x: 100, y: 125 } },
-    { src: "Integrations Card-3.svg", w: 188, h: 44, slot: { x: 52, y: 172 } },
-    { src: "Integrations Card-1.svg", w: 188, h: 44, slot: { x: 90, y: 220 } },
+    { src: "Integrations Card.svg", w: 178, h: 44, slot: { x: 100, y: 30 } },
+    { src: "Integrations Card-4.svg", w: 178, h: 44, slot: { x: 108, y: 78 } },
+    { src: "Integrations Card-2.svg", w: 178, h: 44, slot: { x: 96, y: 125 } },
+    { src: "Integrations Card-3.svg", w: 178, h: 44, slot: { x: 112, y: 172 } },
+    { src: "Integrations Card-1.svg", w: 178, h: 44, slot: { x: 104, y: 220 } },
   ],
   output: [
-    { src: "Decision.svg", w: 196, h: 48, slot: { x: 300, y: 36 } },
-    { src: "Risk.svg", w: 196, h: 60, slot: { x: 336, y: 90 } },
-    { src: "Task.svg", w: 196, h: 60, slot: { x: 302, y: 150 } },
-    { src: "Risk-1.svg", w: 196, h: 48, slot: { x: 332, y: 208 } },
+    { src: "Decision.svg", w: 182, h: 48, slot: { x: 293, y: 36 } },
+    { src: "Risk.svg", w: 182, h: 60, slot: { x: 285, y: 90 } },
+    { src: "Task.svg", w: 182, h: 60, slot: { x: 297, y: 150 } },
+    { src: "Risk-1.svg", w: 182, h: 48, slot: { x: 289, y: 208 } },
   ],
   inTimes: [0, 0.12, 0.32, 0.5, 1],
   outTimes: [0, 0.5, 0.7, 0.85, 1],
-  outDrift: 70,
+  outDrift: 28,
   partition: null,
 };
 

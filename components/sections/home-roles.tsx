@@ -12,9 +12,9 @@ const DISPLAY_FONT = 'var(--font-inter), "Inter Display", Inter, sans-serif';
    the same artwork cropped to just the top-400px illustration, so the title/body
    render below as live HTML (Home `role*` keys) instead of being part of the image. */
 const CARDS = [
-  { src: "/leaders-en.svg", key: "role1" },
-  { src: "/managers-en.svg", key: "role2" },
-  { src: "/teams-en.svg", key: "role3" },
+  { src: "/leaders-en.webp", key: "role1" },
+  { src: "/managers-en.webp", key: "role2" },
+  { src: "/teams-en.webp", key: "role3" },
 ] as const;
 
 export default function HomeRoles() {
