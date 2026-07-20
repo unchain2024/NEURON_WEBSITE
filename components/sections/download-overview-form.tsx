@@ -1,8 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
-import { CheckCircle2, Loader2, FileText, Calendar, ArrowRight } from "lucide-react";
+import {
+  CheckCircle2,
+  Loader2,
+  FileText,
+  Calendar,
+  ArrowRight,
+  Download,
+} from "lucide-react";
 import {
   MotionDiv,
   BlurReveal,
@@ -11,6 +19,8 @@ import {
 } from "@/components/motion-wrapper";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
+import { CASE_STUDIES, CASE_STUDY_SLUGS } from "@/lib/case-studies-data";
+import { onepagerPath } from "@/lib/onepagers";
 
 const PRIVACY_URLS: Record<string, string> = {
   ja: "https://www.the-unchain.com/privacy-policy",
@@ -21,6 +31,9 @@ const SLIDE_VISUALS: Record<string, string> = {
   ja: "/download/slide-visual-jp.svg",
   en: "/download/slide-visual-en.svg",
 };
+
+// Dedicated Web3Forms key for overview-download leads (get-demo uses its own).
+const WEB3FORMS_ACCESS_KEY = "7bd15a3e-4187-4db1-aafe-082286d02696";
 
 const COMPANY_SIZE_KEYS = [
   "size1to10",
@@ -37,9 +50,16 @@ const labelClass = "block text-sm font-medium text-slate-700 mb-1.5";
 
 export default function DownloadOverviewForm() {
   const t = useTranslations("DownloadOverview");
+  const industryNames = useTranslations("CaseStudies");
   const locale = useLocale();
   const privacyUrl = PRIVACY_URLS[locale] || PRIVACY_URLS.en;
   const slideVisual = SLIDE_VISUALS[locale] || SLIDE_VISUALS.en;
+
+  const searchParams = useSearchParams();
+  const industryParam = searchParams.get("industry") ?? "";
+  const initialIndustry = CASE_STUDY_SLUGS.includes(industryParam)
+    ? industryParam
+    : "";
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -48,6 +68,7 @@ export default function DownloadOverviewForm() {
     company: "",
     jobTitle: "",
     companySize: "",
+    industry: initialIndustry,
     message: "",
   });
   const [loading, setLoading] = useState(false);
@@ -72,9 +93,10 @@ export default function DownloadOverviewForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: "496c179e-e42c-4de5-b705-95ca27e2d158",
+          access_key: WEB3FORMS_ACCESS_KEY,
           subject: `Overview Request from ${formData.firstName} ${formData.lastName}`,
           from_name: `${formData.firstName} ${formData.lastName}`,
+          locale,
           ...formData,
         }),
       });
@@ -152,12 +174,30 @@ export default function DownloadOverviewForm() {
                     <p className="mb-8 max-w-sm text-text-secondary">
                       {t("successMessage")}
                     </p>
+                    <div className="mb-8 flex flex-col gap-3 sm:flex-row">
+                      <a
+                        href={onepagerPath(formData.industry, "en")}
+                        download
+                        className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-white transition-colors hover:bg-primary-600"
+                      >
+                        <Download className="h-4 w-4" />
+                        {t("downloadCtaEn")}
+                      </a>
+                      <a
+                        href={onepagerPath(formData.industry, "ja")}
+                        download
+                        className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-white transition-colors hover:bg-primary-600"
+                      >
+                        <Download className="h-4 w-4" />
+                        {t("downloadCtaJa")}
+                      </a>
+                    </div>
                     <p className="mb-4 text-sm text-text-muted">
                       {t("successCtaNote")}
                     </p>
                     <Link
                       href="/get-demo"
-                      className="group inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-white transition-colors hover:bg-primary-600"
+                      className="group inline-flex items-center gap-2 rounded-lg border border-slate-200 px-6 py-3 font-medium text-slate-700 transition-colors hover:border-primary hover:text-primary"
                     >
                       <Calendar className="h-4 w-4" />
                       {t("successCta")}
@@ -288,6 +328,33 @@ export default function DownloadOverviewForm() {
                         {COMPANY_SIZE_KEYS.map((key) => (
                           <option key={key} value={t(key)}>
                             {t(key)}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Industry */}
+                    <div>
+                      <label htmlFor="industry" className={labelClass}>
+                        {t("industry")} <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="industry"
+                        name="industry"
+                        required
+                        value={formData.industry}
+                        onChange={handleChange}
+                        className={cn(
+                          inputClass,
+                          !formData.industry && "text-slate-400"
+                        )}
+                      >
+                        <option value="" disabled>
+                          {t("industryPlaceholder")}
+                        </option>
+                        {CASE_STUDIES.map((cs) => (
+                          <option key={cs.slug} value={cs.slug}>
+                            {industryNames(`${cs.i18nKey}.name`)}
                           </option>
                         ))}
                       </select>
