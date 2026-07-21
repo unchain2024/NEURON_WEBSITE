@@ -35,12 +35,13 @@ const SLIDE_VISUALS: Record<string, string> = {
 // Dedicated Web3Forms key for overview-download leads (get-demo uses its own).
 const WEB3FORMS_ACCESS_KEY = "7bd15a3e-4187-4db1-aafe-082286d02696";
 
-const COMPANY_SIZE_KEYS = [
-  "size1to10",
-  "size11to50",
-  "size51to200",
-  "size201to500",
-  "size500plus",
+// value is locale-independent so submitted lead data matches across ja/en
+const COMPANY_SIZE_OPTIONS = [
+  { key: "size1to10", value: "1-10" },
+  { key: "size11to50", value: "11-50" },
+  { key: "size51to200", value: "51-200" },
+  { key: "size201to500", value: "201-500" },
+  { key: "size500plus", value: "500+" },
 ] as const;
 
 const inputClass =
@@ -325,9 +326,9 @@ export default function DownloadOverviewForm() {
                         <option value="" disabled>
                           {t("companySizePlaceholder")}
                         </option>
-                        {COMPANY_SIZE_KEYS.map((key) => (
-                          <option key={key} value={t(key)}>
-                            {t(key)}
+                        {COMPANY_SIZE_OPTIONS.map((opt) => (
+                          <option key={opt.key} value={opt.value}>
+                            {t(opt.key)}
                           </option>
                         ))}
                       </select>

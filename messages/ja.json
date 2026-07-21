@@ -1407,7 +1407,7 @@
     "backToHub": "All case studies",
     "ctaButton": "Book a demo now",
     "informationTechnology": {
-      "name": "Information Technology",
+      "name": "情報技術（IT）",
       "hook": "Surface the decision behind every change, before it ships.",
       "eyebrow": "Information Technology",
       "headline": "Decision intelligence for IT teams.",
@@ -1447,7 +1447,7 @@
       ]
     },
     "manufacturing": {
-      "name": "Manufacturing",
+      "name": "製造業",
       "hook": "Keep a retiring engineer's judgment in the organization.",
       "eyebrow": "Manufacturing",
       "headline": "The decisions that built your factory shouldn't retire with the people who made them.",
@@ -1485,7 +1485,7 @@
       ]
     },
     "automotive": {
-      "name": "Automotive",
+      "name": "自動車",
       "hook": "Trace any part or line of code back to its decision.",
       "eyebrow": "Automotive",
       "headline": "Every part and every line of code is a recall question waiting to be asked.",
@@ -1519,7 +1519,7 @@
       ]
     },
     "aerospaceDefense": {
-      "name": "Aerospace & Defense",
+      "name": "航空宇宙・防衛",
       "hook": "Make decades-long decisions traceable from day one.",
       "eyebrow": "Aerospace & Defense",
       "headline": "Decisions you'll have to defend in twenty years should be traceable today.",
@@ -1547,7 +1547,7 @@
       ]
     },
     "financialServices": {
-      "name": "Financial Services",
+      "name": "金融サービス",
       "hook": "Have an answer ready when the regulator asks why.",
       "eyebrow": "Financial Services",
       "headline": "When a regulator asks \"why did you decide that?\", you should have an answer.",
@@ -1584,7 +1584,7 @@
       ]
     },
     "fintech": {
-      "name": "Fintech",
+      "name": "フィンテック",
       "hook": "Move fast without losing the audit trail.",
       "eyebrow": "Fintech",
       "headline": "Move fast without losing the audit trail.",
@@ -1618,7 +1618,7 @@
       ]
     },
     "insurance": {
-      "name": "Insurance",
+      "name": "保険",
       "hook": "Decide consistently — and explain it years later.",
       "eyebrow": "Insurance",
       "headline": "The underwriting and claims calls you make today get questioned for years.",
@@ -1650,7 +1650,7 @@
       ]
     },
     "saasProduct": {
-      "name": "SaaS & Product",
+      "name": "SaaS・プロダクト",
       "hook": "Stop relitigating the roadmap.",
       "eyebrow": "SaaS & Product",
       "headline": "Stop relitigating the roadmap.",
@@ -1689,7 +1689,7 @@
       ]
     },
     "healthcare": {
-      "name": "Healthcare",
+      "name": "医療・ヘルスケア",
       "hook": "Spread the lesson from one incident to every team.",
       "eyebrow": "Healthcare",
       "headline": "The lesson from one incident should reach every team — not just the one that lived it.",
@@ -1721,7 +1721,7 @@
       ]
     },
     "pharmaLifeSciences": {
-      "name": "Pharmaceuticals & Life Sciences",
+      "name": "製薬・ライフサイエンス",
       "hook": "Remember why every pipeline decision was made.",
       "eyebrow": "Pharma & Life Sciences",
       "headline": "A decade-long pipeline can't afford to forget why it made a single decision.",
@@ -1749,7 +1749,7 @@
       ]
     },
     "ecommerceRetail": {
-      "name": "E-commerce & Retail",
+      "name": "EC・小売",
       "hook": "Carry last season's lesson into this season's call.",
       "eyebrow": "E-commerce & Retail",
       "headline": "Last season's lesson is gone before this season's decision.",
@@ -1782,7 +1782,7 @@
       ]
     },
     "mediaEntertainment": {
-      "name": "Media & Entertainment",
+      "name": "メディア・エンターテインメント",
       "hook": "Keep the why behind every greenlight.",
       "eyebrow": "Media & Entertainment",
       "headline": "Creative and business decisions live in different rooms — and disappear from both.",
@@ -1814,7 +1814,7 @@
       ]
     },
     "gaming": {
-      "name": "Gaming",
+      "name": "ゲーム",
       "hook": "See a balance change's blast radius before it ships.",
       "eyebrow": "Gaming",
       "headline": "A balance change ripples through an economy — and a community.",
@@ -1847,7 +1847,7 @@
       ]
     },
     "logisticsSupplyChain": {
-      "name": "Logistics & Supply Chain",
+      "name": "物流・サプライチェーン",
       "hook": "See the cascade before one change ripples down the chain.",
       "eyebrow": "Logistics & Supply Chain",
       "headline": "One change cascades down the whole chain.",
@@ -1879,7 +1879,7 @@
       ]
     },
     "energyUtilities": {
-      "name": "Energy & Utilities",
+      "name": "エネルギー・公益事業",
       "hook": "Preserve the why behind decade-long infrastructure decisions.",
       "eyebrow": "Energy & Utilities",
       "headline": "Decisions on infrastructure that outlives the people who made them.",
@@ -1910,7 +1910,7 @@
       ]
     },
     "telecommunications": {
-      "name": "Telecommunications",
+      "name": "通信",
       "hook": "Map the blast radius of every network change.",
       "eyebrow": "Telecommunications",
       "headline": "Network changes carry blast radius across millions of connections.",
@@ -1942,7 +1942,7 @@
       ]
     },
     "professionalServices": {
-      "name": "Professional Services & Consulting",
+      "name": "プロフェッショナルサービス・コンサルティング",
       "hook": "Reuse what the last engagement already learned.",
       "eyebrow": "Professional Services",
       "headline": "Every engagement relearns what the last one already knew.",
@@ -1975,7 +1975,7 @@
       ]
     },
     "legal": {
-      "name": "Legal",
+      "name": "法務・リーガル",
       "hook": "Reuse the reasoning behind a position, don't rebuild it.",
       "eyebrow": "Legal",
       "headline": "The reasoning behind a position should be reusable, not rebuilt.",
@@ -2006,7 +2006,7 @@
       ]
     },
     "governmentPublicSector": {
-      "name": "Government & Public Sector",
+      "name": "官公庁・公共機関",
       "hook": "Keep public decisions accountable across every transition.",
       "eyebrow": "Government & Public Sector",
       "headline": "Public decisions must be accountable — and survive every transition.",
@@ -2037,7 +2037,7 @@
       ]
     },
     "educationAcademia": {
-      "name": "Education & Academia",
+      "name": "教育・学術",
       "hook": "Don't reset the reasoning every time committees rotate.",
       "eyebrow": "Education & Academia",
       "headline": "Committees rotate. The reasoning shouldn't reset every year.",
@@ -2069,7 +2069,7 @@
       ]
     },
     "constructionRealEstate": {
-      "name": "Construction & Real Estate",
+      "name": "建設・不動産",
       "hook": "Keep a dispute-ready trail for every change on site.",
       "eyebrow": "Construction & Real Estate",
       "headline": "A change on site shows up in a dispute years later.",
@@ -2100,7 +2100,7 @@
       ]
     },
     "marketingAdvertising": {
-      "name": "Marketing & Advertising",
+      "name": "マーケティング・広告",
       "hook": "Keep campaign decisions and results from vanishing.",
       "eyebrow": "Marketing & Advertising",
       "headline": "Campaign decisions and their rationale vanish between cycles.",
@@ -2132,7 +2132,7 @@
       ]
     },
     "ventureCapitalPrivateEquity": {
-      "name": "Venture Capital & Private Equity",
+      "name": "ベンチャーキャピタル・プライベートエクイティ",
       "hook": "Make every investment memo reusable across the fund.",
       "eyebrow": "VC & Private Equity",
       "headline": "The memo behind every investment decision, reusable across the fund.",
@@ -2163,7 +2163,7 @@
       ]
     },
     "nonprofitNgo": {
-      "name": "Nonprofit & NGO",
+      "name": "非営利団体・NGO",
       "hook": "Keep mission knowledge through every transition.",
       "eyebrow": "Nonprofit & NGO",
       "headline": "Mission decisions should survive every volunteer and staff transition.",
