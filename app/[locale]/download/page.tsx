@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import DownloadOverviewForm from "@/components/sections/download-overview-form";
@@ -16,5 +17,11 @@ export async function generateMetadata({
 }
 
 export default function DownloadPage() {
-  return <DownloadOverviewForm />;
+  // Suspense boundary required: the form reads useSearchParams (?industry=)
+  // on a statically generated page.
+  return (
+    <Suspense>
+      <DownloadOverviewForm />
+    </Suspense>
+  );
 }

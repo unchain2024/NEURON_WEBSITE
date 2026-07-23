@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
-import type { Sector } from "@/lib/case-studies-data";
+import { CASE_STUDIES, type Sector } from "@/lib/case-studies-data";
 import {
   ARCHETYPE_ASSETS,
   SECTOR_ARCHETYPE,
@@ -54,7 +54,7 @@ export default function CSPage({ k, sector }: { k: string; sector: Sector }) {
       <CSWorkflow k={k} />
       <CSPersonas k={k} />
       <CSFaq k={k} />
-      <CSCta />
+      <CSCta k={k} />
     </>
   );
 }
@@ -425,8 +425,12 @@ function CSFaq({ k }: { k: string }) {
 }
 
 /* ── CTA (shared banner) ── */
-function CSCta() {
+function CSCta({ k }: { k: string }) {
   const s = useTranslations("CaseStudyPages._shared.cta");
+  const slug = CASE_STUDIES.find((c) => c.i18nKey === k)?.slug;
+  const downloadHref = slug
+    ? { pathname: "/download", query: { industry: slug } }
+    : "/download";
   return (
     <section className="bg-white py-12 md:py-16">
       <div className="mx-auto w-[96%] max-w-[1800px]">
@@ -482,7 +486,7 @@ function CSCta() {
                   {s("button")}
                 </Link>
                 <Link
-                  href="/download"
+                  href={downloadHref}
                   className="inline-flex items-center rounded-full border border-[#E9EAEB] bg-white font-medium text-[#0A0D12] transition-colors hover:bg-white/80"
                   style={{ fontSize: "1.02cqw", padding: "0.95cqw 1.7cqw" }}
                 >
@@ -518,7 +522,7 @@ function CSCta() {
                   {s("button")}
                 </Link>
                 <Link
-                  href="/download"
+                  href={downloadHref}
                   className="mt-3 flex w-full items-center justify-center rounded-full border border-[#E9EAEB] bg-white px-6 py-3.5 text-sm font-semibold text-[#0A0D12] transition-colors hover:bg-white/80"
                 >
                   {s("download")}
