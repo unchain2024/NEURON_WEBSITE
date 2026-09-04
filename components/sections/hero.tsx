@@ -14,7 +14,9 @@ import HeroFlow, { HeroFlowMobile } from "@/components/sections/hero-flow";
 
 function VideoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const locale = useLocale();
-  const videoSrc = locale === "ja" ? "/demo-ja.mp4" : "/demo-en.mp4";
+  /* Served locally rather than embedded from Drive: Drive's player ignores
+     autoplay, so the modal would open on a paused frame. */
+  const videoSrc = locale === "ja" ? "/demo-ja-walkthrough.mp4" : "/demo-en.mp4";
 
   useEffect(() => {
     if (!open) return;
@@ -53,7 +55,24 @@ function VideoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
         >
           <X className="h-7 w-7" />
         </button>
-        <video src={videoSrc} controls autoPlay className="w-full h-full rounded-xl shadow-2xl" />
+        <video
+          key={videoSrc}
+          src={videoSrc}
+          controls
+          autoPlay
+          playsInline
+          preload="auto"
+          className="h-full w-full rounded-xl shadow-2xl"
+          onCanPlay={(e) => {
+            /* If the browser blocks autoplay with sound, fall back to a muted
+               autoplay rather than leaving the modal on a paused frame. */
+            const el = e.currentTarget;
+            el.play().catch(() => {
+              el.muted = true;
+              el.play().catch(() => {});
+            });
+          }}
+        />
       </motion.div>
     </motion.div>
   );
@@ -65,7 +84,10 @@ function VideoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
 
 function HeroHeadline({ onWatchDemo }: { onWatchDemo: () => void }) {
   const t = useTranslations("Hero");
+  const locale = useLocale();
   const h1 = t("h1");
+  // The "See how it works" video CTA ships on the JP site only.
+  const showVideoCta = locale === "ja";
 
   return (
     <div className="section-container relative z-10 text-center">
@@ -126,16 +148,18 @@ function HeroHeadline({ onWatchDemo }: { onWatchDemo: () => void }) {
             {t("ctaPrimary")}
           </Link>
         </motion.div>
-        <motion.button
-          onClick={onWatchDemo}
-          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-3 text-[15px] font-medium text-slate-900 transition-colors hover:border-slate-300"
-          whileHover={{ scale: 1.04, y: -2 }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ type: "spring", stiffness: 400, damping: 17 }}
-        >
-          <PlayCircle className="h-5 w-5" />
-          {t("ctaSecondary")}
-        </motion.button>
+        {showVideoCta && (
+          <motion.button
+            onClick={onWatchDemo}
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-3 text-[15px] font-medium text-slate-900 transition-colors hover:border-slate-300"
+            whileHover={{ scale: 1.04, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <PlayCircle className="h-5 w-5" />
+            {t("ctaSecondary")}
+          </motion.button>
+        )}
       </MotionDiv>
     </div>
   );
